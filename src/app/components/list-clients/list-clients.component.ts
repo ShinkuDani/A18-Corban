@@ -8,15 +8,33 @@ import { CorbanService } from '../../services/corban.service';
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.scss'
 })
-export class ListClientsComponent {
 
+// interface TokenResult {
+//   expires: string;
+//   token: string;
+//   userName: string;
+// };
+
+export class ListClientsComponent {
   corbanService = inject(CorbanService)
+
+  customers: Array<any> = new Array<any>();
+
+  getToken(){
+    this.corbanService.getToken().subscribe(result => {
+      if (result)
+        localStorage.setItem('token', result.token);
+    })
+  }
 
   getClients(){
     console.log('Botão Funcionando')
     this.corbanService.getCustomers2().subscribe(
       data => {
-        console.log(data)
+        if (data) {
+          console.log(data)
+          this.customers = data.items;
+        }
       }
     )
   }
