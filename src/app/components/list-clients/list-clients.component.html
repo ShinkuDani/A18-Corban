@@ -1,14 +1,37 @@
 <div class="container">
     <div class="container-botoes">
+      
         <h1>List Clientes</h1>
         <button (click)="getToken()"> Pegar Token </button>
         <button mat-raised-button (click)="getClients()"> Pegar Customers </button>
-        <button mat-raised-button (click)="getClients2()"> Pegar Customers </button>
+        <button mat-raised-button (click)="getClient('81cbee28-3b41-4491-90fd-201b4e8a9018')"> Pegar Customer ID 1 </button>
+        <button mat-raised-button (click)="getClient('ec10fec8-ee01-49d1-a744-e563ba8454f5')"> Pegar Customer ID 2</button>
+        <button mat-raised-button [routerLink]="['/create']">Cadastrar novo Cliente</button>
+    </div>
+
+    <div class="input-container">
+        <label for="customerId"> CustomerId </label>
+        <input id="customerId" type="text" [formControl]="idCustomer">
+        <button mat-raised-button (click)="getClient(idCustomer.value)"> Pegar Customer ID</button>
     </div>
 
     @if (customers){
       @for (item of customers; track item) {
-        <span>{{item.name}}</span>
+
+        <div class="list-clients">
+          <p> CustomerName: {{item.name}} | CustomerId: {{item.customerId}}  </p>
+          <span> </span>
+        </div>
+
       }
     }
+
+
+    
+    @if(customer){
+      <div class="list-clients">
+        <p> CustomerName: {{customer.name}} | CustomerId: {{customer.customerId}}</p>
+      </div>
+    }
+  
 </div>

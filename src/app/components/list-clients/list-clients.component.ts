@@ -1,10 +1,18 @@
 import { Component, inject } from '@angular/core';
+import { RouterModule } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
+import { MatTableModule } from '@angular/material/table';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list-clients',
   standalone: true,
-  imports: [],
+  imports: [
+    MatTableModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.scss'
 })
@@ -16,20 +24,25 @@ import { CorbanService } from '../../services/corban.service';
 // };
 
 export class ListClientsComponent {
-  corbanService = inject(CorbanService)
+  
+  constructor(private _corbanService : CorbanService){
+
+  }
 
   customers: Array<any> = new Array<any>();
+  customer: any = {};
+
+  idCustomer = new FormControl('');
 
   getToken(){
-    this.corbanService.getToken().subscribe(result => {
+    this._corbanService.getToken().subscribe(result => {
       if (result)
         localStorage.setItem('token', result.token);
     })
   }
 
   getClients(){
-    console.log('Botão Funcionando')
-    this.corbanService.getCustomers2().subscribe(
+    this._corbanService.getCustomers().subscribe(
       data => {
         if (data) {
           console.log(data)
@@ -39,12 +52,16 @@ export class ListClientsComponent {
     )
   }
 
-  getClients2(){
-    console.log('Botão Funcionando')
-    this.corbanService.getCustomers2().subscribe(
+  getClient(id:any){ 
+    this._corbanService.getCustomer(id).subscribe(
       data => {
-        console.log(data)
+        if (data) {
+          console.log(data)
+          this.customer = data;
+        }
       }
     )
   }
+
+  
 }

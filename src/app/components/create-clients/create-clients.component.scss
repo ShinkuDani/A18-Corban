@@ -1,0 +1,25 @@
+li {
+    list-style: none;
+}
+
+.Botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Botoes button{
+    height: 150px;
+    width: 150px;
+
+}
+
+.input-container{
+    margin-left: 10px;
+}
+
+.input-container button {
+    margin: 10px;
+    padding: 10px;
+
+}

@@ -14,6 +14,7 @@ export class CorbanService {
   constructor(private http: HttpClient) { }
 
   URL = 'https://api4.ajin.io/v2'
+  
 
   getToken(): Observable<any> {
     return this.http.post(`${this.URL}/login`, {'accessKey':'daniel-silvasales@hotmail.com', 'password':'DanielTesteCorban360'});
@@ -23,7 +24,34 @@ export class CorbanService {
     return this.http.get(`${this.URL}/customers`)
   }
 
-  getCustomers2(): Observable<any> {
-    return this.http.get(`https://api4.ajin.io/v2/customers`, { headers: this.headers})
+  getCustomer(id:any): Observable<any> {
+    return this.http.get(`${this.URL}/customers/${id}`)
   }
+
+  postCustomer(body:any): Observable<any>{
+    debugger
+    return this.http.post(`${this.URL}/customers`, {body})
+  }
+
+  putCustomer(id:string, body:any): Observable<any>{
+    debugger
+    return this.http.put(`${this.URL}/customers/${id}`, {'name':body.name, 'nickname':body.nickname})
+  } 
+
+  putCustomer2(id:string, body:any): Observable<any>{
+    debugger
+    return this.http.put(`${this.URL}/customers/${id}`, body)
+  }
+
+  deleteCustomer(id:string){
+    debugger
+    return this.http.delete(`${this.URL}/customers/${id}`)
+  }
+
+  
+
+  
+
+  
+
 }
