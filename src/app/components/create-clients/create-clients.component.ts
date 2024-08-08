@@ -8,11 +8,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule } from '@angular/router'
 import { clienteInterface } from '../../interfaces/cliente';
 import { CorbanService } from '../../services/corban.service';
+import { clienteLiteInterface } from '../../interfaces/clienteLite';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-create-clients',
   standalone: true,
   imports: [
+    MatButtonModule,
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
@@ -218,33 +221,42 @@ export class CreateClientsComponent {
     draft: false,
     event: {code:0, name:''}
   }
+
+  clienteLite: clienteLiteInterface = {
+    name: '',
+    nickname: '',
+    birthDate: ''
+  }
+
+  
+  getClient(id:any){
+    this._corbanService.getCustomer(id).subscribe(
+      data => {
+        this.cliente = data
+        this.clienteLite = data
+        console.log(data)
+      }
+    )
+  }
   
   submitForm(){
-    this._corbanService.postCustomer(this.cliente).subscribe(
+    this._corbanService.postCustomer(this.clienteLite).subscribe(
       data => {
         debugger
-        console.log('Data: ' + JSON.parse(data))
+        this.cliente = data
+        this.clienteLite = data
+        console.log('Data: ' + data)
       }
     )
     
   }
 
-  getClient(id:any){
-    this._corbanService.getCustomer(id).subscribe(
-      data => {
-        this.cliente = data
-        console.log(data)
-      }
-    )
-  }
-
-  
   putClient(){
-    this._corbanService.putCustomer2(this.cliente.customerId, this.cliente).subscribe(
+    this._corbanService.putCustomer(this.cliente.customerId, this.clienteLite).subscribe(
       data => {
         debugger
         this.cliente = data
-
+        this.clienteLite = data
       }
     )
   }

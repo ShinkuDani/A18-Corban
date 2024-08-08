@@ -30,15 +30,10 @@ export class CorbanService {
 
   postCustomer(body:any): Observable<any>{
     debugger
-    return this.http.post(`${this.URL}/customers`, {body})
+    return this.http.post(`${this.URL}/customers`, body)
   }
 
   putCustomer(id:string, body:any): Observable<any>{
-    debugger
-    return this.http.put(`${this.URL}/customers/${id}`, {'name':body.name, 'nickname':body.nickname})
-  } 
-
-  putCustomer2(id:string, body:any): Observable<any>{
     debugger
     return this.http.put(`${this.URL}/customers/${id}`, body)
   }

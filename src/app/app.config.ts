@@ -13,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptors([tokenInterceptor]),
     ),
-    CorbanService, provideAnimationsAsync()
+    CorbanService, provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync()
   ]
 };

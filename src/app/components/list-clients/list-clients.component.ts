@@ -1,16 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
-import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list-clients',
   standalone: true,
   imports: [
-    MatTableModule,
     RouterModule,
     FormsModule,
+    MatButtonModule,
     ReactiveFormsModule
   ],
   templateUrl: './list-clients.component.html',

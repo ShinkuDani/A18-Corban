@@ -3,17 +3,14 @@
   <label for="customerId"> CustomerId </label>
   <input id="customerId" type="text" [formControl]="idCustomer">
   <button mat-raised-button (click)="getClient(idCustomer.value)"> Pegar Customer Especifico </button>
-  <button mat-raised-button type="button" (click)="putClient()"> Salvar Alterações </button>
-  <button mat-raised-button type="button" (click)="deleteClient()"> Delete Client </button>
-
-
-
+  <button mat-raised-button color="primary" type="button" (click)="putClient()"> Salvar Alterações </button>
+  <button mat-raised-button color="warn" type="button" (click)="deleteClient()"> Delete Client </button>
+  <button mat-raised-button type="button" [routerLink]="['']" routerLinkActive="yes"> Go Back </button>
 </div>
     
 <form #clientForm="ngForm" (ngSubmit)="submitForm()"> 
 
   <div class="Botoes">
-    <button type="button" [routerLink]="['']" routerLinkActive="yes"> Go Back </button>
   </div>
 
     <div class="main-container-forms">
@@ -35,7 +32,7 @@
 
             <mat-form-field class="example-full-width">
               <mat-label> Nickname </mat-label>
-              <input matInput placeholder="nickname" [(ngModel)] = "cliente.nickname" name="nickname" >
+              <input matInput placeholder="nickname" [(ngModel)] = "clienteLite.nickname" name="nickname" >
             </mat-form-field>
 
           </div>
@@ -61,13 +58,13 @@
     
             <mat-form-field class="example-full-width">
               <mat-label> Nome </mat-label>
-              <input matInput placeholder="Nome" [(ngModel)] = 'cliente.name' name="name">
+              <input matInput placeholder="Nome" [(ngModel)] = 'clienteLite.name' name="name">
               <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
               <mat-label> Nacimento </mat-label>
-              <input matInput placeholder="Nacimento" [(ngModel)] = "cliente.birthDate" name="birthDate">
+              <input matInput placeholder="Nacimento" [(ngModel)] = "clienteLite.birthDate" name="birthDate">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
