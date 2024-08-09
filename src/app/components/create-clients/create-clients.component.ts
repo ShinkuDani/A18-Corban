@@ -8,7 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule } from '@angular/router'
 import { clienteInterface } from '../../interfaces/cliente';
 import { CorbanService } from '../../services/corban.service';
-import { clienteLiteInterface } from '../../interfaces/clienteLite';
+import { clienteLiteInterface, clienteLiteInterfacePhone } from '../../interfaces/clienteLite';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -222,11 +222,45 @@ export class CreateClientsComponent {
     event: {code:0, name:''}
   }
 
+  phones : clienteLiteInterfacePhone = {
+    ddd: 0,
+    number: 0,
+    note: ''
+  }
+
   clienteLite: clienteLiteInterface = {
     name: '',
     nickname: '',
-    birthDate: ''
+    birthDate: '',
+    phone: '',
+    motherName: '',
+    fatherName: '',
+    nationality: '',
+    addresses: [{
+      street: '',
+      number: '',
+      complement: '',
+      district: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      note: ''
+    }],
+    phones: [{
+      ddd: 0,
+      number: 0,
+      note: ''
+    }],
+    emails: [{
+      email: '',
+      note: ''
+    }],
+    note: '',
+    accountCode: '',
+    customerId: ''
   }
+
+  
 
   
   getClient(id:any){
@@ -245,7 +279,7 @@ export class CreateClientsComponent {
         debugger
         this.cliente = data
         this.clienteLite = data
-        console.log('Data: ' + data)
+        console.log('Data: ' + JSON.stringify(data))
       }
     )
     
@@ -257,6 +291,7 @@ export class CreateClientsComponent {
         debugger
         this.cliente = data
         this.clienteLite = data
+        console.log(data)
       }
     )
   }

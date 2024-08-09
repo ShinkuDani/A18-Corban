@@ -57,7 +57,7 @@ export interface clienteInterface {
       'statusCode': number
       'statusName': string
     }
-    phones: {
+    'phones': {
       'typeCode': number
       'typeName': string
       'countryCode': number
