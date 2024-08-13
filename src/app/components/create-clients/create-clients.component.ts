@@ -8,7 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule } from '@angular/router'
 import { clienteInterface } from '../../interfaces/cliente';
 import { CorbanService } from '../../services/corban.service';
-import { clienteLiteInterface, clienteLiteInterfacePhone } from '../../interfaces/clienteLite';
+import { addresses, clienteLiteInterface, email, phone } from '../../interfaces/clienteLite';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -30,11 +30,34 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class CreateClientsComponent {
 
+
   constructor(private _corbanService:CorbanService){
 
   }
 
   idCustomer = new FormControl('');
+
+  phone: phone = {
+    ddd: 0,
+    number: 0,
+    note: ''
+  }
+
+  address: addresses = {
+    street: '',
+    number: '',
+    complement: '',
+    district: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    note: ''
+  }
+
+  email: email = {
+    email: '',
+    note: ''
+  }
 
   cliente: clienteInterface = {
     accountCode: '',
@@ -222,39 +245,16 @@ export class CreateClientsComponent {
     event: {code:0, name:''}
   }
 
-  phones : clienteLiteInterfacePhone = {
-    ddd: 0,
-    number: 0,
-    note: ''
-  }
-
   clienteLite: clienteLiteInterface = {
     name: '',
     nickname: '',
     birthDate: '',
-    phone: '',
     motherName: '',
     fatherName: '',
     nationality: '',
-    addresses: [{
-      street: '',
-      number: '',
-      complement: '',
-      district: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      note: ''
-    }],
-    phones: [{
-      ddd: 0,
-      number: 0,
-      note: ''
-    }],
-    emails: [{
-      email: '',
-      note: ''
-    }],
+    addresses: [],
+    phones: [],
+    emails: [],
     note: '',
     accountCode: '',
     customerId: ''
@@ -286,6 +286,7 @@ export class CreateClientsComponent {
   }
 
   putClient(){
+    this.arraysInsert();
     this._corbanService.putCustomer(this.cliente.customerId, this.clienteLite).subscribe(
       data => {
         debugger
@@ -296,6 +297,19 @@ export class CreateClientsComponent {
     )
   }
 
+  putClientArray() {
+    this.arraysInsert();
+    this._corbanService.putCustomer2(this.cliente.customerId, this.clienteLite).subscribe(
+      data => {
+        debugger
+        this.cliente = data
+        this.clienteLite = data
+        console.log(data)
+      }
+    )
+
+  }
+
   deleteClient(){
     this._corbanService.deleteCustomer(this.cliente.customerId).subscribe(
       data => {
@@ -303,6 +317,12 @@ export class CreateClientsComponent {
         console.log('Usuário Apagado')
       }
     )
+  }
+
+  arraysInsert(){
+    this.clienteLite.addresses.push(this.address)
+    this.clienteLite.emails.push(this.email)
+    this.clienteLite.phones.push(this.phone)
   }
 
 }

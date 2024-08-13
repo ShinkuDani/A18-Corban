@@ -6,6 +6,8 @@
   <button mat-raised-button color="primary" type="button" (click)="putClient()"> Salvar Alterações </button>
   <button mat-raised-button color="warn" type="button" (click)="deleteClient()"> Delete Client </button>
   <button mat-raised-button type="button" [routerLink]="['']" routerLinkActive="yes"> Go Back </button>
+  <button mat-raised-button type="button" (click)="putClientArray()"> Save Array </button>
+
 </div>
     
 <form #clientForm="ngForm" (ngSubmit)="submitForm()"> 
@@ -21,18 +23,15 @@
             <h1> Client Personal Information </h1>
 
             <mat-form-field class="example-full-width">
-              <mat-label> Account Code </mat-label>
-              <input matInput placeholder="AccountCode" [(ngModel)] = "clienteLite.accountCode" name="accountCode" >
+              <input matInput placeholder="Account Code" [(ngModel)] = "clienteLite.accountCode" name="accountCode" >
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label> CostumerId </mat-label>
               <input matInput placeholder="CostumerId" [(ngModel)] = "clienteLite.customerId" name="costumerId" >
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label> Nickname </mat-label>
-              <input matInput placeholder="nickname" [(ngModel)] = "clienteLite.nickname" name="nickname" >
+              <input matInput placeholder="Nickname" [(ngModel)] = "clienteLite.nickname" name="nickname" >
             </mat-form-field>
 
           </div>
@@ -44,28 +43,27 @@
             <h1> Cliente </h1>
 
             <mat-form-field class="example-full-width">
-              <mat-label> Nome </mat-label>
               <input matInput placeholder="Nome" [(ngModel)] = 'clienteLite.name' name="name">
               <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-              <mat-label> Nacimento </mat-label>
               <input matInput placeholder="Nacimento" [(ngModel)] = "clienteLite.birthDate" name="birthDate">
             </mat-form-field>
-    
+
             <mat-form-field class="example-full-width">
-              <mat-label> Telefone </mat-label>
-              <input matInput placeholder="Telefone" [(ngModel)] = "clienteLite.phones[0].number" name="number">
+              <input matInput placeholder="DDD" [(ngModel)] = "phone.ddd" name="phoneDDD">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-              <mat-label> E-mail </mat-label>
-              <input matInput placeholder="E-mail" [(ngModel)] = "clienteLite.emails[0].email" name="email">
+              <input matInput placeholder="Telefone" [(ngModel)] = "phone.number" name="phoneNumber">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-              <mat-label> Observação </mat-label>
+              <input matInput placeholder="E-mail" [(ngModel)] = "email.email" name="email">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
               <input matInput placeholder="Observação" [(ngModel)] = 'clienteLite.note' name="note">
             </mat-form-field>
             
@@ -91,38 +89,38 @@
     
             <mat-form-field class="example-full-width">
               <mat-label> CEP </mat-label>
-              <input matInput placeholder="CEP" [(ngModel)] = 'clienteLite.addresses[0].zipCode' name="zipCode">
+              <input matInput placeholder="CEP" [(ngModel)] = 'address.zipCode' name="zipCode">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-              <mat-label> Endereço </mat-label>
-              <input matInput placeholder="Endereco" [(ngModel)] = 'clienteLite.addresses[0].street' name="street">
+              <mat-label> Rua </mat-label>
+              <input matInput placeholder="Endereco" [(ngModel)] = 'address.street' name="street">
               <mat-hint align="end"> (rua, avenida, praça, etc) </mat-hint>
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
               <mat-label> Numero </mat-label>
-              <input matInput placeholder="numero" [(ngModel)] = 'clienteLite.addresses[0].number' name="number">
+              <input matInput placeholder="numero" [(ngModel)] = 'address.number' name="addressNumber">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
               <mat-label> Complemento </mat-label>
-              <input matInput placeholder="Complemento" [(ngModel)] = 'clienteLite.addresses[0].complement' name="complement">
+              <input matInput placeholder="Complemento" [(ngModel)] = 'address.complement' name="addressComplement">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
               <mat-label> Bairro </mat-label>
-              <input matInput placeholder="Bairro" [(ngModel)] = 'clienteLite.addresses[0].district' name="district">
+              <input matInput placeholder="Bairro" [(ngModel)] = 'address.district' name="addressDistrict">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
               <mat-label> Cidade </mat-label>
-              <input matInput placeholder="Cidade" [(ngModel)] = 'clienteLite.addresses[0].city' name="city">
+              <input matInput placeholder="Cidade" [(ngModel)] = 'address.city' name="addressCity">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
               <mat-label> UF </mat-label>
-              <input matInput placeholder="UF" [(ngModel)] = 'clienteLite.addresses[0].state' name="state">
+              <input matInput placeholder="UF" [(ngModel)] = 'address.state' name="addressState">
             </mat-form-field>
     
           </div>
