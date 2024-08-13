@@ -246,22 +246,19 @@ export class CreateClientsComponent {
   }
 
   clienteLite: clienteLiteInterface = {
+    accountCode: '',
+    customerId: '',
     name: '',
     nickname: '',
     birthDate: '',
     motherName: '',
     fatherName: '',
     nationality: '',
-    addresses: [],
+    addresses: [] ,
     phones: [],
     emails: [],
     note: '',
-    accountCode: '',
-    customerId: ''
   }
-
-  
-
   
   getClient(id:any){
     this._corbanService.getCustomer(id).subscribe(
@@ -319,10 +316,12 @@ export class CreateClientsComponent {
     )
   }
 
+  
   arraysInsert(){
     this.clienteLite.addresses.push(this.address)
     this.clienteLite.emails.push(this.email)
     this.clienteLite.phones.push(this.phone)
   }
+    
 
 }

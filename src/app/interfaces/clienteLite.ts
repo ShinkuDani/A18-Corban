@@ -9,7 +9,7 @@ export interface clienteLiteInterface {
   'nationality': string
   'note': string
   'addresses': addresses[]
-    'emails':email[]
+    'emails': email[]
     'phones': phone[]
   }
 

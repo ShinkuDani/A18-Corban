@@ -1,7 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule }from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -11,17 +13,13 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     FormsModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatIconModule
   ],
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.scss'
 })
-
-// interface TokenResult {
-//   expires: string;
-//   token: string;
-//   userName: string;
-// };
 
 export class ListClientsComponent {
   

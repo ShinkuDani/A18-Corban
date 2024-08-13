@@ -24,6 +24,18 @@ li {
 
 }
 
+.main-container-forms{
+    display: flex;
+    
+}
+
 .main-container-forms mat-form-field {
     margin-right: 10px;
+}
+
+.main-container-forms ul li {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
 }
