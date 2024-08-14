@@ -1,8 +1,41 @@
 <mat-drawer-container>
   
   <mat-drawer #drawer mode="side">
-    <div class="side_Button">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+    <div class="drawer-divider">
+      <button>Novo</button>
+    </div>
+
+    <div class="side_Buttons">
+      
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="filter_list"/>
+        Filter List
+      </button>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="clear_all"/>
+        Limpar Filtro
+      </button>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="flag"/>
+        Status
+      </button>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu"/>
+        Atributos
+      </button>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_search"/>
+        Meus Filtros
+      </button>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="cake"/>
+        Aniversário Mês
+      </button>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_forward"/>
+        Exportar
+      </button>
+
     </div>
   </mat-drawer>
 
@@ -12,7 +45,7 @@
       
         <h1>List Clientes</h1>
         <button mat-raised-button (click)="getToken()"> Pegar Token </button>
-        <button mat-raised-button (click)="getToken()"> Side </button>
+        <button mat-raised-button (click)="drawer.toggle()" > Side </button>
         <button mat-raised-button color="primary" (click)="getClients()"> Pegar Customers </button>
         <button mat-raised-button color="accent" [routerLink]="['/create']">Cadastrar novo Cliente</button>
     </div>
