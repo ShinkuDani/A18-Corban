@@ -1,17 +1,11 @@
-.drawer-divider{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 50px;
-}
 
-.side_Buttons{
-    display: flex;
-    flex-direction: column;
-}
 
 .container-botoes button {
     margin-right: 5px;
+}
+
+.input-container button{
+    margin-right: 20px;
 }
 
 .list-clients{
@@ -27,7 +21,6 @@
 
 .input-container {
     margin: 10px 15px;
-
 }
 
 .container-botoes{

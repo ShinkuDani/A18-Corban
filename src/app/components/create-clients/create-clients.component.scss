@@ -1,21 +1,28 @@
+.createClients-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 li {
     list-style: none;
 }
 
-.Botoes{
+.botoes{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px 0px;
 }
 
-.Botoes button{
-    height: 150px;
+.botoes button{
+    height: 90px;
     width: 150px;
 
 }
 
 .input-container{
     margin-left: 10px;
+    border-bottom: 2px solid black;
 }
 
 .input-container button {
@@ -26,7 +33,6 @@ li {
 
 .main-container-forms{
     display: flex;
-    
 }
 
 .main-container-forms mat-form-field {

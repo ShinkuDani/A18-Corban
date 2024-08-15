@@ -1,12 +1,18 @@
-
+<div class="createClients-container">
+  
 <div class="input-container">
-  <label for="customerId"> CustomerId </label>
+  <!--
+    <label for="customerId"> CustomerId </label>
   <input id="customerId" type="text" [formControl]="idCustomer">
-  <button mat-raised-button (click)="getClient(idCustomer.value)"> Pegar Customer Especifico </button>
+  -->
+  <mat-form-field appearance="outline" class="example-full-width">
+    <mat-label> Customer ID </mat-label>
+    <input matInput placeholder="CustomerID" type="text" [formControl]="idCustomer" >
+  </mat-form-field>
+  <button mat-raised-button (click)="getClient(idCustomer)"> Pegar Customer Especifico </button>
   <button mat-raised-button color="primary" type="button" (click)="putClient()"> Salvar Alterações </button>
-  <button mat-raised-button color="warn" type="button" (click)="deleteClient()"> Delete Client </button>
+  <button mat-raised-button color="warn" type="button" (click)="deleteClient(this.clienteLite.customerId)"> Delete Client </button>
   <button mat-raised-button type="button" [routerLink]="['']" routerLinkActive="yes"> Go Back </button>
-  <button mat-raised-button type="button" (click)="putClientArray()"> Save Array </button>
 
 </div>
     
@@ -22,15 +28,18 @@
           <div class="main-container-forms-cliente">
             <h1> Client Personal Information </h1>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Account Code </mat-label>
               <input matInput placeholder="Account Code" [(ngModel)] = "clienteLite.accountCode" name="accountCode" >
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Costumer ID </mat-label>
               <input matInput placeholder="CostumerId" [(ngModel)] = "clienteLite.customerId" name="costumerId" >
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> NickkName </mat-label>
               <input matInput placeholder="Nickname" [(ngModel)] = "clienteLite.nickname" name="nickname" >
             </mat-form-field>
 
@@ -42,42 +51,33 @@
           <div class="main-container-forms-cliente">
             <h1> Cliente </h1>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Nome </mat-label>
               <input matInput placeholder="Nome" [(ngModel)] = 'clienteLite.name' name="name">
               <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Nacimento </mat-label>
               <input matInput placeholder="Nacimento" [(ngModel)] = "clienteLite.birthDate" name="birthDate">
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> DDD </mat-label>
               <input matInput placeholder="DDD" [(ngModel)] = "phone.ddd" name="phoneDDD">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Telefone </mat-label>
               <input matInput placeholder="Telefone" [(ngModel)] = "phone.number" name="phoneNumber">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <input matInput placeholder="E-mail" [(ngModel)] = "email.email" name="email">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <input matInput placeholder="Observação" [(ngModel)] = 'clienteLite.note' name="note">
-            </mat-form-field>
-            
-            <mat-form-field class="example-full-width">
-              <mat-label> CPF NOT</mat-label>
-              <input matInput placeholder="CPF" [(ngModel)] = "cliente.documents.category" name="category" >
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Tipo de Pessoa Not </mat-label>
-              <mat-select [(value)]="cliente.personTypeCode" name="personTypeCode"> 
-                <mat-option value="PessoaFisica">Pessoa Física</mat-option>
-                <mat-option value="PessoaJuridica">Pessoa Juridica </mat-option>
-              </mat-select>
             </mat-form-field>
     
           </div>
@@ -87,38 +87,38 @@
           <div class="main-container-forms-cliente">
             <h1> Endereço </h1>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> CEP </mat-label>
               <input matInput placeholder="CEP" [(ngModel)] = 'address.zipCode' name="zipCode">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Rua </mat-label>
               <input matInput placeholder="Endereco" [(ngModel)] = 'address.street' name="street">
               <mat-hint align="end"> (rua, avenida, praça, etc) </mat-hint>
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Numero </mat-label>
               <input matInput placeholder="numero" [(ngModel)] = 'address.number' name="addressNumber">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Complemento </mat-label>
               <input matInput placeholder="Complemento" [(ngModel)] = 'address.complement' name="addressComplement">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Bairro </mat-label>
               <input matInput placeholder="Bairro" [(ngModel)] = 'address.district' name="addressDistrict">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Cidade </mat-label>
               <input matInput placeholder="Cidade" [(ngModel)] = 'address.city' name="addressCity">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> UF </mat-label>
               <input matInput placeholder="UF" [(ngModel)] = 'address.state' name="addressState">
             </mat-form-field>
@@ -130,68 +130,29 @@
           <div class="main-container-forms-cliente">
             <h1> Dados Pessoais </h1>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Nome da Mãe </mat-label>
               <input matInput placeholder="Nome do Mãe" [(ngModel)] = 'clienteLite.motherName' name="motherName">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Nome do Pai </mat-label>
               <input matInput placeholder="Nome do Pai" [(ngModel)] = 'clienteLite.fatherName' name="fatherName">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Naturalidade </mat-label>
               <input matInput placeholder="Naturalidade" [(ngModel)] = 'clienteLite.nationality' name="naturalness">
             </mat-form-field>
-    
-            <mat-form-field>
-              <mat-label> Estado Civil NOT </mat-label>
-              <mat-select [(value)]="cliente.maritalStatusName" name="maritalStatusName">
-                <mat-option value="Solteiro"> Solteiro </mat-option>
-                <mat-option value="Casado"> Casado </mat-option>
-                <mat-option value="Separado"> Separado </mat-option>
-                <mat-option value="Divorciado"> Divorciado </mat-option>
-                <mat-option value="Viúvo"> Viúvo </mat-option>
-                <mat-option value="União Estável"> União Estável </mat-option>
-                <mat-option value="Outro"> Outro </mat-option>
-              </mat-select>
-            </mat-form-field>
 
-            
-            <mat-form-field>
-              <mat-label> Grau de Instrução NOT </mat-label>
-              <mat-select [(value)]="cliente.educationLevelCode" name="educationLevelCode">
-                <mat-option value="Analfabeto"> Analfabeto </mat-option>
-                <mat-option value="Ensino_Fundamental_Incompleto"> Ensino Fundamental Incompleto </mat-option>
-                <mat-option value="Ensino_Fundamental_Completo"> Ensino Fundamental Completo </mat-option>
-                <mat-option value="Ensino_Médio_Incompleto"> Ensino Médio Incompleto </mat-option>
-                <mat-option value="Ensino_Médio_Completo">Ensino Médio Completo </mat-option>
-                <mat-option value="Ensino_Superior_Completo_Graduação"> Ensino Superior Completo ou Graduação </mat-option>
-                <mat-option value="Pós_Graduação"> Pós Graduação </mat-option>
-                <mat-option value="Mestrado"> Mestrado </mat-option>
-                <mat-option value="Doutorado"> Doutorado </mat-option>
-                <mat-option value="Pós_Doutorado"> Pós Doutorado </mat-option>
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Sexo NOT </mat-label>
-              <mat-select [(value)]="cliente.sexTypeCode" name="sexTypeCode">
-                <mat-option value="Maculino">Masculino</mat-option>
-                <mat-option value="Feminino">Feminino </mat-option>
-                <mat-option value="Não Definido"> Não Definido </mat-option>
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-              <mat-label> Estado da Naturalidade NOT </mat-label>
-              <input matInput placeholder="Estado_Naturalidade" [(ngModel)] = 'cliente.naturalnessState' name="naturalnessState">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Estado da Naturalidade </mat-label>
+              <input matInput placeholder="Estado_Naturalidade" [(ngModel)] = 'clienteLite.naturalnessState' name="naturalnessState">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
-              <mat-label> Nacionalidade Not </mat-label>
-              <input matInput placeholder="Nacionalidade" [(ngModel)] = 'cliente.nationality' name="nationality">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Nacionalidade  </mat-label>
+              <input matInput placeholder="Nacionalidade" [(ngModel)] = 'clienteLite.nationality' name="nationality">
             </mat-form-field>
     
           </div>
@@ -200,85 +161,56 @@
       </ul>
     
     
-      <ul>
+      <ul> 
     
         <li>
           <div class="main-container-forms-cliente">
-            <h1> Documento NOT </h1>
+            <h1> Documento </h1>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Numero do Documento </mat-label>
-              <input matInput placeholder="Numero do Documento" [(ngModel)] = 'cliente.documents.number' name="number">
+              <input matInput placeholder="Numero do Documento" [(ngModel)] = 'document.number' name="number">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Data de Emissão </mat-label>
-              <input matInput placeholder="Data de Emissão Documetno" [(ngModel)] = 'cliente.documents.issuingDate' name="issuingDate">
+              <input matInput placeholder="Data de Emissão Documetno" [(ngModel)] = 'document.issuingDate' name="issuingDate">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Orgão Emissor </mat-label>
-              <input matInput placeholder="Orgão Emissor" [(ngModel)] = 'cliente.documents.expirationDate' name="expirationDate">
+              <input matInput placeholder="Orgão Emissor" [(ngModel)] = 'document.expirationDate' name="expirationDate">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> UF de Emissão </mat-label>
-              <input matInput placeholder="Uf de Emissão Documento" [(ngModel)] = 'cliente.documents.issuingEntity' name="issuingEntity">
+              <input matInput placeholder="Uf de Emissão Documento" [(ngModel)] = 'document.issuingEntity' name="issuingEntity">
             </mat-form-field>
           </div>
-
-          <mat-form-field>
-            <mat-label> Tipo * NOT </mat-label>
-            <mat-select [(ngModel)]="cliente.documents.category" name="category">
-              <mat-option value="RG"> Carteira de Identidade - RG </mat-option>
-              <mat-option value="CPF"> Cadastro de Pessoa Fisica - CPF </mat-option>
-              <mat-option value="CNH"> Carteira Nacional de Hbilitação - CNH </mat-option>
-              <mat-option value="CTPS"> Carteira de Trabalho e Previdência Social - CTPS </mat-option>
-              <mat-option value="Comprovante_Residencia"> Comprovante de Residência </mat-option>
-              <mat-option value="Foto_Selfie"> Foto (Selfie) </mat-option>
-              <mat-option value="Passaporte"> Passaporte </mat-option>
-              <mat-option value="Titulo_Eleitor"> Titulo de Eleitor </mat-option>
-              <mat-option value="Certidão_Casamento"> Certidão de Casamento </mat-option>
-              <mat-option value="Certidão_Nascimento"> Certidão de Nascimento </mat-option>
-              <mat-option value="Certidão_Imigrante"> Certidão de Imigrante (Dupla Cidadania) </mat-option>
-              <mat-option value="Certidão_Óbito"> Certidão de Óbito </mat-option>
-              <mat-option value="Extrato_Bancário"> Extrato Bancário </mat-option>
-              <mat-option value="Extrato_Emprestimo"> Extrato de Emprestimo </mat-option>
-            </mat-select>
-          </mat-form-field>
-    
         </li>
         <li>
 
           <div class="main-container-forms-cliente">
             <h1> Conta Bancaria </h1>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Código do Banco </mat-label>
-              <input matInput placeholder="Código do Banco" [(ngModel)] = 'cliente.bankAccounts.bankCode' name="bankCode">
+              <input matInput placeholder="Código do Banco" [(ngModel)] = 'bankAccount.bankCode' name="bankCode">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Nome do Banco </mat-label>
-              <input matInput placeholder="Nome do Banco" [(ngModel)] = 'cliente.bankAccounts.bankName' name="bankName">
+              <input matInput placeholder="Nome do Banco" [(ngModel)] = 'bankAccount.bankName' name="bankName">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Agência </mat-label>
-              <input matInput placeholder="Agência" [(ngModel)] = 'cliente.bankAccounts.bankAccountId' name="bankAccountId">
+              <input matInput placeholder="Agência" [(ngModel)] = 'bankAccount.bankAccountId' name="bankAccountId">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline"class="example-full-width">
               <mat-label> Número da Conta </mat-label>
-              <input matInput placeholder="Número da Conta" [(ngModel)] = 'cliente.bankAccounts.accountNumber' name="accountNumber">
-            </mat-form-field>
-    
-            <mat-form-field>
-              <mat-label> Tipo de Conta </mat-label>
-              <mat-select [(value)]="cliente.bankAccounts.personTypeCode" name="personTypeCode">
-                <mat-option value="Conta_Corrente"> Conta Corrente </mat-option>
-                <mat-option value="Conta_Poupança"> Conta Poupança </mat-option>
-              </mat-select>
+              <input matInput placeholder="Número da Conta" [(ngModel)] = 'bankAccount.accountNumber' name="accountNumber">
             </mat-form-field>
     
           </div>
@@ -288,64 +220,46 @@
           <div class="main-container-forms-cliente">
             <h1> Beneficio </h1>
     
-            <mat-form-field>
-              <mat-label> Tipo * </mat-label>
-              <mat-select [(value)]="cliente.benefits.typeCode" name="typeCode">
-                <mat-option value="INSS"> INSS </mat-option>
-                <mat-option value="SIAPE"> SIAPE </mat-option>
-                <mat-option value="Auxílio_Brasil"> Auxílio Brasil </mat-option>
-                <mat-option value="Outros"> Outros </mat-option>
-              </mat-select>
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Número </mat-label>
-              <input matInput placeholder="Beneficio Número" [(ngModel)] = 'cliente.benefits.number' name="number">
+              <input matInput placeholder="Beneficio Número" [(ngModel)] = 'benefit.number' name="number">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Código </mat-label>
-              <input matInput placeholder="Código" [(ngModel)] = 'cliente.benefits.code' name="code">
+              <input matInput placeholder="Código" [(ngModel)] = 'benefit.code' name="code">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field  appearance="outline" class="example-full-width">
               <mat-label> Descrição </mat-label>
-              <input matInput placeholder="Descrição" [(ngModel)] = 'cliente.benefits.description' name="description">
+              <input matInput placeholder="Descrição" [(ngModel)] = 'benefit.description' name="description">
             </mat-form-field>
     
-            <mat-form-field>
-              <mat-label> Forma de Pagamento </mat-label>
-              <mat-select [(value)]="cliente.benefits.paymentMethodCode" name="paymentMethodCode">
-                <mat-option value="Cartao_Magnetico"> Cartão Magnético </mat-option>
-                <mat-option value="Conta_Corrente"> Conta Corrente </mat-option>
-              </mat-select>
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Valor </mat-label>
-              <input matInput placeholder="Beneficio Valor" [(ngModel)] = 'cliente.benefits.value' name="value">
+              <input matInput placeholder="Beneficio Valor" [(ngModel)] = 'benefit.value' name="value">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Valor Líquido </mat-label>
-              <input matInput placeholder="Beneficio Valor Liquido" [(ngModel)] = 'cliente.benefits.netValue' name="netValue">
+              <input matInput placeholder="Beneficio Valor Liquido" [(ngModel)] = 'benefit.netValue' name="netValue">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Data de Emissão </mat-label>
-              <input matInput placeholder="Beneficio Data de Emissão" [(ngModel)] = 'cliente.benefits.issuingDate' name="issuingDate">
+              <input matInput placeholder="Beneficio Data de Emissão" [(ngModel)] = 'benefit.issuingDate' name="issuingDate">
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Data Início </mat-label>
-              <input matInput placeholder="Beneficio Data de Inicio" [(ngModel)] = 'cliente.benefits.startDate' name="startDate">
+              <input matInput placeholder="Beneficio Data de Inicio" [(ngModel)] = 'benefit.startDate' name="startDate">
             </mat-form-field>
     
             <mat-checkbox class="example-margin">Elegível para Empréstimo ?</mat-checkbox>
             
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Uf de Emissão </mat-label>
-              <input matInput placeholder="Uf de Emissão do Beneficio" [(ngModel)] = 'cliente.benefits.issuingCountry' name="issuingCountry">
+              <input matInput placeholder="Uf de Emissão do Beneficio" [(ngModel)] = 'benefit.issuingCountry' name="issuingCountry">
             </mat-form-field>
     
           </div>
@@ -354,8 +268,9 @@
       </ul>
     
     </div>
-      <div class="Botoes">
-        <button type="submit"> OK </button>
+      <div class="botoes">
+        <button mat-raised-button type="submit"> OK </button>
 
       </div>
     </form> 
+</div>

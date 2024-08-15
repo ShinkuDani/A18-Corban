@@ -55,8 +55,16 @@ export class ListClientsComponent {
       data => {
         if (data) {
           console.log(data)
-          this.customer = data;
+          this.customers = data;
         }
+      }
+    )
+  }
+
+  deleteClient(id:any){
+    this._corbanService.deleteCustomer(id).subscribe(
+      data => {
+        console.log('Usuário Apagado')
       }
     )
   }
