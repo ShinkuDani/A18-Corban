@@ -9,13 +9,16 @@
 }
 
 .list-clients{
+    display: inline-flex;
+    flex-direction: column;
     margin:  15px 10px;
+    padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
 }
 
 .list-clients p{
-    margin-left: 10px;
+    margin: 10px;
     text-align: center;
 }
 

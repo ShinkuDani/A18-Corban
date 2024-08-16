@@ -1,10 +1,6 @@
 <div class="createClients-container">
   
 <div class="input-container">
-  <!--
-    <label for="customerId"> CustomerId </label>
-  <input id="customerId" type="text" [formControl]="idCustomer">
-  -->
   <mat-form-field appearance="outline" class="example-full-width">
     <mat-label> Customer ID </mat-label>
     <input matInput placeholder="CustomerID" type="text" [formControl]="idCustomer" >
@@ -13,7 +9,6 @@
   <button mat-raised-button color="primary" type="button" (click)="putClient()"> Salvar Alterações </button>
   <button mat-raised-button color="warn" type="button" (click)="deleteClient(this.clienteLite.customerId)"> Delete Client </button>
   <button mat-raised-button type="button" [routerLink]="['']" routerLinkActive="yes"> Go Back </button>
-
 </div>
     
 <form #clientForm="ngForm" (ngSubmit)="submitForm()"> 

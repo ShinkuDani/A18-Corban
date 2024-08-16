@@ -6,10 +6,12 @@ import { routes } from './app.routes';
 import { tokenInterceptor } from './interceptors/token.interceptor';
 import { CorbanService } from './services/corban.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
+    provideToastr(),
     provideHttpClient(
       withInterceptors([tokenInterceptor]),
     ),

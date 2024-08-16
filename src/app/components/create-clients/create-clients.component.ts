@@ -1,14 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormControl, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
 import { addresses, bankAccounts, benefits, clienteLiteInterface, document, email, phone } from '../../interfaces/clienteLite';
 import { MatButtonModule } from '@angular/material/button';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-clients',
@@ -30,8 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class CreateClientsComponent {
 
 
-  constructor(private _corbanService:CorbanService){
-
+  constructor(private _corbanService:CorbanService, private _toastr:ToastrService){
   }
 
   idCustomer = new FormControl('');
@@ -136,8 +136,12 @@ export class CreateClientsComponent {
   getClient(id:any){
     this._corbanService.getCustomer(id.value).subscribe(
       data => {
-        this.clienteLite = data
-        console.log(data)
+        if(data){
+          debugger
+          this._toastr.success('Usuários pegos', 'Get')
+          this.clienteLite = data
+          console.log(data)
+        }
       }
     )
   }
@@ -145,8 +149,11 @@ export class CreateClientsComponent {
   submitForm(){
     this._corbanService.postCustomer(this.clienteLite).subscribe(
       data => {
+        if(data){
+          this._toastr.success('Usuário Criado com Sucesso', 'Created')
         this.clienteLite = data
         console.log('Data: ' + JSON.stringify(data))
+        }
       }
     )
     
@@ -156,8 +163,11 @@ export class CreateClientsComponent {
     this.arraysInsert();
     this._corbanService.putCustomer(this.clienteLite.customerId, this.clienteLite).subscribe(
       data => {
-        this.clienteLite = data
-        console.log(data)
+        if(data){
+          this._toastr.success('Usuário Alterado com Sucesso', 'Altered')
+          this.clienteLite = data
+          console.log(data)
+        }
       }
     )
   }
@@ -167,7 +177,7 @@ export class CreateClientsComponent {
     this._corbanService.deleteCustomer(id).subscribe(
       data => {
         debugger
-        console.log('Usuário Apagado')
+        this._toastr.warning('Usuário Deletado com Sucesso', 'Deleted')
         this.clienteLite = clienteLite2;
       }
     )
