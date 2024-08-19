@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule, ActivatedRoute } from '@angular/router'
@@ -148,8 +148,7 @@ ngOnInit(): void {
     this._corbanService.getCustomer(id).subscribe(
       data => {
         if(data){
-          debugger
-          this._toastr.success('Usuários pegos', 'Get')
+          this._toastr.success('Usuário Pego', 'Get')
           this.clienteLite = data
           console.log(data)
         } 
@@ -162,8 +161,8 @@ ngOnInit(): void {
       data => {
         if(data){
           this._toastr.success('Usuário Criado com Sucesso', 'Created')
-        this.clienteLite = data
-        console.log('Data: ' + JSON.stringify(data))
+          this.clienteLite = data
+        //console.log('Data: ' + JSON.stringify(data))
         }
       }
     )
@@ -177,7 +176,6 @@ ngOnInit(): void {
         if(data){
           this._toastr.success('Usuário Alterado com Sucesso', 'Altered')
           this.clienteLite = data
-          console.log(data)
         }
       }
     )

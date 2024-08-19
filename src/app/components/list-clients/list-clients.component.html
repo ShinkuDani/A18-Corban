@@ -10,14 +10,16 @@
     @for (item of customers; track item) {
 
       <div class="list-clients">
-        <div class="nome">
+        <div class="list-clients-nome">
           <p> Nickname: {{item.nickname}} | CustomerName: {{item.name}}  </p>
         </div>
-        <div class="Idcustomer">
+        <div class="list-clients-Idcustomer">
           <p>CustomerId: {{item.customerId}}</p>
         </div>
+        <div class="list-clients-botoes">
           <button mat-raised-button color="warn" (click)="deleteClient(item.customerId)"> Deletar Cliente </button>
           <button mat-raised-button color="accent" [routerLink]="['edit/',item.customerId]"> Alterar Cliente</button>
+        </div>
       </div>
 
     }

@@ -8,6 +8,19 @@
     margin-right: 20px;
 }
 
+
+.input-container {
+    margin: 10px 15px;
+}
+
+.container-botoes{
+    display: flex;
+    align-items: center ;
+    justify-content: space-around;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+    border: 1px solid black;
+    padding: 10px;
+}
+
 .list-clients{
     display: inline-flex;
     flex-direction: column;
@@ -22,18 +35,10 @@
     text-align: center;
 }
 
-.input-container {
-    margin: 10px 15px;
+.list-clients-botoes button{
+    margin: 0px 10px;
+    align-items: center;
+
 }
 
-.container-botoes{
-    display: flex;
-    align-items: center ;
-    justify-content: space-around;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
-    border: 1px solid black;
-    padding: 10px;
-}
 
-#customerId{
-    margin: 8px;
-}

@@ -1,0 +1,47 @@
+<div class="detailed-cliente-main">
+    <div class="detailed-client-pesronalInfo">
+        <h1>ClienteId: {{clienteDetailed.customerId}}</h1>
+        <h1>Nome: {{clienteDetailed.name}}</h1>
+        <h2>Aniversário: {{clienteDetailed.birthDate}}</h2>
+        <h2>Mãe: {{clienteDetailed.motherName}}</h2>
+        <h2>Pai: {{clienteDetailed.fatherName}}</h2>
+    </div>
+
+    @if(clienteDetailed){
+        @for(enderecos of clienteDetailed.addresses; track enderecos){
+            <div class="detailed-client-adresses">
+
+            </div>
+        }
+
+        @for(telefones of clienteDetailed.phones; track telefones){
+            <div class="detailed-client-phone">
+                
+            </div>
+        }
+
+        @for(emails of clienteDetailed.emails; track emails){
+            <div class="detailed-client-phone">
+                
+            </div>
+        }
+
+        @for(document of clienteDetailed.emails; track document){
+            <div class="detailed-client-phone">
+                
+            </div>
+        }
+
+        @for(bankAccount of clienteDetailed.emails; track bankAccount){
+            <div class="detailed-client-phone">
+                
+            </div>
+        }
+
+        @for(benefits of clienteDetailed.emails; track benefits){
+            <div class="detailed-client-phone">
+                
+            </div>
+        }
+    }
+</div>

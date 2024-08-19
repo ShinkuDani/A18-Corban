@@ -33,7 +33,8 @@ export class ListClientsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getToken()  
+    this.getToken()
+      
     this.getClients()
   }
 

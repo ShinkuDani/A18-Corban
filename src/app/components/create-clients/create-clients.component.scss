@@ -19,14 +19,16 @@ li {
 
 }
 
+
+.input-container {
+    width: 100%;
+    margin-left: 10px;
+    border-bottom: 2px solid black;
+}
+
 .input-container mat-form-field{
     margin: 0px 10px;
     height: 60px;
-}
-
-.input-container{
-    margin-left: 10px;
-    border-bottom: 2px solid black;
 }
 
 .input-container button {
