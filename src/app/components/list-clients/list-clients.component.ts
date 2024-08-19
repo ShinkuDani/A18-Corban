@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,9 +27,14 @@ import { clienteLiteInterface } from '../../interfaces/clienteLite';
   styleUrl: './list-clients.component.scss'
 })
 
-export class ListClientsComponent {
+export class ListClientsComponent implements OnInit {
   
   constructor(private _corbanService : CorbanService, private _toastr:ToastrService){
+  }
+
+  ngOnInit(): void {
+    this.getToken()  
+    this.getClients()
   }
 
   customers: Array<any> = new Array<any>();

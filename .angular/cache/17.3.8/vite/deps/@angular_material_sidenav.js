@@ -3,14 +3,7 @@ import {
   CdkScrollableModule,
   ScrollDispatcher,
   ViewportRuler
-} from "./chunk-7VS2EMX2.js";
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-BF6LTWMY.js";
+} from "./chunk-QWO4A3IQ.js";
 import {
   Directionality,
   ESCAPE,
@@ -22,10 +15,22 @@ import {
   coerceBooleanProperty,
   coerceNumberProperty,
   hasModifierKey
-} from "./chunk-AK4U26EG.js";
+} from "./chunk-FCZWMF64.js";
+import "./chunk-HKAYZS6N.js";
 import {
-  DOCUMENT
-} from "./chunk-OJQNVZFF.js";
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-KS5HH6AC.js";
+import "./chunk-2EZRO44G.js";
+import "./chunk-O7I6UIPS.js";
+import {
+  CommonModule,
+  DOCUMENT,
+  NgIf
+} from "./chunk-Y6FHRR2C.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
@@ -60,11 +65,9 @@ import {
   takeUntil,
   ɵɵInheritDefinitionFeature,
   ɵɵProvidersFeature,
-  ɵɵStandaloneFeature,
   ɵɵadvance,
   ɵɵattribute,
   ɵɵclassProp,
-  ɵɵconditional,
   ɵɵcontentQuery,
   ɵɵdefineComponent,
   ɵɵdefineInjector,
@@ -79,6 +82,7 @@ import {
   ɵɵnextContext,
   ɵɵprojection,
   ɵɵprojectionDef,
+  ɵɵproperty,
   ɵɵqueryRefresh,
   ɵɵresetView,
   ɵɵrestoreView,
@@ -94,11 +98,11 @@ var _c0 = ["*"];
 var _c1 = ["content"];
 var _c2 = [[["mat-drawer"]], [["mat-drawer-content"]], "*"];
 var _c3 = ["mat-drawer", "mat-drawer-content", "*"];
-function MatDrawerContainer_Conditional_0_Template(rf, ctx) {
+function MatDrawerContainer_div_0_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "div", 1);
-    ɵɵlistener("click", function MatDrawerContainer_Conditional_0_Template_div_click_0_listener() {
+    ɵɵelementStart(0, "div", 2);
+    ɵɵlistener("click", function MatDrawerContainer_div_0_Template_div_click_0_listener() {
       ɵɵrestoreView(_r1);
       const ctx_r1 = ɵɵnextContext();
       return ɵɵresetView(ctx_r1._onBackdropClicked());
@@ -110,7 +114,7 @@ function MatDrawerContainer_Conditional_0_Template(rf, ctx) {
     ɵɵclassProp("mat-drawer-shown", ctx_r1._isShowingBackdrop());
   }
 }
-function MatDrawerContainer_Conditional_3_Template(rf, ctx) {
+function MatDrawerContainer_mat_drawer_content_3_Template(rf, ctx) {
   if (rf & 1) {
     ɵɵelementStart(0, "mat-drawer-content");
     ɵɵprojection(1, 2);
@@ -119,11 +123,11 @@ function MatDrawerContainer_Conditional_3_Template(rf, ctx) {
 }
 var _c4 = [[["mat-sidenav"]], [["mat-sidenav-content"]], "*"];
 var _c5 = ["mat-sidenav", "mat-sidenav-content", "*"];
-function MatSidenavContainer_Conditional_0_Template(rf, ctx) {
+function MatSidenavContainer_div_0_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "div", 1);
-    ɵɵlistener("click", function MatSidenavContainer_Conditional_0_Template_div_click_0_listener() {
+    ɵɵelementStart(0, "div", 2);
+    ɵɵlistener("click", function MatSidenavContainer_div_0_Template_div_click_0_listener() {
       ɵɵrestoreView(_r1);
       const ctx_r1 = ɵɵnextContext();
       return ɵɵresetView(ctx_r1._onBackdropClicked());
@@ -135,14 +139,14 @@ function MatSidenavContainer_Conditional_0_Template(rf, ctx) {
     ɵɵclassProp("mat-drawer-shown", ctx_r1._isShowingBackdrop());
   }
 }
-function MatSidenavContainer_Conditional_3_Template(rf, ctx) {
+function MatSidenavContainer_mat_sidenav_content_3_Template(rf, ctx) {
   if (rf & 1) {
     ɵɵelementStart(0, "mat-sidenav-content");
     ɵɵprojection(1, 2);
     ɵɵelementEnd();
   }
 }
-var _c6 = '.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;color:var(--mat-sidenav-container-text-color);box-shadow:var(--mat-sidenav-container-elevation-shadow);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);width:var(--mat-sidenav-container-width);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}';
+var _c6 = '.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{box-shadow:0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);position:relative;z-index:4;--mat-sidenav-container-shape:0;color:var(--mat-sidenav-container-text-color);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}';
 var matDrawerAnimations = {
   /** Animation that slides a drawer in and out. */
   transformDrawer: trigger("transform", [
@@ -192,18 +196,17 @@ _MatDrawerContent.ɵfac = function MatDrawerContent_Factory(t) {
 _MatDrawerContent.ɵcmp = ɵɵdefineComponent({
   type: _MatDrawerContent,
   selectors: [["mat-drawer-content"]],
-  hostAttrs: [1, "mat-drawer-content"],
+  hostAttrs: ["ngSkipHydration", "", 1, "mat-drawer-content"],
   hostVars: 4,
   hostBindings: function MatDrawerContent_HostBindings(rf, ctx) {
     if (rf & 2) {
       ɵɵstyleProp("margin-left", ctx._container._contentMargins.left, "px")("margin-right", ctx._container._contentMargins.right, "px");
     }
   },
-  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkScrollable,
     useExisting: _MatDrawerContent
-  }]), ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+  }]), ɵɵInheritDefinitionFeature],
   ngContentSelectors: _c0,
   decls: 1,
   vars: 0,
@@ -226,31 +229,33 @@ var MatDrawerContent = _MatDrawerContent;
       host: {
         "class": "mat-drawer-content",
         "[style.margin-left.px]": "_container._contentMargins.left",
-        "[style.margin-right.px]": "_container._contentMargins.right"
+        "[style.margin-right.px]": "_container._contentMargins.right",
+        "ngSkipHydration": ""
       },
       changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation$1.None,
       providers: [{
         provide: CdkScrollable,
         useExisting: MatDrawerContent
-      }],
-      standalone: true
+      }]
     }]
-  }], () => [{
-    type: ChangeDetectorRef
-  }, {
-    type: MatDrawerContainer,
-    decorators: [{
-      type: Inject,
-      args: [forwardRef(() => MatDrawerContainer)]
-    }]
-  }, {
-    type: ElementRef
-  }, {
-    type: ScrollDispatcher
-  }, {
-    type: NgZone
-  }], null);
+  }], function() {
+    return [{
+      type: ChangeDetectorRef
+    }, {
+      type: MatDrawerContainer,
+      decorators: [{
+        type: Inject,
+        args: [forwardRef(() => MatDrawerContainer)]
+      }]
+    }, {
+      type: ElementRef
+    }, {
+      type: ScrollDispatcher
+    }, {
+      type: NgZone
+    }];
+  }, null);
 })();
 var _MatDrawer = class _MatDrawer {
   /** The side that the drawer is attached to. */
@@ -326,7 +331,6 @@ var _MatDrawer = class _MatDrawer {
     this._interactivityChecker = _interactivityChecker;
     this._doc = _doc;
     this._container = _container;
-    this._focusTrap = null;
     this._elementFocusedBeforeDrawerWasOpened = null;
     this._enableAnimations = false;
     this._position = "start";
@@ -462,12 +466,10 @@ var _MatDrawer = class _MatDrawer {
   }
   ngAfterViewInit() {
     this._isAttached = true;
+    this._focusTrap = this._focusTrapFactory.create(this._elementRef.nativeElement);
+    this._updateFocusTrapState();
     if (this._position === "end") {
       this._updatePositionInParent("end");
-    }
-    if (this._platform.isBrowser) {
-      this._focusTrap = this._focusTrapFactory.create(this._elementRef.nativeElement);
-      this._updateFocusTrapState();
     }
   }
   ngAfterContentChecked() {
@@ -476,7 +478,9 @@ var _MatDrawer = class _MatDrawer {
     }
   }
   ngOnDestroy() {
-    this._focusTrap?.destroy();
+    if (this._focusTrap) {
+      this._focusTrap.destroy();
+    }
     this._anchor?.remove();
     this._anchor = null;
     this._animationStarted.complete();
@@ -565,9 +569,6 @@ var _MatDrawer = class _MatDrawer {
    * started off as `end` and was changed to `start`.
    */
   _updatePositionInParent(newPosition) {
-    if (!this._platform.isBrowser) {
-      return;
-    }
     const element = this._elementRef.nativeElement;
     const parent = element.parentNode;
     if (newPosition === "end") {
@@ -596,7 +597,7 @@ _MatDrawer.ɵcmp = ɵɵdefineComponent({
       ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._content = _t.first);
     }
   },
-  hostAttrs: ["tabIndex", "-1", 1, "mat-drawer"],
+  hostAttrs: ["tabIndex", "-1", "ngSkipHydration", "", 1, "mat-drawer"],
   hostVars: 12,
   hostBindings: function MatDrawer_HostBindings(rf, ctx) {
     if (rf & 1) {
@@ -628,8 +629,6 @@ _MatDrawer.ɵcmp = ɵɵdefineComponent({
     onPositionChanged: "positionChanged"
   },
   exportAs: ["matDrawer"],
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
   ngContentSelectors: _c0,
   decls: 3,
   vars: 0,
@@ -669,43 +668,44 @@ var MatDrawer = _MatDrawer;
         "tabIndex": "-1",
         "[@transform]": "_animationState",
         "(@transform.start)": "_animationStarted.next($event)",
-        "(@transform.done)": "_animationEnd.next($event)"
+        "(@transform.done)": "_animationEnd.next($event)",
+        "ngSkipHydration": ""
       },
       changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation$1.None,
-      standalone: true,
-      imports: [CdkScrollable],
       template: '<div class="mat-drawer-inner-container" cdkScrollable #content>\r\n  <ng-content></ng-content>\r\n</div>\r\n'
     }]
-  }], () => [{
-    type: ElementRef
-  }, {
-    type: FocusTrapFactory
-  }, {
-    type: FocusMonitor
-  }, {
-    type: Platform
-  }, {
-    type: NgZone
-  }, {
-    type: InteractivityChecker
-  }, {
-    type: void 0,
-    decorators: [{
-      type: Optional
+  }], function() {
+    return [{
+      type: ElementRef
     }, {
-      type: Inject,
-      args: [DOCUMENT]
-    }]
-  }, {
-    type: MatDrawerContainer,
-    decorators: [{
-      type: Optional
+      type: FocusTrapFactory
     }, {
-      type: Inject,
-      args: [MAT_DRAWER_CONTAINER]
-    }]
-  }], {
+      type: FocusMonitor
+    }, {
+      type: Platform
+    }, {
+      type: NgZone
+    }, {
+      type: InteractivityChecker
+    }, {
+      type: void 0,
+      decorators: [{
+        type: Optional
+      }, {
+        type: Inject,
+        args: [DOCUMENT]
+      }]
+    }, {
+      type: MatDrawerContainer,
+      decorators: [{
+        type: Optional
+      }, {
+        type: Inject,
+        args: [MAT_DRAWER_CONTAINER]
+      }]
+    }];
+  }, {
     position: [{
       type: Input
     }],
@@ -1016,7 +1016,7 @@ _MatDrawerContainer.ɵcmp = ɵɵdefineComponent({
       ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._userContent = _t.first);
     }
   },
-  hostAttrs: [1, "mat-drawer-container"],
+  hostAttrs: ["ngSkipHydration", "", 1, "mat-drawer-container"],
   hostVars: 2,
   hostBindings: function MatDrawerContainer_HostBindings(rf, ctx) {
     if (rf & 2) {
@@ -1031,31 +1031,30 @@ _MatDrawerContainer.ɵcmp = ɵɵdefineComponent({
     backdropClick: "backdropClick"
   },
   exportAs: ["matDrawerContainer"],
-  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: MAT_DRAWER_CONTAINER,
     useExisting: _MatDrawerContainer
-  }]), ɵɵStandaloneFeature],
+  }])],
   ngContentSelectors: _c3,
   decls: 4,
   vars: 2,
-  consts: [[1, "mat-drawer-backdrop", 3, "mat-drawer-shown"], [1, "mat-drawer-backdrop", 3, "click"]],
+  consts: [["class", "mat-drawer-backdrop", 3, "mat-drawer-shown", "click", 4, "ngIf"], [4, "ngIf"], [1, "mat-drawer-backdrop", 3, "click"]],
   template: function MatDrawerContainer_Template(rf, ctx) {
     if (rf & 1) {
       ɵɵprojectionDef(_c2);
-      ɵɵtemplate(0, MatDrawerContainer_Conditional_0_Template, 1, 2, "div", 0);
+      ɵɵtemplate(0, MatDrawerContainer_div_0_Template, 1, 2, "div", 0);
       ɵɵprojection(1);
       ɵɵprojection(2, 1);
-      ɵɵtemplate(3, MatDrawerContainer_Conditional_3_Template, 2, 0, "mat-drawer-content");
+      ɵɵtemplate(3, MatDrawerContainer_mat_drawer_content_3_Template, 2, 0, "mat-drawer-content", 1);
     }
     if (rf & 2) {
-      ɵɵconditional(0, ctx.hasBackdrop ? 0 : -1);
+      ɵɵproperty("ngIf", ctx.hasBackdrop);
       ɵɵadvance(3);
-      ɵɵconditional(3, !ctx._content ? 3 : -1);
+      ɵɵproperty("ngIf", !ctx._content);
     }
   },
-  dependencies: [MatDrawerContent],
-  styles: ['.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;color:var(--mat-sidenav-container-text-color);box-shadow:var(--mat-sidenav-container-elevation-shadow);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);width:var(--mat-sidenav-container-width);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}'],
+  dependencies: [NgIf, MatDrawerContent],
+  styles: ['.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{box-shadow:0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);position:relative;z-index:4;--mat-sidenav-container-shape:0;color:var(--mat-sidenav-container-text-color);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}'],
   encapsulation: 2,
   changeDetection: 0
 });
@@ -1068,7 +1067,8 @@ var MatDrawerContainer = _MatDrawerContainer;
       exportAs: "matDrawerContainer",
       host: {
         "class": "mat-drawer-container",
-        "[class.mat-drawer-container-explicit-backdrop]": "_backdropOverride"
+        "[class.mat-drawer-container-explicit-backdrop]": "_backdropOverride",
+        "ngSkipHydration": ""
       },
       changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation$1.None,
@@ -1076,39 +1076,39 @@ var MatDrawerContainer = _MatDrawerContainer;
         provide: MAT_DRAWER_CONTAINER,
         useExisting: MatDrawerContainer
       }],
-      standalone: true,
-      imports: [MatDrawerContent],
-      template: '@if (hasBackdrop) {\n  <div class="mat-drawer-backdrop" (click)="_onBackdropClicked()"\n       [class.mat-drawer-shown]="_isShowingBackdrop()"></div>\n}\n\n<ng-content select="mat-drawer"></ng-content>\n\n<ng-content select="mat-drawer-content">\n</ng-content>\n\n@if (!_content) {\n  <mat-drawer-content>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n}\n',
-      styles: ['.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;color:var(--mat-sidenav-container-text-color);box-shadow:var(--mat-sidenav-container-elevation-shadow);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);width:var(--mat-sidenav-container-width);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}']
+      template: '<div class="mat-drawer-backdrop" (click)="_onBackdropClicked()" *ngIf="hasBackdrop"\n     [class.mat-drawer-shown]="_isShowingBackdrop()"></div>\n\n<ng-content select="mat-drawer"></ng-content>\n\n<ng-content select="mat-drawer-content">\n</ng-content>\n<mat-drawer-content *ngIf="!_content">\n  <ng-content></ng-content>\n</mat-drawer-content>\n',
+      styles: ['.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{box-shadow:0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);position:relative;z-index:4;--mat-sidenav-container-shape:0;color:var(--mat-sidenav-container-text-color);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}']
     }]
-  }], () => [{
-    type: Directionality,
-    decorators: [{
-      type: Optional
-    }]
-  }, {
-    type: ElementRef
-  }, {
-    type: NgZone
-  }, {
-    type: ChangeDetectorRef
-  }, {
-    type: ViewportRuler
-  }, {
-    type: void 0,
-    decorators: [{
-      type: Inject,
-      args: [MAT_DRAWER_DEFAULT_AUTOSIZE]
-    }]
-  }, {
-    type: void 0,
-    decorators: [{
-      type: Optional
+  }], function() {
+    return [{
+      type: Directionality,
+      decorators: [{
+        type: Optional
+      }]
     }, {
-      type: Inject,
-      args: [ANIMATION_MODULE_TYPE]
-    }]
-  }], {
+      type: ElementRef
+    }, {
+      type: NgZone
+    }, {
+      type: ChangeDetectorRef
+    }, {
+      type: ViewportRuler
+    }, {
+      type: void 0,
+      decorators: [{
+        type: Inject,
+        args: [MAT_DRAWER_DEFAULT_AUTOSIZE]
+      }]
+    }, {
+      type: void 0,
+      decorators: [{
+        type: Optional
+      }, {
+        type: Inject,
+        args: [ANIMATION_MODULE_TYPE]
+      }]
+    }];
+  }, {
     _allDrawers: [{
       type: ContentChildren,
       args: [MatDrawer, {
@@ -1147,18 +1147,17 @@ _MatSidenavContent.ɵfac = function MatSidenavContent_Factory(t) {
 _MatSidenavContent.ɵcmp = ɵɵdefineComponent({
   type: _MatSidenavContent,
   selectors: [["mat-sidenav-content"]],
-  hostAttrs: [1, "mat-drawer-content", "mat-sidenav-content"],
+  hostAttrs: ["ngSkipHydration", "", 1, "mat-drawer-content", "mat-sidenav-content"],
   hostVars: 4,
   hostBindings: function MatSidenavContent_HostBindings(rf, ctx) {
     if (rf & 2) {
       ɵɵstyleProp("margin-left", ctx._container._contentMargins.left, "px")("margin-right", ctx._container._contentMargins.right, "px");
     }
   },
-  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkScrollable,
     useExisting: _MatSidenavContent
-  }]), ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+  }]), ɵɵInheritDefinitionFeature],
   ngContentSelectors: _c0,
   decls: 1,
   vars: 0,
@@ -1181,31 +1180,33 @@ var MatSidenavContent = _MatSidenavContent;
       host: {
         "class": "mat-drawer-content mat-sidenav-content",
         "[style.margin-left.px]": "_container._contentMargins.left",
-        "[style.margin-right.px]": "_container._contentMargins.right"
+        "[style.margin-right.px]": "_container._contentMargins.right",
+        "ngSkipHydration": ""
       },
       changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation$1.None,
       providers: [{
         provide: CdkScrollable,
         useExisting: MatSidenavContent
-      }],
-      standalone: true
+      }]
     }]
-  }], () => [{
-    type: ChangeDetectorRef
-  }, {
-    type: MatSidenavContainer,
-    decorators: [{
-      type: Inject,
-      args: [forwardRef(() => MatSidenavContainer)]
-    }]
-  }, {
-    type: ElementRef
-  }, {
-    type: ScrollDispatcher
-  }, {
-    type: NgZone
-  }], null);
+  }], function() {
+    return [{
+      type: ChangeDetectorRef
+    }, {
+      type: MatSidenavContainer,
+      decorators: [{
+        type: Inject,
+        args: [forwardRef(() => MatSidenavContainer)]
+      }]
+    }, {
+      type: ElementRef
+    }, {
+      type: ScrollDispatcher
+    }, {
+      type: NgZone
+    }];
+  }, null);
 })();
 var _MatSidenav = class _MatSidenav extends MatDrawer {
   constructor() {
@@ -1251,7 +1252,7 @@ _MatSidenav.ɵfac = /* @__PURE__ */ (() => {
 _MatSidenav.ɵcmp = ɵɵdefineComponent({
   type: _MatSidenav,
   selectors: [["mat-sidenav"]],
-  hostAttrs: ["tabIndex", "-1", 1, "mat-drawer", "mat-sidenav"],
+  hostAttrs: ["tabIndex", "-1", "ngSkipHydration", "", 1, "mat-drawer", "mat-sidenav"],
   hostVars: 17,
   hostBindings: function MatSidenav_HostBindings(rf, ctx) {
     if (rf & 2) {
@@ -1266,8 +1267,7 @@ _MatSidenav.ɵcmp = ɵɵdefineComponent({
     fixedBottomGap: "fixedBottomGap"
   },
   exportAs: ["matSidenav"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+  features: [ɵɵInheritDefinitionFeature],
   ngContentSelectors: _c0,
   decls: 3,
   vars: 0,
@@ -1307,12 +1307,11 @@ var MatSidenav = _MatSidenav;
         "[class.mat-drawer-opened]": "opened",
         "[class.mat-sidenav-fixed]": "fixedInViewport",
         "[style.top.px]": "fixedInViewport ? fixedTopGap : null",
-        "[style.bottom.px]": "fixedInViewport ? fixedBottomGap : null"
+        "[style.bottom.px]": "fixedInViewport ? fixedBottomGap : null",
+        "ngSkipHydration": ""
       },
       changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation$1.None,
-      standalone: true,
-      imports: [CdkScrollable],
       template: '<div class="mat-drawer-inner-container" cdkScrollable #content>\r\n  <ng-content></ng-content>\r\n</div>\r\n'
     }]
   }], null, {
@@ -1354,7 +1353,7 @@ _MatSidenavContainer.ɵcmp = ɵɵdefineComponent({
       ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._allDrawers = _t);
     }
   },
-  hostAttrs: [1, "mat-drawer-container", "mat-sidenav-container"],
+  hostAttrs: ["ngSkipHydration", "", 1, "mat-drawer-container", "mat-sidenav-container"],
   hostVars: 2,
   hostBindings: function MatSidenavContainer_HostBindings(rf, ctx) {
     if (rf & 2) {
@@ -1362,30 +1361,29 @@ _MatSidenavContainer.ɵcmp = ɵɵdefineComponent({
     }
   },
   exportAs: ["matSidenavContainer"],
-  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: MAT_DRAWER_CONTAINER,
     useExisting: _MatSidenavContainer
-  }]), ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+  }]), ɵɵInheritDefinitionFeature],
   ngContentSelectors: _c5,
   decls: 4,
   vars: 2,
-  consts: [[1, "mat-drawer-backdrop", 3, "mat-drawer-shown"], [1, "mat-drawer-backdrop", 3, "click"]],
+  consts: [["class", "mat-drawer-backdrop", 3, "mat-drawer-shown", "click", 4, "ngIf"], [4, "ngIf"], [1, "mat-drawer-backdrop", 3, "click"]],
   template: function MatSidenavContainer_Template(rf, ctx) {
     if (rf & 1) {
       ɵɵprojectionDef(_c4);
-      ɵɵtemplate(0, MatSidenavContainer_Conditional_0_Template, 1, 2, "div", 0);
+      ɵɵtemplate(0, MatSidenavContainer_div_0_Template, 1, 2, "div", 0);
       ɵɵprojection(1);
       ɵɵprojection(2, 1);
-      ɵɵtemplate(3, MatSidenavContainer_Conditional_3_Template, 2, 0, "mat-sidenav-content");
+      ɵɵtemplate(3, MatSidenavContainer_mat_sidenav_content_3_Template, 2, 0, "mat-sidenav-content", 1);
     }
     if (rf & 2) {
-      ɵɵconditional(0, ctx.hasBackdrop ? 0 : -1);
+      ɵɵproperty("ngIf", ctx.hasBackdrop);
       ɵɵadvance(3);
-      ɵɵconditional(3, !ctx._content ? 3 : -1);
+      ɵɵproperty("ngIf", !ctx._content);
     }
   },
-  dependencies: [MatSidenavContent],
+  dependencies: [NgIf, MatSidenavContent],
   styles: [_c6],
   encapsulation: 2,
   changeDetection: 0
@@ -1399,7 +1397,8 @@ var MatSidenavContainer = _MatSidenavContainer;
       exportAs: "matSidenavContainer",
       host: {
         "class": "mat-drawer-container mat-sidenav-container",
-        "[class.mat-drawer-container-explicit-backdrop]": "_backdropOverride"
+        "[class.mat-drawer-container-explicit-backdrop]": "_backdropOverride",
+        "ngSkipHydration": ""
       },
       changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation$1.None,
@@ -1407,10 +1406,8 @@ var MatSidenavContainer = _MatSidenavContainer;
         provide: MAT_DRAWER_CONTAINER,
         useExisting: MatSidenavContainer
       }],
-      standalone: true,
-      imports: [MatSidenavContent],
-      template: '@if (hasBackdrop) {\n  <div class="mat-drawer-backdrop" (click)="_onBackdropClicked()"\n       [class.mat-drawer-shown]="_isShowingBackdrop()"></div>\n}\n\n<ng-content select="mat-sidenav"></ng-content>\n\n<ng-content select="mat-sidenav-content">\n</ng-content>\n\n@if (!_content) {\n  <mat-sidenav-content>\n    <ng-content></ng-content>\n  </mat-sidenav-content>\n}\n',
-      styles: ['.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;color:var(--mat-sidenav-container-text-color);box-shadow:var(--mat-sidenav-container-elevation-shadow);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);width:var(--mat-sidenav-container-width);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}']
+      template: '<div class="mat-drawer-backdrop" (click)="_onBackdropClicked()" *ngIf="hasBackdrop"\n     [class.mat-drawer-shown]="_isShowingBackdrop()"></div>\n\n<ng-content select="mat-sidenav"></ng-content>\n\n<ng-content select="mat-sidenav-content">\n</ng-content>\n<mat-sidenav-content *ngIf="!_content">\n  <ng-content></ng-content>\n</mat-sidenav-content>\n',
+      styles: ['.mat-drawer-container{position:relative;z-index:1;color:var(--mat-sidenav-content-text-color);background-color:var(--mat-sidenav-content-background-color);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible;background-color:var(--mat-sidenav-scrim-color)}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{box-shadow:0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);position:relative;z-index:4;--mat-sidenav-container-shape:0;color:var(--mat-sidenav-container-text-color);background-color:var(--mat-sidenav-container-background-color);border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0);border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0}[dir=rtl] .mat-drawer{border-top-left-radius:var(--mat-sidenav-container-shape);border-bottom-left-radius:var(--mat-sidenav-container-shape);border-top-right-radius:0;border-bottom-right-radius:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{border-top-right-radius:var(--mat-sidenav-container-shape);border-bottom-right-radius:var(--mat-sidenav-container-shape);border-top-left-radius:0;border-bottom-left-radius:0;left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer[style*="visibility: hidden"]{display:none}.mat-drawer-side{box-shadow:none;border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid}.mat-drawer-side.mat-drawer-end{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side{border-left-color:var(--mat-sidenav-container-divider-color);border-left-width:1px;border-left-style:solid;border-right:none}[dir=rtl] .mat-drawer-side.mat-drawer-end{border-right-color:var(--mat-sidenav-container-divider-color);border-right-width:1px;border-right-style:solid;border-left:none}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}']
     }]
   }], null, {
     _allDrawers: [{
@@ -1434,19 +1431,21 @@ _MatSidenavModule.ɵfac = function MatSidenavModule_Factory(t) {
 };
 _MatSidenavModule.ɵmod = ɵɵdefineNgModule({
   type: _MatSidenavModule,
-  imports: [MatCommonModule, CdkScrollableModule, MatDrawer, MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavContainer, MatSidenavContent],
+  declarations: [MatDrawer, MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavContainer, MatSidenavContent],
+  imports: [CommonModule, MatCommonModule, CdkScrollableModule],
   exports: [CdkScrollableModule, MatCommonModule, MatDrawer, MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavContainer, MatSidenavContent]
 });
 _MatSidenavModule.ɵinj = ɵɵdefineInjector({
-  imports: [MatCommonModule, CdkScrollableModule, CdkScrollableModule, MatCommonModule]
+  imports: [CommonModule, MatCommonModule, CdkScrollableModule, CdkScrollableModule, MatCommonModule]
 });
 var MatSidenavModule = _MatSidenavModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSidenavModule, [{
     type: NgModule,
     args: [{
-      imports: [MatCommonModule, CdkScrollableModule, MatDrawer, MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavContainer, MatSidenavContent],
-      exports: [CdkScrollableModule, MatCommonModule, MatDrawer, MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavContainer, MatSidenavContent]
+      imports: [CommonModule, MatCommonModule, CdkScrollableModule],
+      exports: [CdkScrollableModule, MatCommonModule, MatDrawer, MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavContainer, MatSidenavContent],
+      declarations: [MatDrawer, MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavContainer, MatSidenavContent]
     }]
   }], null, null);
 })();

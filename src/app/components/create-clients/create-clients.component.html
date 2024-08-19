@@ -1,14 +1,18 @@
 <div class="createClients-container">
-  
+
 <div class="input-container">
-  <mat-form-field appearance="outline" class="example-full-width">
-    <mat-label> Customer ID </mat-label>
-    <input matInput placeholder="CustomerID" type="text" [formControl]="idCustomer" >
-  </mat-form-field>
-  <button mat-raised-button (click)="getClient(idCustomer)"> Pegar Customer Especifico </button>
+  <mat-toolbar>
+    <span>Novo Cliente ou Alteração de Dados</span>
+    <!--
+    <mat-form-field appearance="outline" class="example-full-width">
+      <input matInput placeholder="CustomerID" type="text" [formControl]="idCustomer" >
+    </mat-form-field>
+    <button mat-raised-button (click)="getClient(this.idCustomer)"> Pegar Customer Especifico </button>
+    
+    -->
   <button mat-raised-button color="primary" type="button" (click)="putClient()"> Salvar Alterações </button>
-  <button mat-raised-button color="warn" type="button" (click)="deleteClient(this.clienteLite.customerId)"> Delete Client </button>
-  <button mat-raised-button type="button" [routerLink]="['']" routerLinkActive="yes"> Go Back </button>
+ <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
+</mat-toolbar> 
 </div>
     
 <form #clientForm="ngForm" (ngSubmit)="submitForm()"> 
@@ -249,8 +253,6 @@
               <mat-label> Data Início </mat-label>
               <input matInput placeholder="Beneficio Data de Inicio" [(ngModel)] = 'benefit.startDate' name="startDate">
             </mat-form-field>
-    
-            <mat-checkbox class="example-margin">Elegível para Empréstimo ?</mat-checkbox>
             
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Uf de Emissão </mat-label>

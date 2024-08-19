@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { RouterModule } from '@angular/router'
+import { RouterModule, ActivatedRoute } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
 import { addresses, bankAccounts, benefits, clienteLiteInterface, document, email, phone } from '../../interfaces/clienteLite';
 import { MatButtonModule } from '@angular/material/button';
 import { ToastrService } from 'ngx-toastr';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-create-clients',
@@ -23,18 +24,27 @@ import { ToastrService } from 'ngx-toastr';
     MatMenuModule,
     RouterModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule
   ],
   templateUrl: './create-clients.component.html',
   styleUrl: './create-clients.component.scss'
 })
-export class CreateClientsComponent {
+export class CreateClientsComponent implements OnInit{
 
+ngOnInit(): void {
+  let idCustomer = this._router.snapshot.paramMap.get('id');  
+  if(idCustomer == null){
+    console.log('Cliente Novo') 
+  } else {
+    console.log(idCustomer)
+    this.getClient(idCustomer)
+  }
+}
 
-  constructor(private _corbanService:CorbanService, private _toastr:ToastrService){
+  constructor(private _corbanService:CorbanService, private _toastr:ToastrService, private _router: ActivatedRoute){
   }
 
-  idCustomer = new FormControl('');
 
   phone: phone = {
     ddd: 0,
@@ -132,16 +142,17 @@ export class CreateClientsComponent {
     bankAccounts: [],
     benefits: []
   }
+
   
-  getClient(id:any){
-    this._corbanService.getCustomer(id.value).subscribe(
+  getClient(id:string){
+    this._corbanService.getCustomer(id).subscribe(
       data => {
         if(data){
           debugger
           this._toastr.success('Usuários pegos', 'Get')
           this.clienteLite = data
           console.log(data)
-        }
+        } 
       }
     )
   }
@@ -171,18 +182,6 @@ export class CreateClientsComponent {
       }
     )
   }
-
-  deleteClient(id:any){
-    let clienteLite2:clienteLiteInterface;
-    this._corbanService.deleteCustomer(id).subscribe(
-      data => {
-        debugger
-        this._toastr.warning('Usuário Deletado com Sucesso', 'Deleted')
-        this.clienteLite = clienteLite2;
-      }
-    )
-  }
-
   
   arraysInsert(){
     this.clienteLite.addresses.push(this.address)

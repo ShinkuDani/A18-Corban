@@ -5,15 +5,6 @@
       <button mat-raised-button color="primary" (click)="getClients()"> Pegar Customers </button>
       <button mat-raised-button color="accent" [routerLink]="['/create']">Cadastrar novo Cliente / Alterar Cliente</button>
   </div>
-
-  <!--
-  <div class="input-container">
-      <label for="customerId"> CustomerId </label>
-      <input id="customerId" type="text" [formControl]="idCustomer">
-      <button mat-raised-button (click)="getClient(idCustomer.value)"> Pegar Cliente ID</button>
-      <button mat-raised-button color="warn" (click)="deleteClient(idCustomer.value)"> Deletar Cliente </button>
-  </div>
-  -->
   
   @if (customers){
     @for (item of customers; track item) {
@@ -26,6 +17,7 @@
           <p>CustomerId: {{item.customerId}}</p>
         </div>
           <button mat-raised-button color="warn" (click)="deleteClient(item.customerId)"> Deletar Cliente </button>
+          <button mat-raised-button color="accent" [routerLink]="['edit/',item.customerId]"> Alterar Cliente</button>
       </div>
 
     }
