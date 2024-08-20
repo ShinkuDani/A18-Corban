@@ -1,46 +1,60 @@
 <div class="detailed-cliente-main">
     <div class="detailed-client-pesronalInfo">
-        <h1>ClienteId: {{clienteDetailed.customerId}}</h1>
-        <h1>Nome: {{clienteDetailed.name}}</h1>
-        <h2>Aniversário: {{clienteDetailed.birthDate}}</h2>
-        <h2>Mãe: {{clienteDetailed.motherName}}</h2>
-        <h2>Pai: {{clienteDetailed.fatherName}}</h2>
+        <h2>ClienteId: <span>{{clienteDetailed.customerId}}</span></h2>
+        <h2>Nome: {{clienteDetailed.name}}</h2>
+        <p>Aniversário: {{clienteDetailed.birthDate}}</p>
+        <p>Mãe: {{clienteDetailed.motherName}}</p>
+        <p>Pai: {{clienteDetailed.fatherName}}</p>
     </div>
 
     @if(clienteDetailed){
         @for(enderecos of clienteDetailed.addresses; track enderecos){
             <div class="detailed-client-adresses">
-
+                <h1>Endereços:</h1>
+                <p>Cep:{{enderecos.zipCode}}</p>
+                <p>Rua:{{enderecos.street}}</p>
+                <p>Bairro:{{enderecos.district}}</p>
+                <p>Cidade:{{enderecos.city}}</p>
             </div>
         }
 
         @for(telefones of clienteDetailed.phones; track telefones){
             <div class="detailed-client-phone">
-                
+                <h1>Telefones:</h1>
+                <p>DDD:{{telefones.ddd}}</p>
+                <p>Numero:{{telefones.number}}</p>
             </div>
         }
 
         @for(emails of clienteDetailed.emails; track emails){
             <div class="detailed-client-phone">
-                
+                <h1>Email:</h1>
+                <p>{{emails.email}}</p>
             </div>
         }
 
-        @for(document of clienteDetailed.emails; track document){
-            <div class="detailed-client-phone">
-                
+        @for(documento of clienteDetailed.document; track documento){
+            <div class="detailed-client-document">
+                <h1>Documentos: </h1>
+                <p>Numero do Documento: {{documento.number}}</p>
             </div>
         }
 
-        @for(bankAccount of clienteDetailed.emails; track bankAccount){
-            <div class="detailed-client-phone">
-                
+        @for(contaBancaria of clienteDetailed.bankAccounts; track contaBancaria){
+            <div class="detailed-client-contaBancaria">
+                <h1>Conta no Banco: </h1>
+                <p>Nome do Banco: {{contaBancaria.bankName}}</p>
+                <p>Código do Banco: {{contaBancaria.branchCode}}</p>
+
             </div>
         }
 
-        @for(benefits of clienteDetailed.emails; track benefits){
-            <div class="detailed-client-phone">
-                
+        @for(beneficios of clienteDetailed.benefits; track beneficios){
+            <div class="detailed-client-beneficios">
+                <h1>Beneficios:</h1>
+                <p>{{beneficios.code}}</p>
+                <p>{{beneficios.description}}</p>
+
             </div>
         }
     }

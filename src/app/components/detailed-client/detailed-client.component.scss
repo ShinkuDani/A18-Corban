@@ -1,0 +1,78 @@
+.detailed-cliente-main{
+    margin: 10px;
+}
+
+.detailed-client-pesronalInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    padding: 5px;
+    border: 1px dashed black;
+}
+
+.detailed-client-adresses{
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px dashed black;
+}
+
+.detailed-client-adresses p{
+    border-bottom: 1px solid black ;
+    margin-bottom: 5px;
+}
+
+.detailed-client-phone{
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px dashed black;
+}
+
+.detailed-client-phone p{
+    border-bottom: 1px solid black ;
+    margin-bottom: 5px;
+}
+
+.detailed-client-document{
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px dashed black;
+}
+
+.detailed-client-document p{
+    border-bottom: 1px solid black ;
+    margin-bottom: 5px;
+}
+
+.detailed-client-contaBancaria{
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px dashed black;
+}
+
+.detailed-client-contaBancaria p{
+    border-bottom: 1px solid black ;
+    margin-bottom: 5px;
+}
+
+.detailed-client-beneficios{
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px dashed black;
+}
+
+.detailed-client-beneficios p{
+    border-bottom: 1px solid black ;
+    margin-bottom: 5px;
+}

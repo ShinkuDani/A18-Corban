@@ -47,94 +47,94 @@ ngOnInit(): void {
 
 
   phone: phone = {
-    ddd: 0,
-    number: 0,
-    note: ''
+    ddd: undefined,
+    number: undefined,
+    note: undefined
   }
 
   address: addresses = {
-    street: '',
-    number: '',
-    complement: '',
-    district: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    note: ''
+    street: undefined,
+    number: undefined,
+    complement: undefined,
+    district: undefined,
+    city: undefined,
+    state: undefined,
+    zipCode: undefined,
+    note: undefined
   }
 
   email: email = {
-    email: '',
-    note: ''
+    email: undefined,
+    note: undefined
   }
 
   document: document = {
-    documentId: '',
-    typeCode: 0,
-    number: '',
-    category: '',
-    issuingDate: '',
-    expirationDate: '',
-    issuingEntity: '',
-    issuingState: '',
-    issuingCountry: '',
-    securityCode: '',
-    statusCode: 0,
-    statusNote: '',
-    files: 0
+    documentId: undefined,
+    typeCode: undefined,
+    number: undefined,
+    category: undefined,
+    issuingDate: undefined,
+    expirationDate: undefined,
+    issuingEntity: undefined,
+    issuingState: undefined,
+    issuingCountry: undefined,
+    securityCode: undefined,
+    statusCode: undefined,
+    statusNote: undefined,
+    files: undefined
   }
 
   bankAccount: bankAccounts = {
-    bankAccountId: '',
-    description: '',
-    typeCode: 0,
-    statusCode: 0,
-    statusNote: '',
-    bankCode: '',
-    bankName: '',
-    branchCode: '',
-    accountNumber: '',
-    personTypeCode: 0,
-    countryIdentity: '',
-    holderName: '',
-    startDate: '',
-    note: ''
+    bankAccountId: undefined,
+    description: undefined,
+    typeCode: undefined,
+    statusCode: undefined,
+    statusNote: undefined,
+    bankCode: undefined,
+    bankName: undefined,
+    branchCode: undefined,
+    accountNumber: undefined,
+    personTypeCode: undefined,
+    countryIdentity: undefined,
+    holderName: undefined,
+    startDate: undefined,
+    note: undefined
   }
 
   benefit: benefits = {
-    benefitId: '',
-    typeCode: 0,
-    number: '',
-    code: '',
-    description: '',
-    value: 0,
-    netValue: 0,
-    marginValue: 0,
-    issuingDate: '',
-    startDate: '',
+    benefitId: undefined,
+    typeCode: undefined,
+    number: undefined,
+    code: undefined,
+    description: undefined,
+    value: undefined,
+    netValue: undefined,
+    marginValue: undefined,
+    issuingDate: undefined,
+    startDate: undefined,
     loanEligible: false,
-    issuingState: '',
-    issuingCountry: '',
-    securityCode: '',
-    statusCode: 0,
-    statusNote: '',
-    paymentMethodCode: 0,
-    paymentMethodName: '',
-    note: ''
+    issuingState: undefined,
+    issuingCountry: undefined,
+    securityCode: undefined,
+    statusCode: undefined,
+    statusNote: undefined,
+    paymentMethodCode: undefined,
+    paymentMethodName: undefined,
+    note: undefined
   }
 
   clienteLite: clienteLiteInterface = {
-    accountCode: '',
-    customerId: '',
-    name: '',
-    nickname: '',
-    birthDate: '',
-    motherName: '',
-    fatherName: '',
-    nationality: '',
-    naturalnessState: '',
-    naturalness: '',
-    note: '',
+    accountCode: undefined,
+    customerId: undefined,
+    name: undefined,
+    nickname: undefined,
+    birthDate: undefined,
+    motherName: undefined,
+    fatherName: undefined,
+    nationality: undefined,
+    naturalnessState: undefined,
+    naturalness: undefined,
+    note: undefined,
     addresses: [],
     phones: [],
     emails: [],
@@ -171,7 +171,7 @@ ngOnInit(): void {
 
   putClient(){
     this.arraysInsert();
-    this._corbanService.putCustomer(this.clienteLite.customerId, this.clienteLite).subscribe(
+    this._corbanService.putCustomer(this.clienteLite.customerId as string, this.clienteLite).subscribe(
       data => {
         if(data){
           this._toastr.success('Usuário Alterado com Sucesso', 'Altered')
