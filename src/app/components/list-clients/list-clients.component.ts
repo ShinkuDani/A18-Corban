@@ -8,7 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { clienteLiteInterface } from '../../interfaces/clienteLite';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @Component({
   selector: 'app-list-clients',
@@ -21,7 +22,8 @@ import { clienteLiteInterface } from '../../interfaces/clienteLite';
     MatSidenavModule,
     MatIconModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule
   ],
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.scss'

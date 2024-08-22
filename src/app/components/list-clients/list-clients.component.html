@@ -1,9 +1,17 @@
 <div class="container">
+
+  <div class="toolbar-container">
+    <mat-toolbar>
+       <span> List Clientes </span>
+        <button mat-raised-button (click)="getToken()"> Pegar Token </button>
+        <button mat-raised-button color="primary" (click)="getClients()"> Pegar Customers </button>
+        <button mat-raised-button color="accent" [routerLink]="['/create']">Cadastrar novo Cliente </button>
+    </mat-toolbar> 
+</div>
+
   <div class="container-botoes">
       <h1>List Clientes</h1>
-      <button mat-raised-button (click)="getToken()"> Pegar Token </button>
-      <button mat-raised-button color="primary" (click)="getClients()"> Pegar Customers </button>
-      <button mat-raised-button color="accent" [routerLink]="['/create']">Cadastrar novo Cliente / Alterar Cliente</button>
+      
   </div>
   
   @if (customers){
