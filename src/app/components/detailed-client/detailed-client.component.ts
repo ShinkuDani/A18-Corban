@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { clienteLiteInterface } from '../../interfaces/clienteLite';
 import { CorbanService } from '../../services/corban.service';
-import { ActivatedRoute } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+
+
+
+
 
 @Component({
   selector: 'app-detailed-client',
   standalone: true,
-  imports: [],
+  imports: [MatToolbarModule, RouterModule, MatButtonModule],
   templateUrl: './detailed-client.component.html',
   styleUrl: './detailed-client.component.scss'
 })

@@ -17,7 +17,7 @@
           <p>CustomerId: {{item.customerId}}</p>
         </div>
         <div class="list-clients-botoes">
-          <button mat-raised-button color="accent" [routerLink]="['detail/',item.customerId]"> Detalhes do Usuário </button>
+          <button mat-raised-button color="green" [routerLink]="['detail/',item.customerId]"> Detalhes do Usuário </button>
           <button mat-raised-button color="warn" (click)="deleteClient(item.customerId)"> Deletar Cliente </button>
           <button mat-raised-button color="accent" [routerLink]="['edit/',item.customerId]"> Alterar Cliente</button>
         </div>

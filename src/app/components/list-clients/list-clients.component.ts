@@ -63,18 +63,6 @@ export class ListClientsComponent implements OnInit {
     )
   }
 
-  getClient(id:any){ 
-    this._corbanService.getCustomer(id).subscribe(
-      data => {
-        if (data) {
-          this._toastr.success('Usuário pego')
-          console.log(data)
-          this.customers = data;
-        }
-      }
-    )
-  }
-
   deleteClient(id:any){
     this._corbanService.deleteCustomer(id).subscribe(
       data => {

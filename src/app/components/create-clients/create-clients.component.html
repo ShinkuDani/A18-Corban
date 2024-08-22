@@ -3,13 +3,6 @@
 <div class="input-container">
   <mat-toolbar>
     <span>Novo Cliente ou Alteração de Dados</span>
-    <!--
-    <mat-form-field appearance="outline" class="example-full-width">
-      <input matInput placeholder="CustomerID" type="text" [formControl]="idCustomer" >
-    </mat-form-field>
-    <button mat-raised-button (click)="getClient(this.idCustomer)"> Pegar Customer Especifico </button>
-    
-    -->
   <button mat-raised-button color="primary" type="button" (click)="putClient()"> Salvar Alterações </button>
  <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
 </mat-toolbar> 
@@ -26,7 +19,6 @@
         <li>
           <div class="main-container-forms-cliente">
             <h1> Client Personal Information </h1>
-
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Account Code </mat-label>
               <input matInput placeholder="Account Code" [(ngModel)] = "clienteLite.accountCode" name="accountCode" >
@@ -38,7 +30,7 @@
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label> NickkName </mat-label>
+              <mat-label> NickName </mat-label>
               <input matInput placeholder="Nickname" [(ngModel)] = "clienteLite.nickname" name="nickname" >
             </mat-form-field>
 

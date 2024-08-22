@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginUser } from '../../loginUser';
+import { LoginUser } from '../../../loginUser';
 
 @Injectable({
   providedIn: 'root'
@@ -40,12 +40,7 @@ export class CorbanService {
     debugger
     return this.http.put(`${this.URL}/customers/${id}`, body)
   }
-
-  putCustomer2(id:string, body:any): Observable<any>{
-    debugger
-    return this.http.put(`${this.URL}/customers/${id}`, {body, 'phones':[{'ddd': body.phone[0].ddd, 'number':body.phone[0].number}]})
-  }
-
+  
   deleteCustomer(id:string){
     debugger
     return this.http.delete(`${this.URL}/customers/${id}`)

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -144,6 +144,23 @@ ngOnInit(): void {
   }
 
   
+  
+  
+  submitForm(){
+    if(this.clienteLite.customerId){
+      this.putClient()
+    } else {
+      this._corbanService.postCustomer(this.clienteLite).subscribe(
+        data => {
+          if(data){
+            this._toastr.success('Usuário Criado com Sucesso', 'Post')
+            this.clienteLite = data
+          }
+        }
+      )
+    }
+  }
+
   getClient(id:string){
     this._corbanService.getCustomer(id).subscribe(
       data => {
@@ -155,26 +172,13 @@ ngOnInit(): void {
       }
     )
   }
-  
-  submitForm(){
-    this._corbanService.postCustomer(this.clienteLite).subscribe(
-      data => {
-        if(data){
-          this._toastr.success('Usuário Criado com Sucesso', 'Created')
-          this.clienteLite = data
-        //console.log('Data: ' + JSON.stringify(data))
-        }
-      }
-    )
-    
-  }
 
   putClient(){
     this.arraysInsert();
     this._corbanService.putCustomer(this.clienteLite.customerId as string, this.clienteLite).subscribe(
       data => {
         if(data){
-          this._toastr.success('Usuário Alterado com Sucesso', 'Altered')
+          this._toastr.success('Usuário Alterado com Sucesso', 'Put')
           this.clienteLite = data
         }
       }
@@ -182,9 +186,18 @@ ngOnInit(): void {
   }
   
   arraysInsert(){
-    this.clienteLite.addresses.push(this.address)
-    this.clienteLite.emails.push(this.email)
-    this.clienteLite.phones.push(this.phone)
+    if(this.address.zipCode || this.address.street){
+      this.clienteLite.addresses.push(this.address)
+    }
+    if(this.email.email){
+      this.clienteLite.emails.push(this.email)
+    }
+    if(this.phone.ddd && this.phone.number ){
+      this.clienteLite.phones.push(this.phone)
+    }
+    
+    
+    
   }
     
 
