@@ -1,3 +1,12 @@
+.input-container {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.input-container button{
+    margin-left: auto;
+}
+
 .toolbar-cliente {
     width: 100%;
     border-bottom: 2px solid black;
@@ -12,7 +21,12 @@
     margin: 10px;
 }
 
-.detailed-client-pesronalInfo{
+.detailedClient-pesronalInfo-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.detailedClient-pesronalInfo{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +36,7 @@
     border: 1px dashed black;
 }
 
-.detailed-client-adresses{
+.detailedClient-adresses{
     display: inline-block;
     width: 25%;
     margin: 10px;
@@ -30,12 +44,12 @@
     border: 1px dashed black;
 }
 
-.detailed-client-adresses p{
+.detailedClient-adresses p{
     border-bottom: 1px solid black ;
     margin-bottom: 5px;
 }
 
-.detailed-client-phone{
+.detailedClient-phone{
     display: inline-block;
     width: 25%;
     margin: 10px;
@@ -43,12 +57,12 @@
     border: 1px dashed black;
 }
 
-.detailed-client-phone p{
+.detailedClient-phone p{
     border-bottom: 1px solid black ;
     margin-bottom: 5px;
 }
 
-.detailed-client-document{
+.detailedClient-document{
     display: inline-block;
     width: 25%;
     margin: 10px;
@@ -56,12 +70,12 @@
     border: 1px dashed black;
 }
 
-.detailed-client-document p{
+.detailedClient-document p{
     border-bottom: 1px solid black ;
     margin-bottom: 5px;
 }
 
-.detailed-client-contaBancaria{
+.detailedClient-contaBancaria{
     display: inline-block;
     width: 25%;
     margin: 10px;
@@ -69,12 +83,12 @@
     border: 1px dashed black;
 }
 
-.detailed-client-contaBancaria p{
+.detailedClient-contaBancaria p{
     border-bottom: 1px solid black ;
     margin-bottom: 5px;
 }
 
-.detailed-client-beneficios{
+.detailedClient-beneficios{
     display: inline-block;
     width: 25%;
     margin: 10px;
@@ -82,7 +96,7 @@
     border: 1px dashed black;
 }
 
-.detailed-client-beneficios p{
+.detailedClient-beneficios p{
     border-bottom: 1px solid black ;
     margin-bottom: 5px;
 }
