@@ -1,3 +1,6 @@
+.toolbar-container{
+    border-bottom: 1px solid black;
+}
 .toolbar-container button{
     margin-left: auto;
 }
@@ -26,6 +29,8 @@
 .list-clients{
     display: inline-flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin:  15px 10px;
     padding: 10px;
     border: 1px solid black;

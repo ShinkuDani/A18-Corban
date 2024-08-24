@@ -7,20 +7,16 @@ import {
   _VIEW_REPEATER_STRATEGY,
   _ViewRepeaterOperation,
   isDataSource
-} from "./chunk-E4ZCOTLM.js";
+} from "./chunk-H3LBLK7X.js";
 import {
   Directionality,
   MatCommonModule,
   Platform,
   _isNumberValue
-} from "./chunk-2HQLCZJZ.js";
-import "./chunk-HKAYZS6N.js";
-import "./chunk-KS5HH6AC.js";
-import "./chunk-2EZRO44G.js";
-import "./chunk-O7I6UIPS.js";
+} from "./chunk-7QZ2GFC7.js";
 import {
   DOCUMENT
-} from "./chunk-Y6FHRR2C.js";
+} from "./chunk-OJQNVZFF.js";
 import {
   Attribute,
   BehaviorSubject,
@@ -2635,8 +2631,31 @@ var CdkTableModule = _CdkTableModule;
 })();
 
 // node_modules/@angular/material/fesm2022/table.mjs
-var _c02 = [[["caption"]], [["colgroup"], ["col"]]];
-var _c12 = ["caption", "colgroup, col"];
+var _c02 = [[["caption"]], [["colgroup"], ["col"]], "*"];
+var _c12 = ["caption", "colgroup, col", "*"];
+function MatTable_Conditional_2_Template(rf, ctx) {
+  if (rf & 1) {
+    ɵɵprojection(0, 2);
+  }
+}
+function MatTable_Conditional_3_Template(rf, ctx) {
+  if (rf & 1) {
+    ɵɵelementStart(0, "thead", 0);
+    ɵɵelementContainer(1, 1);
+    ɵɵelementEnd();
+    ɵɵelementStart(2, "tbody", 2);
+    ɵɵelementContainer(3, 3)(4, 4);
+    ɵɵelementEnd();
+    ɵɵelementStart(5, "tfoot", 0);
+    ɵɵelementContainer(6, 5);
+    ɵɵelementEnd();
+  }
+}
+function MatTable_Conditional_4_Template(rf, ctx) {
+  if (rf & 1) {
+    ɵɵelementContainer(0, 1)(1, 3)(2, 4)(3, 5);
+  }
+}
 function MatTextColumn_th_1_Template(rf, ctx) {
   if (rf & 1) {
     ɵɵelementStart(0, "th", 3);
@@ -2672,6 +2691,7 @@ _MatRecycleRows.ɵfac = function MatRecycleRows_Factory(t) {
 _MatRecycleRows.ɵdir = ɵɵdefineDirective({
   type: _MatRecycleRows,
   selectors: [["mat-table", "recycleRows", ""], ["table", "mat-table", "", "recycleRows", ""]],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: _VIEW_REPEATER_STRATEGY,
     useClass: _RecycleViewRepeaterStrategy
@@ -2686,7 +2706,8 @@ var MatRecycleRows = _MatRecycleRows;
       providers: [{
         provide: _VIEW_REPEATER_STRATEGY,
         useClass: _RecycleViewRepeaterStrategy
-      }]
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -2695,13 +2716,6 @@ var _MatTable = class _MatTable extends CdkTable {
     super(...arguments);
     this.stickyCssClass = "mat-mdc-table-sticky";
     this.needsPositionStickyOnElement = false;
-  }
-  ngOnInit() {
-    super.ngOnInit();
-    if (this._isNativeHtmlTable) {
-      const tbody = this._elementRef.nativeElement.querySelector("tbody");
-      tbody.classList.add("mdc-data-table__content");
-    }
   }
 };
 _MatTable.ɵfac = /* @__PURE__ */ (() => {
@@ -2713,7 +2727,7 @@ _MatTable.ɵfac = /* @__PURE__ */ (() => {
 _MatTable.ɵcmp = ɵɵdefineComponent({
   type: _MatTable,
   selectors: [["mat-table"], ["table", "mat-table", ""]],
-  hostAttrs: ["ngSkipHydration", "", 1, "mat-mdc-table", "mdc-data-table__table"],
+  hostAttrs: [1, "mat-mdc-table", "mdc-data-table__table"],
   hostVars: 2,
   hostBindings: function MatTable_HostBindings(rf, ctx) {
     if (rf & 2) {
@@ -2721,6 +2735,7 @@ _MatTable.ɵcmp = ɵɵdefineComponent({
     }
   },
   exportAs: ["matTable"],
+  standalone: true,
   features: [ɵɵProvidersFeature([
     {
       provide: CdkTable,
@@ -2745,21 +2760,27 @@ _MatTable.ɵcmp = ɵɵdefineComponent({
       provide: STICKY_POSITIONING_LISTENER,
       useValue: null
     }
-  ]), ɵɵInheritDefinitionFeature],
+  ]), ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
   ngContentSelectors: _c12,
-  decls: 6,
-  vars: 0,
-  consts: [["headerRowOutlet", ""], ["rowOutlet", ""], ["noDataRowOutlet", ""], ["footerRowOutlet", ""]],
+  decls: 5,
+  vars: 2,
+  consts: [["role", "rowgroup"], ["headerRowOutlet", ""], ["role", "rowgroup", 1, "mdc-data-table__content"], ["rowOutlet", ""], ["noDataRowOutlet", ""], ["footerRowOutlet", ""]],
   template: function MatTable_Template(rf, ctx) {
     if (rf & 1) {
       ɵɵprojectionDef(_c02);
       ɵɵprojection(0);
       ɵɵprojection(1, 1);
-      ɵɵelementContainer(2, 0)(3, 1)(4, 2)(5, 3);
+      ɵɵtemplate(2, MatTable_Conditional_2_Template, 1, 0)(3, MatTable_Conditional_3_Template, 7, 0)(4, MatTable_Conditional_4_Template, 4, 0);
+    }
+    if (rf & 2) {
+      ɵɵadvance(2);
+      ɵɵconditional(2, ctx._isServer ? 2 : -1);
+      ɵɵadvance();
+      ɵɵconditional(3, ctx._isNativeHtmlTable ? 3 : 4);
     }
   },
-  dependencies: [DataRowOutlet, HeaderRowOutlet, FooterRowOutlet, NoDataRowOutlet],
-  styles: [".mat-mdc-table-sticky{position:sticky !important}.mdc-data-table{-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;position:relative}.mdc-data-table__table-container{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-spacing:0;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}[dir=rtl] .mdc-data-table__cell,.mdc-data-table__cell[dir=rtl]{text-align:right}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;outline:none;text-align:left}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__cell,.mdc-data-table__header-cell{padding:0 16px 0 16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:4px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:4px}mat-table{display:block}mat-header-row{min-height:56px}mat-row,mat-footer-row{min-height:48px}mat-row,mat-header-row,mat-footer-row{display:flex;border-width:0;border-bottom-width:1px;border-style:solid;align-items:center;box-sizing:border-box}mat-cell:first-of-type,mat-header-cell:first-of-type,mat-footer-cell:first-of-type{padding-left:24px}[dir=rtl] mat-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:first-of-type:not(:only-of-type){padding-left:0;padding-right:24px}mat-cell:last-of-type,mat-header-cell:last-of-type,mat-footer-cell:last-of-type{padding-right:24px}[dir=rtl] mat-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:last-of-type:not(:only-of-type){padding-right:0;padding-left:24px}mat-cell,mat-header-cell,mat-footer-cell{flex:1;display:flex;align-items:center;overflow:hidden;word-wrap:break-word;min-height:inherit}.mat-mdc-table{--mat-table-row-item-outline-width:1px;table-layout:auto;white-space:normal;background-color:var(--mat-table-background-color)}.mat-mdc-header-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-header-container-height, 56px);color:var(--mat-table-header-headline-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-header-headline-font, Roboto, sans-serif);line-height:var(--mat-table-header-headline-line-height);font-size:var(--mat-table-header-headline-size, 14px);font-weight:var(--mat-table-header-headline-weight, 500)}.mat-mdc-row{height:var(--mat-table-row-item-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87))}.mat-mdc-row,.mdc-data-table__content{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:var(--mat-table-row-item-label-text-font, Roboto, sans-serif);line-height:var(--mat-table-row-item-label-text-line-height);font-size:var(--mat-table-row-item-label-text-size, 14px);font-weight:var(--mat-table-row-item-label-text-weight)}.mat-mdc-footer-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-footer-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-footer-supporting-text-font, Roboto, sans-serif);line-height:var(--mat-table-footer-supporting-text-line-height);font-size:var(--mat-table-footer-supporting-text-size, 14px);font-weight:var(--mat-table-footer-supporting-text-weight);letter-spacing:var(--mat-table-footer-supporting-text-tracking)}.mat-mdc-header-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-header-headline-tracking);font-weight:inherit;line-height:inherit}.mat-mdc-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-row-item-label-text-tracking);line-height:inherit}.mdc-data-table__row:last-child .mat-mdc-cell{border-bottom:none}.mat-mdc-footer-cell{letter-spacing:var(--mat-table-row-item-label-text-tracking)}mat-row.mat-mdc-row,mat-header-row.mat-mdc-header-row,mat-footer-row.mat-mdc-footer-row{border-bottom:none}.mat-mdc-table tbody,.mat-mdc-table tfoot,.mat-mdc-table thead,.mat-mdc-cell,.mat-mdc-footer-cell,.mat-mdc-header-row,.mat-mdc-row,.mat-mdc-footer-row,.mat-mdc-table .mat-mdc-header-cell{background:inherit}.mat-mdc-table mat-header-row.mat-mdc-header-row,.mat-mdc-table mat-row.mat-mdc-row,.mat-mdc-table mat-footer-row.mat-mdc-footer-cell{height:unset}mat-header-cell.mat-mdc-header-cell,mat-cell.mat-mdc-cell,mat-footer-cell.mat-mdc-footer-cell{align-self:stretch}"],
+  dependencies: [HeaderRowOutlet, DataRowOutlet, NoDataRowOutlet, FooterRowOutlet],
+  styles: [".mat-mdc-table-sticky{position:sticky !important}.mdc-data-table{-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;position:relative}.mdc-data-table__table-container{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-spacing:0;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}[dir=rtl] .mdc-data-table__cell,.mdc-data-table__cell[dir=rtl]{text-align:right}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;outline:none;text-align:left}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__cell,.mdc-data-table__header-cell{padding:0 16px 0 16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:4px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:4px}mat-table{display:block}mat-header-row{min-height:56px}mat-row,mat-footer-row{min-height:48px}mat-row,mat-header-row,mat-footer-row{display:flex;border-width:0;border-bottom-width:1px;border-style:solid;align-items:center;box-sizing:border-box}mat-cell:first-of-type,mat-header-cell:first-of-type,mat-footer-cell:first-of-type{padding-left:24px}[dir=rtl] mat-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:first-of-type:not(:only-of-type){padding-left:0;padding-right:24px}mat-cell:last-of-type,mat-header-cell:last-of-type,mat-footer-cell:last-of-type{padding-right:24px}[dir=rtl] mat-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:last-of-type:not(:only-of-type){padding-right:0;padding-left:24px}mat-cell,mat-header-cell,mat-footer-cell{flex:1;display:flex;align-items:center;overflow:hidden;word-wrap:break-word;min-height:inherit}.mat-mdc-table{table-layout:auto;white-space:normal;background-color:var(--mat-table-background-color)}.mat-mdc-header-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-header-container-height, 56px);color:var(--mat-table-header-headline-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-header-headline-font, Roboto, sans-serif);line-height:var(--mat-table-header-headline-line-height);font-size:var(--mat-table-header-headline-size, 14px);font-weight:var(--mat-table-header-headline-weight, 500)}.mat-mdc-row{height:var(--mat-table-row-item-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87))}.mat-mdc-row,.mdc-data-table__content{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:var(--mat-table-row-item-label-text-font, Roboto, sans-serif);line-height:var(--mat-table-row-item-label-text-line-height);font-size:var(--mat-table-row-item-label-text-size, 14px);font-weight:var(--mat-table-row-item-label-text-weight)}.mat-mdc-footer-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-footer-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-footer-supporting-text-font, Roboto, sans-serif);line-height:var(--mat-table-footer-supporting-text-line-height);font-size:var(--mat-table-footer-supporting-text-size, 14px);font-weight:var(--mat-table-footer-supporting-text-weight);letter-spacing:var(--mat-table-footer-supporting-text-tracking)}.mat-mdc-header-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-header-headline-tracking);font-weight:inherit;line-height:inherit}.mat-mdc-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-row-item-label-text-tracking);line-height:inherit}.mdc-data-table__row:last-child .mat-mdc-cell{border-bottom:none}.mat-mdc-footer-cell{letter-spacing:var(--mat-table-row-item-label-text-tracking)}mat-row.mat-mdc-row,mat-header-row.mat-mdc-header-row,mat-footer-row.mat-mdc-footer-row{border-bottom:none}.mat-mdc-table tbody,.mat-mdc-table tfoot,.mat-mdc-table thead,.mat-mdc-cell,.mat-mdc-footer-cell,.mat-mdc-header-row,.mat-mdc-row,.mat-mdc-footer-row,.mat-mdc-table .mat-mdc-header-cell{background:inherit}.mat-mdc-table mat-header-row.mat-mdc-header-row,.mat-mdc-table mat-row.mat-mdc-row,.mat-mdc-table mat-footer-row.mat-mdc-footer-cell{height:unset}mat-header-cell.mat-mdc-header-cell,mat-cell.mat-mdc-cell,mat-footer-cell.mat-mdc-footer-cell{align-self:stretch}"],
   encapsulation: 2
 });
 var MatTable = _MatTable;
@@ -2770,17 +2791,38 @@ var MatTable = _MatTable;
       selector: "mat-table, table[mat-table]",
       exportAs: "matTable",
       template: `
-    <ng-content select="caption"></ng-content>
-    <ng-content select="colgroup, col"></ng-content>
-    <ng-container headerRowOutlet></ng-container>
-    <ng-container rowOutlet></ng-container>
-    <ng-container noDataRowOutlet></ng-container>
-    <ng-container footerRowOutlet></ng-container>
+    <ng-content select="caption"/>
+    <ng-content select="colgroup, col"/>
+
+    <!--
+      Unprojected content throws a hydration error so we need this to capture it.
+      It gets removed on the client so it doesn't affect the layout.
+    -->
+    @if (_isServer) {
+      <ng-content/>
+    }
+
+    @if (_isNativeHtmlTable) {
+      <thead role="rowgroup">
+        <ng-container headerRowOutlet/>
+      </thead>
+      <tbody class="mdc-data-table__content" role="rowgroup">
+        <ng-container rowOutlet/>
+        <ng-container noDataRowOutlet/>
+      </tbody>
+      <tfoot role="rowgroup">
+        <ng-container footerRowOutlet/>
+      </tfoot>
+    } @else {
+      <ng-container headerRowOutlet/>
+      <ng-container rowOutlet/>
+      <ng-container noDataRowOutlet/>
+      <ng-container footerRowOutlet/>
+    }
   `,
       host: {
         "class": "mat-mdc-table mdc-data-table__table",
-        "[class.mdc-table-fixed-layout]": "fixedLayout",
-        "ngSkipHydration": ""
+        "[class.mdc-table-fixed-layout]": "fixedLayout"
       },
       providers: [
         {
@@ -2809,7 +2851,9 @@ var MatTable = _MatTable;
       ],
       encapsulation: ViewEncapsulation$1.None,
       changeDetection: ChangeDetectionStrategy.Default,
-      styles: [".mat-mdc-table-sticky{position:sticky !important}.mdc-data-table{-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;position:relative}.mdc-data-table__table-container{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-spacing:0;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}[dir=rtl] .mdc-data-table__cell,.mdc-data-table__cell[dir=rtl]{text-align:right}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;outline:none;text-align:left}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__cell,.mdc-data-table__header-cell{padding:0 16px 0 16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:4px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:4px}mat-table{display:block}mat-header-row{min-height:56px}mat-row,mat-footer-row{min-height:48px}mat-row,mat-header-row,mat-footer-row{display:flex;border-width:0;border-bottom-width:1px;border-style:solid;align-items:center;box-sizing:border-box}mat-cell:first-of-type,mat-header-cell:first-of-type,mat-footer-cell:first-of-type{padding-left:24px}[dir=rtl] mat-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:first-of-type:not(:only-of-type){padding-left:0;padding-right:24px}mat-cell:last-of-type,mat-header-cell:last-of-type,mat-footer-cell:last-of-type{padding-right:24px}[dir=rtl] mat-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:last-of-type:not(:only-of-type){padding-right:0;padding-left:24px}mat-cell,mat-header-cell,mat-footer-cell{flex:1;display:flex;align-items:center;overflow:hidden;word-wrap:break-word;min-height:inherit}.mat-mdc-table{--mat-table-row-item-outline-width:1px;table-layout:auto;white-space:normal;background-color:var(--mat-table-background-color)}.mat-mdc-header-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-header-container-height, 56px);color:var(--mat-table-header-headline-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-header-headline-font, Roboto, sans-serif);line-height:var(--mat-table-header-headline-line-height);font-size:var(--mat-table-header-headline-size, 14px);font-weight:var(--mat-table-header-headline-weight, 500)}.mat-mdc-row{height:var(--mat-table-row-item-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87))}.mat-mdc-row,.mdc-data-table__content{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:var(--mat-table-row-item-label-text-font, Roboto, sans-serif);line-height:var(--mat-table-row-item-label-text-line-height);font-size:var(--mat-table-row-item-label-text-size, 14px);font-weight:var(--mat-table-row-item-label-text-weight)}.mat-mdc-footer-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-footer-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-footer-supporting-text-font, Roboto, sans-serif);line-height:var(--mat-table-footer-supporting-text-line-height);font-size:var(--mat-table-footer-supporting-text-size, 14px);font-weight:var(--mat-table-footer-supporting-text-weight);letter-spacing:var(--mat-table-footer-supporting-text-tracking)}.mat-mdc-header-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-header-headline-tracking);font-weight:inherit;line-height:inherit}.mat-mdc-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-row-item-label-text-tracking);line-height:inherit}.mdc-data-table__row:last-child .mat-mdc-cell{border-bottom:none}.mat-mdc-footer-cell{letter-spacing:var(--mat-table-row-item-label-text-tracking)}mat-row.mat-mdc-row,mat-header-row.mat-mdc-header-row,mat-footer-row.mat-mdc-footer-row{border-bottom:none}.mat-mdc-table tbody,.mat-mdc-table tfoot,.mat-mdc-table thead,.mat-mdc-cell,.mat-mdc-footer-cell,.mat-mdc-header-row,.mat-mdc-row,.mat-mdc-footer-row,.mat-mdc-table .mat-mdc-header-cell{background:inherit}.mat-mdc-table mat-header-row.mat-mdc-header-row,.mat-mdc-table mat-row.mat-mdc-row,.mat-mdc-table mat-footer-row.mat-mdc-footer-cell{height:unset}mat-header-cell.mat-mdc-header-cell,mat-cell.mat-mdc-cell,mat-footer-cell.mat-mdc-footer-cell{align-self:stretch}"]
+      standalone: true,
+      imports: [HeaderRowOutlet, DataRowOutlet, NoDataRowOutlet, FooterRowOutlet],
+      styles: [".mat-mdc-table-sticky{position:sticky !important}.mdc-data-table{-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;position:relative}.mdc-data-table__table-container{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-spacing:0;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}[dir=rtl] .mdc-data-table__cell,.mdc-data-table__cell[dir=rtl]{text-align:right}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;outline:none;text-align:left}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__cell,.mdc-data-table__header-cell{padding:0 16px 0 16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:4px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:4px}mat-table{display:block}mat-header-row{min-height:56px}mat-row,mat-footer-row{min-height:48px}mat-row,mat-header-row,mat-footer-row{display:flex;border-width:0;border-bottom-width:1px;border-style:solid;align-items:center;box-sizing:border-box}mat-cell:first-of-type,mat-header-cell:first-of-type,mat-footer-cell:first-of-type{padding-left:24px}[dir=rtl] mat-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:first-of-type:not(:only-of-type){padding-left:0;padding-right:24px}mat-cell:last-of-type,mat-header-cell:last-of-type,mat-footer-cell:last-of-type{padding-right:24px}[dir=rtl] mat-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:last-of-type:not(:only-of-type){padding-right:0;padding-left:24px}mat-cell,mat-header-cell,mat-footer-cell{flex:1;display:flex;align-items:center;overflow:hidden;word-wrap:break-word;min-height:inherit}.mat-mdc-table{table-layout:auto;white-space:normal;background-color:var(--mat-table-background-color)}.mat-mdc-header-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-header-container-height, 56px);color:var(--mat-table-header-headline-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-header-headline-font, Roboto, sans-serif);line-height:var(--mat-table-header-headline-line-height);font-size:var(--mat-table-header-headline-size, 14px);font-weight:var(--mat-table-header-headline-weight, 500)}.mat-mdc-row{height:var(--mat-table-row-item-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87))}.mat-mdc-row,.mdc-data-table__content{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:var(--mat-table-row-item-label-text-font, Roboto, sans-serif);line-height:var(--mat-table-row-item-label-text-line-height);font-size:var(--mat-table-row-item-label-text-size, 14px);font-weight:var(--mat-table-row-item-label-text-weight)}.mat-mdc-footer-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-footer-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-footer-supporting-text-font, Roboto, sans-serif);line-height:var(--mat-table-footer-supporting-text-line-height);font-size:var(--mat-table-footer-supporting-text-size, 14px);font-weight:var(--mat-table-footer-supporting-text-weight);letter-spacing:var(--mat-table-footer-supporting-text-tracking)}.mat-mdc-header-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-header-headline-tracking);font-weight:inherit;line-height:inherit}.mat-mdc-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-row-item-label-text-tracking);line-height:inherit}.mdc-data-table__row:last-child .mat-mdc-cell{border-bottom:none}.mat-mdc-footer-cell{letter-spacing:var(--mat-table-row-item-label-text-tracking)}mat-row.mat-mdc-row,mat-header-row.mat-mdc-header-row,mat-footer-row.mat-mdc-footer-row{border-bottom:none}.mat-mdc-table tbody,.mat-mdc-table tfoot,.mat-mdc-table thead,.mat-mdc-cell,.mat-mdc-footer-cell,.mat-mdc-header-row,.mat-mdc-row,.mat-mdc-footer-row,.mat-mdc-table .mat-mdc-header-cell{background:inherit}.mat-mdc-table mat-header-row.mat-mdc-header-row,.mat-mdc-table mat-row.mat-mdc-row,.mat-mdc-table mat-footer-row.mat-mdc-footer-cell{height:unset}mat-header-cell.mat-mdc-header-cell,mat-cell.mat-mdc-cell,mat-footer-cell.mat-mdc-footer-cell{align-self:stretch}"]
     }]
   }], null, null);
 })();
@@ -2824,6 +2868,7 @@ _MatCellDef.ɵfac = /* @__PURE__ */ (() => {
 _MatCellDef.ɵdir = ɵɵdefineDirective({
   type: _MatCellDef,
   selectors: [["", "matCellDef", ""]],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkCellDef,
     useExisting: _MatCellDef
@@ -2838,7 +2883,8 @@ var MatCellDef = _MatCellDef;
       providers: [{
         provide: CdkCellDef,
         useExisting: MatCellDef
-      }]
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -2853,6 +2899,7 @@ _MatHeaderCellDef.ɵfac = /* @__PURE__ */ (() => {
 _MatHeaderCellDef.ɵdir = ɵɵdefineDirective({
   type: _MatHeaderCellDef,
   selectors: [["", "matHeaderCellDef", ""]],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkHeaderCellDef,
     useExisting: _MatHeaderCellDef
@@ -2867,7 +2914,8 @@ var MatHeaderCellDef = _MatHeaderCellDef;
       providers: [{
         provide: CdkHeaderCellDef,
         useExisting: MatHeaderCellDef
-      }]
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -2882,6 +2930,7 @@ _MatFooterCellDef.ɵfac = /* @__PURE__ */ (() => {
 _MatFooterCellDef.ɵdir = ɵɵdefineDirective({
   type: _MatFooterCellDef,
   selectors: [["", "matFooterCellDef", ""]],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkFooterCellDef,
     useExisting: _MatFooterCellDef
@@ -2896,7 +2945,8 @@ var MatFooterCellDef = _MatFooterCellDef;
       providers: [{
         provide: CdkFooterCellDef,
         useExisting: MatFooterCellDef
-      }]
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -2929,9 +2979,9 @@ _MatColumnDef.ɵdir = ɵɵdefineDirective({
   type: _MatColumnDef,
   selectors: [["", "matColumnDef", ""]],
   inputs: {
-    sticky: "sticky",
     name: [InputFlags.None, "matColumnDef", "name"]
   },
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkColumnDef,
     useExisting: _MatColumnDef
@@ -2946,14 +2996,14 @@ var MatColumnDef = _MatColumnDef;
     type: Directive,
     args: [{
       selector: "[matColumnDef]",
-      inputs: ["sticky"],
       providers: [{
         provide: CdkColumnDef,
         useExisting: MatColumnDef
       }, {
         provide: "MAT_SORT_HEADER_COLUMN_DEF",
         useExisting: MatColumnDef
-      }]
+      }],
+      standalone: true
     }]
   }], null, {
     name: [{
@@ -2974,6 +3024,7 @@ _MatHeaderCell.ɵdir = ɵɵdefineDirective({
   type: _MatHeaderCell,
   selectors: [["mat-header-cell"], ["th", "mat-header-cell", ""]],
   hostAttrs: ["role", "columnheader", 1, "mat-mdc-header-cell", "mdc-data-table__header-cell"],
+  standalone: true,
   features: [ɵɵInheritDefinitionFeature]
 });
 var MatHeaderCell = _MatHeaderCell;
@@ -2985,7 +3036,8 @@ var MatHeaderCell = _MatHeaderCell;
       host: {
         "class": "mat-mdc-header-cell mdc-data-table__header-cell",
         "role": "columnheader"
-      }
+      },
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3001,6 +3053,7 @@ _MatFooterCell.ɵdir = ɵɵdefineDirective({
   type: _MatFooterCell,
   selectors: [["mat-footer-cell"], ["td", "mat-footer-cell", ""]],
   hostAttrs: [1, "mat-mdc-footer-cell", "mdc-data-table__cell"],
+  standalone: true,
   features: [ɵɵInheritDefinitionFeature]
 });
 var MatFooterCell = _MatFooterCell;
@@ -3011,7 +3064,8 @@ var MatFooterCell = _MatFooterCell;
       selector: "mat-footer-cell, td[mat-footer-cell]",
       host: {
         "class": "mat-mdc-footer-cell mdc-data-table__cell"
-      }
+      },
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3027,6 +3081,7 @@ _MatCell.ɵdir = ɵɵdefineDirective({
   type: _MatCell,
   selectors: [["mat-cell"], ["td", "mat-cell", ""]],
   hostAttrs: [1, "mat-mdc-cell", "mdc-data-table__cell"],
+  standalone: true,
   features: [ɵɵInheritDefinitionFeature]
 });
 var MatCell = _MatCell;
@@ -3037,7 +3092,8 @@ var MatCell = _MatCell;
       selector: "mat-cell, td[mat-cell]",
       host: {
         "class": "mat-mdc-cell mdc-data-table__cell"
-      }
+      },
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3055,12 +3111,13 @@ _MatHeaderRowDef.ɵdir = ɵɵdefineDirective({
   selectors: [["", "matHeaderRowDef", ""]],
   inputs: {
     columns: [InputFlags.None, "matHeaderRowDef", "columns"],
-    sticky: [InputFlags.None, "matHeaderRowDefSticky", "sticky"]
+    sticky: [InputFlags.HasDecoratorInputTransform, "matHeaderRowDefSticky", "sticky", booleanAttribute]
   },
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkHeaderRowDef,
     useExisting: _MatHeaderRowDef
-  }]), ɵɵInheritDefinitionFeature]
+  }]), ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature]
 });
 var MatHeaderRowDef = _MatHeaderRowDef;
 (() => {
@@ -3072,7 +3129,15 @@ var MatHeaderRowDef = _MatHeaderRowDef;
         provide: CdkHeaderRowDef,
         useExisting: MatHeaderRowDef
       }],
-      inputs: ["columns: matHeaderRowDef", "sticky: matHeaderRowDefSticky"]
+      inputs: [{
+        name: "columns",
+        alias: "matHeaderRowDef"
+      }, {
+        name: "sticky",
+        alias: "matHeaderRowDefSticky",
+        transform: booleanAttribute
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3089,12 +3154,13 @@ _MatFooterRowDef.ɵdir = ɵɵdefineDirective({
   selectors: [["", "matFooterRowDef", ""]],
   inputs: {
     columns: [InputFlags.None, "matFooterRowDef", "columns"],
-    sticky: [InputFlags.None, "matFooterRowDefSticky", "sticky"]
+    sticky: [InputFlags.HasDecoratorInputTransform, "matFooterRowDefSticky", "sticky", booleanAttribute]
   },
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkFooterRowDef,
     useExisting: _MatFooterRowDef
-  }]), ɵɵInheritDefinitionFeature]
+  }]), ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature]
 });
 var MatFooterRowDef = _MatFooterRowDef;
 (() => {
@@ -3106,7 +3172,15 @@ var MatFooterRowDef = _MatFooterRowDef;
         provide: CdkFooterRowDef,
         useExisting: MatFooterRowDef
       }],
-      inputs: ["columns: matFooterRowDef", "sticky: matFooterRowDefSticky"]
+      inputs: [{
+        name: "columns",
+        alias: "matFooterRowDef"
+      }, {
+        name: "sticky",
+        alias: "matFooterRowDefSticky",
+        transform: booleanAttribute
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3125,6 +3199,7 @@ _MatRowDef.ɵdir = ɵɵdefineDirective({
     columns: [InputFlags.None, "matRowDefColumns", "columns"],
     when: [InputFlags.None, "matRowDefWhen", "when"]
   },
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkRowDef,
     useExisting: _MatRowDef
@@ -3140,7 +3215,14 @@ var MatRowDef = _MatRowDef;
         provide: CdkRowDef,
         useExisting: MatRowDef
       }],
-      inputs: ["columns: matRowDefColumns", "when: matRowDefWhen"]
+      inputs: [{
+        name: "columns",
+        alias: "matRowDefColumns"
+      }, {
+        name: "when",
+        alias: "matRowDefWhen"
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3157,10 +3239,11 @@ _MatHeaderRow.ɵcmp = ɵɵdefineComponent({
   selectors: [["mat-header-row"], ["tr", "mat-header-row", ""]],
   hostAttrs: ["role", "row", 1, "mat-mdc-header-row", "mdc-data-table__header-row"],
   exportAs: ["matHeaderRow"],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkHeaderRow,
     useExisting: _MatHeaderRow
-  }]), ɵɵInheritDefinitionFeature],
+  }]), ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
   decls: 1,
   vars: 0,
   consts: [["cdkCellOutlet", ""]],
@@ -3191,7 +3274,9 @@ var MatHeaderRow = _MatHeaderRow;
       providers: [{
         provide: CdkHeaderRow,
         useExisting: MatHeaderRow
-      }]
+      }],
+      standalone: true,
+      imports: [CdkCellOutlet]
     }]
   }], null, null);
 })();
@@ -3208,10 +3293,11 @@ _MatFooterRow.ɵcmp = ɵɵdefineComponent({
   selectors: [["mat-footer-row"], ["tr", "mat-footer-row", ""]],
   hostAttrs: ["role", "row", 1, "mat-mdc-footer-row", "mdc-data-table__row"],
   exportAs: ["matFooterRow"],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkFooterRow,
     useExisting: _MatFooterRow
-  }]), ɵɵInheritDefinitionFeature],
+  }]), ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
   decls: 1,
   vars: 0,
   consts: [["cdkCellOutlet", ""]],
@@ -3242,7 +3328,9 @@ var MatFooterRow = _MatFooterRow;
       providers: [{
         provide: CdkFooterRow,
         useExisting: MatFooterRow
-      }]
+      }],
+      standalone: true,
+      imports: [CdkCellOutlet]
     }]
   }], null, null);
 })();
@@ -3259,10 +3347,11 @@ _MatRow.ɵcmp = ɵɵdefineComponent({
   selectors: [["mat-row"], ["tr", "mat-row", ""]],
   hostAttrs: ["role", "row", 1, "mat-mdc-row", "mdc-data-table__row"],
   exportAs: ["matRow"],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkRow,
     useExisting: _MatRow
-  }]), ɵɵInheritDefinitionFeature],
+  }]), ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
   decls: 1,
   vars: 0,
   consts: [["cdkCellOutlet", ""]],
@@ -3293,7 +3382,9 @@ var MatRow = _MatRow;
       providers: [{
         provide: CdkRow,
         useExisting: MatRow
-      }]
+      }],
+      standalone: true,
+      imports: [CdkCellOutlet]
     }]
   }], null, null);
 })();
@@ -3312,6 +3403,7 @@ _MatNoDataRow.ɵfac = /* @__PURE__ */ (() => {
 _MatNoDataRow.ɵdir = ɵɵdefineDirective({
   type: _MatNoDataRow,
   selectors: [["ng-template", "matNoDataRow", ""]],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: CdkNoDataRow,
     useExisting: _MatNoDataRow
@@ -3326,7 +3418,8 @@ var MatNoDataRow = _MatNoDataRow;
       providers: [{
         provide: CdkNoDataRow,
         useExisting: MatNoDataRow
-      }]
+      }],
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3341,7 +3434,8 @@ _MatTextColumn.ɵfac = /* @__PURE__ */ (() => {
 _MatTextColumn.ɵcmp = ɵɵdefineComponent({
   type: _MatTextColumn,
   selectors: [["mat-text-column"]],
-  features: [ɵɵInheritDefinitionFeature],
+  standalone: true,
+  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
   decls: 3,
   vars: 0,
   consts: [["matColumnDef", ""], ["mat-header-cell", "", 3, "text-align", 4, "matHeaderCellDef"], ["mat-cell", "", 3, "text-align", 4, "matCellDef"], ["mat-header-cell", ""], ["mat-cell", ""]],
@@ -3352,7 +3446,7 @@ _MatTextColumn.ɵcmp = ɵɵdefineComponent({
       ɵɵelementContainerEnd();
     }
   },
-  dependencies: [MatHeaderCellDef, MatColumnDef, MatCellDef, MatHeaderCell, MatCell],
+  dependencies: [MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell],
   encapsulation: 2
 });
 var MatTextColumn = _MatTextColumn;
@@ -3378,7 +3472,9 @@ var MatTextColumn = _MatTextColumn;
       // mean's the template in the table's view will not have the updated value (and in fact will cause
       // an ExpressionChangedAfterItHasBeenCheckedError).
       // tslint:disable-next-line:validate-decorators
-      changeDetection: ChangeDetectionStrategy.Default
+      changeDetection: ChangeDetectionStrategy.Default,
+      standalone: true,
+      imports: [MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell]
     }]
   }], null, null);
 })();
@@ -3412,7 +3508,9 @@ _MatTableModule.ɵfac = function MatTableModule_Factory(t) {
 };
 _MatTableModule.ɵmod = ɵɵdefineNgModule({
   type: _MatTableModule,
-  declarations: [
+  imports: [
+    MatCommonModule,
+    CdkTableModule,
     // Table
     MatTable,
     MatRecycleRows,
@@ -3435,7 +3533,6 @@ _MatTableModule.ɵmod = ɵɵdefineNgModule({
     MatNoDataRow,
     MatTextColumn
   ],
-  imports: [MatCommonModule, CdkTableModule],
   exports: [
     MatCommonModule,
     // Table
@@ -3469,14 +3566,13 @@ var MatTableModule = _MatTableModule;
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatTableModule, [{
     type: NgModule,
     args: [{
-      imports: [MatCommonModule, CdkTableModule],
-      exports: [MatCommonModule, EXPORTED_DECLARATIONS2],
-      declarations: EXPORTED_DECLARATIONS2
+      imports: [MatCommonModule, CdkTableModule, ...EXPORTED_DECLARATIONS2],
+      exports: [MatCommonModule, EXPORTED_DECLARATIONS2]
     }]
   }], null, null);
 })();
 var MAX_SAFE_INTEGER = 9007199254740991;
-var _MatTableDataSource = class extends DataSource {
+var MatTableDataSource = class extends DataSource {
   /** Array of data that should be rendered by the table, where each object represents one row. */
   get data() {
     return this._data.value;
@@ -3677,8 +3773,6 @@ var _MatTableDataSource = class extends DataSource {
     this._renderChangesSubscription = null;
   }
 };
-var MatTableDataSource = class extends _MatTableDataSource {
-};
 export {
   MatCell,
   MatCellDef,
@@ -3698,7 +3792,6 @@ export {
   MatTable,
   MatTableDataSource,
   MatTableModule,
-  MatTextColumn,
-  _MatTableDataSource
+  MatTextColumn
 };
 //# sourceMappingURL=@angular_material_table.js.map

@@ -1,3 +1,18 @@
+.toolbar-container {
+    width: 100%;
+    margin-left: 10px;
+    border-bottom: 2px solid black;
+}
+
+.toolbar-container mat-form-field{
+    margin: 0px 10px;
+    height: 60px;
+}
+
+.toolbar-container button{
+    margin-left: auto; 
+}
+
 .createClients-container{
     margin-bottom: 10px;
 }
@@ -19,17 +34,6 @@ li {
 
 }
 
-
-.toolbar-container {
-    width: 100%;
-    margin-left: 10px;
-    border-bottom: 2px solid black;
-}
-
-.toolbar-container mat-form-field{
-    margin: 0px 10px;
-    height: 60px;
-}
 
 .input-container button {
     margin: 10px;

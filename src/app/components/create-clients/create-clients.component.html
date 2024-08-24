@@ -3,8 +3,7 @@
 <div class="toolbar-container">
   <mat-toolbar>
     <span>Novo Cliente ou Alteração de Dados</span>
-  <button mat-raised-button color="primary" type="button" (click)="putClient()"> Salvar Alterações </button>
- <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
+  <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
 </mat-toolbar> 
 </div>
     
@@ -133,7 +132,7 @@
     
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Naturalidade </mat-label>
-              <input matInput placeholder="Naturalidade" [(ngModel)] = 'clienteLite.nationality' name="naturalness">
+              <input matInput placeholder="Naturalidade" [(ngModel)] = 'clienteLite.naturalness' name="naturalness">
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="example-full-width">
