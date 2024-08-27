@@ -19,25 +19,25 @@ export interface clienteLiteInterface {
   }
 
 export interface phone {
-    'ddd': number|undefined
-    'number': number|undefined
-    'note': string|undefined
+    'ddd': number
+    'number': number
+    'note': string
 }
 
 export interface email {
-    'email': string|undefined
-    'note': string|undefined
+    'email': string
+    'note': string
 }
 
 export interface addresses {
-    'street': string|undefined
-    'number': string|undefined
-    'complement': string|undefined
-    'district': string|undefined
-    'city': string|undefined
-    'state': string|undefined
-    'zipCode': string|undefined
-    'note': string|undefined
+    'street': string
+    'number': string
+    'complement': string
+    'district': string
+    'city': string
+    'state': string
+    'zipCode': string
+    'note': string
 }
 
 export interface document {

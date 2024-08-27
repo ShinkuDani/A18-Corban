@@ -49,7 +49,7 @@ export class ListClientsComponent implements OnInit {
   getToken(){
     this._corbanService.getToken().subscribe(result => {
       if (result)
-        this._toastr.success('Token Salvo')
+        //this._toastr.success('Token Salvo')
         localStorage.setItem('token', result.token);
     })
   }
@@ -58,7 +58,7 @@ export class ListClientsComponent implements OnInit {
     this._corbanService.getCustomers().subscribe(
       data => {
         if (data) {
-          this._toastr.success('Usuários pegos')
+          //this._toastr.success('Usuários pegos')
           console.log(data)
           this.customers = data.items;
         }
@@ -69,7 +69,7 @@ export class ListClientsComponent implements OnInit {
   deleteClient(id:any){
     this._corbanService.deleteCustomer(id).subscribe(
       data => {
-        this._toastr.warning('Usuário Deletado', 'Delete')
+        //this._toastr.warning('Usuário Deletado', 'Delete')
         this.getClients()
       }
     )

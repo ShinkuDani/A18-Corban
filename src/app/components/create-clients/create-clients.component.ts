@@ -33,6 +33,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class CreateClientsComponent implements OnInit{
 
 ngOnInit(): void {
+  debugger
   let idCustomer = this._router.snapshot.paramMap.get('id');  
   if(idCustomer == null){
     console.log('Cliente Novo') 
@@ -45,27 +46,20 @@ ngOnInit(): void {
   constructor(private _corbanService:CorbanService, private _toastr:ToastrService, private _router: ActivatedRoute){
   }
 
-
-  phone: phone = {
-    ddd: undefined,
-    number: undefined,
-    note: undefined
-  }
-
   address: addresses = {
-    street: undefined,
-    number: undefined,
-    complement: undefined,
-    district: undefined,
-    city: undefined,
-    state: undefined,
-    zipCode: undefined,
-    note: undefined
+    street: '',
+    number: '',
+    complement: '',
+    district: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    note: ''
   }
 
   email: email = {
-    email: undefined,
-    note: undefined
+    email: '',
+    note: ''
   }
 
   document: document = {
@@ -135,9 +129,31 @@ ngOnInit(): void {
     naturalnessState: undefined,
     naturalness: undefined,
     note: undefined,
-    addresses: [],
-    phones: [],
-    emails: [],
+    addresses: [
+        {
+        street: '',
+        number: '',
+        complement: '',
+        district: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        note: ''
+      }
+    ],
+    phones: [
+      {
+        ddd: 0,
+        number: 0,
+        note: ''
+      }
+    ],
+    emails: [
+      {
+      email: '',
+      note: ''
+      }
+    ],
     document: [],
     bankAccounts: [],
     benefits: []
@@ -147,13 +163,15 @@ ngOnInit(): void {
   
   
   submitForm(){
+    debugger
     if(this.clienteLite.customerId){
       this.putClient()
     } else {
+      this.setFields();
       this._corbanService.postCustomer(this.clienteLite).subscribe(
         data => {
           if(data){
-            this._toastr.success('Usuário Criado com Sucesso', 'Post')
+            //this._toastr.success('Usuário Criado com Sucesso', 'Post')
             this.clienteLite = data
           }
         }
@@ -165,7 +183,7 @@ ngOnInit(): void {
     this._corbanService.getCustomer(id).subscribe(
       data => {
         if(data){
-          this._toastr.success('Usuário Pego', 'Get')
+         // this._toastr.success('Usuário Pego', 'Get')
           this.clienteLite = data
           console.log(data)
         } 
@@ -174,27 +192,28 @@ ngOnInit(): void {
   }
 
   putClient(){
-    this.arraysInsert();
+    debugger
+    this.setFields();
     this._corbanService.putCustomer(this.clienteLite.customerId as string, this.clienteLite).subscribe(
       data => {
         if(data){
-          this._toastr.success('Usuário Alterado com Sucesso', 'Put')
+          //this._toastr.success('Usuário Alterado com Sucesso', 'Put')
           this.clienteLite = data
         }
       }
     )
   }
   
-  arraysInsert(){
-    if(this.address.zipCode || this.address.street){
-      this.clienteLite.addresses.push(this.address)
-    }
-    if(this.email.email){
-      this.clienteLite.emails.push(this.email)
-    }
-    if(this.phone.ddd && this.phone.number ){
-      this.clienteLite.phones.push(this.phone)
-    }
+  setFields(){
+    // if(this.address.zipCode || this.address.street){
+    //   this.clienteLite.addresses =[this.address];
+    // }
+    // if(this.email.email){
+    //   this.clienteLite.emails = [this.email];
+    // }
+    // if(this.phone.ddd && this.phone.number ){
+    //   this.clienteLite.phones = [this.phone];
+    // }
     
     
     
