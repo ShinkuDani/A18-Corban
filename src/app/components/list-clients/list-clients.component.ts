@@ -35,9 +35,7 @@ export class ListClientsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
     this.getToken()
-      
     this.getClients()
   }
 

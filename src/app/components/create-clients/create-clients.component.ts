@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, ActivatedRoute } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
 import { addresses, bankAccounts, benefits, clienteLiteInterface, document, email, phone } from '../../interfaces/clienteLite';
@@ -25,7 +26,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RouterModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ],
   templateUrl: './create-clients.component.html',
   styleUrl: './create-clients.component.scss'
@@ -167,7 +169,6 @@ ngOnInit(): void {
     if(this.clienteLite.customerId){
       this.putClient()
     } else {
-      this.setFields();
       this._corbanService.postCustomer(this.clienteLite).subscribe(
         data => {
           if(data){
@@ -193,7 +194,6 @@ ngOnInit(): void {
 
   putClient(){
     debugger
-    this.setFields();
     this._corbanService.putCustomer(this.clienteLite.customerId as string, this.clienteLite).subscribe(
       data => {
         if(data){
@@ -204,19 +204,9 @@ ngOnInit(): void {
     )
   }
   
-  setFields(){
-    // if(this.address.zipCode || this.address.street){
-    //   this.clienteLite.addresses =[this.address];
-    // }
-    // if(this.email.email){
-    //   this.clienteLite.emails = [this.email];
-    // }
-    // if(this.phone.ddd && this.phone.number ){
-    //   this.clienteLite.phones = [this.phone];
-    // }
+  setPhone(){
     
-    
-    
+  
   }
     
 

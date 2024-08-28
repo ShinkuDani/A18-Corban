@@ -3,6 +3,7 @@
 <div class="toolbar-container">
   <mat-toolbar>
     <span>Novo Cliente ou Alteração de Dados</span>
+  <button mat-raised-button type="submit"  color="primary" (click)="submitForm()"> Salvar </button>
   <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
 </mat-toolbar> 
 </div>
@@ -52,19 +53,31 @@
               <input matInput placeholder="Nacimento" [(ngModel)] = "clienteLite.birthDate" name="birthDate">
             </mat-form-field>
 
-            @for (phoneT of clienteLite.phones; track phoneT) {
+            @for (emailT of clienteLite.emails; track emailT) {
 
               <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label> DDD </mat-label>
-                <input matInput placeholder="DDD" [(ngModel)] = "phoneT.ddd" name="phoneDDD">
+                <input matInput placeholder="E-mail" [(ngModel)] = "emailT.email" name="email">
               </mat-form-field>
-      
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label> Telefone </mat-label>
-                <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name="phoneNumber">
-              </mat-form-field>
-
             }
+
+              @for (phoneT of clienteLite.phones; track phoneT) {
+
+                <mat-form-field appearance="outline">
+                  <mat-label> DDD </mat-label>
+                  <input matInput placeholder="DDD" [(ngModel)] = "phoneT.ddd" name="phoneDDD">
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                  <mat-label> Telefone </mat-label>
+                  <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name="phoneNumber">
+                </mat-form-field>
+
+      
+                
+  
+              }
+
+            
 
             <!--
               <mat-form-field appearance="outline" class="example-full-width">
@@ -79,11 +92,7 @@
             
             -->
             
-            @for (emailT of clienteLite.emails; track emailT) {
-              <mat-form-field appearance="outline" class="example-full-width">
-                <input matInput placeholder="E-mail" [(ngModel)] = "emailT.email" name="email">
-              </mat-form-field>
-            }
+            
             
     
             <mat-form-field appearance="outline" class="example-full-width">
@@ -93,6 +102,7 @@
           </div>
         </li>
         <li>
+
           @for (addressT of clienteLite.addresses; track addressT) {
             <div class="main-container-forms-cliente">
               <h1> Endereço </h1>
@@ -281,7 +291,7 @@
     </div>
       <div class="botoes">
         <button mat-raised-button type="submit"> OK </button>
-
+        
       </div>
     </form> 
 </div>
