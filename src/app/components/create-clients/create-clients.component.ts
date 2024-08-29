@@ -8,7 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, ActivatedRoute } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
-import { addresses, bankAccounts, benefits, clienteLiteInterface, document, email, phone } from '../../interfaces/clienteLite';
+import { bankAccounts, benefits, clienteLiteInterface, document, phone } from '../../interfaces/clienteLite';
 import { MatButtonModule } from '@angular/material/button';
 import { ToastrService } from 'ngx-toastr';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -48,20 +48,10 @@ ngOnInit(): void {
   constructor(private _corbanService:CorbanService, private _toastr:ToastrService, private _router: ActivatedRoute){
   }
 
-  address: addresses = {
-    street: '',
-    number: '',
-    complement: '',
-    district: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    note: ''
-  }
-
-  email: email = {
-    email: '',
-    note: ''
+  phoneN: phone = {
+    ddd:0,
+    number:0,
+    note:''
   }
 
   document: document = {
@@ -144,11 +134,9 @@ ngOnInit(): void {
       }
     ],
     phones: [
-      {
-        ddd: 0,
-        number: 0,
-        note: ''
-      }
+      
+        this.phoneN
+      
     ],
     emails: [
       {
@@ -205,8 +193,9 @@ ngOnInit(): void {
   }
   
   setPhone(){
-    
-  
+    if(this.phoneN.ddd != 0 && this.phoneN.number != 0){
+      this.clienteLite.phones.push(this.phoneN)
+    }
   }
     
 

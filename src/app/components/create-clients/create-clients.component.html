@@ -58,23 +58,32 @@
               <mat-form-field appearance="outline" class="example-full-width">
                 <input matInput placeholder="E-mail" [(ngModel)] = "emailT.email" name="email">
               </mat-form-field>
-            }
 
-              @for (phoneT of clienteLite.phones; track phoneT) {
-
+              <div class="cliente-Phone">
                 <mat-form-field appearance="outline">
                   <mat-label> DDD </mat-label>
-                  <input matInput placeholder="DDD" [(ngModel)] = "phoneT.ddd" name="phoneDDD">
+                  <input matInput placeholder="DDD" [(ngModel)] = "phoneN.ddd" name="phoneDDD">
                 </mat-form-field>
                 
                 <mat-form-field appearance="outline">
                   <mat-label> Telefone </mat-label>
-                  <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name="phoneNumber">
-                </mat-form-field>
+                  <input matInput placeholder="Telefone" [(ngModel)] = "phoneN.number" name="phoneNumber">
+                </mat-form-field> 
+                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="setPhone()">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
 
-      
-                
-  
+              </div>   
+            }
+
+              @if(clienteLite.phones.length > 1){
+                @for (phoneT of clienteLite.phones; track phoneT) {
+
+                  <mat-form-field appearance="outline">
+                    <mat-label> Telefone </mat-label>
+                    <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name="phoneNumber">
+                  </mat-form-field>          
+                }
               }
 
             

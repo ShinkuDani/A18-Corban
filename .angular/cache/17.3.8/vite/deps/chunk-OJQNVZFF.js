@@ -4853,9 +4853,6 @@ export {
   parseCookieValue,
   NgClass,
   NgIf,
-  NgSwitch,
-  NgSwitchCase,
-  NgSwitchDefault,
   NgTemplateOutlet,
   CommonModule,
   PLATFORM_BROWSER_ID,
@@ -4873,4 +4870,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-Y6FHRR2C.js.map
+//# sourceMappingURL=chunk-OJQNVZFF.js.map

@@ -1,10 +1,10 @@
 import {
   DomRendererFactory2
-} from "./chunk-2EZRO44G.js";
-import "./chunk-O7I6UIPS.js";
+} from "./chunk-GQACBQP4.js";
+import "./chunk-PBIV5IJC.js";
 import {
   DOCUMENT
-} from "./chunk-Y6FHRR2C.js";
+} from "./chunk-OJQNVZFF.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionScheduler,
@@ -46,7 +46,7 @@ var _AsyncAnimationRendererFactory = class _AsyncAnimationRendererFactory {
    * @internal
    */
   loadImpl() {
-    const moduleImpl = this.moduleImpl ?? import("./browser-Z6KSE2MZ.js");
+    const moduleImpl = this.moduleImpl ?? import("./browser-VGF2II3W.js");
     return moduleImpl.catch((e) => {
       throw new RuntimeError(5300, (typeof ngDevMode === "undefined" || ngDevMode) && "Async loading for animations package was enabled, but loading failed. Angular falls back to using regular rendering. No animations will be displayed and their styles won't be applied.");
     }).then(({
