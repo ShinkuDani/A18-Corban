@@ -1,11 +1,10 @@
-<div class="createClients-container">
-
-<div class="toolbar-container">
-  <mat-toolbar>
-    <span>Novo Cliente ou Alteração de Dados</span>
-  <button mat-raised-button type="submit"  color="primary" (click)="submitForm()"> Salvar </button>
-  <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
-</mat-toolbar> 
+<div class="container">
+  <div class="toolbar-container">
+    <mat-toolbar>
+      <span>Novo Cliente ou Alteração de Dados</span>
+    <button mat-raised-button type="submit"  color="primary" (click)="submitForm()"> Salvar </button>
+    <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
+  </mat-toolbar> 
 </div>
     
 <form #clientForm="ngForm" (ngSubmit)="submitForm()"> 
@@ -59,31 +58,30 @@
                 <input matInput placeholder="E-mail" [(ngModel)] = "emailT.email" name="email">
               </mat-form-field>
 
-              <div class="cliente-Phone">
-                <mat-form-field appearance="outline">
-                  <mat-label> DDD </mat-label>
-                  <input matInput placeholder="DDD" [(ngModel)] = "phoneN.ddd" name="phoneDDD">
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                  <mat-label> Telefone </mat-label>
-                  <input matInput placeholder="Telefone" [(ngModel)] = "phoneN.number" name="phoneNumber">
-                </mat-form-field> 
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="setPhone()">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-
-              </div>   
+              <mat-form-field appearance="outline">
+                <mat-label> DDD </mat-label>
+                <input matInput placeholder="DDD" [(ngModel)] = "phoneN.ddd" name="phoneDDD">
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label> Telefone </mat-label>
+                <input matInput placeholder="Telefone" [(ngModel)] = "phoneN.number" name="phoneNumber">
+              </mat-form-field> 
             }
 
               @if(clienteLite.phones.length > 1){
                 @for (phoneT of clienteLite.phones; track phoneT) {
                   <h2> DDD: {{phoneT.ddd}} | Number: {{phoneT.number}}</h2>
                   <span> </span>
-                  <mat-form-field appearance="outline">
-                    <mat-label> Telefone </mat-label>
-                    <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name='phoneT' [ngModelOptions]="{name: phoneT.number.toString()}">
-                  </mat-form-field>          
+                  <div class="cliente-Phone">
+                    <mat-form-field appearance="outline">
+                      <mat-label> Telefone </mat-label>
+                      <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name='phoneT' [ngModelOptions]="{name: phoneT.number.toString()}">
+                    </mat-form-field>
+                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="removePhone(phoneT.number)">
+                      <mat-icon>delete</mat-icon>
+                    </button>     
+                  </div> 
                 }
               }
 

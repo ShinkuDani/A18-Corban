@@ -192,9 +192,11 @@ ngOnInit(): void {
     )
   }
   
-  setPhone(){
-    if(this.phoneN.ddd != 0 && this.phoneN.number != 0){
-      this.clienteLite.phones.push(this.phoneN)
+  removePhone(number: number){
+    for(let x = 0; x < this.clienteLite.phones.length; x++ ){
+      if(this.clienteLite.phones[x].number == number){
+        this.clienteLite.phones.splice(x, 1)
+      }
     }
   }
     
