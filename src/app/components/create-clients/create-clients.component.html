@@ -78,10 +78,11 @@
 
               @if(clienteLite.phones.length > 1){
                 @for (phoneT of clienteLite.phones; track phoneT) {
-
+                  <h2> DDD: {{phoneT.ddd}} | Number: {{phoneT.number}}</h2>
+                  <span> </span>
                   <mat-form-field appearance="outline">
                     <mat-label> Telefone </mat-label>
-                    <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name="phoneNumber">
+                    <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name='phoneT' [ngModelOptions]="{name: phoneT.number.toString()}">
                   </mat-form-field>          
                 }
               }
