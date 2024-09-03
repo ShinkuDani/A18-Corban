@@ -2,7 +2,7 @@
   <div class="toolbar-container">
     <mat-toolbar>
       <span>Novo Cliente ou Alteração de Dados</span>
-    <button mat-raised-button type="submit"  color="primary" (click)="submitForm()"> Salvar </button>
+    <button mat-raised-button type="button"  color="primary" (click)="submitForm()"> Salvar </button>
     <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
   </mat-toolbar> 
 </div>
@@ -52,24 +52,36 @@
               <input matInput placeholder="Nacimento" [(ngModel)] = "clienteLite.birthDate" name="birthDate">
             </mat-form-field>
 
-            @for (emailT of clienteLite.emails; track emailT) {
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput placeholder="E-mail" [(ngModel)] = "emailN.email" name="email">
+            </mat-form-field>
 
-              <mat-form-field appearance="outline" class="example-full-width">
-                <input matInput placeholder="E-mail" [(ngModel)] = "emailT.email" name="email">
-              </mat-form-field>
-
-              <mat-form-field appearance="outline">
-                <mat-label> DDD </mat-label>
-                <input matInput placeholder="DDD" [(ngModel)] = "phoneN.ddd" name="phoneDDD">
-              </mat-form-field>
-              
-              <mat-form-field appearance="outline">
-                <mat-label> Telefone </mat-label>
-                <input matInput placeholder="Telefone" [(ngModel)] = "phoneN.number" name="phoneNumber">
-              </mat-form-field> 
+            @if(clienteLite.emails.length > 1){
+              @for (emailT of clienteLite.emails; track emailT) {
+                <div class="cliente-Phone">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input matInput placeholder="E-mail" [(ngModel)] = "emailT.email" name="emailT" [ngModelOptions]="{name: emailT.email}">
+                  </mat-form-field>
+                  <button mat-icon-button type="button" aria-label="Example icon button with a vertical three dot icon" (click)="removeEmail(emailT.email)">
+                    <mat-icon>delete</mat-icon>
+                  </button>   
+                </div>
+                
+                
+              }
             }
 
-              @if(clienteLite.phones.length > 1){
+            <mat-form-field appearance="outline">
+              <mat-label> DDD </mat-label>
+              <input matInput placeholder="DDD" [(ngModel)] = "phoneN.ddd" name="phoneDDD">
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+              <mat-label> Telefone </mat-label>
+              <input matInput placeholder="Telefone" [(ngModel)] = "phoneN.number" name="phoneNumber">
+            </mat-form-field> 
+
+              
                 @for (phoneT of clienteLite.phones; track phoneT) {
                   <h2> DDD: {{phoneT.ddd}} | Number: {{phoneT.number}}</h2>
                   <span> </span>
@@ -78,12 +90,12 @@
                       <mat-label> Telefone </mat-label>
                       <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name='phoneT' [ngModelOptions]="{name: phoneT.number.toString()}">
                     </mat-form-field>
-                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="removePhone(phoneT.number)">
+                    <button mat-icon-button type="button" aria-label="Example icon button with a vertical three dot icon" (click)="removePhone(phoneT.number)">
                       <mat-icon>delete</mat-icon>
                     </button>     
                   </div> 
                 }
-              }
+              
 
             
 
@@ -295,11 +307,4 @@
         </li>
         
       </ul>
-    
-    </div>
-      <div class="botoes">
-        <button mat-raised-button type="submit"> OK </button>
-        
-      </div>
-    </form> 
 </div>

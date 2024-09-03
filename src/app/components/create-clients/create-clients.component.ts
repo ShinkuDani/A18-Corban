@@ -8,7 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, ActivatedRoute } from '@angular/router'
 import { CorbanService } from '../../services/corban.service';
-import { bankAccounts, benefits, clienteLiteInterface, document, phone } from '../../interfaces/clienteLite';
+import { addresses, bankAccounts, benefits, clienteLiteInterface, document, email, phone } from '../../interfaces/clienteLite';
 import { MatButtonModule } from '@angular/material/button';
 import { ToastrService } from 'ngx-toastr';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -52,6 +52,22 @@ ngOnInit(): void {
     ddd:0,
     number:0,
     note:''
+  }
+
+  emailN: email = {
+    email: '',
+    note: ''
+  }
+
+  addressN: addresses = {
+    street: '',
+    number: '',
+    complement: '',
+    district: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    note: ''
   }
 
   document: document = {
@@ -134,15 +150,14 @@ ngOnInit(): void {
       }
     ],
     phones: [
-      
-        this.phoneN
-      
+        {
+          ddd: 0,
+          number: 0,
+          note: ''
+        }
     ],
     emails: [
-      {
-      email: '',
-      note: ''
-      }
+      this.emailN
     ],
     document: [],
     bankAccounts: [],
@@ -169,12 +184,13 @@ ngOnInit(): void {
   }
 
   getClient(id:string){
+    debugger
     this._corbanService.getCustomer(id).subscribe(
       data => {
         if(data){
          // this._toastr.success('Usuário Pego', 'Get')
           this.clienteLite = data
-          console.log(data)
+          console.log(this.clienteLite)
         } 
       }
     )
@@ -182,6 +198,7 @@ ngOnInit(): void {
 
   putClient(){
     debugger
+    this.addFilds()
     this._corbanService.putCustomer(this.clienteLite.customerId as string, this.clienteLite).subscribe(
       data => {
         if(data){
@@ -197,6 +214,24 @@ ngOnInit(): void {
       if(this.clienteLite.phones[x].number == number){
         this.clienteLite.phones.splice(x, 1)
       }
+    }
+  }
+
+  removeEmail(email: string){
+    for(let x = 0; x < this.clienteLite.phones.length; x++ ){
+      if(this.clienteLite.emails[x].email == email){
+        this.clienteLite.phones.splice(x, 1)
+      }
+    }
+  }
+
+  addFilds(){
+    if(this.phoneN.ddd != 0 && this.phoneN.number != 0){
+      this.clienteLite.phones.push(this.phoneN)
+    }if(this.emailN.email != ''){
+      this.clienteLite.emails.push(this.emailN)
+    }if(this.addressN.zipCode != '' || this.addressN.street != ''){
+      this.clienteLite.addresses.push(this.addressN)
     }
   }
     
