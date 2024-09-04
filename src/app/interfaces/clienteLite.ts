@@ -41,36 +41,36 @@ export interface addresses {
 }
 
 export interface document {
-    'documentId': string | undefined
-      'typeCode': number | undefined
-      'number': string |undefined
-      'category': string | undefined
-      'issuingDate': string | undefined
-      'expirationDate': string | undefined
-      'issuingEntity': string |undefined
-      'issuingState': string | undefined
-      'issuingCountry': string | undefined
-      'securityCode': string | undefined
-      'statusCode': number | undefined
-      'statusNote': string | undefined
-      'files': number | undefined
+    'documentId': string 
+      'typeCode': number 
+      'number': string 
+      'category': string 
+      'issuingDate': string 
+      'expirationDate': string 
+      'issuingEntity': string 
+      'issuingState': string 
+      'issuingCountry': string 
+      'securityCode': string 
+      'statusCode': number 
+      'statusNote': string 
+      'files': number
 }
 
 export interface bankAccounts {
-  'bankAccountId': string | undefined
-      'description': string | undefined
-      'typeCode': number | undefined
-      'statusCode': number | undefined
-      'statusNote': string | undefined
-      'bankCode': string | undefined
-      'bankName': string | undefined
-      'branchCode': string | undefined
-      'accountNumber': string | undefined
-      'personTypeCode': number | undefined
-      'countryIdentity': string | undefined
-      'holderName': string | undefined
-      'startDate': string | undefined
-      'note': string | undefined
+  'bankAccountId': string 
+      'description': string 
+      'typeCode': number 
+      'statusCode': number 
+      'statusNote': string 
+      'bankCode': string 
+      'bankName': string 
+      'branchCode': string 
+      'accountNumber': string 
+      'personTypeCode': number 
+      'countryIdentity': string 
+      'holderName': string 
+      'startDate': string 
+      'note': string
 }
 
 export interface benefits {

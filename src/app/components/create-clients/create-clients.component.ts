@@ -70,37 +70,37 @@ ngOnInit(): void {
     note: ''
   }
 
-  document: document = {
-    documentId: undefined,
-    typeCode: undefined,
-    number: undefined,
-    category: undefined,
-    issuingDate: undefined,
-    expirationDate: undefined,
-    issuingEntity: undefined,
-    issuingState: undefined,
-    issuingCountry: undefined,
-    securityCode: undefined,
-    statusCode: undefined,
-    statusNote: undefined,
-    files: undefined
+  documentN: document = {
+    documentId: '',
+    typeCode: 0,
+    number: '',
+    category: '',
+    issuingDate: '',
+    expirationDate: '',
+    issuingEntity: '',
+    issuingState: '',
+    issuingCountry: '',
+    securityCode: '',
+    statusCode: 0,
+    statusNote: '',
+    files: 0
   }
 
-  bankAccount: bankAccounts = {
-    bankAccountId: undefined,
-    description: undefined,
-    typeCode: undefined,
-    statusCode: undefined,
-    statusNote: undefined,
-    bankCode: undefined,
-    bankName: undefined,
-    branchCode: undefined,
-    accountNumber: undefined,
-    personTypeCode: undefined,
-    countryIdentity: undefined,
-    holderName: undefined,
-    startDate: undefined,
-    note: undefined
+  bankAccountN: bankAccounts = {
+    bankAccountId: '',
+    description: '',
+    typeCode: 0,
+    statusCode: 0,
+    statusNote: '',
+    bankCode: '',
+    bankName: '',
+    branchCode: '',
+    accountNumber: '',
+    personTypeCode: 0,
+    countryIdentity: '',
+    holderName: '',
+    startDate: '',
+    note: ''
   }
 
   benefit: benefits = {
@@ -138,29 +138,20 @@ ngOnInit(): void {
     naturalness: undefined,
     note: undefined,
     addresses: [
-        {
-        street: '',
-        number: '',
-        complement: '',
-        district: '',
-        city: '',
-        state: '',
-        zipCode: '',
-        note: ''
-      }
+        this.addressN
     ],
     phones: [
-        {
-          ddd: 0,
-          number: 0,
-          note: ''
-        }
+        this.phoneN
     ],
     emails: [
       this.emailN
     ],
-    document: [],
-    bankAccounts: [],
+    document: [
+      this.documentN
+    ],
+    bankAccounts: [
+      this.bankAccountN
+    ],
     benefits: []
   }
 
@@ -218,9 +209,10 @@ ngOnInit(): void {
   }
 
   removeEmail(email: string){
-    for(let x = 0; x < this.clienteLite.phones.length; x++ ){
+    for(let x = 0; x < this.clienteLite.emails.length; x++ ){
       if(this.clienteLite.emails[x].email == email){
-        this.clienteLite.phones.splice(x, 1)
+        debugger
+        this.clienteLite.emails.splice(x, 1)
       }
     }
   }
@@ -228,11 +220,29 @@ ngOnInit(): void {
   addFilds(){
     if(this.phoneN.ddd != 0 && this.phoneN.number != 0){
       this.clienteLite.phones.push(this.phoneN)
-    }if(this.emailN.email != ''){
+    }
+
+    if(this.emailN.email != ''){
       this.clienteLite.emails.push(this.emailN)
-    }if(this.addressN.zipCode != '' || this.addressN.street != ''){
+    }
+
+    if(this.addressN.zipCode != '' || this.addressN.street != ''){
       this.clienteLite.addresses.push(this.addressN)
     }
+
+    if(this.documentN.number !=''){
+      this.clienteLite.document.push(this.documentN)
+    }
+
+    if(this.bankAccountN.accountNumber != ''){
+      this.clienteLite.bankAccounts.push(this.bankAccountN)
+    }
+
+    
+    
+
+    
+    
   }
     
 
