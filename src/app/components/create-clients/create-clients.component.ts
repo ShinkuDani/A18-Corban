@@ -35,7 +35,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class CreateClientsComponent implements OnInit{
 
 ngOnInit(): void {
-  debugger
   let idCustomer = this._router.snapshot.paramMap.get('id');  
   if(idCustomer == null){
     console.log('Cliente Novo') 
@@ -146,8 +145,22 @@ ngOnInit(): void {
     emails: [
       this.emailN
     ],
-    document: [
-      this.documentN
+    documents: [
+      {
+        documentId: '',
+        typeCode: 0,
+        number: '',
+        category: '',
+        issuingDate: '',
+        expirationDate: '',
+        issuingEntity: '',
+        issuingState: '',
+        issuingCountry: '',
+        securityCode: '',
+        statusCode: 0,
+        statusNote: '',
+        files: 0
+      }
     ],
     bankAccounts: [
       this.bankAccountN
@@ -159,7 +172,6 @@ ngOnInit(): void {
   
   
   submitForm(){
-    debugger
     if(this.clienteLite.customerId){
       this.putClient()
     } else {
@@ -175,7 +187,6 @@ ngOnInit(): void {
   }
 
   getClient(id:string){
-    debugger
     this._corbanService.getCustomer(id).subscribe(
       data => {
         if(data){
@@ -218,6 +229,7 @@ ngOnInit(): void {
   }
 
   addFilds(){
+    debugger
     if(this.phoneN.ddd != 0 && this.phoneN.number != 0){
       this.clienteLite.phones.push(this.phoneN)
     }
@@ -231,7 +243,7 @@ ngOnInit(): void {
     }
 
     if(this.documentN.number !=''){
-      this.clienteLite.document.push(this.documentN)
+      this.clienteLite.documents.push(this.documentN)
     }
 
     if(this.bankAccountN.accountNumber != ''){

@@ -13,7 +13,7 @@ export interface clienteLiteInterface {
   'addresses': addresses[]
     'emails': email[]
     'phones': phone[]
-    'document': document[]
+    'documents': document[]
     'bankAccounts': bankAccounts[]
     'benefits': benefits[]
   }

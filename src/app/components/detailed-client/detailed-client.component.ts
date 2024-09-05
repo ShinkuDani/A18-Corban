@@ -37,7 +37,7 @@ export class DetailedClientComponent implements OnInit{
     addresses: [],
     emails: [],
     phones: [],
-    document: [],
+    documents: [],
     bankAccounts: [],
     benefits: []
   }
