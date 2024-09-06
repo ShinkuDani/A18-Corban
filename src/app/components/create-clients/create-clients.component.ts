@@ -103,25 +103,25 @@ ngOnInit(): void {
   }
 
   benefit: benefits = {
-    benefitId: undefined,
-    typeCode: undefined,
-    number: undefined,
-    code: undefined,
-    description: undefined,
-    value: undefined,
-    netValue: undefined,
-    marginValue: undefined,
-    issuingDate: undefined,
-    startDate: undefined,
+    benefitId: '',
+    typeCode: 0,
+    number: '',
+    code: '',
+    description: '',
+    value: 0,
+    netValue: 0,
+    marginValue: 0,
+    issuingDate: '',
+    startDate: '',
     loanEligible: false,
-    issuingState: undefined,
-    issuingCountry: undefined,
-    securityCode: undefined,
-    statusCode: undefined,
-    statusNote: undefined,
-    paymentMethodCode: undefined,
-    paymentMethodName: undefined,
-    note: undefined
+    issuingState: '',
+    issuingCountry: '',
+    securityCode: '',
+    statusCode: 0,
+    statusNote: '',
+    paymentMethodCode: 0,
+    paymentMethodName: '',
+    note: ''
   }
 
   clienteLite: clienteLiteInterface = {
@@ -146,21 +146,7 @@ ngOnInit(): void {
       this.emailN
     ],
     documents: [
-      {
-        documentId: '',
-        typeCode: 0,
-        number: '',
-        category: '',
-        issuingDate: '',
-        expirationDate: '',
-        issuingEntity: '',
-        issuingState: '',
-        issuingCountry: '',
-        securityCode: '',
-        statusCode: 0,
-        statusNote: '',
-        files: 0
-      }
+      this.documentN
     ],
     bankAccounts: [
       this.bankAccountN

@@ -1,28 +1,12 @@
 import {
-  AnimationDriver,
-  AnimationEngine,
-  AnimationRendererFactory,
-  AnimationStyleNormalizer,
-  NoopAnimationDriver,
-  WebAnimationsDriver,
-  WebAnimationsStyleNormalizer
-} from "./chunk-HKAYZS6N.js";
-import {
-  BrowserModule,
-  DomRendererFactory2
-} from "./chunk-2EZRO44G.js";
-import {
-  CommonModule,
   DOCUMENT,
-  NgIf,
   isPlatformBrowser
-} from "./chunk-Y6FHRR2C.js";
+} from "./chunk-OJQNVZFF.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_ID,
   BehaviorSubject,
   CSP_NONCE,
-  ChangeDetectionScheduler,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -42,7 +26,6 @@ import {
   Output,
   PLATFORM_ID,
   QueryList,
-  RendererFactory2,
   Subject,
   Subscription,
   Version,
@@ -67,13 +50,14 @@ import {
   take,
   takeUntil,
   tap,
-  ɵɵInheritDefinitionFeature,
   ɵɵInputTransformsFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
+  ɵɵStandaloneFeature,
   ɵɵadvance,
   ɵɵattribute,
   ɵɵclassProp,
+  ɵɵconditional,
   ɵɵdefineComponent,
   ɵɵdefineDirective,
   ɵɵdefineInjectable,
@@ -83,10 +67,8 @@ import {
   ɵɵelement,
   ɵɵelementEnd,
   ɵɵelementStart,
-  ɵɵgetInheritedFactory,
   ɵɵhostProperty,
   ɵɵinject,
-  ɵɵinvalidFactory,
   ɵɵlistener,
   ɵɵloadQuery,
   ɵɵnextContext,
@@ -316,143 +298,6 @@ function _isTestEnvironment() {
     typeof Mocha !== "undefined" && !!Mocha
   );
 }
-
-// node_modules/@angular/platform-browser/fesm2022/animations.mjs
-var _InjectableAnimationEngine = class _InjectableAnimationEngine extends AnimationEngine {
-  // The `ApplicationRef` is injected here explicitly to force the dependency ordering.
-  // Since the `ApplicationRef` should be created earlier before the `AnimationEngine`, they
-  // both have `ngOnDestroy` hooks and `flush()` must be called after all views are destroyed.
-  constructor(doc, driver, normalizer) {
-    super(doc, driver, normalizer, inject(ChangeDetectionScheduler, {
-      optional: true
-    }));
-  }
-  ngOnDestroy() {
-    this.flush();
-  }
-};
-_InjectableAnimationEngine.ɵfac = function InjectableAnimationEngine_Factory(t) {
-  return new (t || _InjectableAnimationEngine)(ɵɵinject(DOCUMENT), ɵɵinject(AnimationDriver), ɵɵinject(AnimationStyleNormalizer));
-};
-_InjectableAnimationEngine.ɵprov = ɵɵdefineInjectable({
-  token: _InjectableAnimationEngine,
-  factory: _InjectableAnimationEngine.ɵfac
-});
-var InjectableAnimationEngine = _InjectableAnimationEngine;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(InjectableAnimationEngine, [{
-    type: Injectable
-  }], () => [{
-    type: Document,
-    decorators: [{
-      type: Inject,
-      args: [DOCUMENT]
-    }]
-  }, {
-    type: AnimationDriver
-  }, {
-    type: AnimationStyleNormalizer
-  }], null);
-})();
-function instantiateDefaultStyleNormalizer() {
-  return new WebAnimationsStyleNormalizer();
-}
-function instantiateRendererFactory(renderer, engine, zone) {
-  return new AnimationRendererFactory(renderer, engine, zone);
-}
-var SHARED_ANIMATION_PROVIDERS = [{
-  provide: AnimationStyleNormalizer,
-  useFactory: instantiateDefaultStyleNormalizer
-}, {
-  provide: AnimationEngine,
-  useClass: InjectableAnimationEngine
-}, {
-  provide: RendererFactory2,
-  useFactory: instantiateRendererFactory,
-  deps: [DomRendererFactory2, AnimationEngine, NgZone]
-}];
-var BROWSER_ANIMATIONS_PROVIDERS = [{
-  provide: AnimationDriver,
-  useFactory: () => new WebAnimationsDriver()
-}, {
-  provide: ANIMATION_MODULE_TYPE,
-  useValue: "BrowserAnimations"
-}, ...SHARED_ANIMATION_PROVIDERS];
-var BROWSER_NOOP_ANIMATIONS_PROVIDERS = [{
-  provide: AnimationDriver,
-  useClass: NoopAnimationDriver
-}, {
-  provide: ANIMATION_MODULE_TYPE,
-  useValue: "NoopAnimations"
-}, ...SHARED_ANIMATION_PROVIDERS];
-var _BrowserAnimationsModule = class _BrowserAnimationsModule {
-  /**
-   * Configures the module based on the specified object.
-   *
-   * @param config Object used to configure the behavior of the `BrowserAnimationsModule`.
-   * @see {@link BrowserAnimationsModuleConfig}
-   *
-   * @usageNotes
-   * When registering the `BrowserAnimationsModule`, you can use the `withConfig`
-   * function as follows:
-   * ```
-   * @NgModule({
-   *   imports: [BrowserAnimationsModule.withConfig(config)]
-   * })
-   * class MyNgModule {}
-   * ```
-   */
-  static withConfig(config) {
-    return {
-      ngModule: _BrowserAnimationsModule,
-      providers: config.disableAnimations ? BROWSER_NOOP_ANIMATIONS_PROVIDERS : BROWSER_ANIMATIONS_PROVIDERS
-    };
-  }
-};
-_BrowserAnimationsModule.ɵfac = function BrowserAnimationsModule_Factory(t) {
-  return new (t || _BrowserAnimationsModule)();
-};
-_BrowserAnimationsModule.ɵmod = ɵɵdefineNgModule({
-  type: _BrowserAnimationsModule,
-  exports: [BrowserModule]
-});
-_BrowserAnimationsModule.ɵinj = ɵɵdefineInjector({
-  providers: BROWSER_ANIMATIONS_PROVIDERS,
-  imports: [BrowserModule]
-});
-var BrowserAnimationsModule = _BrowserAnimationsModule;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BrowserAnimationsModule, [{
-    type: NgModule,
-    args: [{
-      exports: [BrowserModule],
-      providers: BROWSER_ANIMATIONS_PROVIDERS
-    }]
-  }], null, null);
-})();
-var _NoopAnimationsModule = class _NoopAnimationsModule {
-};
-_NoopAnimationsModule.ɵfac = function NoopAnimationsModule_Factory(t) {
-  return new (t || _NoopAnimationsModule)();
-};
-_NoopAnimationsModule.ɵmod = ɵɵdefineNgModule({
-  type: _NoopAnimationsModule,
-  exports: [BrowserModule]
-});
-_NoopAnimationsModule.ɵinj = ɵɵdefineInjector({
-  providers: BROWSER_NOOP_ANIMATIONS_PROVIDERS,
-  imports: [BrowserModule]
-});
-var NoopAnimationsModule = _NoopAnimationsModule;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NoopAnimationsModule, [{
-    type: NgModule,
-    args: [{
-      exports: [BrowserModule],
-      providers: BROWSER_NOOP_ANIMATIONS_PROVIDERS
-    }]
-  }], null, null);
-})();
 
 // node_modules/@angular/cdk/fesm2022/keycodes.mjs
 var TAB = 9;
@@ -3225,27 +3070,27 @@ var _c1 = ["*", "mat-option, ng-container"];
 var _c2 = ["text"];
 var _c3 = [[["mat-icon"]], "*"];
 var _c4 = ["mat-icon", "*"];
-function MatOption_mat_pseudo_checkbox_0_Template(rf, ctx) {
+function MatOption_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    ɵɵelement(0, "mat-pseudo-checkbox", 6);
+    ɵɵelement(0, "mat-pseudo-checkbox", 1);
   }
   if (rf & 2) {
     const ctx_r0 = ɵɵnextContext();
     ɵɵproperty("disabled", ctx_r0.disabled)("state", ctx_r0.selected ? "checked" : "unchecked");
   }
 }
-function MatOption_mat_pseudo_checkbox_5_Template(rf, ctx) {
+function MatOption_Conditional_5_Template(rf, ctx) {
   if (rf & 1) {
-    ɵɵelement(0, "mat-pseudo-checkbox", 7);
+    ɵɵelement(0, "mat-pseudo-checkbox", 3);
   }
   if (rf & 2) {
     const ctx_r0 = ɵɵnextContext();
     ɵɵproperty("disabled", ctx_r0.disabled);
   }
 }
-function MatOption_span_6_Template(rf, ctx) {
+function MatOption_Conditional_6_Template(rf, ctx) {
   if (rf & 1) {
-    ɵɵelementStart(0, "span", 8);
+    ɵɵelementStart(0, "span", 4);
     ɵɵtext(1);
     ɵɵelementEnd();
   }
@@ -3255,7 +3100,9 @@ function MatOption_span_6_Template(rf, ctx) {
     ɵɵtextInterpolate1("(", ctx_r0.group.label, ")");
   }
 }
-var VERSION2 = new Version("16.2.14");
+var _c5 = ["mat-internal-form-field", ""];
+var _c6 = ["*"];
+var VERSION2 = new Version("17.3.10");
 var _AnimationCurves = class _AnimationCurves {
 };
 _AnimationCurves.STANDARD_CURVE = "cubic-bezier(0.4,0.0,0.2,1)";
@@ -3330,25 +3177,23 @@ var MatCommonModule = _MatCommonModule;
       imports: [BidiModule],
       exports: [BidiModule]
     }]
-  }], function() {
-    return [{
-      type: HighContrastModeDetector
+  }], () => [{
+    type: HighContrastModeDetector
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
     }, {
-      type: void 0,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [MATERIAL_SANITY_CHECKS]
-      }]
-    }, {
-      type: Document,
-      decorators: [{
-        type: Inject,
-        args: [DOCUMENT]
-      }]
-    }];
-  }, null);
+      type: Inject,
+      args: [MATERIAL_SANITY_CHECKS]
+    }]
+  }, {
+    type: Document,
+    decorators: [{
+      type: Inject,
+      args: [DOCUMENT]
+    }]
+  }], null);
 })();
 function _checkDoctypeIsDefined(doc) {
   if (!doc.doctype) {
@@ -3373,94 +3218,28 @@ function _checkCdkVersionMatch() {
     console.warn("The Angular Material version (" + VERSION2.full + ") does not match the Angular CDK version (" + VERSION.full + ").\nPlease ensure the versions of these two packages exactly match.");
   }
 }
-function mixinDisabled(base) {
-  return class extends base {
-    get disabled() {
-      return this._disabled;
+var _ErrorStateTracker = class {
+  constructor(_defaultMatcher, ngControl, _parentFormGroup, _parentForm, _stateChanges) {
+    this._defaultMatcher = _defaultMatcher;
+    this.ngControl = ngControl;
+    this._parentFormGroup = _parentFormGroup;
+    this._parentForm = _parentForm;
+    this._stateChanges = _stateChanges;
+    this.errorState = false;
+  }
+  /** Updates the error state based on the provided error state matcher. */
+  updateErrorState() {
+    const oldState = this.errorState;
+    const parent = this._parentFormGroup || this._parentForm;
+    const matcher = this.matcher || this._defaultMatcher;
+    const control = this.ngControl ? this.ngControl.control : null;
+    const newState = matcher?.isErrorState(control, parent) ?? false;
+    if (newState !== oldState) {
+      this.errorState = newState;
+      this._stateChanges.next();
     }
-    set disabled(value) {
-      this._disabled = coerceBooleanProperty(value);
-    }
-    constructor(...args) {
-      super(...args);
-      this._disabled = false;
-    }
-  };
-}
-function mixinColor(base, defaultColor) {
-  return class extends base {
-    get color() {
-      return this._color;
-    }
-    set color(value) {
-      const colorPalette = value || this.defaultColor;
-      if (colorPalette !== this._color) {
-        if (this._color) {
-          this._elementRef.nativeElement.classList.remove(`mat-${this._color}`);
-        }
-        if (colorPalette) {
-          this._elementRef.nativeElement.classList.add(`mat-${colorPalette}`);
-        }
-        this._color = colorPalette;
-      }
-    }
-    constructor(...args) {
-      super(...args);
-      this.defaultColor = defaultColor;
-      this.color = defaultColor;
-    }
-  };
-}
-function mixinDisableRipple(base) {
-  return class extends base {
-    /** Whether the ripple effect is disabled or not. */
-    get disableRipple() {
-      return this._disableRipple;
-    }
-    set disableRipple(value) {
-      this._disableRipple = coerceBooleanProperty(value);
-    }
-    constructor(...args) {
-      super(...args);
-      this._disableRipple = false;
-    }
-  };
-}
-function mixinTabIndex(base, defaultTabIndex = 0) {
-  return class extends base {
-    get tabIndex() {
-      return this.disabled ? -1 : this._tabIndex;
-    }
-    set tabIndex(value) {
-      this._tabIndex = value != null ? coerceNumberProperty(value) : this.defaultTabIndex;
-    }
-    constructor(...args) {
-      super(...args);
-      this._tabIndex = defaultTabIndex;
-      this.defaultTabIndex = defaultTabIndex;
-    }
-  };
-}
-function mixinErrorState(base) {
-  return class extends base {
-    /** Updates the error state based on the provided error state matcher. */
-    updateErrorState() {
-      const oldState = this.errorState;
-      const parent = this._parentFormGroup || this._parentForm;
-      const matcher = this.errorStateMatcher || this._defaultErrorStateMatcher;
-      const control = this.ngControl ? this.ngControl.control : null;
-      const newState = matcher.isErrorState(control, parent);
-      if (newState !== oldState) {
-        this.errorState = newState;
-        this.stateChanges.next();
-      }
-    }
-    constructor(...args) {
-      super(...args);
-      this.errorState = false;
-    }
-  };
-}
+  }
+};
 var MAT_DATE_LOCALE = new InjectionToken("MAT_DATE_LOCALE", {
   providedIn: "root",
   factory: MAT_DATE_LOCALE_FACTORY
@@ -3564,10 +3343,16 @@ function range(length, valueFunction) {
   return valuesArray;
 }
 var _NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
-  constructor(matDateLocale, _platform) {
+  constructor(matDateLocale) {
     super();
     this.useUtcForDisplay = false;
-    super.setLocale(matDateLocale);
+    this._matDateLocale = inject(MAT_DATE_LOCALE, {
+      optional: true
+    });
+    if (matDateLocale !== void 0) {
+      this._matDateLocale = matDateLocale;
+    }
+    super.setLocale(this._matDateLocale);
   }
   getYear(date) {
     return date.getFullYear();
@@ -3729,7 +3514,7 @@ var _NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
   }
 };
 _NativeDateAdapter.ɵfac = function NativeDateAdapter_Factory(t) {
-  return new (t || _NativeDateAdapter)(ɵɵinject(MAT_DATE_LOCALE, 8), ɵɵinject(Platform));
+  return new (t || _NativeDateAdapter)(ɵɵinject(MAT_DATE_LOCALE, 8));
 };
 _NativeDateAdapter.ɵprov = ɵɵdefineInjectable({
   token: _NativeDateAdapter,
@@ -3739,19 +3524,15 @@ var NativeDateAdapter = _NativeDateAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NativeDateAdapter, [{
     type: Injectable
-  }], function() {
-    return [{
-      type: void 0,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [MAT_DATE_LOCALE]
-      }]
+  }], () => [{
+    type: void 0,
+    decorators: [{
+      type: Optional
     }, {
-      type: Platform
-    }];
-  }, null);
+      type: Inject,
+      args: [MAT_DATE_LOCALE]
+    }]
+  }], null);
 })();
 var MAT_NATIVE_DATE_FORMATS = {
   parse: {
@@ -3810,29 +3591,29 @@ _MatNativeDateModule.ɵfac = function MatNativeDateModule_Factory(t) {
   return new (t || _MatNativeDateModule)();
 };
 _MatNativeDateModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatNativeDateModule,
-  imports: [NativeDateModule]
+  type: _MatNativeDateModule
 });
 _MatNativeDateModule.ɵinj = ɵɵdefineInjector({
-  providers: [{
-    provide: MAT_DATE_FORMATS,
-    useValue: MAT_NATIVE_DATE_FORMATS
-  }],
-  imports: [NativeDateModule]
+  providers: [provideNativeDateAdapter()]
 });
 var MatNativeDateModule = _MatNativeDateModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatNativeDateModule, [{
     type: NgModule,
     args: [{
-      imports: [NativeDateModule],
-      providers: [{
-        provide: MAT_DATE_FORMATS,
-        useValue: MAT_NATIVE_DATE_FORMATS
-      }]
+      providers: [provideNativeDateAdapter()]
     }]
   }], null, null);
 })();
+function provideNativeDateAdapter(formats = MAT_NATIVE_DATE_FORMATS) {
+  return [{
+    provide: DateAdapter,
+    useClass: NativeDateAdapter
+  }, {
+    provide: MAT_DATE_FORMATS,
+    useValue: formats
+  }];
+}
 var _ShowOnDirtyErrorStateMatcher = class _ShowOnDirtyErrorStateMatcher {
   isErrorState(control, form) {
     return !!(control && control.invalid && (control.dirty || form && form.submitted));
@@ -3881,7 +3662,8 @@ _MatLine.ɵfac = function MatLine_Factory(t) {
 _MatLine.ɵdir = ɵɵdefineDirective({
   type: _MatLine,
   selectors: [["", "mat-line", ""], ["", "matLine", ""]],
-  hostAttrs: [1, "mat-line"]
+  hostAttrs: [1, "mat-line"],
+  standalone: true
 });
 var MatLine = _MatLine;
 (() => {
@@ -3891,7 +3673,8 @@ var MatLine = _MatLine;
       selector: "[mat-line], [matLine]",
       host: {
         "class": "mat-line"
-      }
+      },
+      standalone: true
     }]
   }], null, null);
 })();
@@ -3902,8 +3685,7 @@ _MatLineModule.ɵfac = function MatLineModule_Factory(t) {
 };
 _MatLineModule.ɵmod = ɵɵdefineNgModule({
   type: _MatLineModule,
-  declarations: [MatLine],
-  imports: [MatCommonModule],
+  imports: [MatCommonModule, MatLine],
   exports: [MatLine, MatCommonModule]
 });
 _MatLineModule.ɵinj = ɵɵdefineInjector({
@@ -3914,19 +3696,25 @@ var MatLineModule = _MatLineModule;
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatLineModule, [{
     type: NgModule,
     args: [{
-      imports: [MatCommonModule],
-      exports: [MatLine, MatCommonModule],
-      declarations: [MatLine]
+      imports: [MatCommonModule, MatLine],
+      exports: [MatLine, MatCommonModule]
     }]
   }], null, null);
 })();
+var RippleState;
+(function(RippleState2) {
+  RippleState2[RippleState2["FADING_IN"] = 0] = "FADING_IN";
+  RippleState2[RippleState2["VISIBLE"] = 1] = "VISIBLE";
+  RippleState2[RippleState2["FADING_OUT"] = 2] = "FADING_OUT";
+  RippleState2[RippleState2["HIDDEN"] = 3] = "HIDDEN";
+})(RippleState || (RippleState = {}));
 var RippleRef = class {
   constructor(_renderer, element, config, _animationForciblyDisabledThroughCss = false) {
     this._renderer = _renderer;
     this.element = element;
     this.config = config;
     this._animationForciblyDisabledThroughCss = _animationForciblyDisabledThroughCss;
-    this.state = 3;
+    this.state = RippleState.HIDDEN;
   }
   /** Fades out the ripple element. */
   fadeOut() {
@@ -4048,7 +3836,7 @@ var _RippleRenderer = class _RippleRenderer {
     containerRect.width === 0 && containerRect.height === 0;
     const rippleRef = new RippleRef(this, ripple, config, animationForciblyDisabledThroughCss);
     ripple.style.transform = "scale3d(1, 1, 1)";
-    rippleRef.state = 0;
+    rippleRef.state = RippleState.FADING_IN;
     if (!config.persistent) {
       this._mostRecentTransientRipple = rippleRef;
     }
@@ -4073,14 +3861,14 @@ var _RippleRenderer = class _RippleRenderer {
   }
   /** Fades out a ripple reference. */
   fadeOutRipple(rippleRef) {
-    if (rippleRef.state === 2 || rippleRef.state === 3) {
+    if (rippleRef.state === RippleState.FADING_OUT || rippleRef.state === RippleState.HIDDEN) {
       return;
     }
     const rippleEl = rippleRef.element;
     const animationConfig = __spreadValues(__spreadValues({}, defaultRippleAnimationConfig), rippleRef.config.animation);
     rippleEl.style.transitionDuration = `${animationConfig.exitDuration}ms`;
     rippleEl.style.opacity = "0";
-    rippleRef.state = 2;
+    rippleRef.state = RippleState.FADING_OUT;
     if (rippleRef._animationForciblyDisabledThroughCss || !animationConfig.exitDuration) {
       this._finishRippleTransition(rippleRef);
     }
@@ -4132,9 +3920,9 @@ var _RippleRenderer = class _RippleRenderer {
   }
   /** Method that will be called if the fade-in or fade-in transition completed. */
   _finishRippleTransition(rippleRef) {
-    if (rippleRef.state === 0) {
+    if (rippleRef.state === RippleState.FADING_IN) {
       this._startFadeOutTransition(rippleRef);
-    } else if (rippleRef.state === 2) {
+    } else if (rippleRef.state === RippleState.FADING_OUT) {
       this._destroyRipple(rippleRef);
     }
   }
@@ -4147,7 +3935,7 @@ var _RippleRenderer = class _RippleRenderer {
     const {
       persistent
     } = rippleRef.config;
-    rippleRef.state = 1;
+    rippleRef.state = RippleState.VISIBLE;
     if (!persistent && (!isMostRecentTransientRipple || !this._isPointerDown)) {
       rippleRef.fadeOut();
     }
@@ -4162,7 +3950,7 @@ var _RippleRenderer = class _RippleRenderer {
     if (rippleRef === this._mostRecentTransientRipple) {
       this._mostRecentTransientRipple = null;
     }
-    rippleRef.state = 3;
+    rippleRef.state = RippleState.HIDDEN;
     if (eventListeners !== null) {
       rippleRef.element.removeEventListener("transitionend", eventListeners.onTransitionEnd);
       rippleRef.element.removeEventListener("transitioncancel", eventListeners.onTransitionCancel);
@@ -4198,7 +3986,7 @@ var _RippleRenderer = class _RippleRenderer {
     }
     this._isPointerDown = false;
     this._getActiveRipples().forEach((ripple) => {
-      const isVisible = ripple.state === 1 || ripple.config.terminateOnPointerUp && ripple.state === 0;
+      const isVisible = ripple.state === RippleState.VISIBLE || ripple.config.terminateOnPointerUp && ripple.state === RippleState.FADING_IN;
       if (!ripple.config.persistent && isVisible) {
         ripple.fadeOut();
       }
@@ -4214,6 +4002,7 @@ var _RippleRenderer = class _RippleRenderer {
       pointerDownEvents.forEach((type) => _RippleRenderer._eventManager.removeHandler(type, trigger, this));
       if (this._pointerUpEventsRegistered) {
         pointerUpEvents.forEach((type) => trigger.removeEventListener(type, this, passiveCapturingEventOptions));
+        this._pointerUpEventsRegistered = false;
       }
     }
   }
@@ -4336,7 +4125,8 @@ _MatRipple.ɵdir = ɵɵdefineDirective({
     disabled: [InputFlags.None, "matRippleDisabled", "disabled"],
     trigger: [InputFlags.None, "matRippleTrigger", "trigger"]
   },
-  exportAs: ["matRipple"]
+  exportAs: ["matRipple"],
+  standalone: true
 });
 var MatRipple = _MatRipple;
 (() => {
@@ -4348,33 +4138,32 @@ var MatRipple = _MatRipple;
       host: {
         "class": "mat-ripple",
         "[class.mat-ripple-unbounded]": "unbounded"
-      }
+      },
+      standalone: true
     }]
-  }], function() {
-    return [{
-      type: ElementRef
-    }, {
-      type: NgZone
-    }, {
-      type: Platform
-    }, {
-      type: void 0,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [MAT_RIPPLE_GLOBAL_OPTIONS]
-      }]
-    }, {
-      type: void 0,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [ANIMATION_MODULE_TYPE]
-      }]
-    }];
+  }], () => [{
+    type: ElementRef
   }, {
+    type: NgZone
+  }, {
+    type: Platform
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [MAT_RIPPLE_GLOBAL_OPTIONS]
+    }]
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }], {
     color: [{
       type: Input,
       args: ["matRippleColor"]
@@ -4412,8 +4201,7 @@ _MatRippleModule.ɵfac = function MatRippleModule_Factory(t) {
 };
 _MatRippleModule.ɵmod = ɵɵdefineNgModule({
   type: _MatRippleModule,
-  declarations: [MatRipple],
-  imports: [MatCommonModule],
+  imports: [MatCommonModule, MatRipple],
   exports: [MatRipple, MatCommonModule]
 });
 _MatRippleModule.ɵinj = ɵɵdefineInjector({
@@ -4424,9 +4212,8 @@ var MatRippleModule = _MatRippleModule;
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatRippleModule, [{
     type: NgModule,
     args: [{
-      imports: [MatCommonModule],
-      exports: [MatRipple, MatCommonModule],
-      declarations: [MatRipple]
+      imports: [MatCommonModule, MatRipple],
+      exports: [MatRipple, MatCommonModule]
     }]
   }], null, null);
 })();
@@ -4456,11 +4243,13 @@ _MatPseudoCheckbox.ɵcmp = ɵɵdefineComponent({
     disabled: "disabled",
     appearance: "appearance"
   },
+  standalone: true,
+  features: [ɵɵStandaloneFeature],
   decls: 0,
   vars: 0,
   template: function MatPseudoCheckbox_Template(rf, ctx) {
   },
-  styles: ['.mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:"";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-full{border:2px solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}'],
+  styles: ['.mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:"";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-minimal-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox-full{border-color:var(--mat-full-pseudo-checkbox-unselected-icon-color);border-width:2px;border-style:solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-disabled{border-color:var(--mat-full-pseudo-checkbox-disabled-unselected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{background-color:var(--mat-full-pseudo-checkbox-selected-icon-color);border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-full-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled{background-color:var(--mat-full-pseudo-checkbox-disabled-selected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-full-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}'],
   encapsulation: 2,
   changeDetection: 0
 });
@@ -4482,19 +4271,18 @@ var MatPseudoCheckbox = _MatPseudoCheckbox;
         "[class.mat-pseudo-checkbox-full]": 'appearance === "full"',
         "[class._mat-animation-noopable]": '_animationMode === "NoopAnimations"'
       },
-      styles: ['.mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:"";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-full{border:2px solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}']
+      standalone: true,
+      styles: ['.mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:"";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-minimal-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox-full{border-color:var(--mat-full-pseudo-checkbox-unselected-icon-color);border-width:2px;border-style:solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-disabled{border-color:var(--mat-full-pseudo-checkbox-disabled-unselected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{background-color:var(--mat-full-pseudo-checkbox-selected-icon-color);border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-full-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled{background-color:var(--mat-full-pseudo-checkbox-disabled-selected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-full-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}']
     }]
-  }], function() {
-    return [{
-      type: void 0,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [ANIMATION_MODULE_TYPE]
-      }]
-    }];
-  }, {
+  }], () => [{
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }], {
     state: [{
       type: Input
     }],
@@ -4513,8 +4301,7 @@ _MatPseudoCheckboxModule.ɵfac = function MatPseudoCheckboxModule_Factory(t) {
 };
 _MatPseudoCheckboxModule.ɵmod = ɵɵdefineNgModule({
   type: _MatPseudoCheckboxModule,
-  declarations: [MatPseudoCheckbox],
-  imports: [MatCommonModule],
+  imports: [MatCommonModule, MatPseudoCheckbox],
   exports: [MatPseudoCheckbox]
 });
 _MatPseudoCheckboxModule.ɵinj = ɵɵdefineInjector({
@@ -4525,62 +4312,24 @@ var MatPseudoCheckboxModule = _MatPseudoCheckboxModule;
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatPseudoCheckboxModule, [{
     type: NgModule,
     args: [{
-      imports: [MatCommonModule],
-      exports: [MatPseudoCheckbox],
-      declarations: [MatPseudoCheckbox]
+      imports: [MatCommonModule, MatPseudoCheckbox],
+      exports: [MatPseudoCheckbox]
     }]
   }], null, null);
 })();
 var MAT_OPTION_PARENT_COMPONENT = new InjectionToken("MAT_OPTION_PARENT_COMPONENT");
-var _MatOptgroupMixinBase = mixinDisabled(class {
-});
 var _uniqueOptgroupIdCounter = 0;
-var __MatOptgroupBase = class __MatOptgroupBase extends _MatOptgroupMixinBase {
+var MAT_OPTGROUP = new InjectionToken("MatOptgroup");
+var _MatOptgroup = class _MatOptgroup {
   constructor(parent) {
-    super();
+    this.disabled = false;
     this._labelId = `mat-optgroup-label-${_uniqueOptgroupIdCounter++}`;
     this._inert = parent?.inertGroups ?? false;
   }
 };
-__MatOptgroupBase.ɵfac = function _MatOptgroupBase_Factory(t) {
-  return new (t || __MatOptgroupBase)(ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8));
+_MatOptgroup.ɵfac = function MatOptgroup_Factory(t) {
+  return new (t || _MatOptgroup)(ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8));
 };
-__MatOptgroupBase.ɵdir = ɵɵdefineDirective({
-  type: __MatOptgroupBase,
-  inputs: {
-    label: "label"
-  },
-  features: [ɵɵInheritDefinitionFeature]
-});
-var _MatOptgroupBase = __MatOptgroupBase;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_MatOptgroupBase, [{
-    type: Directive
-  }], function() {
-    return [{
-      type: void 0,
-      decorators: [{
-        type: Inject,
-        args: [MAT_OPTION_PARENT_COMPONENT]
-      }, {
-        type: Optional
-      }]
-    }];
-  }, {
-    label: [{
-      type: Input
-    }]
-  });
-})();
-var MAT_OPTGROUP = new InjectionToken("MatOptgroup");
-var _MatOptgroup = class _MatOptgroup extends _MatOptgroupBase {
-};
-_MatOptgroup.ɵfac = /* @__PURE__ */ (() => {
-  let ɵMatOptgroup_BaseFactory;
-  return function MatOptgroup_Factory(t) {
-    return (ɵMatOptgroup_BaseFactory || (ɵMatOptgroup_BaseFactory = ɵɵgetInheritedFactory(_MatOptgroup)))(t || _MatOptgroup);
-  };
-})();
 _MatOptgroup.ɵcmp = ɵɵdefineComponent({
   type: _MatOptgroup,
   selectors: [["mat-optgroup"]],
@@ -4592,13 +4341,15 @@ _MatOptgroup.ɵcmp = ɵɵdefineComponent({
     }
   },
   inputs: {
-    disabled: "disabled"
+    label: "label",
+    disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute]
   },
   exportAs: ["matOptgroup"],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: MAT_OPTGROUP,
     useExisting: _MatOptgroup
-  }]), ɵɵInheritDefinitionFeature],
+  }]), ɵɵInputTransformsFeature, ɵɵStandaloneFeature],
   ngContentSelectors: _c1,
   decls: 5,
   vars: 4,
@@ -4632,7 +4383,6 @@ var MatOptgroup = _MatOptgroup;
       exportAs: "matOptgroup",
       encapsulation: ViewEncapsulation$1.None,
       changeDetection: ChangeDetectionStrategy.OnPush,
-      inputs: ["disabled"],
       host: {
         "class": "mat-mdc-optgroup",
         "[attr.role]": '_inert ? null : "group"',
@@ -4643,10 +4393,29 @@ var MatOptgroup = _MatOptgroup;
         provide: MAT_OPTGROUP,
         useExisting: MatOptgroup
       }],
+      standalone: true,
       template: '<span\n  class="mat-mdc-optgroup-label"\n  role="presentation"\n  [class.mdc-list-item--disabled]="disabled"\n  [id]="_labelId">\n  <span class="mdc-list-item__primary-text">{{ label }} <ng-content></ng-content></span>\n</span>\n\n<ng-content select="mat-option, ng-container"></ng-content>\n',
       styles: [".mat-mdc-optgroup{color:var(--mat-optgroup-label-text-color);font-family:var(--mat-optgroup-label-text-font);line-height:var(--mat-optgroup-label-text-line-height);font-size:var(--mat-optgroup-label-text-size);letter-spacing:var(--mat-optgroup-label-text-tracking);font-weight:var(--mat-optgroup-label-text-weight)}.mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;min-height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-optgroup-label.mdc-list-item--disabled{opacity:.38}.mat-mdc-optgroup-label .mdc-list-item__primary-text{font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;white-space:normal}"]
     }]
-  }], null, null);
+  }], () => [{
+    type: void 0,
+    decorators: [{
+      type: Inject,
+      args: [MAT_OPTION_PARENT_COMPONENT]
+    }, {
+      type: Optional
+    }]
+  }], {
+    label: [{
+      type: Input
+    }],
+    disabled: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute
+      }]
+    }]
+  });
 })();
 var _uniqueIdCounter = 0;
 var MatOptionSelectionChange = class {
@@ -4655,7 +4424,7 @@ var MatOptionSelectionChange = class {
     this.isUserInput = isUserInput;
   }
 };
-var __MatOptionBase = class __MatOptionBase {
+var _MatOption = class _MatOption {
   /** Whether the wrapping component is in multiple selection mode. */
   get multiple() {
     return this._parent && this._parent.multiple;
@@ -4669,7 +4438,7 @@ var __MatOptionBase = class __MatOptionBase {
     return this.group && this.group.disabled || this._disabled;
   }
   set disabled(value) {
-    this._disabled = coerceBooleanProperty(value);
+    this._disabled = value;
   }
   /** Whether ripples for the option are disabled. */
   get disableRipple() {
@@ -4809,12 +4578,13 @@ var __MatOptionBase = class __MatOptionBase {
     this.onSelectionChange.emit(new MatOptionSelectionChange(this, isUserInput));
   }
 };
-__MatOptionBase.ɵfac = function _MatOptionBase_Factory(t) {
-  ɵɵinvalidFactory();
+_MatOption.ɵfac = function MatOption_Factory(t) {
+  return new (t || _MatOption)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8), ɵɵdirectiveInject(MAT_OPTGROUP, 8));
 };
-__MatOptionBase.ɵdir = ɵɵdefineDirective({
-  type: __MatOptionBase,
-  viewQuery: function _MatOptionBase_Query(rf, ctx) {
+_MatOption.ɵcmp = ɵɵdefineComponent({
+  type: _MatOption,
+  selectors: [["mat-option"]],
+  viewQuery: function MatOption_Query(rf, ctx) {
     if (rf & 1) {
       ɵɵviewQuery(_c2, 7);
     }
@@ -4823,61 +4593,6 @@ __MatOptionBase.ɵdir = ɵɵdefineDirective({
       ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._text = _t.first);
     }
   },
-  inputs: {
-    value: "value",
-    id: "id",
-    disabled: "disabled"
-  },
-  outputs: {
-    onSelectionChange: "onSelectionChange"
-  }
-});
-var _MatOptionBase = __MatOptionBase;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_MatOptionBase, [{
-    type: Directive
-  }], function() {
-    return [{
-      type: ElementRef
-    }, {
-      type: ChangeDetectorRef
-    }, {
-      type: void 0
-    }, {
-      type: _MatOptgroupBase
-    }];
-  }, {
-    value: [{
-      type: Input
-    }],
-    id: [{
-      type: Input
-    }],
-    disabled: [{
-      type: Input
-    }],
-    onSelectionChange: [{
-      type: Output
-    }],
-    _text: [{
-      type: ViewChild,
-      args: ["text", {
-        static: true
-      }]
-    }]
-  });
-})();
-var _MatOption = class _MatOption extends _MatOptionBase {
-  constructor(element, changeDetectorRef, parent, group) {
-    super(element, changeDetectorRef, parent, group);
-  }
-};
-_MatOption.ɵfac = function MatOption_Factory(t) {
-  return new (t || _MatOption)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8), ɵɵdirectiveInject(MAT_OPTGROUP, 8));
-};
-_MatOption.ɵcmp = ɵɵdefineComponent({
-  type: _MatOption,
-  selectors: [["mat-option"]],
   hostAttrs: ["role", "option", 1, "mat-mdc-option", "mdc-list-item"],
   hostVars: 11,
   hostBindings: function MatOption_HostBindings(rf, ctx) {
@@ -4894,35 +4609,44 @@ _MatOption.ɵcmp = ɵɵdefineComponent({
       ɵɵclassProp("mdc-list-item--selected", ctx.selected)("mat-mdc-option-multiple", ctx.multiple)("mat-mdc-option-active", ctx.active)("mdc-list-item--disabled", ctx.disabled);
     }
   },
+  inputs: {
+    value: "value",
+    id: "id",
+    disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute]
+  },
+  outputs: {
+    onSelectionChange: "onSelectionChange"
+  },
   exportAs: ["matOption"],
-  features: [ɵɵInheritDefinitionFeature],
+  standalone: true,
+  features: [ɵɵInputTransformsFeature, ɵɵStandaloneFeature],
   ngContentSelectors: _c4,
   decls: 8,
   vars: 5,
-  consts: [["text", ""], ["class", "mat-mdc-option-pseudo-checkbox", "aria-hidden", "true", 3, "disabled", "state", 4, "ngIf"], [1, "mdc-list-item__primary-text"], ["class", "mat-mdc-option-pseudo-checkbox", "state", "checked", "aria-hidden", "true", "appearance", "minimal", 3, "disabled", 4, "ngIf"], ["class", "cdk-visually-hidden", 4, "ngIf"], ["aria-hidden", "true", "mat-ripple", "", 1, "mat-mdc-option-ripple", "mat-mdc-focus-indicator", 3, "matRippleTrigger", "matRippleDisabled"], ["aria-hidden", "true", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled", "state"], ["state", "checked", "aria-hidden", "true", "appearance", "minimal", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled"], [1, "cdk-visually-hidden"]],
+  consts: [["text", ""], ["aria-hidden", "true", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled", "state"], [1, "mdc-list-item__primary-text"], ["state", "checked", "aria-hidden", "true", "appearance", "minimal", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled"], [1, "cdk-visually-hidden"], ["aria-hidden", "true", "mat-ripple", "", 1, "mat-mdc-option-ripple", "mat-mdc-focus-indicator", 3, "matRippleTrigger", "matRippleDisabled"]],
   template: function MatOption_Template(rf, ctx) {
     if (rf & 1) {
       ɵɵprojectionDef(_c3);
-      ɵɵtemplate(0, MatOption_mat_pseudo_checkbox_0_Template, 1, 2, "mat-pseudo-checkbox", 1);
+      ɵɵtemplate(0, MatOption_Conditional_0_Template, 1, 2, "mat-pseudo-checkbox", 1);
       ɵɵprojection(1);
       ɵɵelementStart(2, "span", 2, 0);
       ɵɵprojection(4, 1);
       ɵɵelementEnd();
-      ɵɵtemplate(5, MatOption_mat_pseudo_checkbox_5_Template, 1, 1, "mat-pseudo-checkbox", 3)(6, MatOption_span_6_Template, 2, 1, "span", 4);
+      ɵɵtemplate(5, MatOption_Conditional_5_Template, 1, 1, "mat-pseudo-checkbox", 3)(6, MatOption_Conditional_6_Template, 2, 1, "span", 4);
       ɵɵelement(7, "div", 5);
     }
     if (rf & 2) {
-      ɵɵproperty("ngIf", ctx.multiple);
+      ɵɵconditional(0, ctx.multiple ? 0 : -1);
       ɵɵadvance(5);
-      ɵɵproperty("ngIf", !ctx.multiple && ctx.selected && !ctx.hideSingleSelectionIndicator);
+      ɵɵconditional(5, !ctx.multiple && ctx.selected && !ctx.hideSingleSelectionIndicator ? 5 : -1);
       ɵɵadvance();
-      ɵɵproperty("ngIf", ctx.group && ctx.group._inert);
+      ɵɵconditional(6, ctx.group && ctx.group._inert ? 6 : -1);
       ɵɵadvance();
       ɵɵproperty("matRippleTrigger", ctx._getHostElement())("matRippleDisabled", ctx.disabled || ctx.disableRipple);
     }
   },
-  dependencies: [MatRipple, NgIf, MatPseudoCheckbox],
-  styles: ['.mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:""}'],
+  dependencies: [MatPseudoCheckbox, MatRipple],
+  styles: ['.mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center;background:rgba(0,0,0,0)}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-multiple{--mdc-list-list-item-selected-container-color:var(--mdc-list-list-item-container-color, transparent)}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:""}'],
   encapsulation: 2,
   changeDetection: 0
 });
@@ -4957,54 +4681,88 @@ var MatOption = _MatOption;
       },
       encapsulation: ViewEncapsulation$1.None,
       changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      imports: [MatPseudoCheckbox, MatRipple],
       template: `<!-- Set aria-hidden="true" to this DOM node and other decorative nodes in this file. This might
  be contributing to issue where sometimes VoiceOver focuses on a TextNode in the a11y tree instead
  of the Option node (#23202). Most assistive technology will generally ignore non-role,
  non-text-content elements. Adding aria-hidden seems to make VoiceOver behave more consistently. -->
-<mat-pseudo-checkbox *ngIf="multiple" class="mat-mdc-option-pseudo-checkbox" [disabled]="disabled"
-    [state]="selected ? 'checked' : 'unchecked'" aria-hidden="true"></mat-pseudo-checkbox>
+@if (multiple) {
+    <mat-pseudo-checkbox
+        class="mat-mdc-option-pseudo-checkbox"
+        [disabled]="disabled"
+        [state]="selected ? 'checked' : 'unchecked'"
+        aria-hidden="true"></mat-pseudo-checkbox>
+}
 
 <ng-content select="mat-icon"></ng-content>
 
 <span class="mdc-list-item__primary-text" #text><ng-content></ng-content></span>
 
 <!-- Render checkmark at the end for single-selection. -->
-<mat-pseudo-checkbox *ngIf="!multiple && selected && !hideSingleSelectionIndicator"
-    class="mat-mdc-option-pseudo-checkbox" [disabled]="disabled" state="checked"
-    aria-hidden="true" appearance="minimal"></mat-pseudo-checkbox>
+@if (!multiple && selected && !hideSingleSelectionIndicator) {
+    <mat-pseudo-checkbox
+        class="mat-mdc-option-pseudo-checkbox"
+        [disabled]="disabled"
+        state="checked"
+        aria-hidden="true"
+        appearance="minimal"></mat-pseudo-checkbox>
+}
 
 <!-- See a11y notes inside optgroup.ts for context behind this element. -->
-<span class="cdk-visually-hidden" *ngIf="group && group._inert">({{ group.label }})</span>
+@if (group && group._inert) {
+    <span class="cdk-visually-hidden">({{ group.label }})</span>
+}
 
 <div class="mat-mdc-option-ripple mat-mdc-focus-indicator" aria-hidden="true" mat-ripple
      [matRippleTrigger]="_getHostElement()" [matRippleDisabled]="disabled || disableRipple">
 </div>
 `,
-      styles: ['.mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:""}']
+      styles: ['.mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center;background:rgba(0,0,0,0)}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-multiple{--mdc-list-list-item-selected-container-color:var(--mdc-list-list-item-container-color, transparent)}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:""}']
     }]
-  }], function() {
-    return [{
-      type: ElementRef
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: ChangeDetectorRef
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
     }, {
-      type: ChangeDetectorRef
+      type: Inject,
+      args: [MAT_OPTION_PARENT_COMPONENT]
+    }]
+  }, {
+    type: MatOptgroup,
+    decorators: [{
+      type: Optional
     }, {
-      type: void 0,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [MAT_OPTION_PARENT_COMPONENT]
+      type: Inject,
+      args: [MAT_OPTGROUP]
+    }]
+  }], {
+    value: [{
+      type: Input
+    }],
+    id: [{
+      type: Input
+    }],
+    disabled: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute
       }]
-    }, {
-      type: MatOptgroup,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [MAT_OPTGROUP]
+    }],
+    onSelectionChange: [{
+      type: Output
+    }],
+    _text: [{
+      type: ViewChild,
+      args: ["text", {
+        static: true
       }]
-    }];
-  }, null);
+    }]
+  });
 })();
 function _countGroupLabelsBeforeOption(optionIndex, options, optionGroups) {
   if (optionGroups.length) {
@@ -5036,21 +4794,19 @@ _MatOptionModule.ɵfac = function MatOptionModule_Factory(t) {
 };
 _MatOptionModule.ɵmod = ɵɵdefineNgModule({
   type: _MatOptionModule,
-  declarations: [MatOption, MatOptgroup],
-  imports: [MatRippleModule, CommonModule, MatCommonModule, MatPseudoCheckboxModule],
+  imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule, MatOption, MatOptgroup],
   exports: [MatOption, MatOptgroup]
 });
 _MatOptionModule.ɵinj = ɵɵdefineInjector({
-  imports: [MatRippleModule, CommonModule, MatCommonModule, MatPseudoCheckboxModule]
+  imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule]
 });
 var MatOptionModule = _MatOptionModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatOptionModule, [{
     type: NgModule,
     args: [{
-      imports: [MatRippleModule, CommonModule, MatCommonModule, MatPseudoCheckboxModule],
-      exports: [MatOption, MatOptgroup],
-      declarations: [MatOption, MatOptgroup]
+      imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule, MatOption, MatOptgroup],
+      exports: [MatOption, MatOptgroup]
     }]
   }], null, null);
 })();
@@ -5185,9 +4941,66 @@ var MatRippleLoader = _MatRippleLoader;
     args: [{
       providedIn: "root"
     }]
-  }], function() {
-    return [];
-  }, null);
+  }], () => [], null);
+})();
+var __MatInternalFormField = class __MatInternalFormField {
+};
+__MatInternalFormField.ɵfac = function _MatInternalFormField_Factory(t) {
+  return new (t || __MatInternalFormField)();
+};
+__MatInternalFormField.ɵcmp = ɵɵdefineComponent({
+  type: __MatInternalFormField,
+  selectors: [["div", "mat-internal-form-field", ""]],
+  hostAttrs: [1, "mdc-form-field", "mat-internal-form-field"],
+  hostVars: 2,
+  hostBindings: function _MatInternalFormField_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      ɵɵclassProp("mdc-form-field--align-end", ctx.labelPosition === "before");
+    }
+  },
+  inputs: {
+    labelPosition: "labelPosition"
+  },
+  standalone: true,
+  features: [ɵɵStandaloneFeature],
+  attrs: _c5,
+  ngContentSelectors: _c6,
+  decls: 1,
+  vars: 0,
+  template: function _MatInternalFormField_Template(rf, ctx) {
+    if (rf & 1) {
+      ɵɵprojectionDef();
+      ɵɵprojection(0);
+    }
+  },
+  styles: [".mdc-form-field{display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field[hidden]{display:none}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}.mdc-form-field{font-family:var(--mdc-form-field-label-text-font);line-height:var(--mdc-form-field-label-text-line-height);font-size:var(--mdc-form-field-label-text-size);font-weight:var(--mdc-form-field-label-text-weight);letter-spacing:var(--mdc-form-field-label-text-tracking);color:var(--mdc-form-field-label-text-color)}.mat-internal-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}"],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var _MatInternalFormField = __MatInternalFormField;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_MatInternalFormField, [{
+    type: Component,
+    args: [{
+      selector: "div[mat-internal-form-field]",
+      standalone: true,
+      template: "<ng-content></ng-content>",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      host: {
+        "class": "mdc-form-field mat-internal-form-field",
+        "[class.mdc-form-field--align-end]": 'labelPosition === "before"'
+      },
+      styles: [".mdc-form-field{display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field[hidden]{display:none}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}.mdc-form-field{font-family:var(--mdc-form-field-label-text-font);line-height:var(--mdc-form-field-label-text-line-height);font-size:var(--mdc-form-field-label-text-size);font-weight:var(--mdc-form-field-label-text-weight);letter-spacing:var(--mdc-form-field-label-text-tracking);color:var(--mdc-form-field-label-text-color)}.mat-internal-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}"]
+    }]
+  }], null, {
+    labelPosition: [{
+      type: Input,
+      args: [{
+        required: true
+      }]
+    }]
+  });
 })();
 
 export {
@@ -5228,29 +5041,18 @@ export {
   Directionality,
   BidiModule,
   MatCommonModule,
-  mixinDisabled,
-  mixinColor,
-  mixinDisableRipple,
-  mixinTabIndex,
-  mixinErrorState,
+  _ErrorStateTracker,
   ErrorStateMatcher,
   MatRipple,
   MatRippleModule,
   MAT_OPTION_PARENT_COMPONENT,
   MAT_OPTGROUP,
+  MatOptgroup,
   MatOption,
   _countGroupLabelsBeforeOption,
   _getOptionScrollPosition,
   MatOptionModule,
-  MatRippleLoader
+  MatRippleLoader,
+  _MatInternalFormField
 };
-/*! Bundled license information:
-
-@angular/platform-browser/fesm2022/animations.mjs:
-  (**
-   * @license Angular v17.3.11
-   * (c) 2010-2024 Google LLC. https://angular.io/
-   * License: MIT
-   *)
-*/
-//# sourceMappingURL=chunk-FCZWMF64.js.map
+//# sourceMappingURL=chunk-7QZ2GFC7.js.map

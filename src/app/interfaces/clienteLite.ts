@@ -57,7 +57,7 @@ export interface document {
 }
 
 export interface bankAccounts {
-  'bankAccountId': string 
+      'bankAccountId': string 
       'description': string 
       'typeCode': number 
       'statusCode': number 
@@ -74,24 +74,24 @@ export interface bankAccounts {
 }
 
 export interface benefits {
-    'benefitId': string | undefined
-      'typeCode': number | undefined
-      'number': string | undefined
-      'code': string | undefined
-      'description': string | undefined
-      'value': number | undefined
-      'netValue': number | undefined
-      'marginValue': number | undefined
-      'issuingDate': string | undefined
-      'startDate': string | undefined
-      'loanEligible': boolean | undefined
-      'issuingState': string | undefined
-      'issuingCountry': string | undefined
-      'securityCode': string | undefined
-      'statusCode': number | undefined
-      'statusNote': string | undefined
-      'paymentMethodCode': number | undefined
-      'paymentMethodName': string | undefined
-      'note': string | undefined
+    'benefitId': string 
+      'typeCode': number 
+      'number': string 
+      'code': string 
+      'description': string 
+      'value': number 
+      'netValue': number 
+      'marginValue': number 
+      'issuingDate': string 
+      'startDate': string 
+      'loanEligible': boolean 
+      'issuingState': string 
+      'issuingCountry': string 
+      'securityCode': string 
+      'statusCode': number 
+      'statusNote': string 
+      'paymentMethodCode': number 
+      'paymentMethodName': string 
+      'note': string 
 }
   

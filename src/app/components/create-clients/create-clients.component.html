@@ -95,26 +95,7 @@
                     </button>     
                   </div> 
                 }
-              
-
-            
-
-            <!--
-              <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label> DDD </mat-label>
-              <input matInput placeholder="DDD" [(ngModel)] = "clienteLite.phones[0].ddd" name="phoneDDD">
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label> Telefone </mat-label>
-              <input matInput placeholder="Telefone" [(ngModel)] = "clienteLite.phones[0].number" name="phoneNumber">
-            </mat-form-field>
-            
-            -->
-            
-            
-            
-    
+                
             <mat-form-field appearance="outline" class="example-full-width">
               <input matInput placeholder="Observação" [(ngModel)] = 'clienteLite.note' name="note">
             </mat-form-field>
@@ -124,6 +105,7 @@
         <li>
 
           @for (addressT of clienteLite.addresses; track addressT) {
+
             <div class="main-container-forms-cliente">
               <h1> Endereço </h1>
       
@@ -209,17 +191,17 @@
         <li>
           <div class="main-container-forms-cliente">
             <h1> Documento </h1>
-    
-            <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label> Numero do Documento </mat-label>
-              <input matInput placeholder="Numero do Documento" [(ngModel)] = 'documentN.number' name="number">
-            </mat-form-field>
 
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> typeCode </mat-label>
               <input matInput placeholder="typeCode" [(ngModel)] = 'documentN.typeCode' name="typeCode">
             </mat-form-field>
-    
+
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Numero do Documento </mat-label>
+              <input matInput placeholder="Numero do Documento" [(ngModel)] = 'documentN.number' name="number">
+            </mat-form-field>
+
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Data de Emissão </mat-label>
               <input matInput placeholder="Data de Emissão Documetno" [(ngModel)] = 'documentN.issuingDate' name="issuingDate">
@@ -234,13 +216,33 @@
               <mat-label> UF de Emissão </mat-label>
               <input matInput placeholder="Uf de Emissão Documento" [(ngModel)] = 'documentN.issuingEntity' name="issuingEntity">
             </mat-form-field>
-          </div>
+
+          @for(documentT of clienteLite.documents; track documentT){ 
+          
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Numero do Documento </mat-label>
+              <input matInput placeholder="Numero do Documento" [(ngModel)] = 'documentT.number' name="numberT" [ngModelOptions]="{name: documentT.number}">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Orgão Emissor </mat-label>
+              <input matInput placeholder="Orgão Emissor" [(ngModel)] = 'documentT.expirationDate' name="expirationDateT" [ngModelOptions]="{name: documentT.expirationDate}">
+            </mat-form-field>
+    
+        }
+      </div>
+        
+          
         </li>
         <li>
-
           <div class="main-container-forms-cliente">
             <h1> Conta Bancaria </h1>
-    
+
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Type Code </mat-label>
+              <input matInput placeholder="Type Code" [(ngModel)] = 'bankAccountN.typeCode' name="typeCode">
+            </mat-form-field>
+            
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Código do Banco </mat-label>
               <input matInput placeholder="Código do Banco" [(ngModel)] = 'bankAccountN.bankCode' name="bankCode">
@@ -260,8 +262,33 @@
               <mat-label> Número da Conta </mat-label>
               <input matInput placeholder="Número da Conta" [(ngModel)] = 'bankAccountN.accountNumber' name="accountNumber">
             </mat-form-field>
-    
-          </div>
+
+
+          @for(bankAccountT of clienteLite.bankAccounts; track bankAccountT){
+            
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label> Código do Banco </mat-label>
+                <input matInput placeholder="Código do Banco" [(ngModel)] = 'bankAccountT.bankCode' name="bankCodeT" [ngModelOptions]="{name: bankAccountT.bankCode}">
+              </mat-form-field>
+      
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label> Nome do Banco </mat-label>
+                <input matInput placeholder="Nome do Banco" [(ngModel)] = 'bankAccountT.bankName' name="bankNameT" [ngModelOptions]="{name: bankAccountT.bankName}">
+              </mat-form-field>
+      
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label> Agência </mat-label>
+                <input matInput placeholder="Agência" [(ngModel)] = 'bankAccountT.bankAccountId' name="bankAccountIdT" [ngModelOptions]="{name: bankAccountT.bankAccountId}">
+              </mat-form-field>
+      
+              <mat-form-field appearance="outline"class="example-full-width">
+                <mat-label> Número da Conta </mat-label>
+                <input matInput placeholder="Número da Conta" [(ngModel)] = 'bankAccountT.accountNumber' name="accountNumberT" [ngModelOptions]="{name: bankAccountT.accountNumber}">
+              </mat-form-field>
+          }
+        </div>
+
+          
         </li>
     
         <li>
