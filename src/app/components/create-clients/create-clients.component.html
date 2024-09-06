@@ -55,37 +55,38 @@
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Novo Email </mat-label>
               <input matInput placeholder="Novo E-mail" [(ngModel)] = "emailN.email" name="email">
+              <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
 
-            
+            <div class="cliente-Array-Fields">
               @for (emailT of clienteLite.emails; track emailT) {
-                <div class="cliente-Phone">
+                <h2>Emails Cadastrados</h2>
                   <mat-form-field appearance="outline" class="example-full-width">
                     <input matInput placeholder="E-mail" [(ngModel)] = "emailT.email" name="emailT" [ngModelOptions]="{name: emailT.email}">
                   </mat-form-field>
                   <button mat-icon-button type="button" aria-label="Example icon button with a vertical three dot icon" (click)="removeEmail(emailT.email)">
                     <mat-icon>delete</mat-icon>
-                  </button>   
-                </div>
-                
-                
+                  </button>                   
               }
+            </div>
+
 
             <mat-form-field appearance="outline">
               <mat-label> Novo DDD </mat-label>
               <input matInput placeholder="Novo DDD" [(ngModel)] = "phoneN.ddd" name="phoneDDD">
+              <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
             
             <mat-form-field appearance="outline">
               <mat-label> Novo Telefone </mat-label>
               <input matInput placeholder="Novo Telefone" [(ngModel)] = "phoneN.number" name="phoneNumber">
+              <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field> 
 
-              
+            <div class="cliente-Array-Fields">
                 @for (phoneT of clienteLite.phones; track phoneT) {
                   <h2> DDD: {{phoneT.ddd}} | Number: {{phoneT.number}}</h2>
                   <span> </span>
-                  <div class="cliente-Phone">
                     <mat-form-field appearance="outline">
                       <mat-label> Telefone </mat-label>
                       <input matInput placeholder="Telefone" [(ngModel)] = "phoneT.number" name='phoneT' [ngModelOptions]="{name: phoneT.number.toString()}">
@@ -93,9 +94,9 @@
                     <button mat-icon-button type="button" aria-label="Example icon button with a vertical three dot icon" (click)="removePhone(phoneT.number)">
                       <mat-icon>delete</mat-icon>
                     </button>     
-                  </div> 
                 }
-                
+            </div> 
+
             <mat-form-field appearance="outline" class="example-full-width">
               <input matInput placeholder="Observação" [(ngModel)] = 'clienteLite.note' name="note">
             </mat-form-field>
@@ -112,12 +113,13 @@
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label> CEP </mat-label>
                 <input matInput placeholder="CEP" [(ngModel)] = 'addressT.zipCode' name="zipCode">
+                <mat-hint align="end"> Obrigatório </mat-hint>
               </mat-form-field>
       
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label> Rua </mat-label>
                 <input matInput placeholder="Endereco" [(ngModel)] = 'addressT.street' name="street">
-                <mat-hint align="end"> (rua, avenida, praça, etc) </mat-hint>
+                <mat-hint align="end"> Obrigatório </mat-hint>
               </mat-form-field>
       
               <mat-form-field appearance="outline" class="example-full-width">
@@ -195,11 +197,13 @@
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> typeCode </mat-label>
               <input matInput placeholder="typeCode" [(ngModel)] = 'documentN.typeCode' name="typeCode">
+              <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Numero do Documento </mat-label>
               <input matInput placeholder="Numero do Documento" [(ngModel)] = 'documentN.number' name="number">
+              <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="example-full-width">
@@ -217,8 +221,9 @@
               <input matInput placeholder="Uf de Emissão Documento" [(ngModel)] = 'documentN.issuingEntity' name="issuingEntity">
             </mat-form-field>
 
+            <div class="cliente-Array-Fields">
           @for(documentT of clienteLite.documents; track documentT){ 
-          
+            <h2> Documentos Cadastrados </h2>
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Numero do Documento </mat-label>
               <input matInput placeholder="Numero do Documento" [(ngModel)] = 'documentT.number' name="numberT" [ngModelOptions]="{name: documentT.number}">
@@ -226,10 +231,16 @@
     
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Orgão Emissor </mat-label>
-              <input matInput placeholder="Orgão Emissor" [(ngModel)] = 'documentT.expirationDate' name="expirationDateT" [ngModelOptions]="{name: documentT.expirationDate}">
+              <input matInput placeholder="Orgão Emissor" [(ngModel)] = 'documentT.issuingEntity' name="issuingEntityT" [ngModelOptions]="{name: documentT.issuingEntity}">
             </mat-form-field>
+
+            <button mat-icon-button type="button" aria-label="Example icon button with a vertical three dot icon" (click)="removeDocument(documentN.documentId)">
+              <mat-icon>delete</mat-icon>
+            </button> 
     
         }
+          </div>
+
       </div>
         
           
@@ -241,16 +252,18 @@
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Type Code </mat-label>
               <input matInput placeholder="Type Code" [(ngModel)] = 'bankAccountN.typeCode' name="typeCode">
+              <mat-hint align="end"> Obrigatório </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label> Nome do Banco </mat-label>
+              <input matInput placeholder="Nome do Banco" [(ngModel)] = 'bankAccountN.bankName' name="bankName">
+              <mat-hint align="end"> Obrigatório </mat-hint>
             </mat-form-field>
             
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label> Código do Banco </mat-label>
               <input matInput placeholder="Código do Banco" [(ngModel)] = 'bankAccountN.bankCode' name="bankCode">
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label> Nome do Banco </mat-label>
-              <input matInput placeholder="Nome do Banco" [(ngModel)] = 'bankAccountN.bankName' name="bankName">
             </mat-form-field>
     
             <mat-form-field appearance="outline" class="example-full-width">
@@ -263,9 +276,9 @@
               <input matInput placeholder="Número da Conta" [(ngModel)] = 'bankAccountN.accountNumber' name="accountNumber">
             </mat-form-field>
 
-
+            <div class="cliente-Array-Fields">
           @for(bankAccountT of clienteLite.bankAccounts; track bankAccountT){
-            
+              <h2> Bancos Cadastrados </h2>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label> Código do Banco </mat-label>
                 <input matInput placeholder="Código do Banco" [(ngModel)] = 'bankAccountT.bankCode' name="bankCodeT" [ngModelOptions]="{name: bankAccountT.bankCode}">
@@ -275,17 +288,14 @@
                 <mat-label> Nome do Banco </mat-label>
                 <input matInput placeholder="Nome do Banco" [(ngModel)] = 'bankAccountT.bankName' name="bankNameT" [ngModelOptions]="{name: bankAccountT.bankName}">
               </mat-form-field>
-      
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label> Agência </mat-label>
-                <input matInput placeholder="Agência" [(ngModel)] = 'bankAccountT.bankAccountId' name="bankAccountIdT" [ngModelOptions]="{name: bankAccountT.bankAccountId}">
-              </mat-form-field>
-      
-              <mat-form-field appearance="outline"class="example-full-width">
-                <mat-label> Número da Conta </mat-label>
-                <input matInput placeholder="Número da Conta" [(ngModel)] = 'bankAccountT.accountNumber' name="accountNumberT" [ngModelOptions]="{name: bankAccountT.accountNumber}">
-              </mat-form-field>
+
+              <button mat-icon-button type="button" aria-label="Example icon button with a vertical three dot icon" (click)="removeBank(bankAccountN.bankAccountId)">
+                <mat-icon>delete</mat-icon>
+              </button>  
+
           }
+            </div>
+
         </div>
 
           

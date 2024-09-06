@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, numberAttribute, OnInit } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -214,6 +214,24 @@ ngOnInit(): void {
     }
   }
 
+  removeDocument(documentidN: string){
+    for(let x = 0; x < this.clienteLite.documents.length; x++ ){
+      if(this.clienteLite.documents[x].documentId == documentidN){
+        debugger
+        this.clienteLite.documents.splice(x, 1)
+      }
+    }
+  }
+
+  removeBank(bankAccountIdN: string){
+    for(let x = 0; x < this.clienteLite.bankAccounts.length; x++ ){
+      if(this.clienteLite.bankAccounts[x].bankAccountId == bankAccountIdN){
+        debugger
+        this.clienteLite.bankAccounts.splice(x, 1)
+      }
+    }
+  }
+
   addFilds(){
     debugger
     if(this.phoneN.ddd != 0 && this.phoneN.number != 0){
@@ -228,21 +246,13 @@ ngOnInit(): void {
       this.clienteLite.addresses.push(this.addressN)
     }
 
-    if(this.documentN.number !=''){
+    if(this.documentN.number !='' || this.bankAccountN.typeCode != 0){
       this.clienteLite.documents.push(this.documentN)
     }
 
-    if(this.bankAccountN.accountNumber != ''){
+    if(this.bankAccountN.accountNumber != '' || this.bankAccountN.typeCode != 0){
       this.clienteLite.bankAccounts.push(this.bankAccountN)
-    }
-
-    
-
-    
-    
-
-    
-    
+    }    
   }
     
 
