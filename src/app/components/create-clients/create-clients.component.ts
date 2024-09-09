@@ -102,7 +102,7 @@ ngOnInit(): void {
     note: ''
   }
 
-  benefit: benefits = {
+  benefitN: benefits = {
     benefitId: '',
     typeCode: 0,
     number: '',
@@ -151,7 +151,9 @@ ngOnInit(): void {
     bankAccounts: [
       this.bankAccountN
     ],
-    benefits: []
+    benefits: [
+      this.benefitN
+    ]
   }
 
   
@@ -252,7 +254,12 @@ ngOnInit(): void {
 
     if(this.bankAccountN.accountNumber != '' || this.bankAccountN.typeCode != 0){
       this.clienteLite.bankAccounts.push(this.bankAccountN)
-    }    
+    }  
+
+    if(this.benefitN.number != '' || this.benefitN.typeCode != 0 ){
+      this.clienteLite.benefits.push(this.benefitN)
+    }
+
   }
     
 

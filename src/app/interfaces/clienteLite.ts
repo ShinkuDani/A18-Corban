@@ -41,7 +41,7 @@ export interface addresses {
 }
 
 export interface document {
-    'documentId': string 
+      'documentId': string 
       'typeCode': number 
       'number': string 
       'category': string 
