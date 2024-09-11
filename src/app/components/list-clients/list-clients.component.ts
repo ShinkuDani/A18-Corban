@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { clienteLiteInterface } from '../../interfaces/clienteLite';
 
 
 export interface PeriodicElement {
@@ -66,9 +67,9 @@ export class ListClientsComponent implements OnInit {
 
   idCustomer = new FormControl('');
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['Codigo', 'Nome', 'NickName' ,'CustomerID', 'Delete', 'CustomerAlter', 'CustomerDetails'];
+  
   dataSource = this.customers;
-
 
   getToken(){
     this._corbanService.getToken().subscribe(result => {
@@ -86,6 +87,7 @@ export class ListClientsComponent implements OnInit {
           console.log(data)
           this.customers = data.items;
           console.log(this.dataSource);
+          this.dataSource = data.items
 
         }
       }

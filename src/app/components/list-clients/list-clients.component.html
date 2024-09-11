@@ -14,27 +14,48 @@
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  <ng-container matColumnDef="Codigo">
+    <th mat-header-cell *matHeaderCellDef> Code </th>
+    <td mat-cell *matCellDef="let element"> {{element.accountCode}} </td>
   </ng-container>
 
   <!-- Name Column -->
-  <ng-container matColumnDef="name">
+  <ng-container matColumnDef="Nome">
     <th mat-header-cell *matHeaderCellDef> Name </th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="NickName">
+    <th mat-header-cell *matHeaderCellDef> NickName </th>
+    <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  <!-- Weight Column -->
+  <ng-container matColumnDef="CustomerID">
+    <th mat-header-cell *matHeaderCellDef> CustomerID </th>
+    <td mat-cell *matCellDef="let element"> {{element.customerId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Delete">
+    <th mat-header-cell *matHeaderCellDef> Delete Button </th>
+    <td mat-cell *matCellDef="let element"> 
+      <button mat-raised-button color="warn" (click)="deleteClient(element.customerId)"> Deletar Cliente </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="CustomerAlter">
+    <th mat-header-cell *matHeaderCellDef> CustomerAlter </th>
+    <td mat-cell *matCellDef="let element"> 
+      <button mat-raised-button color="accent" [routerLink]="['edit/',element.customerId]"> Alterar Cliente</button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="CustomerDetails">
+    <th mat-header-cell *matHeaderCellDef> CustomerDetails </th>
+    <td mat-cell *matCellDef="let element"> 
+      <button mat-raised-button color="green" [routerLink]="['detail/',element.customerId]"> Detalhes do Usuário </button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
