@@ -34,13 +34,17 @@ export class ListClientsComponent implements OnInit {
 
   showFiller = true;
 
-  constructor(private _corbanService : CorbanService, private _toastr:ToastrService){
+  ngOnInit(): void {
+    //this.getToken()
+    //this.getClients()
   }
 
-  ngOnInit(): void {
+  constructor(private _corbanService : CorbanService, private _toastr:ToastrService){
     this.getToken()
     this.getClients()
   }
+
+  
 
   customers: Array<any> = new Array<any>();
   customer: any = {};
