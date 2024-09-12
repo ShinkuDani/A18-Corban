@@ -1,7 +1,27 @@
-.toolbar-container{
-    border-bottom: 1px solid black;
+.drawer-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
 }
-.toolbar-container button{
+
+.drawer-top button{
+    margin: 14px 10px;
+}
+
+.drawer-buttons  button{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin: 2px 0px;
+   
+}
+
+.toolbar-container{
+    border-bottom: 1px solid black; 
+}
+
+.toolbar-container button, mat-form-field{
     margin-left: auto;
 }
 
