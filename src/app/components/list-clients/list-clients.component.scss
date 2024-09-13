@@ -3,7 +3,6 @@
     height: 100%;
 }
 
-
 .drawer-top {
     display: flex;
     justify-content: center;
@@ -27,9 +26,10 @@
     border-bottom: 1px solid black; 
 }
 
-.toolbar-container button, mat-form-field{
+.toolbar-container button, .tollbar-pesquisa {
     margin-left: auto;
 }
+
 
 .container-botoes button {
     margin-right: 5px;

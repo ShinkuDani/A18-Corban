@@ -2,7 +2,7 @@ export interface clienteLiteInterface {
   'accountCode': string| undefined
   'customerId': string| undefined
   'name': string| undefined
-  'nickname': string| undefined
+  'nickname': string
   'birthDate': string| undefined
   'motherName': string| undefined
   'fatherName': string| undefined

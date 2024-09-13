@@ -128,7 +128,7 @@ ngOnInit(): void {
     accountCode: undefined,
     customerId: undefined,
     name: undefined,
-    nickname: undefined,
+    nickname: '',
     birthDate: undefined,
     motherName: undefined,
     fatherName: undefined,

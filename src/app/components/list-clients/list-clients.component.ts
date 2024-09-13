@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
+import { clienteLiteInterface } from '../../interfaces/clienteLite';
 
 @Component({
   selector: 'app-list-clients',
@@ -30,32 +31,48 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './list-clients.component.scss'
 })
 
-export class ListClientsComponent implements OnInit {
+export class ListClientsComponent {
 
   showFiller = true;
 
-  ngOnInit(): void {
-    //this.getToken()
-    //this.getClients()
-  }
-
   constructor(private _corbanService : CorbanService, private _toastr:ToastrService){
-    this.getToken()
     this.getClients()
   }
 
   
 
-  customers: Array<any> = new Array<any>();
+  //customers: Array<any> = new Array<any>();
+  customers: clienteLiteInterface[] = [{
+    accountCode: undefined,
+    customerId: undefined,
+    name: undefined,
+    nickname: '',
+    birthDate: undefined,
+    motherName: undefined,
+    fatherName: undefined,
+    nationality: undefined,
+    naturalnessState: undefined,
+    naturalness: undefined,
+    note: undefined,
+    addresses: [],
+    emails: [],
+    phones: [],
+    documents: [],
+    bankAccounts: [],
+    benefits: []
+  }]
   customer: any = {};
 
-  idCustomer = new FormControl('');
+  searchInput = new FormControl();
+  searchCustomers = new Array();
+  searchCustomers2 = '';
+
 
   displayedColumns: string[] = ['Codigo', 'Nome', 'NickName' ,'CustomerID', 'Delete', 'CustomerAlter', 'CustomerDetails'];
   
   dataSource = this.customers;
 
-  getToken(){
+   getToken(){
     this._corbanService.getToken().subscribe(result => {
       if (result)
         //this._toastr.success('Token Salvo')
@@ -63,16 +80,16 @@ export class ListClientsComponent implements OnInit {
     })
   }
 
-  getClients(){
+  async getClients(){
+    this.getToken()
     this._corbanService.getCustomers().subscribe(
       data => {
         if (data) {
-          //this._toastr.success('Usuários pegos')
+          //this._toastr.success('Usuários pegos');
           console.log(data)
           this.customers = data.items;
           console.log(this.dataSource);
           this.dataSource = data.items
-
         }
       }
     )
@@ -87,5 +104,14 @@ export class ListClientsComponent implements OnInit {
     )
   }
 
-  
+  searchFilter(){
+    //debugger
+    let searchCustomers3: any[] = []
+    for( let c = 0; c < this.customers.length; c++){
+        searchCustomers3 = this.customers.filter(customer => customer.nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()))
+        //this.searchCustomers = this.customers[c].name.filter((name:any) => name.toLowerCase() == this.searchInput.value?.toLocaleLowerCase()) 
+        //console.log("Nome: " + this.searchCustomers)
+      }
+      console.log(searchCustomers3)
+  }
 }

@@ -54,9 +54,12 @@
             <button mat-raised-button (click)="getToken()"> Pegar Token </button>
             <button mat-raised-button color="primary" (click)="getClients()"> Pegar Customers </button>
 
-            <mat-form-field appearance="fill">
-              <input matInput placeholder="Placeholder">
-            </mat-form-field>
+            <div class="tollbar-pesquisa">
+              <mat-form-field appearance="fill">
+                <input matInput placeholder="Placeholder" id="searchInput" type="text" [formControl]='searchInput'>
+              </mat-form-field>
+              <button mat-button (click)="searchFilter()"> <mat-icon>search</mat-icon> </button>
+            </div>
 
         </mat-toolbar> 
       </div>
