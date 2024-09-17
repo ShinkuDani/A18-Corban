@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { clienteLiteInterface } from '../../interfaces/clienteLite';
 
@@ -25,6 +26,7 @@ import { clienteLiteInterface } from '../../interfaces/clienteLite';
     MatFormFieldModule,
     MatTableModule,
     MatInputModule,
+    MatMenuModule,
     MatToolbarModule
   ],
   templateUrl: './list-clients.component.html',
@@ -85,7 +87,7 @@ export class ListClientsComponent {
   searchInput = new FormControl();
 
 
-  displayedColumns: string[] = ['Codigo', 'Nome', 'NickName' ,'CustomerID', 'Delete', 'CustomerAlter', 'CustomerDetails'];
+  displayedColumns: string[] = ['Servico','Codigo', 'Nome', 'NickName' ,'CustomerID', 'Delete', 'CustomerAlter', 'CustomerDetails'];
   
   
     dataSource = this.customers;
