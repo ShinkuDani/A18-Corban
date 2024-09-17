@@ -1,33 +1,35 @@
 import {
-  MAT_FORM_FIELD,
-  MatFormField,
-  MatFormFieldControl,
-  MatFormFieldModule
-} from "./chunk-5B7BSWPF.js";
-import {
   FormGroupDirective,
   NgControl,
   NgForm,
   Validators
-} from "./chunk-BH7ZWHVK.js";
+} from "./chunk-WZFLPMKP.js";
+import {
+  MAT_FORM_FIELD,
+  MatError,
+  MatFormField,
+  MatFormFieldControl,
+  MatFormFieldModule,
+  MatHint,
+  MatLabel,
+  MatPrefix,
+  MatSuffix
+} from "./chunk-F3J6ER7L.js";
+import "./chunk-BF6LTWMY.js";
 import {
   ErrorStateMatcher,
   MatCommonModule,
   Platform,
+  _ErrorStateTracker,
   coerceBooleanProperty,
   coerceElement,
   coerceNumberProperty,
   getSupportedInputTypes,
-  mixinErrorState,
   normalizePassiveListenerOptions
-} from "./chunk-2HQLCZJZ.js";
-import "./chunk-HKAYZS6N.js";
-import "./chunk-KS5HH6AC.js";
-import "./chunk-2EZRO44G.js";
-import "./chunk-O7I6UIPS.js";
+} from "./chunk-7QZ2GFC7.js";
 import {
   DOCUMENT
-} from "./chunk-Y6FHRR2C.js";
+} from "./chunk-OJQNVZFF.js";
 import {
   Directive,
   EMPTY,
@@ -49,7 +51,6 @@ import {
   fromEvent,
   setClassMetadata,
   takeUntil,
-  ɵɵInheritDefinitionFeature,
   ɵɵInputTransformsFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
@@ -509,16 +510,7 @@ function getMatInputUnsupportedTypeError(type) {
 var MAT_INPUT_VALUE_ACCESSOR = new InjectionToken("MAT_INPUT_VALUE_ACCESSOR");
 var MAT_INPUT_INVALID_TYPES = ["button", "checkbox", "file", "hidden", "image", "radio", "range", "reset", "submit"];
 var nextUniqueId = 0;
-var _MatInputBase = mixinErrorState(class {
-  constructor(_defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl) {
-    this._defaultErrorStateMatcher = _defaultErrorStateMatcher;
-    this._parentForm = _parentForm;
-    this._parentFormGroup = _parentFormGroup;
-    this.ngControl = ngControl;
-    this.stateChanges = new Subject();
-  }
-});
-var _MatInput = class _MatInput extends _MatInputBase {
+var _MatInput = class _MatInput {
   /**
    * Implemented as part of MatFormFieldControl.
    * @docs-private
@@ -564,6 +556,13 @@ var _MatInput = class _MatInput extends _MatInputBase {
       this._elementRef.nativeElement.type = this._type;
     }
   }
+  /** An object used to control when error messages are shown. */
+  get errorStateMatcher() {
+    return this._errorStateTracker.matcher;
+  }
+  set errorStateMatcher(value) {
+    this._errorStateTracker.matcher = value;
+  }
   /**
    * Implemented as part of MatFormFieldControl.
    * @docs-private
@@ -584,10 +583,17 @@ var _MatInput = class _MatInput extends _MatInputBase {
   set readonly(value) {
     this._readonly = coerceBooleanProperty(value);
   }
-  constructor(_elementRef, _platform, ngControl, _parentForm, _parentFormGroup, _defaultErrorStateMatcher, inputValueAccessor, _autofillMonitor, ngZone, _formField) {
-    super(_defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl);
+  /** Whether the input is in an error state. */
+  get errorState() {
+    return this._errorStateTracker.errorState;
+  }
+  set errorState(value) {
+    this._errorStateTracker.errorState = value;
+  }
+  constructor(_elementRef, _platform, ngControl, parentForm, parentFormGroup, defaultErrorStateMatcher, inputValueAccessor, _autofillMonitor, ngZone, _formField) {
     this._elementRef = _elementRef;
     this._platform = _platform;
+    this.ngControl = ngControl;
     this._autofillMonitor = _autofillMonitor;
     this._formField = _formField;
     this._uid = `mat-input-${nextUniqueId++}`;
@@ -616,6 +622,7 @@ var _MatInput = class _MatInput extends _MatInputBase {
         _elementRef.nativeElement.addEventListener("keyup", this._iOSKeyupListener);
       });
     }
+    this._errorStateTracker = new _ErrorStateTracker(defaultErrorStateMatcher, ngControl, parentFormGroup, parentForm, this.stateChanges);
     this._isServer = !this._platform.isBrowser;
     this._isNativeSelect = nodeName === "select";
     this._isTextarea = nodeName === "textarea";
@@ -658,6 +665,10 @@ var _MatInput = class _MatInput extends _MatInputBase {
   /** Focuses the input. */
   focus(options) {
     this._elementRef.nativeElement.focus(options);
+  }
+  /** Refreshes the error state of the input. */
+  updateErrorState() {
+    this._errorStateTracker.updateErrorState();
   }
   /** Callback for the cases where the focused state of the input changes. */
   _focusChanged(isFocused) {
@@ -787,10 +798,11 @@ _MatInput.ɵdir = ɵɵdefineDirective({
     readonly: "readonly"
   },
   exportAs: ["matInput"],
+  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: MatFormFieldControl,
     useExisting: _MatInput
-  }]), ɵɵInheritDefinitionFeature, ɵɵNgOnChangesFeature]
+  }]), ɵɵNgOnChangesFeature]
 });
 var MatInput = _MatInput;
 (() => {
@@ -831,56 +843,55 @@ var MatInput = _MatInput;
       providers: [{
         provide: MatFormFieldControl,
         useExisting: MatInput
-      }]
+      }],
+      standalone: true
     }]
-  }], function() {
-    return [{
-      type: ElementRef
-    }, {
-      type: Platform
-    }, {
-      type: NgControl,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Self
-      }]
-    }, {
-      type: NgForm,
-      decorators: [{
-        type: Optional
-      }]
-    }, {
-      type: FormGroupDirective,
-      decorators: [{
-        type: Optional
-      }]
-    }, {
-      type: ErrorStateMatcher
-    }, {
-      type: void 0,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Self
-      }, {
-        type: Inject,
-        args: [MAT_INPUT_VALUE_ACCESSOR]
-      }]
-    }, {
-      type: AutofillMonitor
-    }, {
-      type: NgZone
-    }, {
-      type: MatFormField,
-      decorators: [{
-        type: Optional
-      }, {
-        type: Inject,
-        args: [MAT_FORM_FIELD]
-      }]
-    }];
+  }], () => [{
+    type: ElementRef
   }, {
+    type: Platform
+  }, {
+    type: NgControl,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Self
+    }]
+  }, {
+    type: NgForm,
+    decorators: [{
+      type: Optional
+    }]
+  }, {
+    type: FormGroupDirective,
+    decorators: [{
+      type: Optional
+    }]
+  }, {
+    type: ErrorStateMatcher
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Self
+    }, {
+      type: Inject,
+      args: [MAT_INPUT_VALUE_ACCESSOR]
+    }]
+  }, {
+    type: AutofillMonitor
+  }, {
+    type: NgZone
+  }, {
+    type: MatFormField,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [MAT_FORM_FIELD]
+    }]
+  }], {
     disabled: [{
       type: Input
     }],
@@ -921,8 +932,7 @@ _MatInputModule.ɵfac = function MatInputModule_Factory(t) {
 };
 _MatInputModule.ɵmod = ɵɵdefineNgModule({
   type: _MatInputModule,
-  declarations: [MatInput],
-  imports: [MatCommonModule, MatFormFieldModule],
+  imports: [MatCommonModule, MatFormFieldModule, MatInput],
   exports: [MatInput, MatFormFieldModule, TextFieldModule, MatCommonModule]
 });
 _MatInputModule.ɵinj = ɵɵdefineInjector({
@@ -933,16 +943,21 @@ var MatInputModule = _MatInputModule;
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatInputModule, [{
     type: NgModule,
     args: [{
-      imports: [MatCommonModule, MatFormFieldModule],
-      exports: [MatInput, MatFormFieldModule, TextFieldModule, MatCommonModule],
-      declarations: [MatInput]
+      imports: [MatCommonModule, MatFormFieldModule, MatInput],
+      exports: [MatInput, MatFormFieldModule, TextFieldModule, MatCommonModule]
     }]
   }], null, null);
 })();
 export {
   MAT_INPUT_VALUE_ACCESSOR,
+  MatError,
+  MatFormField,
+  MatHint,
   MatInput,
   MatInputModule,
+  MatLabel,
+  MatPrefix,
+  MatSuffix,
   getMatInputUnsupportedTypeError
 };
 //# sourceMappingURL=@angular_material_input.js.map

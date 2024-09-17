@@ -61,16 +61,37 @@ export class ListClientsComponent {
     bankAccounts: [],
     benefits: []
   }]
-  customer: any = {};
+
+  searchCustomers: clienteLiteInterface[] = [{
+    accountCode: undefined,
+    customerId: undefined,
+    name: undefined,
+    nickname: '',
+    birthDate: undefined,
+    motherName: undefined,
+    fatherName: undefined,
+    nationality: undefined,
+    naturalnessState: undefined,
+    naturalness: undefined,
+    note: undefined,
+    addresses: [],
+    emails: [],
+    phones: [],
+    documents: [],
+    bankAccounts: [],
+    benefits: []
+  }]
 
   searchInput = new FormControl();
-  searchCustomers = new Array();
-  searchCustomers2 = '';
 
 
   displayedColumns: string[] = ['Codigo', 'Nome', 'NickName' ,'CustomerID', 'Delete', 'CustomerAlter', 'CustomerDetails'];
   
-  dataSource = this.customers;
+  
+    dataSource = this.customers;
+    dataSource2 = this.searchCustomers;
+
+  
 
    getToken(){
     this._corbanService.getToken().subscribe(result => {
@@ -80,13 +101,12 @@ export class ListClientsComponent {
     })
   }
 
-  async getClients(){
+  getClients(){
     this.getToken()
     this._corbanService.getCustomers().subscribe(
       data => {
         if (data) {
           //this._toastr.success('Usuários pegos');
-          console.log(data)
           this.customers = data.items;
           console.log(this.dataSource);
           this.dataSource = data.items
@@ -106,12 +126,18 @@ export class ListClientsComponent {
 
   searchFilter(){
     //debugger
-    let searchCustomers3: any[] = []
     for( let c = 0; c < this.customers.length; c++){
-        searchCustomers3 = this.customers.filter(customer => customer.nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()))
-        //this.searchCustomers = this.customers[c].name.filter((name:any) => name.toLowerCase() == this.searchInput.value?.toLocaleLowerCase()) 
-        //console.log("Nome: " + this.searchCustomers)
+        if(this.customers[c].nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()) || this.customers[c].name?.toLowerCase().includes(this.searchInput.value.toLowerCase()))
+        this.searchCustomers = this.customers.filter(customer => 
+          customer.nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()) 
+          || customer.name?.toLowerCase().includes(this.searchInput.value.toLowerCase()) 
+        )
+        this.dataSource2 = this.searchCustomers;
       }
-      console.log(searchCustomers3)
+      console.log(this.searchCustomers)
+  }
+
+  clearFilter(){
+    this.searchCustomers = []
   }
 }

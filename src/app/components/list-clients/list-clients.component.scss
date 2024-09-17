@@ -1,6 +1,15 @@
+
+
 .container{
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+
+.FixedButton{
+    height: 40px;
+    width: 130px;
+    overflow: hidden;
 }
 
 .drawer-top {
@@ -18,8 +27,7 @@
     display: block;
     width: 100%;
     height: 50px;
-    margin: 2px 0px;
-   
+    margin: 3px 0px;
 }
 
 .toolbar-container{
@@ -27,7 +35,7 @@
 }
 
 .toolbar-container button, .tollbar-pesquisa {
-    margin-left: auto;
+    margin-left: 10px ;
 }
 
 
