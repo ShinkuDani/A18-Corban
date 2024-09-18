@@ -66,7 +66,7 @@
         </mat-toolbar> 
       </div>
 
-      @if(searchCustomers.length > 1){
+      @if(searchCustomers[0].customerId != '' && searchCustomers.length >= 1){
 
         <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
 
@@ -141,7 +141,7 @@
         </table>
 
       }  @else {
-        @if(customers.length > 1){
+        @if(customers.length > 1 && customers[0].customerId != ''){
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <ng-container matColumnDef="Servico">

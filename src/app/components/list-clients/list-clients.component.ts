@@ -46,7 +46,7 @@ export class ListClientsComponent {
   //customers: Array<any> = new Array<any>();
   customers: clienteLiteInterface[] = [{
     accountCode: undefined,
-    customerId: undefined,
+    customerId: '',
     name: undefined,
     nickname: '',
     birthDate: undefined,
@@ -66,7 +66,7 @@ export class ListClientsComponent {
 
   searchCustomers: clienteLiteInterface[] = [{
     accountCode: undefined,
-    customerId: undefined,
+    customerId: '',
     name: undefined,
     nickname: '',
     birthDate: undefined,

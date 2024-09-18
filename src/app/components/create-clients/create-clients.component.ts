@@ -126,7 +126,7 @@ ngOnInit(): void {
 
   clienteLite: clienteLiteInterface = {
     accountCode: undefined,
-    customerId: undefined,
+    customerId: '',
     name: undefined,
     nickname: '',
     birthDate: undefined,
