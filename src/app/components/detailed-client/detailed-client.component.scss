@@ -17,6 +17,7 @@
 }
 
 
+
 .detailed-cliente-main{
     margin: 10px;
 }
@@ -99,4 +100,24 @@
 .detailedClient-beneficios p{
     border-bottom: 1px solid black ;
     margin-bottom: 5px;
+}
+
+.main-container{
+    display: inline-flex;
+}
+
+ul {
+    list-style: none;
+}
+
+.main-container-lista{
+    //display: flex;
+    //flex-direction: column;
+}
+
+.bloco-branco{
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
 }

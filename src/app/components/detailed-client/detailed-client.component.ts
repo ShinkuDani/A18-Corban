@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './detailed-client.component.scss'
 })
 export class DetailedClientComponent implements OnInit{
-
+ 
   ngOnInit(): void {
   let idCustomer = this._router.snapshot.paramMap.get('id');  
     this.getClient(idCustomer);
@@ -21,6 +21,8 @@ export class DetailedClientComponent implements OnInit{
 
   constructor(private _corbanService:CorbanService,private _router: ActivatedRoute){
   }
+
+  old:boolean = false;
 
   clienteDetailed: clienteLiteInterface = {
     accountCode: '',
@@ -48,6 +50,14 @@ export class DetailedClientComponent implements OnInit{
         this.clienteDetailed = data;
       }
     )
+  }
+
+  styleChange(){
+    if(this.old == true){
+      this.old = false;
+    } else {
+      this.old = true;
+    }
   }
 
 

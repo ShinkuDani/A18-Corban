@@ -2,68 +2,205 @@
     <mat-toolbar>
         <span>Detalhes do Cliente</span>
      <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
+     <button mat-raised-button type="button" color="warn" (click)="styleChange()"> Old/New </button>
+     
     </mat-toolbar> 
 </div>
 
-<div class="detailedCliente-main">
-    <div class="detailedClient-pesronalInfo">
-        <h2>ClienteId: <span>{{clienteDetailed.customerId}}</span></h2>
-        <h2>Nome: {{clienteDetailed.name}}</h2>
-        <p>Aniversário: {{clienteDetailed.birthDate}}</p>
-        <p>Mãe: {{clienteDetailed.motherName}}</p>
-        <p>Pai: {{clienteDetailed.fatherName}}</p>
+@if(old == true){
+    <div class="detailedCliente-main">
+        <div class="detailedClient-pesronalInfo">
+            <h2>ClienteId: <span>{{clienteDetailed.customerId}}</span></h2>
+            <h2>Nome: {{clienteDetailed.name}}</h2>
+            <p>Aniversário: {{clienteDetailed.birthDate}}</p>
+            <p>Mãe: {{clienteDetailed.motherName}}</p>
+            <p>Pai: {{clienteDetailed.fatherName}}</p>
+        </div>
+        <div class="detailedClient-pesronalInfo-container">
+        @if(clienteDetailed){
+            @for(enderecos of clienteDetailed.addresses; track enderecos){
+                <div class="detailedClient-adresses">
+                    <h1>Endereços:</h1>
+                    <p>Cep:{{enderecos.zipCode}}</p>
+                    <p>Rua:{{enderecos.street}}</p>
+                    <p>Bairro:{{enderecos.district}}</p>
+                    <p>Cidade:{{enderecos.city}}</p>
+                </div>
+            }
+    
+            @for(telefones of clienteDetailed.phones; track telefones){
+                <div class="detailedClient-phone">
+                    <h1>Telefones:</h1>
+                    <p>DDD:{{telefones.ddd}}</p>
+                    <p>Numero:{{telefones.number}}</p>
+                </div>
+            }
+    
+            @for(emails of clienteDetailed.emails; track emails){
+                <div class="detailedClient-phone">
+                    <h1>Email:</h1>
+                    <p>{{emails.email}}</p>
+                </div>
+            }
+    
+            @for(documento of clienteDetailed.documents; track documento){
+                <div class="detailedClient-document">
+                    <h1>Documentos: </h1>
+                    <p>Numero do Documento: {{documento.number}}</p>
+                </div>
+            }
+    
+            @for(contaBancaria of clienteDetailed.bankAccounts; track contaBancaria){
+                <div class="detailedClient-contaBancaria">
+                    <h1>Conta no Banco: </h1>
+                    <p>Nome do Banco: {{contaBancaria.bankName}}</p>
+                    <p>Código do Banco: {{contaBancaria.branchCode}}</p>
+    
+                </div>
+            }
+    
+            @for(beneficios of clienteDetailed.benefits; track beneficios){
+                <div class="detailedClient-beneficios">
+                    <h1>Beneficios:</h1>
+                    <p>{{beneficios.code}}</p>
+                    <p>{{beneficios.description}}</p>
+    
+                </div>
+            }
+        }
+        </div>
+    </div> 
+}
+
+@if(old == false){
+    <div class="detailedCliente-main">
+        <div class="detailedClient-pesronalInfo">
+            <h2>ClienteId: <span>{{clienteDetailed.customerId}}</span></h2>
+            <h2>Nome: {{clienteDetailed.name}}</h2>
+            <p>Aniversário: {{clienteDetailed.birthDate}}</p>
+            <p>Mãe: {{clienteDetailed.motherName}}</p>
+            <p>Pai: {{clienteDetailed.fatherName}}</p>
+        </div>
     </div>
-    <div class="detailedClient-pesronalInfo-container">
-    @if(clienteDetailed){
-        @for(enderecos of clienteDetailed.addresses; track enderecos){
-            <div class="detailedClient-adresses">
-                <h1>Endereços:</h1>
-                <p>Cep:{{enderecos.zipCode}}</p>
-                <p>Rua:{{enderecos.street}}</p>
-                <p>Bairro:{{enderecos.district}}</p>
-                <p>Cidade:{{enderecos.city}}</p>
-            </div>
-        }
+    <div class="main-container">
+        <ul class="main-container-lista">
+            <li class="bloco-branco">
+                <h1> Cliente </h1>
+                <span>Nome</span>
+                <h2> {{clienteDetailed.name}} </h2>
+                <span>Nascimento</span>
+                <h3>{{clienteDetailed.birthDate}}</h3>
+                <span>Nome da Mãe</span>
+                <h3>{{clienteDetailed.motherName}}</h3>
+            </li>
 
-        @for(telefones of clienteDetailed.phones; track telefones){
-            <div class="detailedClient-phone">
-                <h1>Telefones:</h1>
-                <p>DDD:{{telefones.ddd}}</p>
-                <p>Numero:{{telefones.number}}</p>
-            </div>
-        }
+            <li class="bloco-branco">
+                <h2> Telefones </h2>
+                @for(telefone of clienteDetailed.phones; track telefone ){
+                    <h3>{{telefone.number}}</h3>
+                }
+            </li>
 
-        @for(emails of clienteDetailed.emails; track emails){
-            <div class="detailedClient-phone">
-                <h1>Email:</h1>
-                <p>{{emails.email}}</p>
-            </div>
-        }
+            <li class="bloco-branco">
+                <h2>E-mails</h2>
+                @for(email of clienteDetailed.emails; track email ){
+                    <h3>{{email.email}}</h3>
+                }
+            </li>
 
-        @for(documento of clienteDetailed.documents; track documento){
-            <div class="detailedClient-document">
-                <h1>Documentos: </h1>
-                <p>Numero do Documento: {{documento.number}}</p>
-            </div>
-        }
+            <li class="bloco-branco">
+                <h2>Endereços</h2>
+                @for(endereco of clienteDetailed.addresses; track endereco ){
+                    <span>{{endereco.street}}</span>-<span>{{endereco.number}}</span>-<span>{{endereco.district}}</span>-<span>{{endereco.city}}</span>  
+                }
+            </li>
 
-        @for(contaBancaria of clienteDetailed.bankAccounts; track contaBancaria){
-            <div class="detailedClient-contaBancaria">
-                <h1>Conta no Banco: </h1>
-                <p>Nome do Banco: {{contaBancaria.bankName}}</p>
-                <p>Código do Banco: {{contaBancaria.branchCode}}</p>
+            <li class="bloco-branco">
+                <h2>Documentos</h2>
+                @for(documento of clienteDetailed.documents; track documento ){
+                    <span>Categoria</span>
+                    <h3>{{documento.category}}</h3>
+                    <span>Numero</span>
+                    <h3>{{documento.number}}</h3>  
+                }
+            </li>
 
-            </div>
-        }
+            <li class="bloco-branco">
+                <h2>Contas Bancárias</h2>
+                @for(bankAccount of clienteDetailed.bankAccounts; track bankAccount ){
+                    <span>Nome Banco</span>
+                    <h3>{{bankAccount.bankName}}</h3>
+                    <span>Numero do Banco</span>
+                    <h3>{{bankAccount.accountNumber}}</h3>  
+                }
+            </li>
 
-        @for(beneficios of clienteDetailed.benefits; track beneficios){
-            <div class="detailedClient-beneficios">
-                <h1>Beneficios:</h1>
-                <p>{{beneficios.code}}</p>
-                <p>{{beneficios.description}}</p>
+            <li class="bloco-branco">
+                <h2>Beneficios</h2>
+                @for(benefit of clienteDetailed.benefits; track benefit ){
+                    <span>Codigo Beneficio</span>
+                    <h3>{{benefit.code}}</h3>
+                    <span>Numero</span>
+                    <h3>{{benefit.number}}</h3>  
+                }
+            </li>
 
-            </div>
-        }
-    }
+            <li class="bloco-branco">
+                <h2>Sites</h2>
+
+            </li>
+
+
+            <!-- A partir daqui seria a segunda parte no Site-->
+            <li class="bloco-branco">
+                <span>Icone de empresa</span>
+                <span>Conta</span>
+                <h2>Conta Usuário Final</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <span>Icone de TEMPO</span>
+                <h2>Agendamentos</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <span>icone de loja</span>
+                <h2>Marcadores</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Loja</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Agenda</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Agente Superior</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Campanha</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Tipo de Origem</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Tipo de Entrada</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Campos</h2>
+            </li>
+
+            <li class="bloco-branco">
+                <h2>Cadastro</h2>
+                
+            </li>
+
+        </ul>
     </div>
-</div>
+}
