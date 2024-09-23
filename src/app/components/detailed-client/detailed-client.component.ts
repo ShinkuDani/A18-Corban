@@ -1,14 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { clienteLiteInterface } from '../../interfaces/clienteLite';
+import { Component, OnInit, Inject } from '@angular/core';
+import { clienteLiteInterface, addresses, bankAccounts, benefits, document, email, phone} from '../../interfaces/clienteLite';
 import { CorbanService } from '../../services/corban.service';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogActions,
+  MatDialogClose,
+} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-detailed-client',
   standalone: true,
-  imports: [MatToolbarModule, RouterModule, MatButtonModule],
+  imports: [MatToolbarModule,
+             RouterModule, 
+             MatButtonModule,
+             MatFormFieldModule,
+             FormsModule,
+             ReactiveFormsModule,
+             ],
   templateUrl: './detailed-client.component.html',
   styleUrl: './detailed-client.component.scss'
 })
@@ -19,10 +37,87 @@ export class DetailedClientComponent implements OnInit{
     this.getClient(idCustomer);
   }
 
-  constructor(private _corbanService:CorbanService,private _router: ActivatedRoute){
-  }
+  constructor(public dialog: MatDialog, private _corbanService:CorbanService,private _router: ActivatedRoute){}
 
   old:boolean = false;
+
+  
+  phoneN: phone = {
+    ddd:0,
+    number:0,
+    note:''
+  }
+
+  emailN: email = {
+    email: '',
+    note: ''
+  }
+
+  addressN: addresses = {
+    street: '',
+    number: '',
+    complement: '',
+    district: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    note: ''
+  }
+
+  documentN: document = {
+    documentId: '',
+    typeCode: 0,
+    number: '',
+    category: '',
+    issuingDate: '',
+    expirationDate: '',
+    issuingEntity: '',
+    issuingState: '',
+    issuingCountry: '',
+    securityCode: '',
+    statusCode: 0,
+    statusNote: '',
+    files: 0
+  }
+
+  bankAccountN: bankAccounts = {
+    bankAccountId: '',
+    description: '',
+    typeCode: 0,
+    statusCode: 0,
+    statusNote: '',
+    bankCode: '',
+    bankName: '',
+    branchCode: '',
+    accountNumber: '',
+    personTypeCode: 0,
+    countryIdentity: '',
+    holderName: '',
+    startDate: '',
+    note: ''
+  }
+
+  benefitN: benefits = {
+    benefitId: '',
+    typeCode: 0,
+    number: '',
+    code: '',
+    description: '',
+    value: 0,
+    netValue: 0,
+    marginValue: 0,
+    issuingDate: '',
+    startDate: '',
+    loanEligible: false,
+    issuingState: '',
+    issuingCountry: '',
+    securityCode: '',
+    statusCode: 0,
+    statusNote: '',
+    paymentMethodCode: 0,
+    paymentMethodName: '',
+    note: ''
+  }
 
   clienteDetailed: clienteLiteInterface = {
     accountCode: '',
@@ -44,6 +139,8 @@ export class DetailedClientComponent implements OnInit{
     benefits: []
   }
 
+
+
   getClient(id:any){
     this._corbanService.getCustomer(id).subscribe(
       data =>{
@@ -60,5 +157,41 @@ export class DetailedClientComponent implements OnInit{
     }
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      data: {name: this.clienteDetailed.name,note: this.clienteDetailed.note},
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.clienteDetailed.note = result;
+    });
+  }
+
+}
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'detailDialogOver.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

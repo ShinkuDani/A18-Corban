@@ -5010,6 +5010,7 @@ export {
   RtlScrollAxisType,
   supportsScrollBehavior,
   getRtlScrollAxisType,
+  _getFocusedElementPierceShadowDom,
   _getEventTarget,
   _isTestEnvironment,
   ENTER,
@@ -5038,6 +5039,7 @@ export {
   isFakeTouchstartFromScreenReader,
   LiveAnnouncer,
   FocusMonitor,
+  A11yModule,
   Directionality,
   BidiModule,
   MatCommonModule,
@@ -5055,4 +5057,4 @@ export {
   MatRippleLoader,
   _MatInternalFormField
 };
-//# sourceMappingURL=chunk-7QZ2GFC7.js.map
+//# sourceMappingURL=chunk-RQ4JJIME.js.map

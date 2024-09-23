@@ -27,6 +27,11 @@
                     <p>Cidade:{{enderecos.city}}</p>
                 </div>
             }
+
+            <div class="detailedClient-note">
+                <h1> Notes </h1>
+                <h3> {{this.clienteDetailed.note}}</h3>
+            </div>
     
             @for(telefones of clienteDetailed.phones; track telefones){
                 <div class="detailedClient-phone">
@@ -95,6 +100,14 @@
             </li>
 
             <li class="bloco-branco">
+                <div class="detailedClient-note">
+                    <h1> Notes </h1>
+                    <h3> {{this.clienteDetailed.note}}</h3>
+                    <button mat-raised-button (click)="openDialog()">Note</button>
+                </div>
+            </li>
+
+            <li class="bloco-branco">
                 <h2> Telefones </h2>
                 @for(telefone of clienteDetailed.phones; track telefone ){
                     <h3>{{telefone.number}}</h3>
@@ -110,9 +123,17 @@
 
             <li class="bloco-branco">
                 <h2>Endereços</h2>
-                @for(endereco of clienteDetailed.addresses; track endereco ){
-                    <span>{{endereco.street}}</span>-<span>{{endereco.number}}</span>-<span>{{endereco.district}}</span>-<span>{{endereco.city}}</span>  
-                }
+                <ul>
+                    <li>
+                        @for(endereco of clienteDetailed.addresses; track endereco ){
+                            <span>{{endereco.street}}</span>-<span>{{endereco.number}}</span>-<span>{{endereco.district}}</span>-<span>{{endereco.city}}</span>  
+                        }
+                    </li>
+
+                    <li>
+                        <button mat-raised-button (click)="openDialog()">Adicionar Endereço</button>
+                    </li>
+                </ul>
             </li>
 
             <li class="bloco-branco">
