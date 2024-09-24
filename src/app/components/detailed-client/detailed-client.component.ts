@@ -17,6 +17,10 @@ import {
 } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 
+// 1 - Note , 2 - Parents Names
+let dialogTemplate = ['detailDialogOver.html', 'detailDialogParentsNames.html']
+
+
 @Component({
   selector: 'app-detailed-client',
   standalone: true,
@@ -139,8 +143,6 @@ export class DetailedClientComponent implements OnInit{
     benefits: []
   }
 
-
-
   getClient(id:any){
     this._corbanService.getCustomer(id).subscribe(
       data =>{
@@ -157,22 +159,43 @@ export class DetailedClientComponent implements OnInit{
     }
   }
 
-  openDialog(): void {
+  openDialog(Numb: number): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      data: {name: this.clienteDetailed.name,note: this.clienteDetailed.note},
+      data: this.clienteDetailed,
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed.note = result;
+      this.clienteDetailed = result;
+      this._corbanService.putCustomer(this.clienteDetailed.customerId as string, this.clienteDetailed).subscribe(
+        data => {
+          if(data){
+            //this._toastr.success('Usuário Alterado com Sucesso', 'Put')
+            this.clienteDetailed = data
+          }
+        }
+      )
     });
+  }
+
+  dialogTemplate(number:number){
+    if(number == 1){
+      //Note Template
+      return dialogTemplate[0]
+    }else if( number == 2){
+      //Parents Template
+      return  dialogTemplate[1]
+    } else {
+      return 
+    }
   }
 
 }
 
+//Note
 @Component({
   selector: 'dialog-overview-example-dialog',
-  templateUrl: 'detailDialogOver.html',
+  templateUrl: dialogTemplate[1],
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -186,6 +209,8 @@ export class DetailedClientComponent implements OnInit{
   ],
 })
 export class DialogOverviewExampleDialog {
+
+
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,

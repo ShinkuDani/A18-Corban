@@ -158,7 +158,7 @@ ngOnInit(): void {
 
   
   
-  
+  //Create Cliente
   submitForm(){
     if(this.clienteLite.customerId){
       this.putClient()
@@ -174,6 +174,7 @@ ngOnInit(): void {
     }
   }
 
+  //Get Cliente
   getClient(id:string){
     this._corbanService.getCustomer(id).subscribe(
       data => {
@@ -186,6 +187,7 @@ ngOnInit(): void {
     )
   }
 
+  //Alter Cliente
   putClient(){
     debugger
     this.addFilds()
