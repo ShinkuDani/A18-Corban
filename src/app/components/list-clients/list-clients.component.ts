@@ -45,17 +45,17 @@ export class ListClientsComponent {
 
   //customers: Array<any> = new Array<any>();
   customers: clienteLiteInterface[] = [{
-    accountCode: undefined,
+    accountCode: '',
     customerId: '',
-    name: undefined,
+    name: '',
     nickname: '',
-    birthDate: undefined,
-    motherName: undefined,
-    fatherName: undefined,
-    nationality: undefined,
-    naturalnessState: undefined,
-    naturalness: undefined,
-    note: undefined,
+    birthDate: '',
+    motherName: '',
+    fatherName: '',
+    nationality: '',
+    naturalnessState: '',
+    naturalness: '',
+    note: '',
     addresses: [],
     emails: [],
     phones: [],
@@ -65,17 +65,17 @@ export class ListClientsComponent {
   }]
 
   searchCustomers: clienteLiteInterface[] = [{
-    accountCode: undefined,
+    accountCode: '',
     customerId: '',
-    name: undefined,
+    name: '',
     nickname: '',
-    birthDate: undefined,
-    motherName: undefined,
-    fatherName: undefined,
-    nationality: undefined,
-    naturalnessState: undefined,
-    naturalness: undefined,
-    note: undefined,
+    birthDate: '',
+    motherName: '',
+    fatherName: '',
+    nationality: '',
+    naturalnessState: '',
+    naturalness: '',
+    note: '',
     addresses: [],
     emails: [],
     phones: [],
@@ -95,7 +95,7 @@ export class ListClientsComponent {
 
   
 
-   getToken(){
+    getToken(){
     this._corbanService.getToken().subscribe(result => {
       if (result)
         //this._toastr.success('Token Salvo')
@@ -104,8 +104,8 @@ export class ListClientsComponent {
   }
 
   getClients(){
-    this.getToken()
-    this._corbanService.getCustomers().subscribe(
+     this.getToken()
+     this._corbanService.getCustomers().subscribe(
       data => {
         if (data) {
           //this._toastr.success('Usuários pegos');

@@ -99,13 +99,15 @@
                 <h3>{{clienteDetailed.motherName}}</h3>
                 <span>Nome do Pai</span>
                 <h3>{{clienteDetailed.fatherName}}</h3>
+                <button mat-raised-button (click)="openDialog(2)">Alterar Pais</button>
+
             </li>
 
             <li class="bloco-branco">
                 <div class="detailedClient-note">
                     <h1> Notes </h1>
                     <h3> {{this.clienteDetailed.note}}</h3>
-                    <button mat-raised-button (click)="openDialog(1)">Note</button>
+                    <button mat-raised-button (click)="openDialog(2)">Note</button>
                 </div>
             </li>
 
@@ -132,9 +134,6 @@
                         }
                     </li>
 
-                    <li>
-                        <button mat-raised-button (click)="openDialog(2)">Adicionar Endereço</button>
-                    </li>
                 </ul>
             </li>
 

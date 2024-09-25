@@ -125,17 +125,17 @@ ngOnInit(): void {
   }
 
   clienteLite: clienteLiteInterface = {
-    accountCode: undefined,
+    accountCode: '',
     customerId: '',
-    name: undefined,
+    name: '',
     nickname: '',
-    birthDate: undefined,
-    motherName: undefined,
-    fatherName: undefined,
-    nationality: undefined,
-    naturalnessState: undefined,
-    naturalness: undefined,
-    note: undefined,
+    birthDate: '',
+    motherName: '',
+    fatherName: '',
+    nationality: '',
+    naturalnessState: '',
+    naturalness: '',
+    note: '',
     addresses: [
         this.addressN
     ],
@@ -250,15 +250,15 @@ ngOnInit(): void {
       this.clienteLite.addresses.push(this.addressN)
     }
 
-    if(this.documentN.number !='' || this.bankAccountN.typeCode != 0){
+    if(this.documentN.number !='' && this.documentN.typeCode != 0){
       this.clienteLite.documents.push(this.documentN)
     }
 
-    if(this.bankAccountN.accountNumber != '' || this.bankAccountN.typeCode != 0){
+    if(this.bankAccountN.accountNumber != '' && this.bankAccountN.typeCode != 0){
       this.clienteLite.bankAccounts.push(this.bankAccountN)
     }  
 
-    if(this.benefitN.number != '' || this.benefitN.typeCode != 0 ){
+    if(this.benefitN.number != '' && this.benefitN.typeCode != 0 ){
       this.clienteLite.benefits.push(this.benefitN)
     }
 

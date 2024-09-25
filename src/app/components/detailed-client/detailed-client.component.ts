@@ -17,9 +17,9 @@ import {
 } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 
-// 1 - Note , 2 - Parents Names
-let dialogTemplate = ['detailDialogOver.html', 'detailDialogParentsNames.html']
-
+// 1 - Parents , 2 - Note
+let dialogTemplate = ['dialogTemplates/detailDialogParentsNames.html', 'dialogTemplates/detailDialogNote.html']
+let templateNumber = 0;
 
 @Component({
   selector: 'app-detailed-client',
@@ -159,7 +159,9 @@ export class DetailedClientComponent implements OnInit{
     }
   }
 
-  openDialog(Numb: number): void {
+  openDialog(numb: number): void {
+    debugger
+    this.dialogTemplate(numb)
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       data: this.clienteDetailed,
     });
@@ -167,27 +169,30 @@ export class DetailedClientComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.clienteDetailed = result;
+     /*
       this._corbanService.putCustomer(this.clienteDetailed.customerId as string, this.clienteDetailed).subscribe(
         data => {
           if(data){
             //this._toastr.success('Usuário Alterado com Sucesso', 'Put')
             this.clienteDetailed = data
+            templateNumber = 1;
           }
         }
       )
+     
+     
+     */
     });
   }
 
   dialogTemplate(number:number){
     if(number == 1){
       //Note Template
-      return dialogTemplate[0]
+       templateNumber = 0
     }else if( number == 2){
       //Parents Template
-      return  dialogTemplate[1]
-    } else {
-      return 
-    }
+        templateNumber = 1
+    } 
   }
 
 }
@@ -195,7 +200,7 @@ export class DetailedClientComponent implements OnInit{
 //Note
 @Component({
   selector: 'dialog-overview-example-dialog',
-  templateUrl: dialogTemplate[1],
+  templateUrl: dialogTemplate[templateNumber],
   standalone: true,
   imports: [
     MatFormFieldModule,

@@ -1,15 +1,15 @@
 export interface clienteLiteInterface {
-  'accountCode': string| undefined
+  'accountCode': string
   'customerId': string
-  'name': string| undefined
+  'name': string
   'nickname': string
-  'birthDate': string| undefined
-  'motherName': string| undefined
-  'fatherName': string| undefined
-  'nationality': string|undefined
-  'naturalnessState': string| undefined
-  'naturalness': string| undefined
-  'note': string| undefined
+  'birthDate': string
+  'motherName': string
+  'fatherName': string
+  'nationality': string
+  'naturalnessState': string
+  'naturalness': string
+  'note': string
   'addresses': addresses[]
     'emails': email[]
     'phones': phone[]
