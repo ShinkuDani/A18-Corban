@@ -179,8 +179,6 @@ export class DetailedClientComponent implements OnInit{
           }
         }
       )
-     
-     
      */
     });
   }
@@ -193,6 +191,34 @@ export class DetailedClientComponent implements OnInit{
       //Parents Template
         templateNumber = 1
     } 
+  }
+
+  addFilds(clienteAtualizado){
+    debugger
+    if(clienteAtualizado.phones[0].ddd != 0 && clienteAtualizado.phones[0].number != 0){
+      this.clienteDetailed.phones.push(this.clienteDetailed.phones[0])
+    }
+
+    if(clienteAtualizado.email[0].email != ''){
+      this.clienteDetailed.emails.push(clienteAtualizado.emails[0])
+    }
+
+    if(clienteAtualizado.addresses[0].zipCode != '' || clienteAtualizado.addresses[0].street != ''){
+      this.clienteDetailed.addresses.push(clienteAtualizado.addresses[0])
+    }
+
+    if(this.documentN.number !='' && this.documentN.typeCode != 0){
+      this.clienteDetailed.documents.push(this.documentN)
+    }
+
+    if(this.bankAccountN.accountNumber != '' && this.bankAccountN.typeCode != 0){
+      this.clienteDetailed.bankAccounts.push(this.bankAccountN)
+    }  
+
+    if(this.benefitN.number != '' && this.benefitN.typeCode != 0 ){
+      this.clienteDetailed.benefits.push(this.benefitN)
+    }
+
   }
 
 }
