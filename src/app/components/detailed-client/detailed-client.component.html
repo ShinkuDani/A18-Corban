@@ -99,7 +99,7 @@
                 <h3>{{clienteDetailed.motherName}}</h3>
                 <span>Nome do Pai</span>
                 <h3>{{clienteDetailed.fatherName}}</h3>
-                <button mat-raised-button (click)="openDialog(2)">Alterar Pais</button>
+                <button mat-raised-button (click)="openDialog(1)">Alterar Pais</button>
 
             </li>
 
@@ -116,6 +116,7 @@
                 @for(telefone of clienteDetailed.phones; track telefone ){
                     <h3>{{telefone.number}}</h3>
                 }
+                <button mat-raised-button (click)="openDialog(3)">Telefones</button>
             </li>
 
             <li class="bloco-branco">
@@ -123,6 +124,7 @@
                 @for(email of clienteDetailed.emails; track email ){
                     <h3>{{email.email}}</h3>
                 }
+                <button mat-raised-button (click)="openDialog(4)">Email</button>
             </li>
 
             <li class="bloco-branco">
@@ -133,7 +135,7 @@
                             <span>{{endereco.street}}</span>-<span>{{endereco.number}}</span>-<span>{{endereco.district}}</span>-<span>{{endereco.city}}</span>  
                         }
                     </li>
-
+                    <button mat-raised-button (click)="openDialog(5)">Endereços</button>
                 </ul>
             </li>
 

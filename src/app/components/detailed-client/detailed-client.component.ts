@@ -18,7 +18,11 @@ import {
 import { MatInputModule } from '@angular/material/input';
 
 // 1 - Parents , 2 - Note
-let dialogTemplate = ['dialogTemplates/detailDialogParentsNames.html', 'dialogTemplates/detailDialogNote.html']
+let dialogTemplate = ['dialogTemplates/detailDialogParentsNames.html',
+   'dialogTemplates/detailDialogNote.html',
+    'dialogTemplates/detailDialogPhone.html',
+    'dialogTemplates/detailDialogEmail.html',
+    'dialogTemplates/detailDialogDocument.html']
 let templateNumber = 0;
 
 @Component({
@@ -162,6 +166,8 @@ export class DetailedClientComponent implements OnInit{
   openDialog(numb: number): void {
     debugger
     this.dialogTemplate(numb)
+    console.log('Template de Number:' + templateNumber)
+
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       data: this.clienteDetailed,
     });
@@ -183,17 +189,26 @@ export class DetailedClientComponent implements OnInit{
     });
   }
 
-  dialogTemplate(number:number){
-    if(number == 1){
-      //Note Template
-       templateNumber = 0
-    }else if( number == 2){
-      //Parents Template
-        templateNumber = 1
-    } 
-  }
+    dialogTemplate(number:number){
+      if(number == 1){
+        //Parents Template
+        templateNumber = 0
+      }else if( number == 2){
+        // Note Template
+          templateNumber = 1
+      }else if( number == 3){
+        //Phone Template
+          templateNumber = 2
+      }else if( number == 4){
+        //Email Template
+          templateNumber = 3
+      }else if( number == 5){
+        //Document Template
+          templateNumber = 4
+      } 
+    }
 
-  addFilds(clienteAtualizado){
+  addFilds(clienteAtualizado:any){
     debugger
     if(clienteAtualizado.phones[0].ddd != 0 && clienteAtualizado.phones[0].number != 0){
       this.clienteDetailed.phones.push(this.clienteDetailed.phones[0])
@@ -207,16 +222,16 @@ export class DetailedClientComponent implements OnInit{
       this.clienteDetailed.addresses.push(clienteAtualizado.addresses[0])
     }
 
-    if(this.documentN.number !='' && this.documentN.typeCode != 0){
-      this.clienteDetailed.documents.push(this.documentN)
+    if(clienteAtualizado.document[0].number !='' && clienteAtualizado.document[0].typeCode != 0){
+      this.clienteDetailed.documents.push(clienteAtualizado.document[0])
     }
 
-    if(this.bankAccountN.accountNumber != '' && this.bankAccountN.typeCode != 0){
-      this.clienteDetailed.bankAccounts.push(this.bankAccountN)
+    if(clienteAtualizado.bankAccount[0].accountNumber != '' && clienteAtualizado.bankAccount[0].typeCode != 0){
+      this.clienteDetailed.bankAccounts.push(clienteAtualizado.bankAccount[0])
     }  
 
-    if(this.benefitN.number != '' && this.benefitN.typeCode != 0 ){
-      this.clienteDetailed.benefits.push(this.benefitN)
+    if(clienteAtualizado.benefit[0].number != '' && clienteAtualizado.benefit[0].typeCode != 0 ){
+      this.clienteDetailed.benefits.push(clienteAtualizado.benefit[0])
     }
 
   }
@@ -241,13 +256,14 @@ export class DetailedClientComponent implements OnInit{
 })
 export class DialogOverviewExampleDialog {
 
-
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
   ) {}
 
+
   onNoClick(): void {
+    console.log('Template de Number:' + templateNumber)
     this.dialogRef.close();
   }
 }

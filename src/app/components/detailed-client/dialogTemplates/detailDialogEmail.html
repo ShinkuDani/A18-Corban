@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Hi{{data.name}}</h2>
+<mat-dialog-content>
+  <p>What's your E-mail</p>
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input matInput [(ngModel)]="data.emails[0].email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Note</mat-label>
+    <input matInput [(ngModel)]="data.emails[0].note">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

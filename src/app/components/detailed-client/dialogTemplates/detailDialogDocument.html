@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Hi{{data.name}}</h2>
+<mat-dialog-content>
+  <p>What's your Document</p>
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <input matInput [(ngModel)]="data.document[0].typeCode">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Number</mat-label>
+    <input matInput [(ngModel)]="data.document[0].number">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Data de Emissão</mat-label>
+    <input matInput [(ngModel)]="data.document[0].issuingDate">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Orgão Emissor </mat-label>
+    <input matInput [(ngModel)]="data.document[0].issuingEntity">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> UF Emissor </mat-label>
+    <input matInput [(ngModel)]="data.document[0].issuingState">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
