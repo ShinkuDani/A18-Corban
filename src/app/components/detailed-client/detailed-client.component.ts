@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, NgModule } from '@angular/core';
 import { clienteLiteInterface, addresses, bankAccounts, benefits, document, email, phone} from '../../interfaces/clienteLite';
 import { CorbanService } from '../../services/corban.service';
 import { RouterModule, ActivatedRoute } from '@angular/router';
@@ -6,15 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose,
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
 
 // 1 - Parents , 2 - Note
@@ -163,6 +155,7 @@ export class DetailedClientComponent implements OnInit{
     }
   }
 
+  /*
   openDialog(numb: number): void {
     debugger
     this.dialogTemplate(numb)
@@ -185,9 +178,9 @@ export class DetailedClientComponent implements OnInit{
           }
         }
       )
-     */
     });
   }
+     */
 
     dialogTemplate(number:number){
       if(number == 1){
@@ -238,7 +231,8 @@ export class DetailedClientComponent implements OnInit{
 
 }
 
-//Note
+
+/*Note
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: dialogTemplate[templateNumber],
@@ -267,3 +261,4 @@ export class DialogOverviewExampleDialog {
     this.dialogRef.close();
   }
 }
+*/

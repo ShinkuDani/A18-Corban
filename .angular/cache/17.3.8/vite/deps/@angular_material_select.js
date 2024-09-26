@@ -1,40 +1,26 @@
 import {
   MAT_FORM_FIELD,
-  MatError,
   MatFormField,
   MatFormFieldControl,
-  MatFormFieldModule,
-  MatHint,
-  MatLabel,
-  MatPrefix,
-  MatSuffix
-} from "./chunk-EL5NLTF7.js";
+  MatFormFieldModule
+} from "./chunk-A3G6ZFM6.js";
 import {
   FormGroupDirective,
   NgControl,
   NgForm,
   Validators
-} from "./chunk-WZFLPMKP.js";
+} from "./chunk-BH7ZWHVK.js";
 import {
   CdkConnectedOverlay,
   CdkOverlayOrigin,
   Overlay,
   OverlayModule
-} from "./chunk-2B77BAY3.js";
+} from "./chunk-EBGE4TZW.js";
 import {
   CdkScrollableModule,
   SelectionModel,
   ViewportRuler
-} from "./chunk-2ADNYTY3.js";
-import {
-  animate,
-  animateChild,
-  query,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-DJ32XWXS.js";
+} from "./chunk-5WI5KITE.js";
 import {
   A,
   ActiveDescendantKeyManager,
@@ -47,23 +33,42 @@ import {
   MAT_OPTGROUP,
   MAT_OPTION_PARENT_COMPONENT,
   MatCommonModule,
-  MatOptgroup,
   MatOption,
   MatOptionModule,
   RIGHT_ARROW,
   SPACE,
   UP_ARROW,
-  _ErrorStateTracker,
   _countGroupLabelsBeforeOption,
   _getOptionScrollPosition,
   addAriaReferencedId,
+  coerceBooleanProperty,
+  coerceNumberProperty,
   hasModifierKey,
+  mixinDisableRipple,
+  mixinDisabled,
+  mixinErrorState,
+  mixinTabIndex,
   removeAriaReferencedId
-} from "./chunk-RQ4JJIME.js";
+} from "./chunk-CU7PCUON.js";
+import "./chunk-UGDLU53W.js";
+import {
+  animate,
+  animateChild,
+  query,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-WZV3MOS3.js";
+import "./chunk-2EZRO44G.js";
+import "./chunk-O7I6UIPS.js";
 import {
   CommonModule,
-  NgClass
-} from "./chunk-OJQNVZFF.js";
+  NgClass,
+  NgSwitch,
+  NgSwitchCase,
+  NgSwitchDefault
+} from "./chunk-Y6FHRR2C.js";
 import {
   Attribute,
   ChangeDetectionStrategy,
@@ -86,28 +91,23 @@ import {
   Subject,
   ViewChild,
   ViewEncapsulation$1,
-  booleanAttribute,
   defer,
   distinctUntilChanged,
   filter,
-  inject,
   map,
   merge,
-  numberAttribute,
   setClassMetadata,
   startWith,
   switchMap,
   take,
   takeUntil,
-  ɵɵInputTransformsFeature,
+  ɵɵInheritDefinitionFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
-  ɵɵStandaloneFeature,
   ɵɵadvance,
   ɵɵattribute,
   ɵɵclassMapInterpolate1,
   ɵɵclassProp,
-  ɵɵconditional,
   ɵɵcontentQuery,
   ɵɵdefineComponent,
   ɵɵdefineDirective,
@@ -118,6 +118,7 @@ import {
   ɵɵelementEnd,
   ɵɵelementStart,
   ɵɵgetCurrentView,
+  ɵɵgetInheritedFactory,
   ɵɵinjectAttribute,
   ɵɵlistener,
   ɵɵloadQuery,
@@ -141,9 +142,9 @@ var _c0 = ["trigger"];
 var _c1 = ["panel"];
 var _c2 = [[["mat-select-trigger"]], "*"];
 var _c3 = ["mat-select-trigger", "*"];
-function MatSelect_Conditional_4_Template(rf, ctx) {
+function MatSelect_span_4_Template(rf, ctx) {
   if (rf & 1) {
-    ɵɵelementStart(0, "span", 4);
+    ɵɵelementStart(0, "span", 11);
     ɵɵtext(1);
     ɵɵelementEnd();
   }
@@ -153,14 +154,9 @@ function MatSelect_Conditional_4_Template(rf, ctx) {
     ɵɵtextInterpolate(ctx_r1.placeholder);
   }
 }
-function MatSelect_Conditional_5_Conditional_1_Template(rf, ctx) {
+function MatSelect_span_5_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    ɵɵprojection(0);
-  }
-}
-function MatSelect_Conditional_5_Conditional_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "span", 11);
+    ɵɵelementStart(0, "span", 15);
     ɵɵtext(1);
     ɵɵelementEnd();
   }
@@ -170,22 +166,28 @@ function MatSelect_Conditional_5_Conditional_2_Template(rf, ctx) {
     ɵɵtextInterpolate(ctx_r1.triggerValue);
   }
 }
-function MatSelect_Conditional_5_Template(rf, ctx) {
+function MatSelect_span_5_ng_content_2_Template(rf, ctx) {
   if (rf & 1) {
-    ɵɵelementStart(0, "span", 10);
-    ɵɵtemplate(1, MatSelect_Conditional_5_Conditional_1_Template, 1, 0)(2, MatSelect_Conditional_5_Conditional_2_Template, 2, 1);
+    ɵɵprojection(0, 0, ["*ngSwitchCase", "true"]);
+  }
+}
+function MatSelect_span_5_Template(rf, ctx) {
+  if (rf & 1) {
+    ɵɵelementStart(0, "span", 12);
+    ɵɵtemplate(1, MatSelect_span_5_span_1_Template, 2, 1, "span", 13)(2, MatSelect_span_5_ng_content_2_Template, 1, 0, "ng-content", 14);
     ɵɵelementEnd();
   }
   if (rf & 2) {
     const ctx_r1 = ɵɵnextContext();
-    ɵɵadvance();
-    ɵɵconditional(1, ctx_r1.customTrigger ? 1 : 2);
+    ɵɵproperty("ngSwitch", !!ctx_r1.customTrigger);
+    ɵɵadvance(2);
+    ɵɵproperty("ngSwitchCase", true);
   }
 }
 function MatSelect_ng_template_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "div", 12, 1);
+    ɵɵelementStart(0, "div", 16, 1);
     ɵɵlistener("@transformPanel.done", function MatSelect_ng_template_10_Template_div_animation_transformPanel_done_0_listener($event) {
       ɵɵrestoreView(_r3);
       const ctx_r1 = ɵɵnextContext();
@@ -235,13 +237,7 @@ function getMatSelectNonFunctionValueError() {
   return Error("`compareWith` must be a function.");
 }
 var nextUniqueId = 0;
-var MAT_SELECT_SCROLL_STRATEGY = new InjectionToken("mat-select-scroll-strategy", {
-  providedIn: "root",
-  factory: () => {
-    const overlay = inject(Overlay);
-    return () => overlay.scrollStrategies.reposition();
-  }
-});
+var MAT_SELECT_SCROLL_STRATEGY = new InjectionToken("mat-select-scroll-strategy");
 function MAT_SELECT_SCROLL_STRATEGY_PROVIDER_FACTORY(overlay) {
   return () => overlay.scrollStrategies.reposition();
 }
@@ -258,40 +254,20 @@ var MatSelectChange = class {
     this.value = value;
   }
 };
-var _MatSelect = class _MatSelect {
-  /** Scrolls a particular option into the view. */
-  _scrollOptionIntoView(index) {
-    const option = this.options.toArray()[index];
-    if (option) {
-      const panel = this.panel.nativeElement;
-      const labelCount = _countGroupLabelsBeforeOption(index, this.options, this.optionGroups);
-      const element = option._getHostElement();
-      if (index === 0 && labelCount === 1) {
-        panel.scrollTop = 0;
-      } else {
-        panel.scrollTop = _getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
-      }
-    }
+var _MatSelectMixinBase = mixinDisableRipple(mixinTabIndex(mixinDisabled(mixinErrorState(class {
+  constructor(_elementRef, _defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl) {
+    this._elementRef = _elementRef;
+    this._defaultErrorStateMatcher = _defaultErrorStateMatcher;
+    this._parentForm = _parentForm;
+    this._parentFormGroup = _parentFormGroup;
+    this.ngControl = ngControl;
+    this.stateChanges = new Subject();
   }
-  /** Called when the panel has been opened and the overlay has settled on its final position. */
-  _positioningSettled() {
-    this._scrollOptionIntoView(this._keyManager.activeItemIndex || 0);
-  }
-  /** Creates a change event object that should be emitted by the select. */
-  _getChangeEvent(value) {
-    return new MatSelectChange(this, value);
-  }
+}))));
+var __MatSelectBase = class __MatSelectBase extends _MatSelectMixinBase {
   /** Whether the select is focused. */
   get focused() {
     return this._focused || this._panelOpen;
-  }
-  /** Whether checkmark indicator for single-selection options is hidden. */
-  get hideSingleSelectionIndicator() {
-    return this._hideSingleSelectionIndicator;
-  }
-  set hideSingleSelectionIndicator(value) {
-    this._hideSingleSelectionIndicator = value;
-    this._syncParentProperties();
   }
   /** Placeholder to be shown if no value has been selected. */
   get placeholder() {
@@ -306,7 +282,7 @@ var _MatSelect = class _MatSelect {
     return this._required ?? this.ngControl?.control?.hasValidator(Validators.required) ?? false;
   }
   set required(value) {
-    this._required = value;
+    this._required = coerceBooleanProperty(value);
     this.stateChanges.next();
   }
   /** Whether the user should be allowed to select multiple options. */
@@ -317,7 +293,14 @@ var _MatSelect = class _MatSelect {
     if (this._selectionModel && (typeof ngDevMode === "undefined" || ngDevMode)) {
       throw getMatSelectDynamicMultipleError();
     }
-    this._multiple = value;
+    this._multiple = coerceBooleanProperty(value);
+  }
+  /** Whether to center the active option over the trigger. */
+  get disableOptionCentering() {
+    return this._disableOptionCentering;
+  }
+  set disableOptionCentering(value) {
+    this._disableOptionCentering = coerceBooleanProperty(value);
   }
   /**
    * Function to compare the option values with the selected values. The first argument
@@ -346,12 +329,12 @@ var _MatSelect = class _MatSelect {
       this._onChange(newValue);
     }
   }
-  /** Object used to control when error messages are shown. */
-  get errorStateMatcher() {
-    return this._errorStateTracker.matcher;
+  /** Time to wait in milliseconds after the last keystroke before moving focus to an item. */
+  get typeaheadDebounceInterval() {
+    return this._typeaheadDebounceInterval;
   }
-  set errorStateMatcher(value) {
-    this._errorStateTracker.matcher = value;
+  set typeaheadDebounceInterval(value) {
+    this._typeaheadDebounceInterval = coerceNumberProperty(value);
   }
   /** Unique id of the element. */
   get id() {
@@ -361,52 +344,20 @@ var _MatSelect = class _MatSelect {
     this._id = value || this._uid;
     this.stateChanges.next();
   }
-  /** Whether the select is in an error state. */
-  get errorState() {
-    return this._errorStateTracker.errorState;
-  }
-  set errorState(value) {
-    this._errorStateTracker.errorState = value;
-  }
-  constructor(_viewportRuler, _changeDetectorRef, _unusedNgZone, defaultErrorStateMatcher, _elementRef, _dir, parentForm, parentFormGroup, _parentFormField, ngControl, tabIndex, scrollStrategyFactory, _liveAnnouncer, _defaultOptions) {
+  constructor(_viewportRuler, _changeDetectorRef, _ngZone, _defaultErrorStateMatcher, elementRef, _dir, _parentForm, _parentFormGroup, _parentFormField, ngControl, tabIndex, scrollStrategyFactory, _liveAnnouncer, _defaultOptions) {
+    super(elementRef, _defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl);
     this._viewportRuler = _viewportRuler;
     this._changeDetectorRef = _changeDetectorRef;
-    this._elementRef = _elementRef;
+    this._ngZone = _ngZone;
     this._dir = _dir;
     this._parentFormField = _parentFormField;
-    this.ngControl = ngControl;
     this._liveAnnouncer = _liveAnnouncer;
     this._defaultOptions = _defaultOptions;
-    this._positions = [{
-      originX: "start",
-      originY: "bottom",
-      overlayX: "start",
-      overlayY: "top"
-    }, {
-      originX: "end",
-      originY: "bottom",
-      overlayX: "end",
-      overlayY: "top"
-    }, {
-      originX: "start",
-      originY: "top",
-      overlayX: "start",
-      overlayY: "bottom",
-      panelClass: "mat-mdc-select-panel-above"
-    }, {
-      originX: "end",
-      originY: "top",
-      overlayX: "end",
-      overlayY: "bottom",
-      panelClass: "mat-mdc-select-panel-above"
-    }];
     this._panelOpen = false;
     this._compareWith = (o1, o2) => o1 === o2;
     this._uid = `mat-select-${nextUniqueId++}`;
     this._triggerAriaLabelledBy = null;
     this._destroy = new Subject();
-    this.stateChanges = new Subject();
-    this.disableAutomaticLabeling = true;
     this._onChange = () => {
     };
     this._onTouched = () => {
@@ -416,21 +367,15 @@ var _MatSelect = class _MatSelect {
     this._overlayPanelClass = this._defaultOptions?.overlayPanelClass || "";
     this._focused = false;
     this.controlType = "mat-select";
-    this.disabled = false;
-    this.disableRipple = false;
-    this.tabIndex = 0;
-    this._hideSingleSelectionIndicator = this._defaultOptions?.hideSingleSelectionIndicator ?? false;
     this._multiple = false;
-    this.disableOptionCentering = this._defaultOptions?.disableOptionCentering ?? false;
+    this._disableOptionCentering = this._defaultOptions?.disableOptionCentering ?? false;
     this.ariaLabel = "";
-    this.panelWidth = this._defaultOptions && typeof this._defaultOptions.panelWidth !== "undefined" ? this._defaultOptions.panelWidth : "auto";
-    this._initialized = new Subject();
     this.optionSelectionChanges = defer(() => {
       const options = this.options;
       if (options) {
         return options.changes.pipe(startWith(options), switchMap(() => merge(...options.map((option) => option.onSelectionChange))));
       }
-      return this._initialized.pipe(switchMap(() => this.optionSelectionChanges));
+      return this._ngZone.onStable.pipe(take(1), switchMap(() => this.optionSelectionChanges));
     });
     this.openedChange = new EventEmitter();
     this._openedStream = this.openedChange.pipe(filter((o) => o), map(() => {
@@ -440,19 +385,12 @@ var _MatSelect = class _MatSelect {
     this.selectionChange = new EventEmitter();
     this.valueChange = new EventEmitter();
     this._trackedModal = null;
-    this._skipPredicate = (option) => {
-      if (this.panelOpen) {
-        return false;
-      }
-      return option.disabled;
-    };
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
     }
     if (_defaultOptions?.typeaheadDebounceInterval != null) {
-      this.typeaheadDebounceInterval = _defaultOptions.typeaheadDebounceInterval;
+      this._typeaheadDebounceInterval = _defaultOptions.typeaheadDebounceInterval;
     }
-    this._errorStateTracker = new _ErrorStateTracker(defaultErrorStateMatcher, ngControl, parentFormGroup, parentForm, this.stateChanges);
     this._scrollStrategyFactory = scrollStrategyFactory;
     this._scrollStrategy = this._scrollStrategyFactory();
     this.tabIndex = parseInt(tabIndex) || 0;
@@ -462,16 +400,8 @@ var _MatSelect = class _MatSelect {
     this._selectionModel = new SelectionModel(this.multiple);
     this.stateChanges.next();
     this._panelDoneAnimatingStream.pipe(distinctUntilChanged(), takeUntil(this._destroy)).subscribe(() => this._panelDoneAnimating(this.panelOpen));
-    this._viewportRuler.change().pipe(takeUntil(this._destroy)).subscribe(() => {
-      if (this.panelOpen) {
-        this._overlayWidth = this._getOverlayWidth(this._preferredOverlayOrigin);
-        this._changeDetectorRef.detectChanges();
-      }
-    });
   }
   ngAfterContentInit() {
-    this._initialized.next();
-    this._initialized.complete();
     this._initKeyManager();
     this._selectionModel.changed.pipe(takeUntil(this._destroy)).subscribe((event) => {
       event.added.forEach((option) => option.select());
@@ -509,7 +439,7 @@ var _MatSelect = class _MatSelect {
       this.stateChanges.next();
     }
     if (changes["typeaheadDebounceInterval"] && this._keyManager) {
-      this._keyManager.withTypeAhead(this.typeaheadDebounceInterval);
+      this._keyManager.withTypeAhead(this._typeaheadDebounceInterval);
     }
   }
   ngOnDestroy() {
@@ -525,19 +455,13 @@ var _MatSelect = class _MatSelect {
   }
   /** Opens the overlay panel. */
   open() {
-    if (!this._canOpen()) {
-      return;
+    if (this._canOpen()) {
+      this._applyModalPanelOwnership();
+      this._panelOpen = true;
+      this._keyManager.withHorizontalOrientation(null);
+      this._highlightCorrectOption();
+      this._changeDetectorRef.markForCheck();
     }
-    if (this._parentFormField) {
-      this._preferredOverlayOrigin = this._parentFormField.getConnectedOverlayOrigin();
-    }
-    this._overlayWidth = this._getOverlayWidth(this._preferredOverlayOrigin);
-    this._applyModalPanelOwnership();
-    this._panelOpen = true;
-    this._keyManager.withHorizontalOrientation(null);
-    this._highlightCorrectOption();
-    this._changeDetectorRef.markForCheck();
-    this.stateChanges.next();
   }
   /**
    * If the autocomplete trigger is inside of an `aria-modal` element, connect
@@ -586,7 +510,6 @@ var _MatSelect = class _MatSelect {
       this._keyManager.withHorizontalOrientation(this._isRtl() ? "rtl" : "ltr");
       this._changeDetectorRef.markForCheck();
       this._onTouched();
-      this.stateChanges.next();
     }
   }
   /**
@@ -650,10 +573,6 @@ var _MatSelect = class _MatSelect {
       return selectedOptions.join(", ");
     }
     return this._selectionModel.selected[0].viewValue;
-  }
-  /** Refreshes the error state of the select. */
-  updateErrorState() {
-    this._errorStateTracker.updateErrorState();
   }
   /** Whether the element is in RTL mode. */
   _isRtl() {
@@ -813,25 +732,12 @@ var _MatSelect = class _MatSelect {
     }
     return false;
   }
-  /** Gets how wide the overlay panel should be. */
-  _getOverlayWidth(preferredOrigin) {
-    if (this.panelWidth === "auto") {
-      const refToMeasure = preferredOrigin instanceof CdkOverlayOrigin ? preferredOrigin.elementRef : preferredOrigin || this._elementRef;
-      return refToMeasure.nativeElement.getBoundingClientRect().width;
-    }
-    return this.panelWidth === null ? "" : this.panelWidth;
-  }
-  /** Syncs the parent state with the individual options. */
-  _syncParentProperties() {
-    if (this.options) {
-      for (const option of this.options) {
-        option._changeDetectorRef.markForCheck();
-      }
-    }
+  _skipPredicate(item) {
+    return item.disabled;
   }
   /** Sets up a key manager to listen to keyboard events on the overlay panel. */
   _initKeyManager() {
-    this._keyManager = new ActiveDescendantKeyManager(this.options).withTypeAhead(this.typeaheadDebounceInterval).withVerticalOrientation().withHorizontalOrientation(this._isRtl() ? "rtl" : "ltr").withHomeAndEnd().withPageUpDown().withAllowedModifierKeys(["shiftKey"]).skipPredicate(this._skipPredicate);
+    this._keyManager = new ActiveDescendantKeyManager(this.options).withTypeAhead(this._typeaheadDebounceInterval).withVerticalOrientation().withHorizontalOrientation(this._isRtl() ? "rtl" : "ltr").withHomeAndEnd().withPageUpDown().withAllowedModifierKeys(["shiftKey"]).skipPredicate(this._skipPredicate);
     this._keyManager.tabOut.subscribe(() => {
       if (this.panelOpen) {
         if (!this.multiple && this._keyManager.activeItem) {
@@ -904,7 +810,7 @@ var _MatSelect = class _MatSelect {
   }
   /** Emits change event to set the model value. */
   _propagateChanges(fallbackValue) {
-    let valueToEmit;
+    let valueToEmit = null;
     if (this.multiple) {
       valueToEmit = this.selected.map((option) => option.value);
     } else {
@@ -1001,12 +907,333 @@ var _MatSelect = class _MatSelect {
    * @docs-private
    */
   get shouldLabelFloat() {
-    return this.panelOpen || !this.empty || this.focused && !!this.placeholder;
+    return this._panelOpen || !this.empty || this._focused && !!this._placeholder;
   }
 };
-_MatSelect.ɵfac = function MatSelect_Factory(t) {
-  return new (t || _MatSelect)(ɵɵdirectiveInject(ViewportRuler), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ErrorStateMatcher), ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Directionality, 8), ɵɵdirectiveInject(NgForm, 8), ɵɵdirectiveInject(FormGroupDirective, 8), ɵɵdirectiveInject(MAT_FORM_FIELD, 8), ɵɵdirectiveInject(NgControl, 10), ɵɵinjectAttribute("tabindex"), ɵɵdirectiveInject(MAT_SELECT_SCROLL_STRATEGY), ɵɵdirectiveInject(LiveAnnouncer), ɵɵdirectiveInject(MAT_SELECT_CONFIG, 8));
+__MatSelectBase.ɵfac = function _MatSelectBase_Factory(t) {
+  return new (t || __MatSelectBase)(ɵɵdirectiveInject(ViewportRuler), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ErrorStateMatcher), ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Directionality, 8), ɵɵdirectiveInject(NgForm, 8), ɵɵdirectiveInject(FormGroupDirective, 8), ɵɵdirectiveInject(MAT_FORM_FIELD, 8), ɵɵdirectiveInject(NgControl, 10), ɵɵinjectAttribute("tabindex"), ɵɵdirectiveInject(MAT_SELECT_SCROLL_STRATEGY), ɵɵdirectiveInject(LiveAnnouncer), ɵɵdirectiveInject(MAT_SELECT_CONFIG, 8));
 };
+__MatSelectBase.ɵdir = ɵɵdefineDirective({
+  type: __MatSelectBase,
+  viewQuery: function _MatSelectBase_Query(rf, ctx) {
+    if (rf & 1) {
+      ɵɵviewQuery(_c0, 5);
+      ɵɵviewQuery(_c1, 5);
+      ɵɵviewQuery(CdkConnectedOverlay, 5);
+    }
+    if (rf & 2) {
+      let _t;
+      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.trigger = _t.first);
+      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.panel = _t.first);
+      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._overlayDir = _t.first);
+    }
+  },
+  inputs: {
+    userAriaDescribedBy: [InputFlags.None, "aria-describedby", "userAriaDescribedBy"],
+    panelClass: "panelClass",
+    placeholder: "placeholder",
+    required: "required",
+    multiple: "multiple",
+    disableOptionCentering: "disableOptionCentering",
+    compareWith: "compareWith",
+    value: "value",
+    ariaLabel: [InputFlags.None, "aria-label", "ariaLabel"],
+    ariaLabelledby: [InputFlags.None, "aria-labelledby", "ariaLabelledby"],
+    errorStateMatcher: "errorStateMatcher",
+    typeaheadDebounceInterval: "typeaheadDebounceInterval",
+    sortComparator: "sortComparator",
+    id: "id"
+  },
+  outputs: {
+    openedChange: "openedChange",
+    _openedStream: "opened",
+    _closedStream: "closed",
+    selectionChange: "selectionChange",
+    valueChange: "valueChange"
+  },
+  features: [ɵɵInheritDefinitionFeature, ɵɵNgOnChangesFeature]
+});
+var _MatSelectBase = __MatSelectBase;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_MatSelectBase, [{
+    type: Directive
+  }], function() {
+    return [{
+      type: ViewportRuler
+    }, {
+      type: ChangeDetectorRef
+    }, {
+      type: NgZone
+    }, {
+      type: ErrorStateMatcher
+    }, {
+      type: ElementRef
+    }, {
+      type: Directionality,
+      decorators: [{
+        type: Optional
+      }]
+    }, {
+      type: NgForm,
+      decorators: [{
+        type: Optional
+      }]
+    }, {
+      type: FormGroupDirective,
+      decorators: [{
+        type: Optional
+      }]
+    }, {
+      type: MatFormField,
+      decorators: [{
+        type: Optional
+      }, {
+        type: Inject,
+        args: [MAT_FORM_FIELD]
+      }]
+    }, {
+      type: NgControl,
+      decorators: [{
+        type: Self
+      }, {
+        type: Optional
+      }]
+    }, {
+      type: void 0,
+      decorators: [{
+        type: Attribute,
+        args: ["tabindex"]
+      }]
+    }, {
+      type: void 0,
+      decorators: [{
+        type: Inject,
+        args: [MAT_SELECT_SCROLL_STRATEGY]
+      }]
+    }, {
+      type: LiveAnnouncer
+    }, {
+      type: void 0,
+      decorators: [{
+        type: Optional
+      }, {
+        type: Inject,
+        args: [MAT_SELECT_CONFIG]
+      }]
+    }];
+  }, {
+    userAriaDescribedBy: [{
+      type: Input,
+      args: ["aria-describedby"]
+    }],
+    trigger: [{
+      type: ViewChild,
+      args: ["trigger"]
+    }],
+    panel: [{
+      type: ViewChild,
+      args: ["panel"]
+    }],
+    _overlayDir: [{
+      type: ViewChild,
+      args: [CdkConnectedOverlay]
+    }],
+    panelClass: [{
+      type: Input
+    }],
+    placeholder: [{
+      type: Input
+    }],
+    required: [{
+      type: Input
+    }],
+    multiple: [{
+      type: Input
+    }],
+    disableOptionCentering: [{
+      type: Input
+    }],
+    compareWith: [{
+      type: Input
+    }],
+    value: [{
+      type: Input
+    }],
+    ariaLabel: [{
+      type: Input,
+      args: ["aria-label"]
+    }],
+    ariaLabelledby: [{
+      type: Input,
+      args: ["aria-labelledby"]
+    }],
+    errorStateMatcher: [{
+      type: Input
+    }],
+    typeaheadDebounceInterval: [{
+      type: Input
+    }],
+    sortComparator: [{
+      type: Input
+    }],
+    id: [{
+      type: Input
+    }],
+    openedChange: [{
+      type: Output
+    }],
+    _openedStream: [{
+      type: Output,
+      args: ["opened"]
+    }],
+    _closedStream: [{
+      type: Output,
+      args: ["closed"]
+    }],
+    selectionChange: [{
+      type: Output
+    }],
+    valueChange: [{
+      type: Output
+    }]
+  });
+})();
+var _MatSelectTrigger = class _MatSelectTrigger {
+};
+_MatSelectTrigger.ɵfac = function MatSelectTrigger_Factory(t) {
+  return new (t || _MatSelectTrigger)();
+};
+_MatSelectTrigger.ɵdir = ɵɵdefineDirective({
+  type: _MatSelectTrigger,
+  selectors: [["mat-select-trigger"]],
+  features: [ɵɵProvidersFeature([{
+    provide: MAT_SELECT_TRIGGER,
+    useExisting: _MatSelectTrigger
+  }])]
+});
+var MatSelectTrigger = _MatSelectTrigger;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSelectTrigger, [{
+    type: Directive,
+    args: [{
+      selector: "mat-select-trigger",
+      providers: [{
+        provide: MAT_SELECT_TRIGGER,
+        useExisting: MatSelectTrigger
+      }]
+    }]
+  }], null, null);
+})();
+var _MatSelect = class _MatSelect extends _MatSelectBase {
+  constructor() {
+    super(...arguments);
+    this.panelWidth = this._defaultOptions && typeof this._defaultOptions.panelWidth !== "undefined" ? this._defaultOptions.panelWidth : "auto";
+    this._positions = [{
+      originX: "start",
+      originY: "bottom",
+      overlayX: "start",
+      overlayY: "top"
+    }, {
+      originX: "end",
+      originY: "bottom",
+      overlayX: "end",
+      overlayY: "top"
+    }, {
+      originX: "start",
+      originY: "top",
+      overlayX: "start",
+      overlayY: "bottom",
+      panelClass: "mat-mdc-select-panel-above"
+    }, {
+      originX: "end",
+      originY: "top",
+      overlayX: "end",
+      overlayY: "bottom",
+      panelClass: "mat-mdc-select-panel-above"
+    }];
+    this._hideSingleSelectionIndicator = this._defaultOptions?.hideSingleSelectionIndicator ?? false;
+    this._skipPredicate = (option) => {
+      if (this.panelOpen) {
+        return false;
+      }
+      return option.disabled;
+    };
+  }
+  get shouldLabelFloat() {
+    return this.panelOpen || !this.empty || this.focused && !!this.placeholder;
+  }
+  ngOnInit() {
+    super.ngOnInit();
+    this._viewportRuler.change().pipe(takeUntil(this._destroy)).subscribe(() => {
+      if (this.panelOpen) {
+        this._overlayWidth = this._getOverlayWidth(this._preferredOverlayOrigin);
+        this._changeDetectorRef.detectChanges();
+      }
+    });
+  }
+  open() {
+    if (this._parentFormField) {
+      this._preferredOverlayOrigin = this._parentFormField.getConnectedOverlayOrigin();
+    }
+    this._overlayWidth = this._getOverlayWidth(this._preferredOverlayOrigin);
+    super.open();
+    this.stateChanges.next();
+  }
+  close() {
+    super.close();
+    this.stateChanges.next();
+  }
+  /** Scrolls the active option into view. */
+  _scrollOptionIntoView(index) {
+    const option = this.options.toArray()[index];
+    if (option) {
+      const panel = this.panel.nativeElement;
+      const labelCount = _countGroupLabelsBeforeOption(index, this.options, this.optionGroups);
+      const element = option._getHostElement();
+      if (index === 0 && labelCount === 1) {
+        panel.scrollTop = 0;
+      } else {
+        panel.scrollTop = _getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
+      }
+    }
+  }
+  _positioningSettled() {
+    this._scrollOptionIntoView(this._keyManager.activeItemIndex || 0);
+  }
+  _getChangeEvent(value) {
+    return new MatSelectChange(this, value);
+  }
+  /** Gets how wide the overlay panel should be. */
+  _getOverlayWidth(preferredOrigin) {
+    if (this.panelWidth === "auto") {
+      const refToMeasure = preferredOrigin instanceof CdkOverlayOrigin ? preferredOrigin.elementRef : preferredOrigin || this._elementRef;
+      return refToMeasure.nativeElement.getBoundingClientRect().width;
+    }
+    return this.panelWidth === null ? "" : this.panelWidth;
+  }
+  /** Whether checkmark indicator for single-selection options is hidden. */
+  get hideSingleSelectionIndicator() {
+    return this._hideSingleSelectionIndicator;
+  }
+  set hideSingleSelectionIndicator(value) {
+    this._hideSingleSelectionIndicator = coerceBooleanProperty(value);
+    this._syncParentProperties();
+  }
+  /** Syncs the parent state with the individual options. */
+  _syncParentProperties() {
+    if (this.options) {
+      for (const option of this.options) {
+        option._changeDetectorRef.markForCheck();
+      }
+    }
+  }
+};
+_MatSelect.ɵfac = /* @__PURE__ */ (() => {
+  let ɵMatSelect_BaseFactory;
+  return function MatSelect_Factory(t) {
+    return (ɵMatSelect_BaseFactory || (ɵMatSelect_BaseFactory = ɵɵgetInheritedFactory(_MatSelect)))(t || _MatSelect);
+  };
+})();
 _MatSelect.ɵcmp = ɵɵdefineComponent({
   type: _MatSelect,
   selectors: [["mat-select"]],
@@ -1023,20 +1250,7 @@ _MatSelect.ɵcmp = ɵɵdefineComponent({
       ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.optionGroups = _t);
     }
   },
-  viewQuery: function MatSelect_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(_c0, 5);
-      ɵɵviewQuery(_c1, 5);
-      ɵɵviewQuery(CdkConnectedOverlay, 5);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.trigger = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.panel = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._overlayDir = _t.first);
-    }
-  },
-  hostAttrs: ["role", "combobox", "aria-autocomplete", "none", "aria-haspopup", "listbox", 1, "mat-mdc-select"],
+  hostAttrs: ["role", "combobox", "aria-autocomplete", "none", "aria-haspopup", "listbox", "ngSkipHydration", "", 1, "mat-mdc-select"],
   hostVars: 19,
   hostBindings: function MatSelect_HostBindings(rf, ctx) {
     if (rf & 1) {
@@ -1049,51 +1263,29 @@ _MatSelect.ɵcmp = ɵɵdefineComponent({
       });
     }
     if (rf & 2) {
-      ɵɵattribute("id", ctx.id)("tabindex", ctx.disabled ? -1 : ctx.tabIndex)("aria-controls", ctx.panelOpen ? ctx.id + "-panel" : null)("aria-expanded", ctx.panelOpen)("aria-label", ctx.ariaLabel || null)("aria-required", ctx.required.toString())("aria-disabled", ctx.disabled.toString())("aria-invalid", ctx.errorState)("aria-activedescendant", ctx._getAriaActiveDescendant());
+      ɵɵattribute("id", ctx.id)("tabindex", ctx.tabIndex)("aria-controls", ctx.panelOpen ? ctx.id + "-panel" : null)("aria-expanded", ctx.panelOpen)("aria-label", ctx.ariaLabel || null)("aria-required", ctx.required.toString())("aria-disabled", ctx.disabled.toString())("aria-invalid", ctx.errorState)("aria-activedescendant", ctx._getAriaActiveDescendant());
       ɵɵclassProp("mat-mdc-select-disabled", ctx.disabled)("mat-mdc-select-invalid", ctx.errorState)("mat-mdc-select-required", ctx.required)("mat-mdc-select-empty", ctx.empty)("mat-mdc-select-multiple", ctx.multiple);
     }
   },
   inputs: {
-    userAriaDescribedBy: [InputFlags.None, "aria-describedby", "userAriaDescribedBy"],
-    panelClass: "panelClass",
-    disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute],
-    disableRipple: [InputFlags.HasDecoratorInputTransform, "disableRipple", "disableRipple", booleanAttribute],
-    tabIndex: [InputFlags.HasDecoratorInputTransform, "tabIndex", "tabIndex", (value) => value == null ? 0 : numberAttribute(value)],
-    hideSingleSelectionIndicator: [InputFlags.HasDecoratorInputTransform, "hideSingleSelectionIndicator", "hideSingleSelectionIndicator", booleanAttribute],
-    placeholder: "placeholder",
-    required: [InputFlags.HasDecoratorInputTransform, "required", "required", booleanAttribute],
-    multiple: [InputFlags.HasDecoratorInputTransform, "multiple", "multiple", booleanAttribute],
-    disableOptionCentering: [InputFlags.HasDecoratorInputTransform, "disableOptionCentering", "disableOptionCentering", booleanAttribute],
-    compareWith: "compareWith",
-    value: "value",
-    ariaLabel: [InputFlags.None, "aria-label", "ariaLabel"],
-    ariaLabelledby: [InputFlags.None, "aria-labelledby", "ariaLabelledby"],
-    errorStateMatcher: "errorStateMatcher",
-    typeaheadDebounceInterval: [InputFlags.HasDecoratorInputTransform, "typeaheadDebounceInterval", "typeaheadDebounceInterval", numberAttribute],
-    sortComparator: "sortComparator",
-    id: "id",
-    panelWidth: "panelWidth"
-  },
-  outputs: {
-    openedChange: "openedChange",
-    _openedStream: "opened",
-    _closedStream: "closed",
-    selectionChange: "selectionChange",
-    valueChange: "valueChange"
+    disabled: "disabled",
+    disableRipple: "disableRipple",
+    tabIndex: "tabIndex",
+    panelWidth: "panelWidth",
+    hideSingleSelectionIndicator: "hideSingleSelectionIndicator"
   },
   exportAs: ["matSelect"],
-  standalone: true,
   features: [ɵɵProvidersFeature([{
     provide: MatFormFieldControl,
     useExisting: _MatSelect
   }, {
     provide: MAT_OPTION_PARENT_COMPONENT,
     useExisting: _MatSelect
-  }]), ɵɵInputTransformsFeature, ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
+  }]), ɵɵInheritDefinitionFeature],
   ngContentSelectors: _c3,
   decls: 11,
-  vars: 8,
-  consts: [["fallbackOverlayOrigin", "cdkOverlayOrigin", "trigger", ""], ["panel", ""], ["cdk-overlay-origin", "", 1, "mat-mdc-select-trigger", 3, "click"], [1, "mat-mdc-select-value"], [1, "mat-mdc-select-placeholder", "mat-mdc-select-min-line"], [1, "mat-mdc-select-arrow-wrapper"], [1, "mat-mdc-select-arrow"], ["viewBox", "0 0 24 24", "width", "24px", "height", "24px", "focusable", "false", "aria-hidden", "true"], ["d", "M7 10l5 5 5-5z"], ["cdk-connected-overlay", "", "cdkConnectedOverlayLockPosition", "", "cdkConnectedOverlayHasBackdrop", "", "cdkConnectedOverlayBackdropClass", "cdk-overlay-transparent-backdrop", 3, "backdropClick", "attach", "detach", "cdkConnectedOverlayPanelClass", "cdkConnectedOverlayScrollStrategy", "cdkConnectedOverlayOrigin", "cdkConnectedOverlayOpen", "cdkConnectedOverlayPositions", "cdkConnectedOverlayWidth"], [1, "mat-mdc-select-value-text"], [1, "mat-mdc-select-min-line"], ["role", "listbox", "tabindex", "-1", 3, "keydown", "ngClass"]],
+  vars: 10,
+  consts: [["fallbackOverlayOrigin", "cdkOverlayOrigin", "trigger", ""], ["panel", ""], ["cdk-overlay-origin", "", 1, "mat-mdc-select-trigger", 3, "click"], [1, "mat-mdc-select-value", 3, "ngSwitch"], ["class", "mat-mdc-select-placeholder mat-mdc-select-min-line", 4, "ngSwitchCase"], ["class", "mat-mdc-select-value-text", 3, "ngSwitch", 4, "ngSwitchCase"], [1, "mat-mdc-select-arrow-wrapper"], [1, "mat-mdc-select-arrow"], ["viewBox", "0 0 24 24", "width", "24px", "height", "24px", "focusable", "false", "aria-hidden", "true"], ["d", "M7 10l5 5 5-5z"], ["cdk-connected-overlay", "", "cdkConnectedOverlayLockPosition", "", "cdkConnectedOverlayHasBackdrop", "", "cdkConnectedOverlayBackdropClass", "cdk-overlay-transparent-backdrop", 3, "backdropClick", "attach", "detach", "cdkConnectedOverlayPanelClass", "cdkConnectedOverlayScrollStrategy", "cdkConnectedOverlayOrigin", "cdkConnectedOverlayOpen", "cdkConnectedOverlayPositions", "cdkConnectedOverlayWidth"], [1, "mat-mdc-select-placeholder", "mat-mdc-select-min-line"], [1, "mat-mdc-select-value-text", 3, "ngSwitch"], ["class", "mat-mdc-select-min-line", 4, "ngSwitchDefault"], [4, "ngSwitchCase"], [1, "mat-mdc-select-min-line"], ["role", "listbox", "tabindex", "-1", 3, "keydown", "ngClass"]],
   template: function MatSelect_Template(rf, ctx) {
     if (rf & 1) {
       const _r1 = ɵɵgetCurrentView();
@@ -1101,17 +1293,17 @@ _MatSelect.ɵcmp = ɵɵdefineComponent({
       ɵɵelementStart(0, "div", 2, 0);
       ɵɵlistener("click", function MatSelect_Template_div_click_0_listener() {
         ɵɵrestoreView(_r1);
-        return ɵɵresetView(ctx.open());
+        return ɵɵresetView(ctx.toggle());
       });
       ɵɵelementStart(3, "div", 3);
-      ɵɵtemplate(4, MatSelect_Conditional_4_Template, 2, 1, "span", 4)(5, MatSelect_Conditional_5_Template, 3, 1);
+      ɵɵtemplate(4, MatSelect_span_4_Template, 2, 1, "span", 4)(5, MatSelect_span_5_Template, 3, 2, "span", 5);
       ɵɵelementEnd();
-      ɵɵelementStart(6, "div", 5)(7, "div", 6);
+      ɵɵelementStart(6, "div", 6)(7, "div", 7);
       ɵɵnamespaceSVG();
-      ɵɵelementStart(8, "svg", 7);
-      ɵɵelement(9, "path", 8);
+      ɵɵelementStart(8, "svg", 8);
+      ɵɵelement(9, "path", 9);
       ɵɵelementEnd()()()();
-      ɵɵtemplate(10, MatSelect_ng_template_10_Template, 3, 9, "ng-template", 9);
+      ɵɵtemplate(10, MatSelect_ng_template_10_Template, 3, 9, "ng-template", 10);
       ɵɵlistener("backdropClick", function MatSelect_Template_ng_template_backdropClick_10_listener() {
         ɵɵrestoreView(_r1);
         return ɵɵresetView(ctx.close());
@@ -1126,15 +1318,18 @@ _MatSelect.ɵcmp = ɵɵdefineComponent({
     if (rf & 2) {
       const fallbackOverlayOrigin_r4 = ɵɵreference(1);
       ɵɵadvance(3);
+      ɵɵproperty("ngSwitch", ctx.empty);
       ɵɵattribute("id", ctx._valueId);
       ɵɵadvance();
-      ɵɵconditional(4, ctx.empty ? 4 : 5);
-      ɵɵadvance(6);
+      ɵɵproperty("ngSwitchCase", true);
+      ɵɵadvance();
+      ɵɵproperty("ngSwitchCase", false);
+      ɵɵadvance(5);
       ɵɵproperty("cdkConnectedOverlayPanelClass", ctx._overlayPanelClass)("cdkConnectedOverlayScrollStrategy", ctx._scrollStrategy)("cdkConnectedOverlayOrigin", ctx._preferredOverlayOrigin || fallbackOverlayOrigin_r4)("cdkConnectedOverlayOpen", ctx.panelOpen)("cdkConnectedOverlayPositions", ctx._positions)("cdkConnectedOverlayWidth", ctx._overlayWidth);
     }
   },
-  dependencies: [CdkOverlayOrigin, CdkConnectedOverlay, NgClass],
-  styles: ['.mat-mdc-select{display:inline-block;width:100%;outline:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:var(--mat-select-enabled-trigger-text-color);font-family:var(--mat-select-trigger-text-font);line-height:var(--mat-select-trigger-text-line-height);font-size:var(--mat-select-trigger-text-size);font-weight:var(--mat-select-trigger-text-weight);letter-spacing:var(--mat-select-trigger-text-tracking)}div.mat-mdc-select-panel{box-shadow:var(--mat-select-container-elevation-shadow)}.mat-mdc-select-disabled{color:var(--mat-select-disabled-trigger-text-color)}.mat-mdc-select-trigger{display:inline-flex;align-items:center;cursor:pointer;position:relative;box-sizing:border-box;width:100%}.mat-mdc-select-disabled .mat-mdc-select-trigger{-webkit-user-select:none;user-select:none;cursor:default}.mat-mdc-select-value{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mat-mdc-select-value-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-mdc-select-arrow-wrapper{height:24px;flex-shrink:0;display:inline-flex;align-items:center}.mat-form-field-appearance-fill .mdc-text-field--no-label .mat-mdc-select-arrow-wrapper{transform:none}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-invalid .mat-mdc-select-arrow,.mat-form-field-invalid:not(.mat-form-field-disabled) .mat-mdc-form-field-infix::after{color:var(--mat-select-invalid-arrow-color)}.mat-mdc-select-arrow{width:10px;height:5px;position:relative;color:var(--mat-select-enabled-arrow-color)}.mat-mdc-form-field.mat-focused .mat-mdc-select-arrow{color:var(--mat-select-focused-arrow-color)}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-disabled .mat-mdc-select-arrow{color:var(--mat-select-disabled-arrow-color)}.mat-mdc-select-arrow svg{fill:currentColor;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:CanvasText}.mat-mdc-select-disabled .cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:GrayText}div.mat-mdc-select-panel{width:100%;max-height:275px;outline:0;overflow:auto;padding:8px 0;border-radius:4px;box-sizing:border-box;position:static;background-color:var(--mat-select-panel-background-color)}.cdk-high-contrast-active div.mat-mdc-select-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{border-top-left-radius:0;border-top-right-radius:0;transform-origin:top center}.mat-mdc-select-panel-above div.mat-mdc-select-panel{border-bottom-left-radius:0;border-bottom-right-radius:0;transform-origin:bottom center}div.mat-mdc-select-panel .mat-mdc-option{--mdc-list-list-item-container-color: var(--mat-select-panel-background-color)}.mat-mdc-select-placeholder{transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);color:var(--mat-select-placeholder-text-color)}._mat-animation-noopable .mat-mdc-select-placeholder{transition:none}.mat-form-field-hide-placeholder .mat-mdc-select-placeholder{color:rgba(0,0,0,0);-webkit-text-fill-color:rgba(0,0,0,0);transition:none;display:block}.mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper{cursor:pointer}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mat-mdc-floating-label{max-width:calc(100% - 18px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mdc-floating-label--float-above{max-width:calc(100%/0.75 - 24px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-text-field--label-floating .mdc-notched-outline__notch{max-width:calc(100% - 24px)}.mat-mdc-select-min-line:empty::before{content:" ";white-space:pre;width:1px;display:inline-block;visibility:hidden}.mat-form-field-appearance-fill .mat-mdc-select-arrow-wrapper{transform:var(--mat-select-arrow-transform)}'],
+  dependencies: [NgClass, NgSwitch, NgSwitchCase, NgSwitchDefault, CdkConnectedOverlay, CdkOverlayOrigin],
+  styles: ['.mat-mdc-select{display:inline-block;width:100%;outline:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:var(--mat-select-enabled-trigger-text-color);font-family:var(--mat-select-trigger-text-font);line-height:var(--mat-select-trigger-text-line-height);font-size:var(--mat-select-trigger-text-size);font-weight:var(--mat-select-trigger-text-weight);letter-spacing:var(--mat-select-trigger-text-tracking)}.mat-mdc-select-disabled{color:var(--mat-select-disabled-trigger-text-color)}.mat-mdc-select-trigger{display:inline-flex;align-items:center;cursor:pointer;position:relative;box-sizing:border-box;width:100%}.mat-mdc-select-disabled .mat-mdc-select-trigger{-webkit-user-select:none;user-select:none;cursor:default}.mat-mdc-select-value{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mat-mdc-select-value-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-mdc-select-arrow-wrapper{height:24px;flex-shrink:0;display:inline-flex;align-items:center}.mat-form-field-appearance-fill .mat-mdc-select-arrow-wrapper{transform:translateY(-8px)}.mat-form-field-appearance-fill .mdc-text-field--no-label .mat-mdc-select-arrow-wrapper{transform:none}.mat-mdc-select-arrow{width:10px;height:5px;position:relative;color:var(--mat-select-enabled-arrow-color)}.mat-mdc-form-field.mat-focused .mat-mdc-select-arrow{color:var(--mat-select-focused-arrow-color)}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-invalid .mat-mdc-select-arrow{color:var(--mat-select-invalid-arrow-color)}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-disabled .mat-mdc-select-arrow{color:var(--mat-select-disabled-arrow-color)}.mat-mdc-select-arrow svg{fill:currentColor;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:CanvasText}.mat-mdc-select-disabled .cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:GrayText}div.mat-mdc-select-panel{box-shadow:0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);width:100%;max-height:275px;outline:0;overflow:auto;padding:8px 0;border-radius:4px;box-sizing:border-box;position:static;background-color:var(--mat-select-panel-background-color)}.cdk-high-contrast-active div.mat-mdc-select-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{border-top-left-radius:0;border-top-right-radius:0;transform-origin:top center}.mat-mdc-select-panel-above div.mat-mdc-select-panel{border-bottom-left-radius:0;border-bottom-right-radius:0;transform-origin:bottom center}.mat-mdc-select-placeholder{transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);color:var(--mat-select-placeholder-text-color)}._mat-animation-noopable .mat-mdc-select-placeholder{transition:none}.mat-form-field-hide-placeholder .mat-mdc-select-placeholder{color:rgba(0,0,0,0);-webkit-text-fill-color:rgba(0,0,0,0);transition:none;display:block}.mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper{cursor:pointer}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mat-mdc-floating-label{max-width:calc(100% - 18px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 24px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-text-field--label-floating .mdc-notched-outline__notch{max-width:calc(100% - 24px)}.mat-mdc-select-min-line:empty::before{content:" ";white-space:pre;width:1px;display:inline-block;visibility:hidden}'],
   encapsulation: 2,
   data: {
     animation: [matSelectAnimations.transformPanel]
@@ -1148,6 +1343,7 @@ var MatSelect = _MatSelect;
     args: [{
       selector: "mat-select",
       exportAs: "matSelect",
+      inputs: ["disabled", "disableRipple", "tabIndex"],
       encapsulation: ViewEncapsulation$1.None,
       changeDetection: ChangeDetectionStrategy.OnPush,
       host: {
@@ -1156,7 +1352,7 @@ var MatSelect = _MatSelect;
         "aria-haspopup": "listbox",
         "class": "mat-mdc-select",
         "[attr.id]": "id",
-        "[attr.tabindex]": "disabled ? -1 : tabIndex",
+        "[attr.tabindex]": "tabIndex",
         "[attr.aria-controls]": 'panelOpen ? id + "-panel" : null',
         "[attr.aria-expanded]": "panelOpen",
         "[attr.aria-label]": "ariaLabel || null",
@@ -1164,6 +1360,7 @@ var MatSelect = _MatSelect;
         "[attr.aria-disabled]": "disabled.toString()",
         "[attr.aria-invalid]": "errorState",
         "[attr.aria-activedescendant]": "_getAriaActiveDescendant()",
+        "ngSkipHydration": "",
         "[class.mat-mdc-select-disabled]": "disabled",
         "[class.mat-mdc-select-invalid]": "errorState",
         "[class.mat-mdc-select-required]": "required",
@@ -1181,26 +1378,17 @@ var MatSelect = _MatSelect;
         provide: MAT_OPTION_PARENT_COMPONENT,
         useExisting: MatSelect
       }],
-      standalone: true,
-      imports: [CdkOverlayOrigin, CdkConnectedOverlay, NgClass],
       template: `<div cdk-overlay-origin
      class="mat-mdc-select-trigger"
-     (click)="open()"
+     (click)="toggle()"
      #fallbackOverlayOrigin="cdkOverlayOrigin"
      #trigger>
-
-  <div class="mat-mdc-select-value" [attr.id]="_valueId">
-    @if (empty) {
-      <span class="mat-mdc-select-placeholder mat-mdc-select-min-line">{{placeholder}}</span>
-    } @else {
-      <span class="mat-mdc-select-value-text">
-        @if (customTrigger) {
-          <ng-content select="mat-select-trigger"></ng-content>
-        } @else {
-          <span class="mat-mdc-select-min-line">{{triggerValue}}</span>
-        }
-      </span>
-    }
+  <div class="mat-mdc-select-value" [ngSwitch]="empty" [attr.id]="_valueId">
+    <span class="mat-mdc-select-placeholder mat-mdc-select-min-line" *ngSwitchCase="true">{{placeholder}}</span>
+    <span class="mat-mdc-select-value-text" *ngSwitchCase="false" [ngSwitch]="!!customTrigger">
+      <span class="mat-mdc-select-min-line" *ngSwitchDefault>{{triggerValue}}</span>
+      <ng-content select="mat-select-trigger" *ngSwitchCase="true"></ng-content>
+    </span>
   </div>
 
   <div class="mat-mdc-select-arrow-wrapper">
@@ -1244,71 +1432,9 @@ var MatSelect = _MatSelect;
   </div>
 </ng-template>
 `,
-      styles: ['.mat-mdc-select{display:inline-block;width:100%;outline:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:var(--mat-select-enabled-trigger-text-color);font-family:var(--mat-select-trigger-text-font);line-height:var(--mat-select-trigger-text-line-height);font-size:var(--mat-select-trigger-text-size);font-weight:var(--mat-select-trigger-text-weight);letter-spacing:var(--mat-select-trigger-text-tracking)}div.mat-mdc-select-panel{box-shadow:var(--mat-select-container-elevation-shadow)}.mat-mdc-select-disabled{color:var(--mat-select-disabled-trigger-text-color)}.mat-mdc-select-trigger{display:inline-flex;align-items:center;cursor:pointer;position:relative;box-sizing:border-box;width:100%}.mat-mdc-select-disabled .mat-mdc-select-trigger{-webkit-user-select:none;user-select:none;cursor:default}.mat-mdc-select-value{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mat-mdc-select-value-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-mdc-select-arrow-wrapper{height:24px;flex-shrink:0;display:inline-flex;align-items:center}.mat-form-field-appearance-fill .mdc-text-field--no-label .mat-mdc-select-arrow-wrapper{transform:none}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-invalid .mat-mdc-select-arrow,.mat-form-field-invalid:not(.mat-form-field-disabled) .mat-mdc-form-field-infix::after{color:var(--mat-select-invalid-arrow-color)}.mat-mdc-select-arrow{width:10px;height:5px;position:relative;color:var(--mat-select-enabled-arrow-color)}.mat-mdc-form-field.mat-focused .mat-mdc-select-arrow{color:var(--mat-select-focused-arrow-color)}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-disabled .mat-mdc-select-arrow{color:var(--mat-select-disabled-arrow-color)}.mat-mdc-select-arrow svg{fill:currentColor;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:CanvasText}.mat-mdc-select-disabled .cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:GrayText}div.mat-mdc-select-panel{width:100%;max-height:275px;outline:0;overflow:auto;padding:8px 0;border-radius:4px;box-sizing:border-box;position:static;background-color:var(--mat-select-panel-background-color)}.cdk-high-contrast-active div.mat-mdc-select-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{border-top-left-radius:0;border-top-right-radius:0;transform-origin:top center}.mat-mdc-select-panel-above div.mat-mdc-select-panel{border-bottom-left-radius:0;border-bottom-right-radius:0;transform-origin:bottom center}div.mat-mdc-select-panel .mat-mdc-option{--mdc-list-list-item-container-color: var(--mat-select-panel-background-color)}.mat-mdc-select-placeholder{transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);color:var(--mat-select-placeholder-text-color)}._mat-animation-noopable .mat-mdc-select-placeholder{transition:none}.mat-form-field-hide-placeholder .mat-mdc-select-placeholder{color:rgba(0,0,0,0);-webkit-text-fill-color:rgba(0,0,0,0);transition:none;display:block}.mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper{cursor:pointer}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mat-mdc-floating-label{max-width:calc(100% - 18px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mdc-floating-label--float-above{max-width:calc(100%/0.75 - 24px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-text-field--label-floating .mdc-notched-outline__notch{max-width:calc(100% - 24px)}.mat-mdc-select-min-line:empty::before{content:" ";white-space:pre;width:1px;display:inline-block;visibility:hidden}.mat-form-field-appearance-fill .mat-mdc-select-arrow-wrapper{transform:var(--mat-select-arrow-transform)}']
+      styles: ['.mat-mdc-select{display:inline-block;width:100%;outline:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:var(--mat-select-enabled-trigger-text-color);font-family:var(--mat-select-trigger-text-font);line-height:var(--mat-select-trigger-text-line-height);font-size:var(--mat-select-trigger-text-size);font-weight:var(--mat-select-trigger-text-weight);letter-spacing:var(--mat-select-trigger-text-tracking)}.mat-mdc-select-disabled{color:var(--mat-select-disabled-trigger-text-color)}.mat-mdc-select-trigger{display:inline-flex;align-items:center;cursor:pointer;position:relative;box-sizing:border-box;width:100%}.mat-mdc-select-disabled .mat-mdc-select-trigger{-webkit-user-select:none;user-select:none;cursor:default}.mat-mdc-select-value{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mat-mdc-select-value-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-mdc-select-arrow-wrapper{height:24px;flex-shrink:0;display:inline-flex;align-items:center}.mat-form-field-appearance-fill .mat-mdc-select-arrow-wrapper{transform:translateY(-8px)}.mat-form-field-appearance-fill .mdc-text-field--no-label .mat-mdc-select-arrow-wrapper{transform:none}.mat-mdc-select-arrow{width:10px;height:5px;position:relative;color:var(--mat-select-enabled-arrow-color)}.mat-mdc-form-field.mat-focused .mat-mdc-select-arrow{color:var(--mat-select-focused-arrow-color)}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-invalid .mat-mdc-select-arrow{color:var(--mat-select-invalid-arrow-color)}.mat-mdc-form-field .mat-mdc-select.mat-mdc-select-disabled .mat-mdc-select-arrow{color:var(--mat-select-disabled-arrow-color)}.mat-mdc-select-arrow svg{fill:currentColor;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:CanvasText}.mat-mdc-select-disabled .cdk-high-contrast-active .mat-mdc-select-arrow svg{fill:GrayText}div.mat-mdc-select-panel{box-shadow:0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);width:100%;max-height:275px;outline:0;overflow:auto;padding:8px 0;border-radius:4px;box-sizing:border-box;position:static;background-color:var(--mat-select-panel-background-color)}.cdk-high-contrast-active div.mat-mdc-select-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{border-top-left-radius:0;border-top-right-radius:0;transform-origin:top center}.mat-mdc-select-panel-above div.mat-mdc-select-panel{border-bottom-left-radius:0;border-bottom-right-radius:0;transform-origin:bottom center}.mat-mdc-select-placeholder{transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);color:var(--mat-select-placeholder-text-color)}._mat-animation-noopable .mat-mdc-select-placeholder{transition:none}.mat-form-field-hide-placeholder .mat-mdc-select-placeholder{color:rgba(0,0,0,0);-webkit-text-fill-color:rgba(0,0,0,0);transition:none;display:block}.mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper{cursor:pointer}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mat-mdc-floating-label{max-width:calc(100% - 18px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 24px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-text-field--label-floating .mdc-notched-outline__notch{max-width:calc(100% - 24px)}.mat-mdc-select-min-line:empty::before{content:" ";white-space:pre;width:1px;display:inline-block;visibility:hidden}']
     }]
-  }], () => [{
-    type: ViewportRuler
-  }, {
-    type: ChangeDetectorRef
-  }, {
-    type: NgZone
-  }, {
-    type: ErrorStateMatcher
-  }, {
-    type: ElementRef
-  }, {
-    type: Directionality,
-    decorators: [{
-      type: Optional
-    }]
-  }, {
-    type: NgForm,
-    decorators: [{
-      type: Optional
-    }]
-  }, {
-    type: FormGroupDirective,
-    decorators: [{
-      type: Optional
-    }]
-  }, {
-    type: MatFormField,
-    decorators: [{
-      type: Optional
-    }, {
-      type: Inject,
-      args: [MAT_FORM_FIELD]
-    }]
-  }, {
-    type: NgControl,
-    decorators: [{
-      type: Self
-    }, {
-      type: Optional
-    }]
-  }, {
-    type: void 0,
-    decorators: [{
-      type: Attribute,
-      args: ["tabindex"]
-    }]
-  }, {
-    type: void 0,
-    decorators: [{
-      type: Inject,
-      args: [MAT_SELECT_SCROLL_STRATEGY]
-    }]
-  }, {
-    type: LiveAnnouncer
-  }, {
-    type: void 0,
-    decorators: [{
-      type: Optional
-    }, {
-      type: Inject,
-      args: [MAT_SELECT_CONFIG]
-    }]
-  }], {
+  }], null, {
     options: [{
       type: ContentChildren,
       args: [MatOption, {
@@ -1325,148 +1451,13 @@ var MatSelect = _MatSelect;
       type: ContentChild,
       args: [MAT_SELECT_TRIGGER]
     }],
-    userAriaDescribedBy: [{
-      type: Input,
-      args: ["aria-describedby"]
-    }],
-    trigger: [{
-      type: ViewChild,
-      args: ["trigger"]
-    }],
-    panel: [{
-      type: ViewChild,
-      args: ["panel"]
-    }],
-    _overlayDir: [{
-      type: ViewChild,
-      args: [CdkConnectedOverlay]
-    }],
-    panelClass: [{
-      type: Input
-    }],
-    disabled: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    disableRipple: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    tabIndex: [{
-      type: Input,
-      args: [{
-        transform: (value) => value == null ? 0 : numberAttribute(value)
-      }]
-    }],
-    hideSingleSelectionIndicator: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    placeholder: [{
-      type: Input
-    }],
-    required: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    multiple: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    disableOptionCentering: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    compareWith: [{
-      type: Input
-    }],
-    value: [{
-      type: Input
-    }],
-    ariaLabel: [{
-      type: Input,
-      args: ["aria-label"]
-    }],
-    ariaLabelledby: [{
-      type: Input,
-      args: ["aria-labelledby"]
-    }],
-    errorStateMatcher: [{
-      type: Input
-    }],
-    typeaheadDebounceInterval: [{
-      type: Input,
-      args: [{
-        transform: numberAttribute
-      }]
-    }],
-    sortComparator: [{
-      type: Input
-    }],
-    id: [{
-      type: Input
-    }],
     panelWidth: [{
       type: Input
     }],
-    openedChange: [{
-      type: Output
-    }],
-    _openedStream: [{
-      type: Output,
-      args: ["opened"]
-    }],
-    _closedStream: [{
-      type: Output,
-      args: ["closed"]
-    }],
-    selectionChange: [{
-      type: Output
-    }],
-    valueChange: [{
-      type: Output
+    hideSingleSelectionIndicator: [{
+      type: Input
     }]
   });
-})();
-var _MatSelectTrigger = class _MatSelectTrigger {
-};
-_MatSelectTrigger.ɵfac = function MatSelectTrigger_Factory(t) {
-  return new (t || _MatSelectTrigger)();
-};
-_MatSelectTrigger.ɵdir = ɵɵdefineDirective({
-  type: _MatSelectTrigger,
-  selectors: [["mat-select-trigger"]],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: MAT_SELECT_TRIGGER,
-    useExisting: _MatSelectTrigger
-  }])]
-});
-var MatSelectTrigger = _MatSelectTrigger;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSelectTrigger, [{
-    type: Directive,
-    args: [{
-      selector: "mat-select-trigger",
-      providers: [{
-        provide: MAT_SELECT_TRIGGER,
-        useExisting: MatSelectTrigger
-      }],
-      standalone: true
-    }]
-  }], null, null);
 })();
 var _MatSelectModule = class _MatSelectModule {
 };
@@ -1475,7 +1466,8 @@ _MatSelectModule.ɵfac = function MatSelectModule_Factory(t) {
 };
 _MatSelectModule.ɵmod = ɵɵdefineNgModule({
   type: _MatSelectModule,
-  imports: [CommonModule, OverlayModule, MatOptionModule, MatCommonModule, MatSelect, MatSelectTrigger],
+  declarations: [MatSelect, MatSelectTrigger],
+  imports: [CommonModule, OverlayModule, MatOptionModule, MatCommonModule],
   exports: [CdkScrollableModule, MatFormFieldModule, MatSelect, MatSelectTrigger, MatOptionModule, MatCommonModule]
 });
 _MatSelectModule.ɵinj = ɵɵdefineInjector({
@@ -1487,8 +1479,9 @@ var MatSelectModule = _MatSelectModule;
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSelectModule, [{
     type: NgModule,
     args: [{
-      imports: [CommonModule, OverlayModule, MatOptionModule, MatCommonModule, MatSelect, MatSelectTrigger],
+      imports: [CommonModule, OverlayModule, MatOptionModule, MatCommonModule],
       exports: [CdkScrollableModule, MatFormFieldModule, MatSelect, MatSelectTrigger, MatOptionModule, MatCommonModule],
+      declarations: [MatSelect, MatSelectTrigger],
       providers: [MAT_SELECT_SCROLL_STRATEGY_PROVIDER]
     }]
   }], null, null);
@@ -1499,18 +1492,11 @@ export {
   MAT_SELECT_SCROLL_STRATEGY_PROVIDER,
   MAT_SELECT_SCROLL_STRATEGY_PROVIDER_FACTORY,
   MAT_SELECT_TRIGGER,
-  MatError,
-  MatFormField,
-  MatHint,
-  MatLabel,
-  MatOptgroup,
-  MatOption,
-  MatPrefix,
   MatSelect,
   MatSelectChange,
   MatSelectModule,
   MatSelectTrigger,
-  MatSuffix,
+  _MatSelectBase,
   matSelectAnimations
 };
 //# sourceMappingURL=@angular_material_select.js.map

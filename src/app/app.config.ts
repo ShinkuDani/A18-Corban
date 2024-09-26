@@ -6,6 +6,7 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
 import { CorbanService } from './services/corban.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideToastr } from 'ngx-toastr';
+import { Dialog } from '@angular/cdk/dialog';
 
 export const appConfig: ApplicationConfig = {
   providers: [
