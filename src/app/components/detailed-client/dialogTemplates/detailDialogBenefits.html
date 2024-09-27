@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>Hi {{data.name}}</h2>
+<mat-dialog-content>
+  <p>What's your Benefits Informations </p>
+  <mat-form-field>
+    <mat-label>Type Code</mat-label>
+    <input matInput [(ngModel)]="data.benefits[0].typeCode">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Benefit Number</mat-label>
+    <input matInput [(ngModel)]="data.benefits[0].number">
+  </mat-form-field>
+  <mat-form-field>
+  <mat-label> Benefit Codigo </mat-label>
+    <input matInput [(ngModel)]="data.benefits[0].code">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Benefit Description </mat-label>
+      <input matInput [(ngModel)]="data.benefits[0].description">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Value </mat-label>
+      <input matInput [(ngModel)]="data.benefits[0].value">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Value Net </mat-label>
+      <input matInput [(ngModel)]="data.benefits[0].netValue">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Issuing Date </mat-label>
+      <input matInput [(ngModel)]="data.benefits[0].issuingDate">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Benefit Start Date </mat-label>
+      <input matInput [(ngModel)]="data.benefits[0].startDate">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Benefit Issuing Country </mat-label>
+      <input matInput [(ngModel)]="data.benefits[0].issuingCountry">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

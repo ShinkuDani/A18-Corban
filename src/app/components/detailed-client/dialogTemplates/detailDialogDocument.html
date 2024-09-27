@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Hi{{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's your Document</p>
+  <p>What's your Document Information<p>
   <mat-form-field>
     <mat-label>Type</mat-label>
     <input matInput [(ngModel)]="data.documents[0].typeCode">
@@ -10,15 +10,15 @@
     <input matInput [(ngModel)]="data.documents[0].number">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Data de Emissão</mat-label>
+    <mat-label>Issuing Date</mat-label>
     <input matInput [(ngModel)]="data.documents[0].issuingDate">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Orgão Emissor </mat-label>
+    <mat-label>Issuing Entinty </mat-label>
     <input matInput [(ngModel)]="data.documents[0].issuingEntity">
   </mat-form-field>
   <mat-form-field>
-    <mat-label> UF Emissor </mat-label>
+    <mat-label> Issuing State </mat-label>
     <input matInput [(ngModel)]="data.documents[0].issuingState">
   </mat-form-field>
 </mat-dialog-content>

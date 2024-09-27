@@ -9,12 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
 
-// 1 - Parents , 2 - Note, 3-Phones, 4-Email, 5-Documetn
-let dialogTemplate = ['dialogTemplates/detailDialogParentsNames.html',
-   'dialogTemplates/detailDialogNote.html',
-    'dialogTemplates/detailDialogPhone.html',
-    'dialogTemplates/detailDialogEmail.html',
-    'dialogTemplates/detailDialogDocument.html']
+
 let templateNumber = 0;
 
 @Component({
@@ -156,37 +151,58 @@ export class DetailedClientComponent implements OnInit{
   }
 
   
-  templateChoice(numb:number){
+  templateChoice(numb:number):number {
     if(numb == 1){
       //Parents
-      dialogTemplate[0]
+      return 0
     }else if(numb == 2){
       //Note
-      dialogTemplate[1]
+      return 1
     }else if(numb == 3){
-      //Phones
-      dialogTemplate[2]
-    }else if(numb == 3){
-      //Email
-      dialogTemplate[4]
+      //Phone
+      return 2
     }else if(numb == 4){
+      //Email
+      return 3
+    }else if(numb == 5){
+      //Addresses
+      return 4
+    }else if(numb == 6){
       //Document
-      dialogTemplate[5]
+      return 5
+    } else if(numb == 7){
+      //BankAccount
+      return 6
+    }else if(numb == 8){
+      //Benefits
+      return 7
+    }
+    else {
+      return 99
     }
 
   }
 
   openDialog(numb: number): void {
-    debugger
-    let template = this.templateChoice(numb)
-    console.log('Template de Number:' + dialogTemplate)
+    //debugger
 
-    const dialogRef = this.dialog.open(DetailDialogNote, {
+    let dialogClassesTemplates = [
+      DetailDialogParentsNames, 
+      DetailDialogNote, 
+      DetailDialogPhone, 
+      DetailDialogEmail,
+      DetailDialogAddresses, 
+      DetailDialogDocument,
+      DetailDialogBankAccount,
+      DetailDialogBenefits]
+
+    const dialogRef = this.dialog.open(dialogClassesTemplates[this.templateChoice(numb)], {
       data: this.clienteDetailed,
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log("Rsultado " + result)
       this.clienteDetailed = result;
      /*
       this._corbanService.putCustomer(this.clienteDetailed.customerId as string, this.clienteDetailed).subscribe(
@@ -319,7 +335,35 @@ export class DetailDialogPhone {
 
 
   onNoClick(): void {
-    console.log('Template de Number:' + templateNumber)
+    this.dialogRef.close();
+  }
+}
+
+//Addresses
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialogTemplates/detailDialogAddresses.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+})
+export class DetailDialogAddresses {
+
+  constructor(
+    public dialogRef: MatDialogRef<DetailDialogAddresses>,
+    @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
+  ) {}
+
+
+  onNoClick(): void {
     this.dialogRef.close();
   }
 }
@@ -373,6 +417,64 @@ export class DetailDialogDocument {
 
   constructor(
     public dialogRef: MatDialogRef<DetailDialogDocument>,
+    @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
+  ) {}
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+//Bank Account
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialogTemplates/detailDialogBankAccount.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+})
+export class DetailDialogBankAccount {
+
+  constructor(
+    public dialogRef: MatDialogRef<DetailDialogBankAccount>,
+    @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
+  ) {}
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+//Benefits
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialogTemplates/detailDialogBenefits.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+})
+export class DetailDialogBenefits {
+
+  constructor(
+    public dialogRef: MatDialogRef<DetailDialogBenefits>,
     @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
   ) {}
 

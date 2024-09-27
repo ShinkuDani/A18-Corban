@@ -99,6 +99,7 @@
                 <h3>{{clienteDetailed.motherName}}</h3>
                 <span>Nome do Pai</span>
                 <h3>{{clienteDetailed.fatherName}}</h3>
+                <button mat-raised-button (click)="openDialog(1)">Alterar Pais</button>
                 <!--
                     <button mat-raised-button (click)="openDialog(1)">Alterar Pais</button>
                 -->
@@ -109,14 +110,18 @@
                 <div class="detailedClient-note">
                     <h1> Notes </h1>
                     <h3> {{this.clienteDetailed.note}}</h3>
+                <button mat-raised-button (click)="openDialog(2)">Notes</button>
+
                 </div>
             </li>
 
             <li class="bloco-branco">
                 <h2> Telefones </h2>
                 @for(telefone of clienteDetailed.phones; track telefone ){
-                    <h3>{{telefone.number}}</h3>
+                    <h3>{{telefone.ddd}}{{telefone.number}}</h3>
                 }
+                <button mat-raised-button (click)="openDialog(3)">Phones</button>
+
             </li>
 
             <li class="bloco-branco">
@@ -124,6 +129,7 @@
                 @for(email of clienteDetailed.emails; track email ){
                     <h3>{{email.email}}</h3>
                 }
+                <button mat-raised-button (click)="openDialog(4)">Email</button>
             </li>
 
             <li class="bloco-branco">
@@ -131,8 +137,11 @@
                 <ul>
                     <li>
                         @for(endereco of clienteDetailed.addresses; track endereco ){
-                            <span>{{endereco.street}}</span>-<span>{{endereco.number}}</span>-<span>{{endereco.district}}</span>-<span>{{endereco.city}}</span>  
+                            <span>{{endereco.street}} - {{endereco.number}}</span> 
+                            <p>{{endereco.district}} - {{endereco.city}}</p>  
                         }
+                        <button mat-raised-button (click)="openDialog(5)">Address</button>
+
                     </li>
                 </ul>
             </li>
@@ -145,6 +154,8 @@
                     <span>Numero</span>
                     <h3>{{documento.number}}</h3>  
                 }
+                <button mat-raised-button (click)="openDialog(6)">Document</button>
+
             </li>
 
             <li class="bloco-branco">
@@ -155,6 +166,7 @@
                     <span>Numero do Banco</span>
                     <h3>{{bankAccount.accountNumber}}</h3>  
                 }
+                <button mat-raised-button (click)="openDialog(7)">Bank Account</button>
             </li>
 
             <li class="bloco-branco">
@@ -165,6 +177,7 @@
                     <span>Numero</span>
                     <h3>{{benefit.number}}</h3>  
                 }
+                <button mat-raised-button (click)="openDialog(8)">Benefits</button>
             </li>
 
             <li class="bloco-branco">
@@ -220,7 +233,6 @@
 
             <li class="bloco-branco">
                 <h2>Cadastro</h2>
-                
             </li>
 
         </ul>
