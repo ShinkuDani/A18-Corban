@@ -200,10 +200,9 @@ export class DetailedClientComponent implements OnInit{
       data: this.clienteDetailed,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log("Rsultado " + result)
-      this.clienteDetailed = result;
+    dialogRef.afterClosed().subscribe(data => {
+      console.log("Rsultado " + data)
+      this.clienteDetailed = data;
      /*
       this._corbanService.putCustomer(this.clienteDetailed.customerId as string, this.clienteDetailed).subscribe(
         data => {
@@ -328,10 +327,20 @@ export class DetailDialogNote {
 })
 export class DetailDialogPhone {
 
+  phoneT:phone = {
+    ddd: 0,
+    number: 0,
+    note: ''
+  }
+
   constructor(
     public dialogRef: MatDialogRef<DetailDialogPhone>,
     @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
-  ) {}
+  ) {
+    data.phones.push(this.phoneT)
+  }
+
+  
 
 
   onNoClick(): void {
