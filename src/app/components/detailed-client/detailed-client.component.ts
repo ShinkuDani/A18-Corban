@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
+import { Dialog } from '@angular/cdk/dialog';
 
 //Parents
 @Component({
@@ -177,11 +178,13 @@ export class DetailDialogDocument {
 export class DetailedClientComponent implements OnInit{
  
   ngOnInit(): void {
-  let idCustomer = this._router.snapshot.paramMap.get('id');  
-    this.getClient(idCustomer);
+  
   }
 
-  constructor(public dialog: MatDialog, private _corbanService:CorbanService,private _router: ActivatedRoute){}
+  constructor(public dialog: MatDialog, private _corbanService:CorbanService,private _router: ActivatedRoute){
+    let idCustomer = this._router.snapshot.paramMap.get('id');  
+    this.getClient(idCustomer);
+  }
 
   old:boolean = false;
 
@@ -299,30 +302,59 @@ export class DetailedClientComponent implements OnInit{
     }
   }
 
-  openDialog(numb: number): void {
-    debugger
-    let classeTemplate:any 
-    if(numb == 1){
-      //Name Parents
-      classeTemplate = DetailDialogParentsNames
-    }else if(numb == 2){
-      //Phone
-      classeTemplate = DetailDialogPhone
-    }else if(numb == 3){
-      //Note
-      classeTemplate = DetailDialogNote
-    }else if(numb == 4){
-      //Email
-      classeTemplate = DetailDialogEmail
-    } else if(numb == 5){
-      //Documento
-      classeTemplate = DetailDialogDocument
-    }
-
-    const dialogRef = this.dialog.open(classeTemplate, {
+  openParentsDialog(){
+    const dialogRef = this.dialog.open(DetailDialogParentsNames, {
       data: this.clienteDetailed,
     });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.clienteDetailed = result;
+      console.log(result)
+    });
+  }
 
+  openNoteDialog(){
+    const dialogRef = this.dialog.open(DetailDialogNote, {
+      data: this.clienteDetailed,
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.clienteDetailed = result;
+      console.log(result)
+    });
+  }
+
+  openPhoneDialog(){
+    const dialogRef = this.dialog.open(DetailDialogPhone, {
+      data: this.clienteDetailed,
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.clienteDetailed = result;
+      console.log(result)
+    });
+  }
+
+  openEmailDialog(){
+    const dialogRef = this.dialog.open(DetailDialogEmail, {
+      data: this.clienteDetailed,
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.clienteDetailed = result;
+      console.log(result)
+    });
+  }
+
+  openDocumentDialog(){
+    const dialogRef = this.dialog.open(DetailDialogDocument, {
+      data: this.clienteDetailed,
+    });
+    
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.clienteDetailed = result;
@@ -332,32 +364,6 @@ export class DetailedClientComponent implements OnInit{
      
 
 
-  addFilds(clienteAtualizado:any){
-    debugger
-    if(clienteAtualizado.phones[0].ddd != 0 && clienteAtualizado.phones[0].number != 0){
-      this.clienteDetailed.phones.push(this.clienteDetailed.phones[0])
-    }
-
-    if(clienteAtualizado.email[0].email != ''){
-      this.clienteDetailed.emails.push(clienteAtualizado.emails[0])
-    }
-
-    if(clienteAtualizado.addresses[0].zipCode != '' || clienteAtualizado.addresses[0].street != ''){
-      this.clienteDetailed.addresses.push(clienteAtualizado.addresses[0])
-    }
-
-    if(clienteAtualizado.document[0].number !='' && clienteAtualizado.document[0].typeCode != 0){
-      this.clienteDetailed.documents.push(clienteAtualizado.document[0])
-    }
-
-    if(clienteAtualizado.bankAccount[0].accountNumber != '' && clienteAtualizado.bankAccount[0].typeCode != 0){
-      this.clienteDetailed.bankAccounts.push(clienteAtualizado.bankAccount[0])
-    }  
-
-    if(clienteAtualizado.benefit[0].number != '' && clienteAtualizado.benefit[0].typeCode != 0 ){
-      this.clienteDetailed.benefits.push(clienteAtualizado.benefit[0])
-    }
-
-  }
+  
 
 }

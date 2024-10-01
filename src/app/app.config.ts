@@ -10,6 +10,7 @@ import { Dialog } from '@angular/cdk/dialog';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+       
     provideRouter(routes, withComponentInputBinding()),
     provideToastr(),
     provideHttpClient(
