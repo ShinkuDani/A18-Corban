@@ -8,7 +8,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
-import { Dialog } from '@angular/cdk/dialog';
 
 //Parents
 @Component({
@@ -35,6 +34,7 @@ export class DetailDialogParentsNames {
 
 
   onNoClick(): void {
+    console.log(this.data)
     this.dialogRef.close();
   }
 }
@@ -98,8 +98,9 @@ export class DetailDialogPhone {
   }
 
 
-  onNoClick(): void {
+  onNoClick(): any {
     this.dialogRef.close(this.phoneT);
+    return this.phoneT
   }
 }
 
@@ -176,19 +177,7 @@ export class DetailDialogDocument {
   styleUrl: './detailed-client.component.scss'
 })
 export class DetailedClientComponent implements OnInit{
- 
-  ngOnInit(): void {
-  
-  }
 
-  constructor(public dialog: MatDialog, private _corbanService:CorbanService,private _router: ActivatedRoute){
-    let idCustomer = this._router.snapshot.paramMap.get('id');  
-    this.getClient(idCustomer);
-  }
-
-  old:boolean = false;
-
-  
   phoneN: phone = {
     ddd:0,
     number:0,
@@ -286,6 +275,18 @@ export class DetailedClientComponent implements OnInit{
     benefits: []
   }
 
+  ngOnInit(): void {
+    let idCustomer = this._router.snapshot.paramMap.get('id');  
+
+  }
+
+  constructor(public dialog: MatDialog, private _corbanService:CorbanService,private _router: ActivatedRoute){
+    let idCustomer = this._router.snapshot.paramMap.get('id');  
+    this.getClient(idCustomer);
+  }
+  
+  old:boolean = false;
+
   async getClient(id:any){
     this._corbanService.getCustomer(id).subscribe(
       data =>{
@@ -304,66 +305,71 @@ export class DetailedClientComponent implements OnInit{
 
   openParentsDialog(){
     const dialogRef = this.dialog.open(DetailDialogParentsNames, {
-      data: this.clienteDetailed,
+      data: {motherName: this.clienteDetailed.motherName, fatherName: this.clienteDetailed.fatherName, name: this.clienteDetailed.name}
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed = result;
+      this.clienteDetailed.name = result.name
+      this.clienteDetailed.motherName = result.motherName
+      this.clienteDetailed.fatherName = result.fatherName
+
       console.log(result)
     });
   }
 
   openNoteDialog(){
     const dialogRef = this.dialog.open(DetailDialogNote, {
-      data: this.clienteDetailed,
+      data: {name: this.clienteDetailed.name, note: this.clienteDetailed.note},
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed = result;
+      this.clienteDetailed.note = result;
       console.log(result)
     });
   }
 
+  //Precisa implementar um For no HTML para demosntrar todos os phones, e declarar 
+  //um objeto  por fora para adicionar o mesmo aos phones caso precise.
   openPhoneDialog(){
     const dialogRef = this.dialog.open(DetailDialogPhone, {
-      data: this.clienteDetailed,
+      data: {name: this.clienteDetailed.name, phone: this.clienteDetailed.phones}
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed = result;
+      this.clienteDetailed.phones = result.phoneT;
       console.log(result)
     });
   }
 
+  //Mesma coisa de Cima
   openEmailDialog(){
     const dialogRef = this.dialog.open(DetailDialogEmail, {
-      data: this.clienteDetailed,
+      data: {name: this.clienteDetailed.name, emails: this.clienteDetailed.emails},
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed = result;
+      this.clienteDetailed.emails = result.emails;
       console.log(result)
     });
   }
 
+  //Mesma coisa do de cima.
   openDocumentDialog(){
     const dialogRef = this.dialog.open(DetailDialogDocument, {
-      data: this.clienteDetailed,
+      data: {name:this.clienteDetailed.name, documents: this.clienteDetailed.documents},
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed = result;
+      this.clienteDetailed.documents = result.documents;
       console.log(result)
     });
   }
      
 
-
-  
 
 }
