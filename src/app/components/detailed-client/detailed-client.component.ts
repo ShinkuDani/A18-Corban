@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, NgModule } from '@angular/core';
+import { Component, OnInit, Inject, NgModule, numberAttribute } from '@angular/core';
 import { clienteLiteInterface, addresses, bankAccounts, benefits, document, email, phone} from '../../interfaces/clienteLite';
 import { CorbanService } from '../../services/corban.service';
 import { RouterModule, ActivatedRoute } from '@angular/router';
@@ -88,7 +88,7 @@ export class DetailDialogPhone {
 
   constructor(
     public dialogRef: MatDialogRef<DetailDialogPhone>,
-    @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
+    @Inject(MAT_DIALOG_DATA) public data: {name:string, ddd: number, number: number},
   ) {}
 
   phoneT: phone = {
@@ -99,8 +99,7 @@ export class DetailDialogPhone {
 
 
   onNoClick(): any {
-    this.dialogRef.close(this.phoneT);
-    return this.phoneT
+    this.dialogRef.close();
   }
 }
 
@@ -124,7 +123,7 @@ export class DetailDialogEmail {
 
   constructor(
     public dialogRef: MatDialogRef<DetailDialogEmail>,
-    @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
+    @Inject(MAT_DIALOG_DATA) public data: {name: string, email:string, note:string},
   ) {}
 
 
@@ -334,39 +333,51 @@ export class DetailedClientComponent implements OnInit{
   //um objeto  por fora para adicionar o mesmo aos phones caso precise.
   openPhoneDialog(){
     const dialogRef = this.dialog.open(DetailDialogPhone, {
-      data: {name: this.clienteDetailed.name, phone: this.clienteDetailed.phones}
+      data: {name: this.clienteDetailed.name, ddd: this.phoneN.ddd, phoneNumber: this.phoneN.number }
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed.phones = result.phoneT;
-      console.log(result)
+      this.phoneN.ddd = result.ddd
+      this.phoneN.number = result.number 
+      this.clienteDetailed.phones.push(this.phoneN)
+
+
     });
   }
 
   //Mesma coisa de Cima
   openEmailDialog(){
     const dialogRef = this.dialog.open(DetailDialogEmail, {
-      data: {name: this.clienteDetailed.name, emails: this.clienteDetailed.emails},
+      data: {name: this.clienteDetailed.name, emails: this.emailN.email, note: this.emailN.note},
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed.emails = result.emails;
-      console.log(result)
+      this.emailN.email = result.email
+      this.emailN.note = result.note
+      this.clienteDetailed.emails.push(this.emailN)
     });
   }
 
   //Mesma coisa do de cima.
   openDocumentDialog(){
     const dialogRef = this.dialog.open(DetailDialogDocument, {
-      data: {name:this.clienteDetailed.name, documents: this.clienteDetailed.documents},
+      data: {
+        name:this.clienteDetailed.name, documentType: this.documentN.typeCode,
+        documentNumber: this.documentN.number, documentIssuingData: this.documentN.issuingDate,
+        documentIssuingEntity: this.documentN.issuingEntity,  documentIssuingState: this.documentN.issuingState
+      },
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.clienteDetailed.documents = result.documents;
-      console.log(result)
+      this.documentN.typeCode = result.documentType
+      this.documentN.number = result.number
+      this.documentN.issuingDate = result.issuingDate
+      this.documentN.issuingEntity = result.issuingEntity
+      this.documentN.issuingState = result.issuingState
+      this.clienteDetailed.documents.push(this.documentN)
     });
   }
      
