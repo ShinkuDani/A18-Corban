@@ -3,23 +3,19 @@
   <p>What's your BankAccount </p>
   <mat-form-field>
     <mat-label>Type Code</mat-label>
-    <input matInput [(ngModel)]="data.bankAccounts[0].typeCode">
+    <input matInput [(ngModel)]="data.typeCode">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Name Bank</mat-label>
-    <input matInput [(ngModel)]="data.bankAccounts[0].bankName">
+    <input matInput [(ngModel)]="data.bankName">
   </mat-form-field>
   <mat-form-field>
   <mat-label> Code </mat-label>
-    <input matInput [(ngModel)]="data.bankAccounts[0].bankCode">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label> Bank Account ID </mat-label>
-      <input matInput [(ngModel)]="data.bankAccounts[0].bankAccountId">
+    <input matInput [(ngModel)]="data.bankCode">
   </mat-form-field>
   <mat-form-field>
     <mat-label> Account Number </mat-label>
-      <input matInput [(ngModel)]="data.bankAccounts[0].accountNumber">
+      <input matInput [(ngModel)]="data.bankAccountNumber">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>

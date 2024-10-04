@@ -161,6 +161,78 @@ export class DetailDialogDocument {
   }
 }
 
+//Contas Bancarias
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialogTemplates/detailDialogBankAccount.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+})
+export class DetaildialogBankAccount {
+
+  constructor(
+    public dialogRef: MatDialogRef<DetaildialogBankAccount>,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      name:string,
+      typeCode:number, 
+      bankCode:string, 
+      bankName:string, 
+      bankAccountNumber:string
+    },
+  ) {}
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+//Benefits
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialogTemplates/detailDialogBenefits.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+})
+export class DetaildialogBenefits {
+
+  constructor(
+    public dialogRef: MatDialogRef<DetaildialogBenefits>,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      name:string,
+      benefitsTypeCode:number, 
+      benefitNumber:number, 
+      benefitcode:number, 
+      benefitValue:number,
+      benefitNetValue:number,
+      benefitIssueDate:string
+    },
+  ) {}
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
 
 @Component({
   selector: 'app-detailed-client',
@@ -275,7 +347,7 @@ export class DetailedClientComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let idCustomer = this._router.snapshot.paramMap.get('id');  
+    //let idCustomer = this._router.snapshot.paramMap.get('id');  
 
   }
 
@@ -329,7 +401,7 @@ export class DetailedClientComponent implements OnInit{
     });
   }
 
-  //Precisa implementar um For no HTML para demosntrar todos os phones, e declarar 
+  //Precisa implementar um For no HTML para demonstrar todos os phones, e declarar 
   //um objeto  por fora para adicionar o mesmo aos phones caso precise.
   openPhoneDialog(){
     const dialogRef = this.dialog.open(DetailDialogPhone, {
@@ -341,8 +413,6 @@ export class DetailedClientComponent implements OnInit{
       this.phoneN.ddd = result.ddd
       this.phoneN.number = result.number 
       this.clienteDetailed.phones.push(this.phoneN)
-
-
     });
   }
 
@@ -364,12 +434,15 @@ export class DetailedClientComponent implements OnInit{
   openDocumentDialog(){
     const dialogRef = this.dialog.open(DetailDialogDocument, {
       data: {
-        name:this.clienteDetailed.name, documentType: this.documentN.typeCode,
-        documentNumber: this.documentN.number, documentIssuingData: this.documentN.issuingDate,
-        documentIssuingEntity: this.documentN.issuingEntity,  documentIssuingState: this.documentN.issuingState
+        name:this.clienteDetailed.name, 
+        documentType: this.documentN.typeCode,
+        documentNumber: this.documentN.number, 
+        documentIssuingData: this.documentN.issuingDate,
+        documentIssuingEntity: this.documentN.issuingEntity, 
+         documentIssuingState: this.documentN.issuingState
       },
     });
-    
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.documentN.typeCode = result.documentType
@@ -378,6 +451,55 @@ export class DetailedClientComponent implements OnInit{
       this.documentN.issuingEntity = result.issuingEntity
       this.documentN.issuingState = result.issuingState
       this.clienteDetailed.documents.push(this.documentN)
+    });
+  }
+
+  //Mesma coisa do de cima.
+  openBankAccountDialog(){
+    const dialogRef = this.dialog.open(DetaildialogBankAccount, {
+      data: {
+        name:this.clienteDetailed.name, 
+        bankTypeCode: this.bankAccountN.typeCode,
+        bankCode: this.bankAccountN.bankCode, 
+        bankName: this.bankAccountN.bankName,
+        accountNumer: this.bankAccountN.accountNumber
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.bankAccountN.typeCode = result.bankTypeCode
+      this.bankAccountN.bankCode = result.bankCode
+      this.bankAccountN.bankName = result.bankName
+      this.bankAccountN.accountNumber = result.accountNumer
+      this.clienteDetailed.bankAccounts.push(this.bankAccountN)
+    });
+  }
+
+
+  openBenefitsDialog(){
+    const dialogRef = this.dialog.open(DetaildialogBenefits, {
+      data: {
+        name:this.clienteDetailed.name, 
+        benefitsTypeCode: this.benefitN.typeCode,
+        benefitNumero: this.benefitN.number,
+        benefitcodigo: this.benefitN.code,
+        benefitValue: this.benefitN.value, 
+        benefitNetValue: this.benefitN.netValue,
+        benefitIssueDate: this.benefitN.issuingDate
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.benefitN.typeCode = result.benefitsTypeCode
+      this.benefitN.number = result.benefitNumero
+      this.benefitN.code = result.benefitcodigo
+      this.benefitN.value = result.benefitValue
+      this.benefitN.netValue = result.benefitNetValue
+      this.benefitN.issuingDate = result.benefitIssueDate
+
+      this.clienteDetailed.benefits.push(this.benefitN)
     });
   }
      
