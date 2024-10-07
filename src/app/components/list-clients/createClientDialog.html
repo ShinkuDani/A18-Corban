@@ -1,14 +1,75 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
+<h2 mat-dialog-title>Hi {{data.name}}, Lets Create your New User</h2>
 <mat-dialog-content>
-  <p>Creating User<p>
-  <mat-form-field>
-    <mat-label>Type</mat-label>
-    <input matInput [(ngModel)]="data.documentType">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Category</mat-label>
-    <input matInput [(ngModel)]="data.documentCategory">
-  </mat-form-field>
+    <div class="PersonalInfo">
+        <h1>Client Personal Information<h1>
+        <mat-form-field>
+            <mat-label>Account Code</mat-label>
+            <input matInput [(ngModel)]="data.accountCode">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Costumer ID</mat-label>
+            <input matInput [(ngModel)]="data.costumerId">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>NickName</mat-label>
+            <input matInput [(ngModel)]="data.nickName">
+        </mat-form-field>
+    </div>
+  
+  <div class="client">
+    <h1>Client</h1>
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nacimento</mat-label>
+        <input matInput [(ngModel)]="data.birthDay">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Novo Email</mat-label>
+        <input matInput [(ngModel)]="data.Email">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Phone </mat-label>
+        <input matInput [(ngModel)]="data.phone">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Note</mat-label>
+        <input matInput [(ngModel)]="data.note">
+      </mat-form-field>
+  </div>
+  <div class="Address">
+    <h1>Address</h1>
+    <mat-form-field>
+        <mat-label> Zip-Code/CEP </mat-label>
+        <input matInput [(ngModel)]="data.zipCode">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Rua </mat-label>
+        <input matInput [(ngModel)]="data.street">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Numero </mat-label>
+        <input matInput [(ngModel)]="data.number">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Complemento </mat-label>
+        <input matInput [(ngModel)]="data.complement">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Bairro </mat-label>
+        <input matInput [(ngModel)]="data.district">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> City </mat-label>
+        <input matInput [(ngModel)]="data.city">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> UF </mat-label>
+        <input matInput [(ngModel)]="data.uf">
+      </mat-form-field>
+  </div>
   <mat-form-field>
     <mat-label>Number</mat-label>
     <input matInput [(ngModel)]="data.documentNumber">
