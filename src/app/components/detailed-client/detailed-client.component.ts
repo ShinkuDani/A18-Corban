@@ -296,8 +296,9 @@ export class DetaildialogBenefits {
   templateUrl: './detailed-client.component.html',
   styleUrl: './detailed-client.component.scss'
 })
-export class DetailedClientComponent implements OnInit{
+export class DetailedClientComponent {
 
+// Objetos Vazios
   phoneN: phone = {
     ddd:0,
     number:0,
@@ -395,11 +396,6 @@ export class DetailedClientComponent implements OnInit{
     benefits: []
   }
 
-  ngOnInit(): void {
-    //let idCustomer = this._router.snapshot.paramMap.get('id');  
-
-  }
-
   constructor(public dialog: MatDialog, private _corbanService:CorbanService,private _router: ActivatedRoute){
     let idCustomer = this._router.snapshot.paramMap.get('id');  
     this.getClient(idCustomer);
@@ -407,6 +403,7 @@ export class DetailedClientComponent implements OnInit{
   
   old:boolean = false;
 
+  //Services
   async getClient(id:any){
     this._corbanService.getCustomer(id).subscribe(
       data =>{
@@ -414,6 +411,19 @@ export class DetailedClientComponent implements OnInit{
       }
     )
   }
+
+  putClient(){
+    this._corbanService.putCustomer(this.clienteDetailed.customerId as string, this.clienteDetailed).subscribe(
+      data => {
+        if(data){
+          //this._toastr.success('Usuário Alterado com Sucesso', 'Put')
+          this.clienteDetailed = data
+        }
+      }
+    )
+  }
+
+
 
   styleChange(){
     if(this.old == true){
@@ -423,6 +433,7 @@ export class DetailedClientComponent implements OnInit{
     }
   }
 
+  //Classes de dos Dialogs
   openParentsDialog(){
     const dialogRef = this.dialog.open(DetailDialogParentsNames, {
       data: {motherName: this.clienteDetailed.motherName, fatherName: this.clienteDetailed.fatherName, name: this.clienteDetailed.name}
@@ -433,20 +444,19 @@ export class DetailedClientComponent implements OnInit{
       this.clienteDetailed.name = result.name
       this.clienteDetailed.motherName = result.motherName
       this.clienteDetailed.fatherName = result.fatherName
-
-      console.log(result)
     });
   }
 
   openNoteDialog(){
     const dialogRef = this.dialog.open(DetailDialogNote, {
       data: {name: this.clienteDetailed.name, note: this.clienteDetailed.note},
+
     });
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.clienteDetailed.note = result;
-      console.log(result)
+      this.putClient()
     });
   }
 
@@ -462,6 +472,7 @@ export class DetailedClientComponent implements OnInit{
       this.phoneN.ddd = result.ddd
       this.phoneN.number = result.number 
       this.clienteDetailed.phones.push(this.phoneN)
+      this.putClient()
     });
   }
 
@@ -478,6 +489,7 @@ export class DetailedClientComponent implements OnInit{
       this.emailN.email = result.email
       this.emailN.note = result.note
       this.clienteDetailed.emails.push(this.emailN)
+      this.putClient()
     });
   }
 
@@ -495,13 +507,14 @@ export class DetailedClientComponent implements OnInit{
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.addressN.street = result.steet,
+      this.addressN.street = result.street,
       this.addressN.number = result.number,
       this.addressN.district = result.district
       this.addressN.city = result.city
       this.addressN.state = result.state
       this.addressN.zipCode = result.cep
       this.clienteDetailed.addresses.push(this.addressN)
+      this.putClient()
     });
   }
 
@@ -528,6 +541,7 @@ export class DetailedClientComponent implements OnInit{
       this.documentN.issuingEntity = result.documentIssuingEntity
       this.documentN.issuingState = result.documentIssuingState
       this.clienteDetailed.documents.push(this.documentN)
+      this.putClient()
     });
   }
 
@@ -550,6 +564,7 @@ export class DetailedClientComponent implements OnInit{
       this.bankAccountN.bankName = result.bankName
       this.bankAccountN.accountNumber = result.accountNumber
       this.clienteDetailed.bankAccounts.push(this.bankAccountN)
+      this.putClient()
     });
   }
 
@@ -576,6 +591,8 @@ export class DetailedClientComponent implements OnInit{
       this.benefitN.netValue = result.benefitNetValue
       this.benefitN.issuingDate = result.benefitIssueDate
       this.clienteDetailed.benefits.push(this.benefitN)
+      this.putClient()
+      
     });
   }
      
