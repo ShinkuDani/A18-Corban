@@ -65,6 +65,7 @@
                         <span>{{endereco.street}} - {{endereco.number}}</span> 
                         <p>{{endereco.district}} - {{endereco.city}}</p>  
                     }
+                    
                 </li>
             </ul>
         </li>
@@ -89,6 +90,7 @@
                 <span>Numero do Banco</span>
                 <h3>{{bankAccount.accountNumber}}</h3>  
             }
+            <button mat-raised-button (click)="openBankAccountDialog()">Adiconar / Alterar</button>
         </li>
 
         <li class="bloco-branco">
@@ -99,6 +101,8 @@
                 <span>Numero</span>
                 <h3>{{benefit.number}}</h3>  
             }
+            <button mat-raised-button (click)="openBenefitsDialog()">Adiconar / Alterar</button>
+
         </li>
 
         <li class="bloco-branco">

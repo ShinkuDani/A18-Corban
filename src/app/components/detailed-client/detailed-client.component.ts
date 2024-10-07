@@ -123,7 +123,47 @@ export class DetailDialogEmail {
 
   constructor(
     public dialogRef: MatDialogRef<DetailDialogEmail>,
-    @Inject(MAT_DIALOG_DATA) public data: {name: string, email:string, note:string},
+    @Inject(MAT_DIALOG_DATA) public data: {
+      name: string,
+      email:string, 
+      note:string},
+  ) {}
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+
+//Addresses
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialogTemplates/detailDialogAddresses.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+})
+export class DetailDialogAddress {
+
+  constructor(
+    public dialogRef: MatDialogRef<DetailDialogAddress>,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      name: string,
+      street: string,
+      number: string,
+      district: string,
+      city: string,
+      state:string,
+      cep:string },
   ) {}
 
 
@@ -152,7 +192,16 @@ export class DetailDialogDocument {
 
   constructor(
     public dialogRef: MatDialogRef<DetailDialogDocument>,
-    @Inject(MAT_DIALOG_DATA) public data: clienteLiteInterface,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      name:string,
+      documentType:string,
+      documentNumber:string,
+      documentCategory:string,
+      documentIssuingData:string,
+      documentIssuingEntity:string,
+      documentIssuingState:string
+
+    },
   ) {}
 
 
@@ -183,10 +232,10 @@ export class DetaildialogBankAccount {
     public dialogRef: MatDialogRef<DetaildialogBankAccount>,
     @Inject(MAT_DIALOG_DATA) public data: {
       name:string,
-      typeCode:number, 
+      bankTypeCode:number, 
       bankCode:string, 
       bankName:string, 
-      bankAccountNumber:string
+      accountNumber:string
     },
   ) {}
 
@@ -219,8 +268,8 @@ export class DetaildialogBenefits {
     @Inject(MAT_DIALOG_DATA) public data: {
       name:string,
       benefitsTypeCode:number, 
-      benefitNumber:number, 
-      benefitcode:number, 
+      benefitNumber:string, 
+      benefitCode:string, 
       benefitValue:number,
       benefitNetValue:number,
       benefitIssueDate:string
@@ -419,7 +468,9 @@ export class DetailedClientComponent implements OnInit{
   //Mesma coisa de Cima
   openEmailDialog(){
     const dialogRef = this.dialog.open(DetailDialogEmail, {
-      data: {name: this.clienteDetailed.name, emails: this.emailN.email, note: this.emailN.note},
+      data: {name: this.clienteDetailed.name,
+         email: this.emailN.email, 
+         note: this.emailN.note},
     });
     
     dialogRef.afterClosed().subscribe(result => {
@@ -430,26 +481,52 @@ export class DetailedClientComponent implements OnInit{
     });
   }
 
+   //Mesma coisa de Cima
+   openAddressesDialog(){
+    const dialogRef = this.dialog.open(DetailDialogAddress, {
+      data: {name: this.clienteDetailed.name, 
+        street: this.addressN.street, 
+        number: this.addressN.number,
+        district: this.addressN.district,
+        city: this.addressN.city,
+        state: this.addressN.state,
+        cep: this.addressN.zipCode},
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.addressN.street = result.steet,
+      this.addressN.number = result.number,
+      this.addressN.district = result.district
+      this.addressN.city = result.city
+      this.addressN.state = result.state
+      this.addressN.zipCode = result.cep
+      this.clienteDetailed.addresses.push(this.addressN)
+    });
+  }
+
   //Mesma coisa do de cima.
   openDocumentDialog(){
     const dialogRef = this.dialog.open(DetailDialogDocument, {
       data: {
         name:this.clienteDetailed.name, 
         documentType: this.documentN.typeCode,
+        documentCategory: this.documentN.category,
         documentNumber: this.documentN.number, 
         documentIssuingData: this.documentN.issuingDate,
         documentIssuingEntity: this.documentN.issuingEntity, 
-         documentIssuingState: this.documentN.issuingState
+        documentIssuingState: this.documentN.issuingState
       },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.documentN.typeCode = result.documentType
-      this.documentN.number = result.number
-      this.documentN.issuingDate = result.issuingDate
-      this.documentN.issuingEntity = result.issuingEntity
-      this.documentN.issuingState = result.issuingState
+      this.documentN.number = result.documentNumber
+      this.documentN.category = result.documentCategory
+      this.documentN.issuingDate = result.documentIssuingData
+      this.documentN.issuingEntity = result.documentIssuingEntity
+      this.documentN.issuingState = result.documentIssuingState
       this.clienteDetailed.documents.push(this.documentN)
     });
   }
@@ -462,7 +539,7 @@ export class DetailedClientComponent implements OnInit{
         bankTypeCode: this.bankAccountN.typeCode,
         bankCode: this.bankAccountN.bankCode, 
         bankName: this.bankAccountN.bankName,
-        accountNumer: this.bankAccountN.accountNumber
+        accountNumber: this.bankAccountN.accountNumber
       },
     });
 
@@ -471,7 +548,7 @@ export class DetailedClientComponent implements OnInit{
       this.bankAccountN.typeCode = result.bankTypeCode
       this.bankAccountN.bankCode = result.bankCode
       this.bankAccountN.bankName = result.bankName
-      this.bankAccountN.accountNumber = result.accountNumer
+      this.bankAccountN.accountNumber = result.accountNumber
       this.clienteDetailed.bankAccounts.push(this.bankAccountN)
     });
   }
@@ -482,23 +559,22 @@ export class DetailedClientComponent implements OnInit{
       data: {
         name:this.clienteDetailed.name, 
         benefitsTypeCode: this.benefitN.typeCode,
-        benefitNumero: this.benefitN.number,
-        benefitcodigo: this.benefitN.code,
+        benefitNumber: this.benefitN.number,
+        benefitCode: this.benefitN.code,
         benefitValue: this.benefitN.value, 
         benefitNetValue: this.benefitN.netValue,
-        benefitIssueDate: this.benefitN.issuingDate
+        benefitIssueDate: this.benefitN.issuingDate,
       },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.benefitN.typeCode = result.benefitsTypeCode
-      this.benefitN.number = result.benefitNumero
-      this.benefitN.code = result.benefitcodigo
+      this.benefitN.number = result.benefitNumber
+      this.benefitN.code = result.benefitCode
       this.benefitN.value = result.benefitValue
       this.benefitN.netValue = result.benefitNetValue
       this.benefitN.issuingDate = result.benefitIssueDate
-
       this.clienteDetailed.benefits.push(this.benefitN)
     });
   }
