@@ -12,7 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { clienteLiteInterface } from '../../interfaces/clienteLite';
-import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'dialog-overview-example-dialog',
@@ -92,7 +92,7 @@ export class ListClientsComponent {
 
   showFiller = true;
 
-  constructor(private _corbanService : CorbanService, private _toastr:ToastrService){
+  constructor(private _corbanService : CorbanService,public dialog: MatDialog,  private _toastr:ToastrService){
     this.getClients()
   }
 
@@ -196,5 +196,74 @@ export class ListClientsComponent {
 
   clearFilter(){
     this.searchCustomers = []
+  }
+
+  postCustomer(customer:clienteLiteInterface){
+      this._corbanService.postCustomer(customer).subscribe(
+        data => {
+          if(data){
+            //this._toastr.success('Usuário Criado com Sucesso', 'Post')
+            this.customers = data
+          }
+        }
+      )
+    }
+
+  openCreateClientDialog(){
+    let newCustomer: clienteLiteInterface = {
+      accountCode: '',
+      customerId: '',
+      name: '',
+      nickname: '',
+      birthDate: '',
+      motherName: '',
+      fatherName: '',
+      nationality: '',
+      naturalnessState: '',
+      naturalness: '',
+      note: '',
+      addresses: [],
+      emails: [],
+      phones: [],
+      documents: [],
+      bankAccounts: [],
+      benefits: []
+    };
+    const dialogRef = this.dialog.open(CreateClientDialog, {
+      data: {
+        //Client Basic Info
+      costumerId: newCustomer.customerId, accountCode:newCustomer.accountCode, 
+      nickName:newCustomer.nickname, name:newCustomer.name,
+      birthDay:newCustomer.birthDate, email:newCustomer.emails[newCustomer.emails.length + 1].email,
+      phone:newCustomer.phones[newCustomer.phones.length + 1].number, note:newCustomer.note,
+      //Adress Info
+      zipCode:newCustomer.addresses[newCustomer.addresses.length + 1].zipCode, street:newCustomer.addresses[newCustomer.addresses.length + 1].street,
+      number:newCustomer.addresses[newCustomer.addresses.length + 1].number, complement:newCustomer.addresses[newCustomer.addresses.length + 1].complement,
+      district:newCustomer.addresses[newCustomer.addresses.length + 1].district, city:newCustomer.addresses[newCustomer.addresses.length + 1].city,
+      state:newCustomer.addresses[newCustomer.addresses.length + 1].state, motherName:newCustomer.motherName,
+      fatherName:newCustomer.fatherName, naturalness:newCustomer.naturalness,
+      naturalnessState:newCustomer.naturalness, nationality:newCustomer.nationality,
+      //Document Info
+      documentTypeCode:newCustomer.documents[newCustomer.documents.length + 1].typeCode, documentNumber:newCustomer.documents[newCustomer.documents.length + 1].number,
+      documentIssuingDate:newCustomer.documents[newCustomer.documents.length + 1].issuingDate, documentExpirationDate:newCustomer.documents[newCustomer.documents.length + 1].expirationDate,
+      documentIssuingEntity:newCustomer.documents[newCustomer.documents.length + 1].issuingEntity, 
+      //Bank Account
+      bankAccountTypeCode:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].typeCode, bankName:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].bankName,
+      bankCode:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].bankCode, bankAccountId:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].bankAccountId,
+      accountNumber:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].accountNumber, 
+      //Benefits
+      benefitTypeCode:newCustomer.benefits[newCustomer.benefits.length + 1].typeCode,benefitNumber:newCustomer.benefits[newCustomer.benefits.length + 1].number,
+      benefitCode:newCustomer.benefits[newCustomer.benefits.length + 1].code, benefitDescription:newCustomer.benefits[newCustomer.benefits.length + 1].description,
+      benefitValue:newCustomer.benefits[newCustomer.benefits.length + 1].value, benefitNetValue:newCustomer.benefits[newCustomer.benefits.length + 1].netValue,
+      benefitIssuingDate:newCustomer.benefits[newCustomer.benefits.length + 1].issuingDate, benefitStartDate:newCustomer.benefits[newCustomer.benefits.length + 1].startDate
+       }
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      this.customers.push(newCustomer)
+      this.postCustomer(newCustomer)
+    });
   }
 }

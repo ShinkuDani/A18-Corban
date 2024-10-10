@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>Hi {{data.name}}, Lets Create your New User</h2>
 <mat-dialog-content>
     <div class="PersonalInfo">
-        <h1>Client Personal Information<h1>
+        <h1>Client Personal Information</h1>
         <mat-form-field>
             <mat-label>Account Code</mat-label>
             <input matInput [(ngModel)]="data.accountCode">
@@ -14,8 +14,8 @@
             <mat-label>NickName</mat-label>
             <input matInput [(ngModel)]="data.nickName">
         </mat-form-field>
-     
-  
+      </div>
+
   <div class="client">
     <h1>Client</h1>
     <mat-form-field>
@@ -73,19 +73,45 @@
   <div class="Document">
     <mat-form-field>
       <mat-label>Document Type Info</mat-label>
+      <input matInput [(ngModel)]="data.documentTypeCode">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Document Number</mat-label>
       <input matInput [(ngModel)]="data.documentNumber">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Issuing Date</mat-label>
-      <input matInput [(ngModel)]="data.documentIssuingData">
+      <mat-label>Document Issuing Date </mat-label>
+      <input matInput [(ngModel)]="data.documentIssuingDate">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Issuing Entinty </mat-label>
-      <input matInput [(ngModel)]="data.documentIssuingEntity">
+      <mat-label> Document Expiration Date </mat-label>
+      <input matInput [(ngModel)]="data.documentExpirationDate">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> Issuing State </mat-label>
-      <input matInput [(ngModel)]="data.documentIssuingState">
+      <mat-label> Document Expiration Date </mat-label>
+      <input matInput [(ngModel)]="data.documentExpirationDate">
+    </mat-form-field>
+  </div>
+  <div class="Bank">
+    <mat-form-field>
+      <mat-label>Document Type Info</mat-label>
+      <input matInput [(ngModel)]="data.documentTypeCode">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Document Number</mat-label>
+      <input matInput [(ngModel)]="data.documentNumber">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Document Issuing Date </mat-label>
+      <input matInput [(ngModel)]="data.documentIssuingDate">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Document Expiration Date </mat-label>
+      <input matInput [(ngModel)]="data.documentExpirationDate">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Document Expiration Date </mat-label>
+      <input matInput [(ngModel)]="data.documentExpirationDate">
     </mat-form-field>
   </div>
 </mat-dialog-content>
