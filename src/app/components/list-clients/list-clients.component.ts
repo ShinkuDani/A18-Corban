@@ -231,13 +231,14 @@ export class ListClientsComponent {
     };
     const dialogRef = this.dialog.open(CreateClientDialog, {
       data: {
-       /*
+       
         //Client Basic Info
         costumerId: newCustomer.customerId, accountCode:newCustomer.accountCode, 
         nickName:newCustomer.nickname, name:newCustomer.name,
         birthDay:newCustomer.birthDate, //email:newCustomer.emails[newCustomer.emails.length + 1].email,
         // phone:newCustomer.phones[newCustomer.phones.length + 1].number, 
         note:newCustomer.note,
+        /*
         //Adress Info
         zipCode:newCustomer.addresses[newCustomer.addresses.length + 1].zipCode, street:newCustomer.addresses[newCustomer.addresses.length + 1].street,
         number:newCustomer.addresses[newCustomer.addresses.length + 1].number, complement:newCustomer.addresses[newCustomer.addresses.length + 1].complement,
@@ -265,9 +266,11 @@ export class ListClientsComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      console.log(result)
+      //console.log(result)
       this.customers.push(newCustomer)
-      //this.postCustomer(newCustomer)
+      console.log(newCustomer)
+      console.log(this.customers[this.customers.length - 1])
+      //this.postCustomer(this.customers[this.customers.length+1])
     });
   }
 }
