@@ -344,8 +344,14 @@ export class ListClientsComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(newCustomer)
-      console.log(this.customers[this.customers.length - 1])
-      //this.postCustomer(this.customers[this.customers.length+1])
+      if(newCustomer.name && newCustomer.nickname != ""){
+        this.customers.push(newCustomer)
+        console.log(this.customers[this.customers.length - 1])
+        this.postCustomer(this.customers[this.customers.length - 1])
+      }else{
+        console.log("Usuário não Criado")
+      }
+
     });
   }
 }
