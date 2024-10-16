@@ -91,12 +91,13 @@ export class DetailDialogPhone {
     @Inject(MAT_DIALOG_DATA) public data: {name:string, ddd: number, number: number},
   ) {}
 
+  /*
   phoneT: phone = {
     ddd: 0,
     number: 0,
     note: ''
   }
-
+ */
 
   onNoClick(): any {
     this.dialogRef.close();

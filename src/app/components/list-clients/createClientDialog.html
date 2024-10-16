@@ -3,118 +3,178 @@
     <div class="PersonalInfo">
         <h1>Client Personal Information</h1>
         <mat-form-field>
-            <mat-label>Account Code</mat-label>
+            <mat-label> Account Code </mat-label>
             <input matInput [(ngModel)]="data.accountCode">
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Costumer ID</mat-label>
+            <mat-label> Costumer ID </mat-label>
             <input matInput [(ngModel)]="data.costumerId">
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Nick Name</mat-label>
-            <input matInput [(ngModel)]="data.nickName">
+            <mat-label> Nickname </mat-label>
+            <input matInput [(ngModel)]="data.clienteDialog.nickname">
         </mat-form-field>
       </div>
 
-  <div class="client">
+  <div class="Client">
     <h1>Client</h1>
-    <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input matInput [(ngModel)]="data.name">
+      <mat-form-field>
+        <mat-label> Name </mat-label>
+        <input matInput [(ngModel)]="data.clienteDialog.name">
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Nacimento</mat-label>
-        <input matInput [(ngModel)]="data.birthDay">
+        <mat-label> Birth Day </mat-label>
+        <input matInput [(ngModel)]="data.clienteDialog.birthDate">
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Novo Email</mat-label>
-        <input matInput [(ngModel)]="data.email">
+        <mat-label> Email </mat-label>
+        <input matInput [(ngModel)]="data.clienteDialog.emails[0].email">
       </mat-form-field>
       <mat-form-field>
         <mat-label> Phone </mat-label>
-        <input matInput [(ngModel)]="data.phone">
+        <input matInput [(ngModel)]="data.clienteDialog.phones[0].number">
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Note</mat-label>
-        <input matInput [(ngModel)]="data.note">
+        <mat-label> Note </mat-label>
+        <input matInput [(ngModel)]="data.clienteDialog.note">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Number </mat-label>
+        <input matInput [(ngModel)]="data.clienteDialog.note">
       </mat-form-field>
   </div>
-  <div class="Address">
-    <h1>Address</h1>
+  <div class="Addresses">
+    <h1>Addresses</h1>
     <mat-form-field>
-        <mat-label> Zip-Code/CEP </mat-label>
-        <input matInput [(ngModel)]="data.zipCode">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label> Rua </mat-label>
-        <input matInput [(ngModel)]="data.street">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label> Numero </mat-label>
-        <input matInput [(ngModel)]="data.number">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label> Complemento </mat-label>
-        <input matInput [(ngModel)]="data.complement">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label> Bairro </mat-label>
-        <input matInput [(ngModel)]="data.district">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label> City </mat-label>
-        <input matInput [(ngModel)]="data.city">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label> UF </mat-label>
-        <input matInput [(ngModel)]="data.state">
-      </mat-form-field>
+      <mat-label> CEP </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.addresses[0].zipCode">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Street </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.addresses[0].street">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Number </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.addresses[0].number">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Complement </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.addresses[0].complement">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> District </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.addresses[0].district">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> City </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.addresses[0].city">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> UF </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.addresses[0].state">
+    </mat-form-field>
+  </div>
+  <div class="Personal Information">
+    <h1>Personal Information</h1>
+    <mat-form-field>
+      <mat-label> Mother Name </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.motherName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Father Name </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.fatherName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Naturalness </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.naturalness">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Nationality </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.nationality">
+    </mat-form-field>
   </div>
   <div class="Document">
-    <h1>Documents</h1>
+    <h1> Document </h1>
     <mat-form-field>
-      <mat-label>Document Type Info</mat-label>
-      <input matInput [(ngModel)]="data.documentTypeCode">
+      <mat-label> Document TypeCode </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.documents[0].typeCode">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Document Number</mat-label>
-      <input matInput [(ngModel)]="data.documentNumber">
+      <mat-label> Number </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.documents[0].typeCode">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Document Issuing Date </mat-label>
-      <input matInput [(ngModel)]="data.documentIssuingDate">
+      <mat-label> Issuing Date </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.documents[0].expirationDate">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> Document Expiration Date </mat-label>
-      <input matInput [(ngModel)]="data.documentExpirationDate">
+      <mat-label> Issuing Entity </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.documents[0].issuingEntity">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> Document Expiration Date </mat-label>
-      <input matInput [(ngModel)]="data.documentExpirationDate">
+      <mat-label> Issuing Country </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.documents[0].issuingCountry">
     </mat-form-field>
   </div>
   <div class="Bank">
+    <h1> Bank Account </h1>
     <mat-form-field>
-      <mat-label>Document Type Info</mat-label>
-      <input matInput [(ngModel)]="data.documentTypeCode">
+      <mat-label> Bank TypeCode </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.bankAccounts[0].typeCode">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Document Number</mat-label>
-      <input matInput [(ngModel)]="data.documentNumber">
+      <mat-label> Bank Name </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.bankAccounts[0].bankName">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Document Issuing Date </mat-label>
-      <input matInput [(ngModel)]="data.documentIssuingDate">
+      <mat-label> Bank Code/Account </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.bankAccounts[0].bankCode">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> Document Expiration Date </mat-label>
-      <input matInput [(ngModel)]="data.documentExpirationDate">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label> Document Expiration Date </mat-label>
-      <input matInput [(ngModel)]="data.documentExpirationDate">
+      <mat-label> Bank Account Number </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.bankAccounts[0].accountNumber">
     </mat-form-field>
   </div>
+  <div class="Benefits">
+    <h1> Benefits </h1>
+    <mat-form-field>
+      <mat-label> Benefits TypeCode </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].typeCode">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Number </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].number">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Code </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].code">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Description </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].description">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Value </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].value">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Net Value </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].netValue">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Issuing Date </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].issuingDate">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Start Date </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].startDate">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Benefit Issuing State </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.benefits[0].issuingState">
+    </mat-form-field>
+  </div>
+  
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

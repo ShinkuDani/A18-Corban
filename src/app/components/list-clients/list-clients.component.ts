@@ -34,7 +34,7 @@ export class CreateClientDialog {
   constructor(
     public dialogRef: MatDialogRef<CreateClientDialog>,
     @Inject(MAT_DIALOG_DATA) public data: {
-      tempCustomer:clienteLiteInterface,
+      clienteDialog:clienteLiteInterface,
       //Client Basic Info
       costumerId:number, accountCode:string, 
       nickName:string, name:string,
@@ -222,23 +222,101 @@ export class ListClientsComponent {
       naturalnessState: '',
       naturalness: '',
       note: '',
-      addresses: [],
-      emails: [],
-      phones: [],
-      documents: [],
-      bankAccounts: [],
-      benefits: []
+      addresses: [
+        {
+          street: '',
+          number: '',
+          complement: '',
+          district: '',
+          city: '',
+          state: '',
+          zipCode: '',
+          note: ''
+        }
+      ],
+      emails: [
+        {
+        email: '',
+        note: ''
+      }
+    ],
+      phones: [
+        {
+        ddd: 0,
+        number: 0,
+        note: ''
+      }
+    ],
+      documents: [
+        {
+          documentId: '',
+          typeCode: 0,
+          number: '',
+          category: '',
+          issuingDate: '',
+          expirationDate: '',
+          issuingEntity: '',
+          issuingState: '',
+          issuingCountry: '',
+          securityCode: '',
+          statusCode: 0,
+          statusNote: '',
+          files: 0
+        }
+      ],
+      bankAccounts: [
+        {
+          bankAccountId: '',
+          description: '',
+          typeCode: 0,
+          statusCode: 0,
+          statusNote: '',
+          bankCode: '',
+          bankName: '',
+          branchCode: '',
+          accountNumber: '',
+          personTypeCode: 0,
+          countryIdentity: '',
+          holderName: '',
+          startDate: '',
+          note: ''
+        }
+      ],
+      benefits: [
+        {
+          benefitId: '',
+          typeCode: 0,
+          number: '',
+          code: '',
+          description: '',
+          value: 0,
+          netValue: 0,
+          marginValue: 0,
+          issuingDate: '',
+          startDate: '',
+          loanEligible: false,
+          issuingState: '',
+          issuingCountry: '',
+          securityCode: '',
+          statusCode: 0,
+          statusNote: '',
+          paymentMethodCode: 0,
+          paymentMethodName: '',
+          note: ''
+        }
+      ]
     };
     const dialogRef = this.dialog.open(CreateClientDialog, {
       data: {
-       
+
+        clienteDialog: newCustomer
+        /*
         //Client Basic Info
         costumerId: newCustomer.customerId, accountCode:newCustomer.accountCode, 
         nickName:newCustomer.nickname, name:newCustomer.name,
-        birthDay:newCustomer.birthDate, //email:newCustomer.emails[newCustomer.emails.length + 1].email,
-        // phone:newCustomer.phones[newCustomer.phones.length + 1].number, 
+        birthDay:newCustomer.birthDate, email:newCustomer.emails[0].email,
+        phone:newCustomer.phones[0].number, 
         note:newCustomer.note,
-        /*
         //Adress Info
         zipCode:newCustomer.addresses[newCustomer.addresses.length + 1].zipCode, street:newCustomer.addresses[newCustomer.addresses.length + 1].street,
         number:newCustomer.addresses[newCustomer.addresses.length + 1].number, complement:newCustomer.addresses[newCustomer.addresses.length + 1].complement,
@@ -265,9 +343,6 @@ export class ListClientsComponent {
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
-      //console.log(result)
-      this.customers.push(newCustomer)
       console.log(newCustomer)
       console.log(this.customers[this.customers.length - 1])
       //this.postCustomer(this.customers[this.customers.length+1])
