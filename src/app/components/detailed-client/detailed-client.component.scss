@@ -107,12 +107,17 @@
 }
 
 ul {
+    display: inline-flex;
+    flex-wrap: wrap;
     list-style: none;
 }
 
-.main-container-lista{
-    //display: flex;
-    //flex-direction: column;
+ul li {
+    width: 45%;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    
 }
 
 .bloco-branco{

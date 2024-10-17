@@ -1,32 +1,35 @@
 <h2 mat-dialog-title>Hi {{data.name}}</h2>
 <mat-dialog-content>
   <p>What's your Address Informations </p>
-  <mat-form-field>
-    <mat-label> Street </mat-label>
-    <input matInput [(ngModel)]="data.street">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Number</mat-label>
-    <input matInput [(ngModel)]="data.number">
-  </mat-form-field>
-  <mat-form-field>
-  <mat-label> District </mat-label>
-    <input matInput [(ngModel)]="data.district">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label> City </mat-label>
-      <input matInput [(ngModel)]="data.city">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label> State </mat-label>
-      <input matInput [(ngModel)]="data.state">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label> ZipCode/CEP </mat-label>
-      <input matInput [(ngModel)]="data.cep">
-  </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions>
+  <div class="pocketFilds">
+    <mat-form-field>
+      <mat-label> Street </mat-label>
+      <input matInput [(ngModel)]="data.street">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Number</mat-label>
+      <input matInput [(ngModel)]="data.number">
+    </mat-form-field>
+    <mat-form-field>
+    <mat-label> District </mat-label>
+      <input matInput [(ngModel)]="data.district">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> City </mat-label>
+        <input matInput [(ngModel)]="data.city">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> State </mat-label>
+        <input matInput [(ngModel)]="data.state">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> ZipCode/CEP </mat-label>
+        <input matInput [(ngModel)]="data.cep">
+    </mat-form-field>
+  </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

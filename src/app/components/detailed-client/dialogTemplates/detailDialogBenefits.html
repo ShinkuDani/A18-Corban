@@ -1,6 +1,7 @@
 <h2 mat-dialog-title>Hi {{data.name}}</h2>
 <mat-dialog-content>
   <p>What's your Benefits Informations </p>
+  <div class="pocketFilds">
   <mat-form-field>
     <mat-label>Type Code</mat-label>
     <input matInput [(ngModel)]="data.benefitsTypeCode">
@@ -25,6 +26,7 @@
     <mat-label> Issuing Date </mat-label>
       <input matInput [(ngModel)]="data.benefitIssueDate">
   </mat-form-field>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

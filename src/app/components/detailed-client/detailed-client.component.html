@@ -2,6 +2,7 @@
     <mat-toolbar>
         <span>Detalhes do Cliente</span>
      <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
+     <button mat-raised-button type="button" color="warn" (click)="putClient()"> Save Changes </button>
      <button mat-raised-button type="button" color="warn" (click)="styleChange()"> Old/New </button>
      
     </mat-toolbar> 

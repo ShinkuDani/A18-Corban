@@ -2,9 +2,24 @@
 
 @import 'ngx-toastr/toastr';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing: border-box;}
+html, body { height: 100%; width: 209vh; }
+body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing: border-box;}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.Filds{
+    display: inline-flex;
+    flex-direction: column;
+    width: 45%;
+    padding: 10px;
+}
+
+.pocketFilds{
+    display: inline-flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 10px ;
+}
+
+.littleSpace{
+    padding-right: 10px;
+}
 

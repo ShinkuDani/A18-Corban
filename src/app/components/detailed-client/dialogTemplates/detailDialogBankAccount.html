@@ -1,6 +1,7 @@
 <h2 mat-dialog-title>Hi {{data.name}}</h2>
 <mat-dialog-content>
   <p>What's your BankAccount </p>
+  <div class="pocketFilds">
   <mat-form-field>
     <mat-label>Type Code</mat-label>
     <input matInput [(ngModel)]="data.bankTypeCode">
@@ -17,6 +18,7 @@
     <mat-label> Account Number </mat-label>
       <input matInput [(ngModel)]="data.accountNumber">
   </mat-form-field>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

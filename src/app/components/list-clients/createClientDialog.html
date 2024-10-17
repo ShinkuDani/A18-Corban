@@ -1,14 +1,14 @@
-<h2 mat-dialog-title>Hi {{data.name}}, Lets Create your New User</h2>
+<h2 mat-dialog-title>Hi {{data.clienteDialog.name}}, Lets Create your New User</h2>
 <mat-dialog-content>
-    <div class="PersonalInfo">
+    <div class="PersonalInfo Filds">
         <h1>Client Personal Information</h1>
         <mat-form-field>
             <mat-label> Account Code </mat-label>
-            <input matInput [(ngModel)]="data.accountCode">
+            <input matInput [(ngModel)]="data.clienteDialog.accountCode">
         </mat-form-field>
         <mat-form-field>
             <mat-label> Costumer ID </mat-label>
-            <input matInput [(ngModel)]="data.costumerId">
+            <input matInput [(ngModel)]="data.clienteDialog.customerId">
         </mat-form-field>
         <mat-form-field>
             <mat-label> Nickname </mat-label>
@@ -16,7 +16,7 @@
         </mat-form-field>
       </div>
 
-  <div class="Client">
+  <div class="Client Filds">
     <h1>Client</h1>
       <mat-form-field>
         <mat-label> Name </mat-label>
@@ -40,7 +40,7 @@
       </mat-form-field>
       
   </div>
-  <div class="Addresses">
+  <div class="Addresses Filds">
     <h1>Addresses</h1>
     <mat-form-field>
       <mat-label> CEP </mat-label>
@@ -71,7 +71,7 @@
       <input matInput [(ngModel)]="data.clienteDialog.addresses[0].state">
     </mat-form-field>
   </div>
-  <div class="Personal Information">
+  <div class="Personal Information Filds">
     <h1>Personal Information</h1>
     <mat-form-field>
       <mat-label> Mother Name </mat-label>
@@ -90,15 +90,19 @@
       <input matInput [(ngModel)]="data.clienteDialog.nationality">
     </mat-form-field>
   </div>
-  <div class="Document">
+  <div class="Document Filds">
     <h1> Document </h1>
     <mat-form-field>
       <mat-label> Document TypeCode </mat-label>
       <input matInput [(ngModel)]="data.clienteDialog.documents[0].typeCode">
     </mat-form-field>
     <mat-form-field>
+      <mat-label> Document Category </mat-label>
+      <input matInput [(ngModel)]="data.clienteDialog.documents[0].category">
+    </mat-form-field>
+    <mat-form-field>
       <mat-label> Number </mat-label>
-      <input matInput [(ngModel)]="data.clienteDialog.documents[0].typeCode">
+      <input matInput [(ngModel)]="data.clienteDialog.documents[0].number">
     </mat-form-field>
     <mat-form-field>
       <mat-label> Issuing Date </mat-label>
@@ -113,7 +117,7 @@
       <input matInput [(ngModel)]="data.clienteDialog.documents[0].issuingCountry">
     </mat-form-field>
   </div>
-  <div class="Bank">
+  <div class="Bank Filds">
     <h1> Bank Account </h1>
     <mat-form-field>
       <mat-label> Bank TypeCode </mat-label>
@@ -132,7 +136,7 @@
       <input matInput [(ngModel)]="data.clienteDialog.bankAccounts[0].accountNumber">
     </mat-form-field>
   </div>
-  <div class="Benefits">
+  <div class="Benefits Filds">
     <h1> Benefits </h1>
     <mat-form-field>
       <mat-label> Benefits TypeCode </mat-label>

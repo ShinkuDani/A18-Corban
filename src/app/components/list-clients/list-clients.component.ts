@@ -17,6 +17,7 @@ import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, Mat
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'createClientDialog.html',
+  styleUrl: './createClientDialog.css',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -35,31 +36,7 @@ export class CreateClientDialog {
     public dialogRef: MatDialogRef<CreateClientDialog>,
     @Inject(MAT_DIALOG_DATA) public data: {
       clienteDialog:clienteLiteInterface,
-      //Client Basic Info
-      costumerId:number, accountCode:string, 
-      nickName:string, name:string,
-      birthDay:string, email:string,
-      phone:number, note:string
-      //Adress Info
-      zipCode:number, street:string,
-      number:number, complement:string,
-      district:string, city:string,
-      state:string, motherName:string,
-      fatherName:string, naturalness:string,
-      naturalnessState:string, nationality:string,
-      //Document Info
-      documentTypeCode:string, documentNumber:string,
-      documentIssuingDate:string, documentExpirationDate:string,
-      documentIssuingEntity:string, 
-      //Bank Account
-      bankAccountTypeCode:string, bankName:string,
-      bankCode:string, bankAccountId:number,
-      accountNumber:string, 
-      //Benefits
-      benefitTypeCode:number,benefitNumber:string,
-      benefitCode:string, benefitDescription:string,
-      benefitValue:string, benefitNetValue:string,
-      benefitIssuingDate:string, benefitStartDate:string
+      
     },
   ) { }
 

@@ -1,7 +1,8 @@
 <h2 mat-dialog-title>Hi{{data.name}}</h2>
 <mat-dialog-content>
   <p>What's your Document Information<p>
-  <mat-form-field>
+  <div class="pocketFilds">
+    <mat-form-field>
     <mat-label>Type</mat-label>
     <input matInput [(ngModel)]="data.documentType">
   </mat-form-field>
@@ -25,6 +26,7 @@
     <mat-label> Issuing State </mat-label>
     <input matInput [(ngModel)]="data.documentIssuingState">
   </mat-form-field>
+</div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

@@ -32,17 +32,17 @@ export class CorbanService {
   }
 
   postCustomer(body:any): Observable<any>{
-    debugger
+
     return this.http.post(`${this.URL}/customers`, body)
   }
 
   putCustomer(id:string, body:any): Observable<any>{
-    debugger
+  
     return this.http.put(`${this.URL}/customers/${id}`, body)
   }
   
   deleteCustomer(id:string){
-    debugger
+  
     return this.http.delete(`${this.URL}/customers/${id}`)
   }
 
