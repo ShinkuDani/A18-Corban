@@ -2,7 +2,6 @@
     <mat-toolbar>
         <span>Detalhes do Cliente</span>
      <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
-     <button mat-raised-button type="button" color="warn" (click)="putClient()"> Save Changes </button>
      <button mat-raised-button type="button" color="warn" (click)="styleChange()"> Old/New </button>
      
     </mat-toolbar> 
@@ -44,9 +43,14 @@
         <li class="bloco-branco">
             <h2> Telefones </h2>
             @for(telefone of clienteDetailed.phones; track telefone ){
-                <h3>{{telefone.ddd}}{{telefone.number}}</h3>
+                <div class="alterarFields">
+                    <h3>{{telefone.ddd}}{{telefone.number}}</h3>
+                <button mat-button>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                  </button>
+                </div>
             }
-            <button mat-raised-button (click)="openPhoneDialog()">Phones</button>
+            <button mat-raised-button (click)="openPhoneDialog()"> Add Phone </button>
 
         </li>
 
@@ -63,11 +67,12 @@
             <ul>
                 <li>
                     @for(endereco of clienteDetailed.addresses; track endereco ){
-                        <span>{{endereco.street}} - {{endereco.number}}</span> 
-                        <p>{{endereco.district}} - {{endereco.city}}</p>  
+                        <div>
+                            <span>{{endereco.street}} - {{endereco.number}}</span> 
+                            <p>{{endereco.district}} - {{endereco.city}}</p>
+                        </div>  
                     }
                     <button mat-raised-button (click)="openAddressesDialog()">Address</button>
-                    
                 </li>
             </ul>
         </li>
@@ -75,10 +80,16 @@
         <li class="bloco-branco">
             <h2>Documentos</h2>
             @for(documento of clienteDetailed.documents; track documento ){
+                <span>Numero</span>
+                <h3>{{documento.number}}</h3>
                 <span>Categoria</span>
                 <h3>{{documento.category}}</h3>
-                <span>Numero</span>
-                <h3>{{documento.number}}</h3>  
+                <span>Data de Criação</span>
+                <h3>{{documento.issuingDate}}</h3>
+                <span>Orgão Emissor </span>
+                <h3>{{documento.issuingEntity}}</h3>
+                <span>Data de Criação</span>
+                <h3>{{documento.issuingCountry}}</h3>
             }
             <button mat-raised-button (click)="openDocumentDialog()">Document</button>
 

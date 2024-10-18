@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
+import { MatIcon } from '@angular/material/icon';
 
 //Parents
 @Component({
@@ -280,6 +281,7 @@ export class DetaildialogBenefits {
   selector: 'app-detailed-client',
   standalone: true,
   imports: [MatToolbarModule,
+            MatIcon,
              RouterModule, 
              MatButtonModule,
              MatFormFieldModule,
