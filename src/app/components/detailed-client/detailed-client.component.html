@@ -42,79 +42,102 @@
 
         <li class="bloco-branco">
             <h2> Telefones </h2>
-            @for(telefone of clienteDetailed.phones; track telefone ){
+            @for(telefone of clienteDetailed.phones; track telefone; let id = $index ){
                 <div class="alterarFields">
                     <h3>{{telefone.ddd}}{{telefone.number}}</h3>
-                <button mat-button>
+                <button mat-button (click)="openPhoneDialog(true, id)">
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
                   </button>
                 </div>
             }
-            <button mat-raised-button (click)="openPhoneDialog()"> Add Phone </button>
+            <button mat-raised-button (click)="openPhoneDialog(false)"> Add Phone </button>
 
         </li>
 
         <li class="bloco-branco">
             <h2>E-mails</h2>
-            @for(email of clienteDetailed.emails; track email ){
-                <h3>{{email.email}}</h3>
+            @for(email of clienteDetailed.emails; track email; let id = $index ){
+                <div class="alterarFields">
+                    <h3>{{email.email}}</h3>
+                    <button mat-button (click)="openEmailDialog(true, id)">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                    </button>
+                </div>
             }
-            <button mat-raised-button (click)="openEmailDialog()">Email</button>
+            <button mat-raised-button (click)="openEmailDialog(false)">Email</button>
         </li>
 
         <li class="bloco-branco">
             <h2>Endereços</h2>
             <ul>
                 <li>
-                    @for(endereco of clienteDetailed.addresses; track endereco ){
-                        <div>
+                    @for(endereco of clienteDetailed.addresses; track endereco; let id = $index ){
+                        <div class="alterarFields">
                             <span>{{endereco.street}} - {{endereco.number}}</span> 
                             <p>{{endereco.district}} - {{endereco.city}}</p>
+                            <button mat-button (click)="openAddressesDialog(true, id)">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                            </button>
                         </div>  
                     }
-                    <button mat-raised-button (click)="openAddressesDialog()">Address</button>
+                    <button mat-raised-button (click)="openAddressesDialog(false)">Address</button>
                 </li>
             </ul>
         </li>
 
         <li class="bloco-branco">
             <h2>Documentos</h2>
-            @for(documento of clienteDetailed.documents; track documento ){
+            @for(documento of clienteDetailed.documents; track documento; let id = $index ){
+                <div class="alterarFields">
                 <span>Numero</span>
-                <h3>{{documento.number}}</h3>
+                <p>{{documento.number}}</p>
                 <span>Categoria</span>
                 <h3>{{documento.category}}</h3>
                 <span>Data de Criação</span>
-                <h3>{{documento.issuingDate}}</h3>
+                <p>{{documento.issuingDate}}</p>
                 <span>Orgão Emissor </span>
-                <h3>{{documento.issuingEntity}}</h3>
+                <p>{{documento.issuingEntity}}</p>
                 <span>Data de Criação</span>
-                <h3>{{documento.issuingCountry}}</h3>
+                <p>{{documento.issuingCountry}}</p>
+                <button mat-button (click)="openDocumentDialog(true, id)">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                </button>
+                </div>
             }
-            <button mat-raised-button (click)="openDocumentDialog()">Document</button>
+            <button mat-raised-button (click)="openDocumentDialog(false)">Document</button>
 
         </li>
 
         <li class="bloco-branco">
             <h2>Contas Bancárias</h2>
-            @for(bankAccount of clienteDetailed.bankAccounts; track bankAccount ){
+            @for(bankAccount of clienteDetailed.bankAccounts; track bankAccount; let id = $index ){
+                <div class="alterarFields">
                 <span>Nome Banco</span>
                 <h3>{{bankAccount.bankName}}</h3>
                 <span>Numero do Banco</span>
-                <h3>{{bankAccount.accountNumber}}</h3>  
+                <h3>{{bankAccount.accountNumber}}</h3>
+                <button mat-button (click)="openBankAccountDialog(true, id)">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                </button>
+                </div> 
             }
-            <button mat-raised-button (click)="openBankAccountDialog()">Adiconar / Alterar</button>
+            <button mat-raised-button (click)="openBankAccountDialog(false)">Adiconar / Alterar</button>
         </li>
 
         <li class="bloco-branco">
             <h2>Beneficios</h2>
-            @for(benefit of clienteDetailed.benefits; track benefit ){
+            @for(benefit of clienteDetailed.benefits; track benefit; let id = $index ){
+                <div class="alterarFields">
                 <span>Codigo Beneficio</span>
                 <h3>{{benefit.code}}</h3>
                 <span>Numero</span>
-                <h3>{{benefit.number}}</h3>  
+                <h3>{{benefit.number}}</h3>
+                <button mat-button (click)="openBenefitsDialog(true, id)">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                </button>
+                </div>  
             }
-            <button mat-raised-button (click)="openBenefitsDialog()">Adiconar / Alterar</button>
+            <button mat-raised-button (click)="openBenefitsDialog(false)">Adiconar / Alterar</button>
 
         </li>
 

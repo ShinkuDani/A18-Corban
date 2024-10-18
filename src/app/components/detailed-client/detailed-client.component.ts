@@ -89,7 +89,10 @@ export class DetailDialogPhone {
 
   constructor(
     public dialogRef: MatDialogRef<DetailDialogPhone>,
-    @Inject(MAT_DIALOG_DATA) public data: {name:string, ddd: number, number: number},
+    @Inject(MAT_DIALOG_DATA) public data: {
+      name:string,
+      ddd: number,
+      number: number},
   ) {}
 
   onNoClick(): any {
@@ -189,12 +192,11 @@ export class DetailDialogDocument {
     @Inject(MAT_DIALOG_DATA) public data: {
       name:string,
       documentType:string,
-      documentNumber:string,
       documentCategory:string,
+      documentNumber:string,
       documentIssuingData:string,
       documentIssuingEntity:string,
       documentIssuingState:string
-
     },
   ) {}
 
@@ -458,138 +460,280 @@ export class DetailedClientComponent {
 
   //Precisa implementar um For no HTML para demonstrar todos os phones, e declarar 
   //um objeto  por fora para adicionar o mesmo aos phones caso precise.
-  openPhoneDialog(){
-    const dialogRef = this.dialog.open(DetailDialogPhone, {
-      data: {name: this.clienteDetailed.name, ddd: this.phoneN.ddd, phoneNumber: this.phoneN.number }
-    });
+  openPhoneDialog(alter:boolean, id:number = 9999){
+
+    debugger
+    if(alter == true){
+      const dialogRef = this.dialog.open(DetailDialogPhone, {
+        data: {name: this.clienteDetailed.name,
+           ddd: this.clienteDetailed.phones[id].ddd, 
+           number: this.clienteDetailed.phones[id].number }
+      });
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.phoneN.ddd = result.ddd
+        this.phoneN.number = result.number 
+        this.clienteDetailed.phones.push(this.phoneN)
+        this.putClient()
+      });
     
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.phoneN.ddd = result.ddd
-      this.phoneN.number = result.number 
-      this.clienteDetailed.phones.push(this.phoneN)
-      this.putClient()
-    });
+    } else{
+      const dialogRef = this.dialog.open(DetailDialogPhone, {
+        data: {name: this.clienteDetailed.name, 
+          ddd: this.phoneN.ddd, number: this.phoneN.number }
+      });
+      
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.phoneN.ddd = result.ddd
+        this.phoneN.number = result.number 
+        this.clienteDetailed.phones.push(this.phoneN)
+        this.putClient()
+      });
+    }
+    
   }
 
   //Mesma coisa de Cima
-  openEmailDialog(){
-    const dialogRef = this.dialog.open(DetailDialogEmail, {
-      data: {name: this.clienteDetailed.name,
-         email: this.emailN.email, 
-         note: this.emailN.note},
-    });
+  openEmailDialog(alter:boolean, id:number = 9999 ){
     
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.emailN.email = result.email
-      this.emailN.note = result.note
-      this.clienteDetailed.emails.push(this.emailN)
-      this.putClient()
-    });
+    if(alter == true){
+      const dialogRef = this.dialog.open(DetailDialogEmail, {
+        data: {name: this.clienteDetailed.name,
+           email: this.clienteDetailed.emails[id].email, 
+           note: this.clienteDetailed.emails[id].note},
+      });
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.emailN.email = result.email
+        this.emailN.note = result.note
+        this.clienteDetailed.emails.push(this.emailN)
+        this.putClient()
+      });
+    } else{
+      const dialogRef = this.dialog.open(DetailDialogEmail, {
+        data: {name: this.clienteDetailed.name,
+           email: this.emailN.email, 
+           note: this.emailN.note},
+      });
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.emailN.email = result.email
+        this.emailN.note = result.note
+        this.clienteDetailed.emails.push(this.emailN)
+        this.putClient()
+      });
+    }
+    
   }
 
    //Mesma coisa de Cima
-   openAddressesDialog(){
-    const dialogRef = this.dialog.open(DetailDialogAddress, {
-      data: {name: this.clienteDetailed.name, 
-        street: this.addressN.street, 
-        number: this.addressN.number,
-        district: this.addressN.district,
-        city: this.addressN.city,
-        state: this.addressN.state,
-        cep: this.addressN.zipCode},
-    });
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.addressN.street = result.street,
-      this.addressN.number = result.number,
-      this.addressN.district = result.district
-      this.addressN.city = result.city
-      this.addressN.state = result.state
-      this.addressN.zipCode = result.cep
-      this.clienteDetailed.addresses.push(this.addressN)
-      this.putClient()
-    });
-  }
-
-  //Mesma coisa do de cima.
-  openDocumentDialog(){
-    const dialogRef = this.dialog.open(DetailDialogDocument, {
-      data: {
-        name:this.clienteDetailed.name, 
-        documentType: this.documentN.typeCode,
-        documentCategory: this.documentN.category,
-        documentNumber: this.documentN.number, 
-        documentIssuingData: this.documentN.issuingDate,
-        documentIssuingEntity: this.documentN.issuingEntity, 
-        documentIssuingState: this.documentN.issuingState
-      },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.documentN.typeCode = result.documentType
-      this.documentN.number = result.documentNumber
-      this.documentN.category = result.documentCategory
-      this.documentN.issuingDate = result.documentIssuingData
-      this.documentN.issuingEntity = result.documentIssuingEntity
-      this.documentN.issuingState = result.documentIssuingState
-      this.clienteDetailed.documents.push(this.documentN)
-      this.putClient()
-    });
-  }
-
-  //Mesma coisa do de cima.
-  openBankAccountDialog(){
-    const dialogRef = this.dialog.open(DetaildialogBankAccount, {
-      data: {
-        name:this.clienteDetailed.name, 
-        bankTypeCode: this.bankAccountN.typeCode,
-        bankCode: this.bankAccountN.bankCode, 
-        bankName: this.bankAccountN.bankName,
-        accountNumber: this.bankAccountN.accountNumber
-      },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.bankAccountN.typeCode = result.bankTypeCode
-      this.bankAccountN.bankCode = result.bankCode
-      this.bankAccountN.bankName = result.bankName
-      this.bankAccountN.accountNumber = result.accountNumber
-      this.clienteDetailed.bankAccounts.push(this.bankAccountN)
-      this.putClient()
-    });
-  }
-
-
-  openBenefitsDialog(){
-    const dialogRef = this.dialog.open(DetaildialogBenefits, {
-      data: {
-        name:this.clienteDetailed.name, 
-        benefitsTypeCode: this.benefitN.typeCode,
-        benefitNumber: this.benefitN.number,
-        benefitCode: this.benefitN.code,
-        benefitValue: this.benefitN.value, 
-        benefitNetValue: this.benefitN.netValue,
-        benefitIssueDate: this.benefitN.issuingDate,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.benefitN.typeCode = result.benefitsTypeCode
-      this.benefitN.number = result.benefitNumber
-      this.benefitN.code = result.benefitCode
-      this.benefitN.value = result.benefitValue
-      this.benefitN.netValue = result.benefitNetValue
-      this.benefitN.issuingDate = result.benefitIssueDate
-      this.clienteDetailed.benefits.push(this.benefitN)
-      this.putClient()
+   openAddressesDialog(alter:boolean, id:number = 9999){
+    if(alter == true){
+      const dialogRef = this.dialog.open(DetailDialogAddress, {
+        data: {name: this.clienteDetailed.name, 
+          street: this.clienteDetailed.addresses[id].street, 
+          number: this.clienteDetailed.addresses[id].number,
+          district: this.clienteDetailed.addresses[id].district,
+          city: this.clienteDetailed.addresses[id].city,
+          state: this.clienteDetailed.addresses[id].state,
+          cep: this.clienteDetailed.addresses[id].zipCode},
+      });
       
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.addressN.street = result.street,
+        this.addressN.number = result.number,
+        this.addressN.district = result.district
+        this.addressN.city = result.city
+        this.addressN.state = result.state
+        this.addressN.zipCode = result.cep
+        this.clienteDetailed.addresses.push(this.addressN)
+        this.putClient()
+      });
+    } else {
+      const dialogRef = this.dialog.open(DetailDialogAddress, {
+        data: {name: this.clienteDetailed.name, 
+          street: this.addressN.street, 
+          number: this.addressN.number,
+          district: this.addressN.district,
+          city: this.addressN.city,
+          state: this.addressN.state,
+          cep: this.addressN.zipCode},
+      });
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.addressN.street = result.street,
+        this.addressN.number = result.number,
+        this.addressN.district = result.district
+        this.addressN.city = result.city
+        this.addressN.state = result.state
+        this.addressN.zipCode = result.cep
+        this.clienteDetailed.addresses.push(this.addressN)
+        this.putClient()
+      });
+    }
+
+  }
+
+  //Mesma coisa do de cima.
+  openDocumentDialog(alter:boolean, id:number = 9999){
+    if(alter == true){
+      const dialogRef = this.dialog.open(DetailDialogDocument, {
+        data: {
+          name:this.clienteDetailed.name, 
+          documentType: this.clienteDetailed.documents[id].typeCode,
+          documentCategory: this.clienteDetailed.documents[id].category,
+          documentNumber: this.clienteDetailed.documents[id].number, 
+          documentIssuingData: this.clienteDetailed.documents[id].issuingDate,
+          documentIssuingEntity: this.clienteDetailed.documents[id].issuingEntity, 
+          documentIssuingState: this.clienteDetailed.documents[id].issuingState
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.documentN.typeCode = result.documentType
+        this.documentN.number = result.documentNumber
+        this.documentN.category = result.documentCategory
+        this.documentN.issuingDate = result.documentIssuingData
+        this.documentN.issuingEntity = result.documentIssuingEntity
+        this.documentN.issuingState = result.documentIssuingState
+        this.clienteDetailed.documents.push(this.documentN)
+        this.putClient()
+      });
+    }else{
+      const dialogRef = this.dialog.open(DetailDialogDocument, {
+        data: {
+          name:this.clienteDetailed.name, 
+          documentType: this.documentN.typeCode,
+          documentCategory: this.documentN.category,
+          documentNumber: this.documentN.number, 
+          documentIssuingData: this.documentN.issuingDate,
+          documentIssuingEntity: this.documentN.issuingEntity, 
+          documentIssuingState: this.documentN.issuingState
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.documentN.typeCode = result.documentType
+        this.documentN.number = result.documentNumber
+        this.documentN.category = result.documentCategory
+        this.documentN.issuingDate = result.documentIssuingData
+        this.documentN.issuingEntity = result.documentIssuingEntity
+        this.documentN.issuingState = result.documentIssuingState
+        this.clienteDetailed.documents.push(this.documentN)
+        this.putClient()
+      });
+    }
+  }
+
+  //Mesma coisa do de cima.
+  openBankAccountDialog(alter:boolean, id:number = 9999){
+    
+    if(alter == true){
+      const dialogRef = this.dialog.open(DetaildialogBankAccount, {
+        data: {
+          name:this.clienteDetailed.name, 
+          bankTypeCode: this.clienteDetailed.bankAccounts[id].typeCode,
+          bankCode: this.clienteDetailed.bankAccounts[id].bankCode, 
+          bankName: this.clienteDetailed.bankAccounts[id].bankName,
+          accountNumber: this.clienteDetailed.bankAccounts[id].accountNumber
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.bankAccountN.typeCode = result.bankTypeCode
+        this.bankAccountN.bankCode = result.bankCode
+        this.bankAccountN.bankName = result.bankName
+        this.bankAccountN.accountNumber = result.accountNumber
+        this.clienteDetailed.bankAccounts.push(this.bankAccountN)
+        this.putClient()
+      });
+    } else {
+      const dialogRef = this.dialog.open(DetaildialogBankAccount, {
+        data: {
+          name:this.clienteDetailed.name, 
+          bankTypeCode: this.bankAccountN.typeCode,
+          bankCode: this.bankAccountN.bankCode, 
+          bankName: this.bankAccountN.bankName,
+          accountNumber: this.bankAccountN.accountNumber
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.bankAccountN.typeCode = result.bankTypeCode
+        this.bankAccountN.bankCode = result.bankCode
+        this.bankAccountN.bankName = result.bankName
+        this.bankAccountN.accountNumber = result.accountNumber
+        this.clienteDetailed.bankAccounts.push(this.bankAccountN)
+        this.putClient()
+      });
+    }
+  }
+
+
+  openBenefitsDialog(alter:boolean, id:number = 9999){
+    
+    if(alter == true){
+      const dialogRef = this.dialog.open(DetaildialogBenefits, {
+        data: {
+          name:this.clienteDetailed.name, 
+          benefitsTypeCode: this.clienteDetailed.benefits[id].typeCode,
+          benefitNumber: this.clienteDetailed.benefits[id].number,
+          benefitCode: this.clienteDetailed.benefits[id].code,
+          benefitValue: this.clienteDetailed.benefits[id].value, 
+          benefitNetValue: this.clienteDetailed.benefits[id].netValue,
+          benefitIssueDate: this.clienteDetailed.benefits[id].issuingDate,
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.benefitN.typeCode = result.benefitsTypeCode
+        this.benefitN.number = result.benefitNumber
+        this.benefitN.code = result.benefitCode
+        this.benefitN.value = result.benefitValue
+        this.benefitN.netValue = result.benefitNetValue
+        this.benefitN.issuingDate = result.benefitIssueDate
+        this.clienteDetailed.benefits.push(this.benefitN)
+        this.putClient()
+        
+      });
+    } else{
+      const dialogRef = this.dialog.open(DetaildialogBenefits, {
+        data: {
+          name:this.clienteDetailed.name, 
+          benefitsTypeCode: this.benefitN.typeCode,
+          benefitNumber: this.benefitN.number,
+          benefitCode: this.benefitN.code,
+          benefitValue: this.benefitN.value, 
+          benefitNetValue: this.benefitN.netValue,
+          benefitIssueDate: this.benefitN.issuingDate,
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.benefitN.typeCode = result.benefitsTypeCode
+        this.benefitN.number = result.benefitNumber
+        this.benefitN.code = result.benefitCode
+        this.benefitN.value = result.benefitValue
+        this.benefitN.netValue = result.benefitNetValue
+        this.benefitN.issuingDate = result.benefitIssueDate
+        this.clienteDetailed.benefits.push(this.benefitN)
+        this.putClient()
+        
+      });
+    }
   }
      
 
