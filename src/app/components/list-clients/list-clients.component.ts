@@ -119,35 +119,52 @@ export class ListClientsComponent {
   searchInput = new FormControl();
 
 
-  displayedColumns: string[] = ['Servico','Codigo', 'Nome', 'NickName' ,'CustomerID', 'Delete', 'CustomerAlter', 'CustomerDetails'];
+  displayedColumns: string[] = ['Servico','Codigo', 'Nome', 'Apelido'];
   
   
     dataSource = this.customers;
     dataSource2 = this.searchCustomers;
 
-  
-
-    getToken(){
+/*
+  getClients(){
     this._corbanService.getToken().subscribe(result => {
       if (result)
-        //this._toastr.success('Token Salvo')
         localStorage.setItem('token', result.token);
+
+      this._corbanService.getCustomers().subscribe(
+        data => {
+          if (data) {
+            this.customers = data.items;
+            console.log(this.dataSource);
+            this.dataSource = data.items
+          }
+        }
+      )
+        
     })
+     
   }
+*/
 
   getClients(){
-     this.getToken()
-     this._corbanService.getCustomers().subscribe(
-      data => {
-        if (data) {
-          //this._toastr.success('Usuários pegos');
-          this.customers = data.items;
-          console.log(this.dataSource);
-          this.dataSource = data.items
+    if(localStorage.getItem('token') != ''){
+      this._corbanService.getToken().subscribe(result => {
+        if (result)
+          localStorage.setItem('token', result.token);
+      })
+    }
+      this._corbanService.getCustomers().subscribe(
+        data => {
+          if (data) {
+            this.customers = data.items;
+            console.log(this.dataSource);
+            this.dataSource = data.items
+          }
         }
-      }
-    )
-  }
+      )
+        
+    }
+
 
   deleteClient(id:any){
     this._corbanService.deleteCustomer(id).subscribe(
