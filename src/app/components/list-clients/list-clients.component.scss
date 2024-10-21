@@ -31,11 +31,20 @@
 }
 
 .toolbar-container{
-    border-bottom: 1px solid black; 
+
+    border-bottom: 1px solid black;
+    height: 80px; 
 }
 
 .toolbar-container button, .tollbar-pesquisa {
     margin-left: 10px ;
+}
+
+.tollbar-pesquisa{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 

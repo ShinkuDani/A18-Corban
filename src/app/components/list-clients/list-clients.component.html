@@ -60,36 +60,37 @@
             <div class="tollbar-pesquisa">
               <mat-form-field appearance="fill">
                 <input matInput placeholder="Placeholder" id="searchInput" type="text" [formControl]='searchInput'>
+              <button mat-icon-button matSuffix  (click)="searchFilter()"> <mat-icon>search</mat-icon></button>
+
               </mat-form-field>
-              <button mat-button (click)="searchFilter()"> <mat-icon>search</mat-icon> </button>
             </div>
 
         </mat-toolbar> 
       </div>
 
-      @if(searchCustomers[0].customerId != '' && searchCustomers.length >= 1){
+      @if(searchCustomers.length >= 1 && searchCustomers[0].customerId != ''){
 
         <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
 
           <ng-container matColumnDef="Servico">
-            <th mat-header-cell *matHeaderCellDef> Servico </th>
+            <th mat-header-cell *matHeaderCellDef> Servico Search </th>
             <td mat-cell *matCellDef="let element"> 
 
               <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                  <mat-icon>dialpad</mat-icon>
-                  <span>Redial</span>
+                <button mat-menu-item [routerLink]="['detail/',element.customerId]">
+                  <mat-icon>visibility</mat-icon>
+                  <span>Details</span>
                 </button>
-                <button mat-menu-item disabled>
-                  <mat-icon>voicemail</mat-icon>
-                  <span>Check voice mail</span>
+                <button mat-menu-item [routerLink]="['edit/',element.customerId]">
+                  <mat-icon>edit</mat-icon>
+                  <span>Editar</span>
                 </button>
-                <button mat-menu-item>
-                  <mat-icon>notifications_off</mat-icon>
-                  <span>Disable alerts</span>
+                <button mat-menu-item (click)="deleteClient(element.customerId)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Deletar</span>
                 </button>
               </mat-menu>
 
@@ -165,7 +166,6 @@
                     <mat-icon>delete</mat-icon>
                     <span>Deletar</span>
                   </button>
-                  
                 </mat-menu>
   
               </td>
@@ -214,30 +214,7 @@
   
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-  
-          <!--
-  
-            @for (item of customers; track item) {
-              <div class="list-clients">
-                <div class="list-clients-nome">
-                  <p>Nome:</p>
-                  <span> {{item.name}} </span>
-                  <p>NickName: {{item.nickname}}</p>
-                </div>
-                <div class="list-clients-Idcustomer">
-                  <p>CustomerId: {{item.customerId}}</p>
-                </div>
-                <div class="list-clients-botoes">
-                  <button mat-raised-button color="green" [routerLink]="['detail/',item.customerId]"> Detalhes do Usuário </button>
-                  <button mat-raised-button color="warn" (click)="deleteClient(item.customerId)"> Deletar Cliente </button>
-                  <button mat-raised-button color="accent" [routerLink]="['edit/',item.customerId]"> Alterar Cliente</button>
-                </div>
-              </div>
-          }
-  
-          -->
-  
+          </table>  
         }
         
         
