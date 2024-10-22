@@ -1,8 +1,9 @@
 <div class="toolbar-container">
     <mat-toolbar>
         <span>Detalhes do Cliente</span>
-     <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Cancelar </button>
-     <button mat-raised-button type="button" color="warn" (click)="styleChange()"> Old/New </button>
+     <div class="toolbar-botoes">
+        <button mat-raised-button type="button" color="warn" [routerLink]="['']" routerLinkActive="yes"> Votlar </button>
+     </div>
      
     </mat-toolbar> 
 </div>
@@ -35,6 +36,7 @@
             <div class="detailedClient-note">
                 <h1> Notas </h1>
                 <h3> {{this.clienteDetailed.note}}</h3>
+                
             <button mat-raised-button (click)="openNoteDialog()">Notas</button>
 
             </div>
@@ -44,11 +46,18 @@
             <h2> Telefones </h2>
             @for(telefone of clienteDetailed.phones; track telefone; let id = $index ){
                 <div class="alterarFields">
-                    <h3>{{telefone.ddd}}{{telefone.number}}</h3>
-                <button mat-button (click)="openPhoneDialog(true, id)">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-                  </button>
+                    <ul>
+                        <li>
+                            <h1>{{telefone.ddd}}{{telefone.number}}</h1>
+                        </li>
+                        <li>
+                            <button mat-icon-button (click)="openPhoneDialog(true, id)">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                              </button>
+                        </li>
+                    </ul>
                 </div>
+                
             }
             <button mat-raised-button (click)="openPhoneDialog(false)"> Adicionar Telefones </button>
 
@@ -58,10 +67,16 @@
             <h2>E-mails</h2>
             @for(email of clienteDetailed.emails; track email; let id = $index ){
                 <div class="alterarFields">
-                    <h3>{{email.email}}</h3>
-                    <button mat-button (click)="openEmailDialog(true, id)">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-                    </button>
+                    <ul>
+                        <li>
+                            <span>{{email.email}}</span>
+                        </li>
+                        <li>
+                            <button mat-icon-button (click)="openEmailDialog(true, id)">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             }
             <button mat-raised-button (click)="openEmailDialog(false)"> Adicionar Email </button>
@@ -69,40 +84,64 @@
 
         <li class="bloco-branco">
             <h2>Endereços</h2>
-            <ul>
-                <li>
-                    @for(endereco of clienteDetailed.addresses; track endereco; let id = $index ){
-                        <div class="alterarFields">
-                            <span>{{endereco.street}} - {{endereco.number}}</span> 
-                            <p>{{endereco.district}} - {{endereco.city}}</p>
-                            <button mat-button (click)="openAddressesDialog(true, id)">
+                @for(endereco of clienteDetailed.addresses; track endereco; let id = $index ){
+                <div class="alterarFields"> 
+                    <ul> 
+                        <li>
+                            <span>Rua:</span>
+                            <p>{{endereco.street}} {{endereco.number}} </p>
+                        </li>
+                        <li>
+                            <span>Bairro:</span>
+                            <p> {{endereco.district}}</p>
+                        </li>
+                        <li>
+                            <span>Cidade:</span>
+                            <p> {{endereco.city}} </p>
+                        </li>
+                        <li>
+                            <button mat-icon-button (click)="openAddressesDialog(true, id)">
                                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
                             </button>
-                        </div>  
-                    }
-                    <button mat-raised-button (click)="openAddressesDialog(false)"> Adicionar Endereço </button>
-                </li>
-            </ul>
+                        </li>
+                    </ul> 
+                </div>
+                }
+                <button mat-raised-button (click)="openAddressesDialog(false)"> Adicionar Endereço </button>
         </li>
 
         <li class="bloco-branco">
             <h2>Documentos</h2>
             @for(documento of clienteDetailed.documents; track documento; let id = $index ){
-                <div class="alterarFields">
-                <span>Numero</span>
-                <p>{{documento.number}}</p>
-                <span>Categoria</span>
-                <h3>{{documento.category}}</h3>
-                <span>Data de Criação</span>
-                <p>{{documento.issuingDate}}</p>
-                <span>Orgão Emissor </span>
-                <p>{{documento.issuingEntity}}</p>
-                <span>Data de Criação</span>
-                <p>{{documento.issuingCountry}}</p>
-                <button mat-button (click)="openDocumentDialog(true, id)">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-                </button>
-                </div>
+            <div class="alterarFields">
+                <ul>
+                    <li>
+                        <span>Numero:</span>
+                        <p> {{documento.number}} </p>
+                    </li>
+                    <li>
+                        <span>Categoria:</span>
+                        <p>  {{documento.category}} </p>
+                    </li>
+                    <li>
+                        <span>Data de Criação:</span>
+                        <p>  {{documento.issuingDate}} </p>
+                    </li>
+                    <li>
+                        <span>Orgão Emissor:</span>
+                        <p>  {{documento.issuingEntity}} </p>
+                    </li>
+                    <li>
+                        <span>Data de Criação:</span>
+                        <p>  {{documento.issuingCountry}} </p>
+                    </li>
+                    <li>
+                        <button mat-icon-button (click)="openDocumentDialog(true, id)">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
             }
             <button mat-raised-button (click)="openDocumentDialog(false)"> Adicionar Documento </button>
 
@@ -111,15 +150,23 @@
         <li class="bloco-branco">
             <h2>Contas Bancárias</h2>
             @for(bankAccount of clienteDetailed.bankAccounts; track bankAccount; let id = $index ){
-                <div class="alterarFields">
-                <span>Nome Banco</span>
-                <h3>{{bankAccount.bankName}}</h3>
-                <span>Numero do Banco</span>
-                <h3>{{bankAccount.accountNumber}}</h3>
-                <button mat-button (click)="openBankAccountDialog(true, id)">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-                </button>
-                </div> 
+            <div class="alterarFields">
+                <ul>
+                    <li>
+                        <span>Nome do Banco:</span>
+                        <p>  {{bankAccount.bankName}} </p>
+                    </li>
+                    <li>
+                        <span>Numero do Banco:</span>
+                        <p>  {{bankAccount.accountNumber}} </p>
+                    </li>
+                    <li>
+                        <button mat-icon-button (click)="openBankAccountDialog(true, id)">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div> 
             }
             <button mat-raised-button (click)="openBankAccountDialog(false)">Adicionar Banco</button>
         </li>
@@ -128,13 +175,24 @@
             <h2>Beneficios</h2>
             @for(benefit of clienteDetailed.benefits; track benefit; let id = $index ){
                 <div class="alterarFields">
-                <span>Codigo Beneficio</span>
-                <h3>{{benefit.code}}</h3>
-                <span>Numero</span>
-                <h3>{{benefit.number}}</h3>
-                <button mat-button (click)="openBenefitsDialog(true, id)">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-                </button>
+                    <ul>
+                        <li>
+                            <span>Codigo Beneficio: </span>
+                            <h3>{{benefit.code}}</h3>
+                        </li>
+                        <li>
+                            <span>Numero: </span>
+                            <h3>{{benefit.number}}</h3>
+                        </li>
+                        <li>
+                            <button mat-icon-button (click)="openBenefitsDialog(true, id)">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+                            </button>
+                        </li>
+                    </ul>
+                
+                
+                
                 </div>  
             }
             <button mat-raised-button (click)="openBenefitsDialog(false)"> Adicionar Beneficio </button>

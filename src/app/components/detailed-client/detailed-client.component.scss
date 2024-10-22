@@ -1,21 +1,18 @@
 .toolbar-container {
     width: 100%;
     border-bottom: 2px solid black;
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }
 
-.toolbar-container button{
-    margin-left: auto;
+.toolbar-container .toolbar-botoes{
+    margin-left: 70%;
 }
 
-.toolbar-cliente {
-    width: 100%;
-    border-bottom: 2px solid black;
+.toolbar-botoes button{
+    margin-left: 10px;
 }
-
-.toolbar-cliente button {
-    margin-left: auto;
-}
-
 
 
 .detailed-cliente-main{
@@ -106,13 +103,13 @@
     display: inline-flex;
 }
 
-ul {
+.main-container-lista {
     display: inline-flex;
     flex-wrap: wrap;
     list-style: none;
 }
 
-ul li {
+.main-container-lista li {
     width: 45%;
     align-items: center;
     align-content: center;
@@ -125,12 +122,32 @@ ul li {
     border-radius: 10px;
     margin: 20px;
     padding: 10px;
+   
 }
 
-.bloco-branco .alterarFields{
-
+.alterarFields{
     display: flex;
-    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.alterarFields ul{
+    border: 1px solid gray;
+    border-radius: 10px;
+    list-style: none;
+    display: flex;
     margin: 10px;
 
 }
+
+.alterarFields li{
+    margin: 10px;
+}
+
+.telefones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
