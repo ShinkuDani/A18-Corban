@@ -32,8 +32,7 @@
 
 .toolbar-container{
     border-bottom: 1px solid black;
-    height: 100%;
- 
+    height: 10vh;
 }
 
 .toolbar-container button, .tollbar-pesquisa {
@@ -45,8 +44,8 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+    margin-left: 720px;
 }
-
 
 .container-botoes button {
     margin-right: 5px;
