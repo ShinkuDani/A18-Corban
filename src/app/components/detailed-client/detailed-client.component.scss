@@ -1,17 +1,27 @@
+.detailed-container{
+    background-color: white
+}
+
+.detailed-container mat-toolbar{
+    background-color: white;
+
+}
+
 .toolbar-container {
     width: 100%;
-    border-bottom: 2px solid black;
+    border-bottom: 0.5px solid gray;
     display: flex;
     justify-content:center;
     align-items: center;
 }
 
 .toolbar-container .toolbar-botoes{
-    margin-left: 70%;
+    margin-left: 80%;
 }
 
 .toolbar-botoes button{
     margin-left: 10px;
+    border-radius: 20px;
 }
 
 
@@ -31,7 +41,6 @@
     justify-content: center;
     margin: 10px 0px;
     padding: 5px;
-    border: 1px dashed black;
 }
 
 .detailedClient-adresses{
@@ -39,11 +48,11 @@
     width: 25%;
     margin: 10px;
     padding: 10px;
-    border: 1px dashed black;
+    border: 1px dashed gray;
 }
 
 .detailedClient-adresses p{
-    border-bottom: 1px solid black ;
+    border-bottom: 1px solid gray ;
     margin-bottom: 5px;
 }
 
@@ -52,11 +61,11 @@
     width: 25%;
     margin: 10px;
     padding: 10px;
-    border: 1px dashed black;
+    border: 1px dashed gray;
 }
 
 .detailedClient-phone p{
-    border-bottom: 1px solid black ;
+    border-bottom: 1px solid gray ;
     margin-bottom: 5px;
 }
 
@@ -65,11 +74,11 @@
     width: 25%;
     margin: 10px;
     padding: 10px;
-    border: 1px dashed black;
+    border: 1px dashed gray;
 }
 
 .detailedClient-document p{
-    border-bottom: 1px solid black ;
+    border-bottom: 1px solid gray ;
     margin-bottom: 5px;
 }
 
@@ -78,11 +87,11 @@
     width: 25%;
     margin: 10px;
     padding: 10px;
-    border: 1px dashed black;
+    border: 1px dashed gray;
 }
 
 .detailedClient-contaBancaria p{
-    border-bottom: 1px solid black ;
+    border-bottom: 1px solid gray ;
     margin-bottom: 5px;
 }
 
@@ -91,16 +100,20 @@
     width: 25%;
     margin: 10px;
     padding: 10px;
-    border: 1px dashed black;
+    border: 1px dashed gray;
 }
 
 .detailedClient-beneficios p{
-    border-bottom: 1px solid black ;
+    border-bottom: 1px solid gray ;
     margin-bottom: 5px;
 }
 
 .main-container{
     display: inline-flex;
+}
+
+.main-container button{
+    border-radius: 20px;
 }
 
 .main-container-lista {
@@ -118,6 +131,7 @@
 }
 
 .bloco-branco{
+    background-color: whitesmoke;
     border: 1px solid gray;
     border-radius: 10px;
     margin: 20px;

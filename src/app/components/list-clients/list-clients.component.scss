@@ -1,39 +1,56 @@
 
-
 .container{
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background-color: whitesmoke;
+
+}
+
+.container mat-drawer-container mat-drawer{
+    background-color: whitesmoke
+
+    
 }
 
 .FixedButton{
     height: 40px;
     width: 130px;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .drawer-top {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid gray;
+    background-color: whitesmoke
 }
 
 .drawer-top button{
     margin: 14px 10px;
+    border-radius: 20px;
 }
 
-.drawer-buttons  button{
+
+.drawer-buttons button{
     display: block;
     width: 100%;
     height: 50px;
-    margin: 3px 0px;
+    margin: 1px 0px;
 }
 
 .toolbar-container{
-    border-bottom: 1px solid black;
     height: 10vh;
+
 }
+
+.toolbar-container mat-toolbar{
+    background-color: whitesmoke
+
+}
+
+
 
 .toolbar-container button, .tollbar-pesquisa {
     margin-left: 10px ;

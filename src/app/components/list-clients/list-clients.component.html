@@ -1,13 +1,12 @@
 <div class="container">
   <mat-drawer-container autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-drawer #drawer mode="side">
       <div class="drawer-top">
         <button mat-raised-button color="accent" [routerLink]="['/create']"> Cliente Novo </button>
         <button mat-raised-button (click)="openCreateClientDialog()">Dialog de Cliente Novo</button>
       </div>
       
       <div class="drawer-buttons">
-
         <button mat-button>
           <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="filter_list"></mat-icon>
           Filtros
@@ -43,8 +42,8 @@
             Exportar
         </button> 
       </div>
-    
     </mat-drawer>
+
     <div>
       <div class="toolbar-container">
         <mat-toolbar>
@@ -52,9 +51,8 @@
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="sort"></mat-icon>
          </button>
           <h2> Clientes </h2>
-            <!-- <button mat-raised-button (click)="getToken()" class="FixedButton"> Token </button>  -->
+            
             <button mat-raised-button color="primary" (click)="getClients()" class="FixedButton"> Pegar Clientes </button>
-            <button mat-raised-button color="primary" (click)="clearFilter()" class="FixedButton">Clear Filter</button>
 
 
             <div class="tollbar-pesquisa">
@@ -69,7 +67,7 @@
 
       @if(searchCustomers.length >= 1 && searchCustomers[0].customerId != ''){
 
-        <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource2" class="table-full">
 
           <ng-container matColumnDef="Servico">
             <th mat-header-cell *matHeaderCellDef> Servico Search </th>
