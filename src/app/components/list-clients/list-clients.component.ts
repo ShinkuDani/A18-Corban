@@ -75,7 +75,6 @@ export class ListClientsComponent {
 
   
 
-  //customers: Array<any> = new Array<any>();
   customers: clienteLiteInterface[] = [{
     accountCode: '',
     customerId: '',
@@ -88,8 +87,20 @@ export class ListClientsComponent {
     naturalnessState: '',
     naturalness: '',
     note: '',
-    addresses: [],
-    emails: [],
+    addresses: [{
+      street: '',
+      number: '',
+      complement: '',
+      district: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      note: ''
+    }],
+    emails: [{
+      email: '',
+      note: ''
+    }],
     phones: [],
     documents: [],
     bankAccounts: [],
@@ -119,32 +130,11 @@ export class ListClientsComponent {
   searchInput = new FormControl();
 
 
-  displayedColumns: string[] = ['Servico','Codigo', 'Nome', 'Apelido'];
+  displayedColumns: string[] = ['Servico','Codigo', 'Nome', 'Associação','Cadastro' ];
   
   
     dataSource = this.customers;
     dataSource2 = this.searchCustomers;
-
-/*
-  getClients(){
-    this._corbanService.getToken().subscribe(result => {
-      if (result)
-        localStorage.setItem('token', result.token);
-
-      this._corbanService.getCustomers().subscribe(
-        data => {
-          if (data) {
-            this.customers = data.items;
-            console.log(this.dataSource);
-            this.dataSource = data.items
-          }
-        }
-      )
-        
-    })
-     
-  }
-*/
 
   getClients(){
     if(localStorage.getItem('token') != ''){
@@ -156,8 +146,8 @@ export class ListClientsComponent {
       this._corbanService.getCustomers().subscribe(
         data => {
           if (data) {
-            this.customers = data.items;
-            console.log(this.dataSource);
+            this.customers = data.items as clienteLiteInterface[];
+            console.log(this.customers);
             this.dataSource = data.items
           }
         }
@@ -169,7 +159,6 @@ export class ListClientsComponent {
   deleteClient(id:any){
     this._corbanService.deleteCustomer(id).subscribe(
       data => {
-        //this._toastr.warning('Usuário Deletado', 'Delete')
         this.getClients()
       }
     )
@@ -196,7 +185,6 @@ export class ListClientsComponent {
       this._corbanService.postCustomer(customer).subscribe(
         data => {
           if(data){
-            //this._toastr.success('Usuário Criado com Sucesso', 'Post')
             this.customers = data
           }
         }
@@ -304,34 +292,6 @@ export class ListClientsComponent {
       data: {
 
         clienteDialog: newCustomer
-        /*
-        //Client Basic Info
-        costumerId: newCustomer.customerId, accountCode:newCustomer.accountCode, 
-        nickName:newCustomer.nickname, name:newCustomer.name,
-        birthDay:newCustomer.birthDate, email:newCustomer.emails[0].email,
-        phone:newCustomer.phones[0].number, 
-        note:newCustomer.note,
-        //Adress Info
-        zipCode:newCustomer.addresses[newCustomer.addresses.length + 1].zipCode, street:newCustomer.addresses[newCustomer.addresses.length + 1].street,
-        number:newCustomer.addresses[newCustomer.addresses.length + 1].number, complement:newCustomer.addresses[newCustomer.addresses.length + 1].complement,
-        district:newCustomer.addresses[newCustomer.addresses.length + 1].district, city:newCustomer.addresses[newCustomer.addresses.length + 1].city,
-        state:newCustomer.addresses[newCustomer.addresses.length + 1].state, motherName:newCustomer.motherName,
-        fatherName:newCustomer.fatherName, naturalness:newCustomer.naturalness,
-        naturalnessState:newCustomer.naturalness, nationality:newCustomer.nationality,
-        //Document Info
-        documentTypeCode:newCustomer.documents[newCustomer.documents.length + 1].typeCode, documentNumber:newCustomer.documents[newCustomer.documents.length + 1].number,
-        documentIssuingDate:newCustomer.documents[newCustomer.documents.length + 1].issuingDate, documentExpirationDate:newCustomer.documents[newCustomer.documents.length + 1].expirationDate,
-        documentIssuingEntity:newCustomer.documents[newCustomer.documents.length + 1].issuingEntity, 
-        //Bank Account
-        bankAccountTypeCode:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].typeCode, bankName:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].bankName,
-        bankCode:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].bankCode, bankAccountId:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].bankAccountId,
-        accountNumber:newCustomer.bankAccounts[newCustomer.bankAccounts.length + 1].accountNumber, 
-        //Benefits
-        benefitTypeCode:newCustomer.benefits[newCustomer.benefits.length + 1].typeCode,benefitNumber:newCustomer.benefits[newCustomer.benefits.length + 1].number,
-        benefitCode:newCustomer.benefits[newCustomer.benefits.length + 1].code, benefitDescription:newCustomer.benefits[newCustomer.benefits.length + 1].description,
-        benefitValue:newCustomer.benefits[newCustomer.benefits.length + 1].value, benefitNetValue:newCustomer.benefits[newCustomer.benefits.length + 1].netValue,
-        benefitIssuingDate:newCustomer.benefits[newCustomer.benefits.length + 1].issuingDate, benefitStartDate:newCustomer.benefits[newCustomer.benefits.length + 1].startDate
-       */
        }
     });
     

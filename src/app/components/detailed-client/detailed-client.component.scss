@@ -29,83 +29,13 @@
     margin: 10px;
 }
 
-.detailedClient-pesronalInfo-container{
-    display: flex;
-    flex-direction: column;
-}
-
-.detailedClient-pesronalInfo{
+.detailedClient-personalInfo{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 10px 0px;
     padding: 5px;
-}
-
-.detailedClient-adresses{
-    display: inline-block;
-    width: 25%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px dashed gray;
-}
-
-.detailedClient-adresses p{
-    border-bottom: 1px solid gray ;
-    margin-bottom: 5px;
-}
-
-.detailedClient-phone{
-    display: inline-block;
-    width: 25%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px dashed gray;
-}
-
-.detailedClient-phone p{
-    border-bottom: 1px solid gray ;
-    margin-bottom: 5px;
-}
-
-.detailedClient-document{
-    display: inline-block;
-    width: 25%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px dashed gray;
-}
-
-.detailedClient-document p{
-    border-bottom: 1px solid gray ;
-    margin-bottom: 5px;
-}
-
-.detailedClient-contaBancaria{
-    display: inline-block;
-    width: 25%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px dashed gray;
-}
-
-.detailedClient-contaBancaria p{
-    border-bottom: 1px solid gray ;
-    margin-bottom: 5px;
-}
-
-.detailedClient-beneficios{
-    display: inline-block;
-    width: 25%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px dashed gray;
-}
-
-.detailedClient-beneficios p{
-    border-bottom: 1px solid gray ;
-    margin-bottom: 5px;
 }
 
 .main-container{
@@ -133,6 +63,7 @@
 .bloco-branco{
     background-color: whitesmoke;
     border: 1px solid gray;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin: 20px;
     padding: 10px;
@@ -146,16 +77,17 @@
 }
 
 .alterarFields ul{
-    border: 1px solid gray;
-    border-radius: 10px;
     list-style: none;
     display: flex;
     margin: 10px;
+    border-bottom: 5px solid black;
+    border-radius: 10px;
 
 }
 
 .alterarFields li{
     margin: 10px;
+
 }
 
 .telefones{

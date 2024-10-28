@@ -1,16 +1,13 @@
 
 .container{
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: 100vh;
     background-color: whitesmoke;
 
 }
 
 .container mat-drawer-container mat-drawer{
-    background-color: whitesmoke
-
-    
+    background-color: whitesmoke    
 }
 
 .FixedButton{
@@ -46,13 +43,13 @@
 }
 
 .toolbar-container mat-toolbar{
-    background-color: whitesmoke
-
+    background-color: whitesmoke;
+    border-bottom: 1px solid gray;
 }
 
 
 
-.toolbar-container button, .tollbar-pesquisa {
+.toolbar-container button {
     margin-left: 10px ;
 }
 

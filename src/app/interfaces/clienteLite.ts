@@ -11,11 +11,11 @@ export interface clienteLiteInterface {
   'naturalness': string
   'note': string
   'addresses': addresses[]
-    'emails': email[]
-    'phones': phone[]
-    'documents': document[]
-    'bankAccounts': bankAccounts[]
-    'benefits': benefits[]
+  'emails': email[]
+  'phones': phone[]
+  'documents': document[]
+  'bankAccounts': bankAccounts[]
+  'benefits': benefits[]
   }
 
 export interface phone {

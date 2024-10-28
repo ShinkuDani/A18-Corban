@@ -124,7 +124,7 @@ export class DetailDialogEmail {
   constructor(
     public dialogRef: MatDialogRef<DetailDialogEmail>,
     @Inject(MAT_DIALOG_DATA) public data: {
-      email:email
+      email: email
       name: string,
       },
   ) {}
@@ -157,7 +157,7 @@ export class DetailDialogAddress {
   constructor(
     public dialogRef: MatDialogRef<DetailDialogAddress>,
     @Inject(MAT_DIALOG_DATA) public data: {
-      address:addresses
+      address: addresses
       name: string,
        },
   ) {}
@@ -284,8 +284,8 @@ export class DetailedClientComponent {
 
 // Objetos Vazios
   phoneN: phone = {
-    ddd:0,
-    number:0,
+    ddd: 0,
+    number: 0,
     note:''
   }
 

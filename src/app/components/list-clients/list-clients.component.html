@@ -44,7 +44,7 @@
       </div>
     </mat-drawer>
 
-    <div>
+    
       <div class="toolbar-container">
         <mat-toolbar>
           <button mat-button (click)="drawer.toggle()">
@@ -96,17 +96,38 @@
   
           <ng-container matColumnDef="Codigo">
             <th mat-header-cell *matHeaderCellDef> Codigo do Cliente </th>
-            <td mat-cell *matCellDef="let element"> {{element.accountCode}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.customerCode}} </td>
           </ng-container>
   
           <ng-container matColumnDef="Nome">
             <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> 
+              <span>Nome:</span>
+              {{element.name}}
+              <span>NickName: </span>
+              {{element.nickname}}
+            </td>
           </ng-container>
   
-          <ng-container matColumnDef="Apelido">
-            <th mat-header-cell *matHeaderCellDef> Apelido </th>
-            <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
+          <ng-container matColumnDef="Associação">
+            <th mat-header-cell *matHeaderCellDef> Associação </th>
+            <td mat-cell *matCellDef="let element"> 
+              <span>Conta</span>
+              <p>{{element.companyName}}</p>
+              <span>Loja</span>
+              <p>{{element.storeName}}</p>
+              <span>Agente</span>
+              <p>{{element.creationUserName}}</p>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Cadastro">
+            <th mat-header-cell *matHeaderCellDef> Cadastro </th>
+            <td mat-cell *matCellDef="let element"> 
+              <span>Criação</span>
+              <p>{{element.creationUserName}}</p>
+              <p>{{element.creationDate}}</p> 
+            </td>
           </ng-container>
   
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -115,7 +136,7 @@
 
       }  @else {
         @if(customers.length > 1 && customers[0].customerId != ''){
-          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
 
             <ng-container matColumnDef="Servico">
               <th mat-header-cell *matHeaderCellDef> Servico </th>
@@ -144,17 +165,38 @@
   
             <ng-container matColumnDef="Codigo">
               <th mat-header-cell *matHeaderCellDef> Codigo do Cliente </th>
-              <td mat-cell *matCellDef="let element"> {{element.accountCode}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.customerCode}} </td>
             </ng-container>
   
             <ng-container matColumnDef="Nome">
               <th mat-header-cell *matHeaderCellDef> Nome </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <td mat-cell *matCellDef="let element">
+                <span>Nome:</span>
+                <p>{{element.name}}</p>
+                <span>NickName:</span>
+                <p> {{element.nickname}}</p>
+                </td>
             </ng-container>
   
-            <ng-container matColumnDef="Apelido">
-              <th mat-header-cell *matHeaderCellDef> Apelido </th>
-              <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
+            <ng-container matColumnDef="Associação">
+              <th mat-header-cell *matHeaderCellDef> Associação </th>
+              <td mat-cell *matCellDef="let element"> 
+                <span>Conta</span>
+                <p>{{element.companyName}}</p>
+                <span>Loja</span>
+                <p>{{element.storeName}}</p>
+                <span>Agente</span>
+                <p>{{element.creationUserName}}</p>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Cadastro">
+              <th mat-header-cell *matHeaderCellDef> Cadastro </th>
+              <td mat-cell *matCellDef="let element">
+                <span>Criação</span>
+                <p>{{element.creationUserName}}</p>
+                <span>{{element.creationDate}}</span> 
+              </td>
             </ng-container>
   
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -165,6 +207,4 @@
         
     }
     
-
-    </div>
 </mat-drawer-container>
