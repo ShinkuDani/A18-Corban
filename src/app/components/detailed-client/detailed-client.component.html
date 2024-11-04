@@ -49,7 +49,7 @@
                     <div class="alterarFields">
                         <ul>
                             <li>
-                                <h1>{{telefone.ddd}}{{telefone.number}}</h1>
+                                <h1>Tel:{{telefone.ddd}}{{telefone.number}} </h1>
                             </li>
                             <li>
                                 <button mat-icon-button (click)="openPhoneDialog(true, id)">
@@ -70,7 +70,7 @@
                     <div class="alterarFields">
                         <ul>
                             <li>
-                                <span>{{email.email}}</span>
+                                <h3>{{email.email}}</h3>
                             </li>
                             <li>
                                 <button mat-icon-button (click)="openEmailDialog(true, id)">
@@ -90,15 +90,15 @@
                         <ul> 
                             <li>
                                 <span>Rua:</span>
-                                <p>{{endereco.street}} {{endereco.number}} </p>
+                                <h3>{{endereco.street}} {{endereco.number}} </h3>
                             </li>
                             <li>
                                 <span>Bairro:</span>
-                                <p> {{endereco.district}}</p>
+                                <h3> {{endereco.district}}</h3>
                             </li>
                             <li>
                                 <span>Cidade:</span>
-                                <p> {{endereco.city}} </p>
+                                <h3> {{endereco.city}} </h3>
                             </li>
                             <li>
                                 <button mat-icon-button (click)="openAddressesDialog(true, id)">
@@ -118,23 +118,23 @@
                     <ul>
                         <li>
                             <span>Numero:</span>
-                            <p> {{documento.number}} </p>
+                            <h3> {{documento.number}} </h3>
                         </li>
                         <li>
                             <span>Categoria:</span>
-                            <p>  {{documento.category}} </p>
+                            <h3>  {{documento.category}} </h3>
                         </li>
                         <li>
                             <span>Data de Criação:</span>
-                            <p>  {{documento.issuingDate}} </p>
+                            <h3>  {{documento.issuingDate}} </h3>
                         </li>
                         <li>
                             <span>Orgão Emissor:</span>
-                            <p>  {{documento.issuingEntity}} </p>
+                            <h3>  {{documento.issuingEntity}} </h3>
                         </li>
                         <li>
                             <span>Data de Criação:</span>
-                            <p>  {{documento.issuingCountry}} </p>
+                            <h3>  {{documento.issuingCountry}} </h3>
                         </li>
                         <li>
                             <button mat-icon-button (click)="openDocumentDialog(true, id)">
@@ -155,11 +155,11 @@
                     <ul>
                         <li>
                             <span>Nome do Banco:</span>
-                            <p>  {{bankAccount.bankName}} </p>
+                            <h3>  {{bankAccount.bankName}} </h3>
                         </li>
                         <li>
                             <span>Numero do Banco:</span>
-                            <p>  {{bankAccount.accountNumber}} </p>
+                            <h3>  {{bankAccount.accountNumber}} </h3>
                         </li>
                         <li>
                             <button mat-icon-button (click)="openBankAccountDialog(true, id)">

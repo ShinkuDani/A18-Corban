@@ -8,37 +8,37 @@
       
       <div class="drawer-buttons">
         <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="filter_list"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Lista_Filtro" fontIcon="filter_list"></mat-icon>
           Filtros
         </button> 
 
        <button mat-button>
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="clear_all"></mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Limpar_Filtro" fontIcon="clear_all"></mat-icon>
           Limpar Filtros
         </button> 
 
         <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="flag"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Status" fontIcon="flag"></mat-icon>
             Status
         </button> 
 
         <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="layers"></mat-icon>
-            Atibuto
+          <mat-icon aria-hidden="false" aria-label="Atributo" fontIcon="layers"></mat-icon>
+            Atributo
         </button> 
 
         <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_search"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Meus_Filtros" fontIcon="manage_search"></mat-icon>
             Meus Filtros
         </button> 
 
         <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="cake"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Aniversario_Mes" fontIcon="cake"></mat-icon>
             Aniversário do Mês
         </button> 
 
         <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="trending_flat"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Exportar" fontIcon="trending_flat"></mat-icon>
             Exportar
         </button> 
       </div>
@@ -48,11 +48,11 @@
       <div class="toolbar-container">
         <mat-toolbar>
           <button mat-button (click)="drawer.toggle()">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="sort"></mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Clientes" fontIcon="sort"></mat-icon>
          </button>
           <h2> Clientes </h2>
             
-            <button mat-raised-button color="primary" (click)="getClients()" class="FixedButton"> Pegar Clientes </button>
+            <button mat-raised-button color="primary" class='pegaClientes' (click)="getClients()" class="FixedButton"> Pegar Clientes </button>
 
 
             <div class="tollbar-pesquisa">
@@ -73,7 +73,7 @@
             <th mat-header-cell *matHeaderCellDef> Servico Search </th>
             <td mat-cell *matCellDef="let element"> 
 
-              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Opções_Cliente">
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
@@ -142,7 +142,7 @@
               <th mat-header-cell *matHeaderCellDef> Servico </th>
               <td mat-cell *matCellDef="let element"> 
   
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Cliente_Menu">
                   <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
