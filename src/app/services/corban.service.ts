@@ -23,6 +23,10 @@ export class CorbanService {
     return this.http.post(`${this.URL}/login`, {'accessKey':this.loginUser.user, 'password':this.loginUser.password});
   }
 
+  getToken2(loginUser:string, passwordUser:string): Observable<any> {
+    return this.http.post(`${this.URL}/login`, {'accessKey':loginUser, 'password':passwordUser});
+  }
+
   getCustomers(): Observable<any> {
     return this.http.get(`${this.URL}/customers`)
   }

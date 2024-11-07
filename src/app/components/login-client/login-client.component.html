@@ -1,0 +1,24 @@
+<div class="login-container">
+    <div class="login-fields">
+        <form class="login-Form">
+            <h1>Tela de Login</h1>
+            <ul>
+                <li>
+                    <mat-form-field>
+                        <mat-label>Usuário</mat-label>
+                        <input type="text" matInput placeholder="Nome Usuário" [formControl]='usuarioNome'>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field>
+                        <mat-label>Senha</mat-label>
+                        <input type="password" matInput placeholder="Senha Usuário" [formControl]="usuarioSenha">
+                    </mat-form-field>
+                </li>
+                <li>
+                    <button mat-raised-button (click)="printandoUser()"> Login </button>
+                </li>
+            </ul>                               
+        </form>
+    </div>
+</div>
