@@ -1,17 +1,17 @@
 
-
-
 .login-Form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-right: 30px;
-    margin: 15vh 0vw 0vh 33vw;
-    width: 30vw;
+    margin: 15vh 0vw 0vh 26vw;
+    width: 40vw;
     height: 60vh;
-    border: 1px solid black;
+    border: 1px solid transparent;
     border-radius: 20px;
+    background-color: black;
+    color: white;
 }
 
 ul{
@@ -24,7 +24,7 @@ ul{
 }
 
 li mat-form-field { 
-    width: 20vw;
+    width: 30vw;
     text-align: center;
 }
 

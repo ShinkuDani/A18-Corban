@@ -7,6 +7,10 @@ import { LoginClientComponent } from './components/login-client/login-client.com
 export const routes: Routes = [
     {
         path:'',
+        component: LoginClientComponent
+    },
+    {
+        path:'listaClientes',
         component: ListClientsComponent
     },
     {
@@ -21,8 +25,5 @@ export const routes: Routes = [
         path:'detail/:id',
         component: DetailedClientComponent
     },
-    {
-        path:'login',
-        component: LoginClientComponent
-    }
+    
 ];

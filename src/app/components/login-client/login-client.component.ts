@@ -5,6 +5,7 @@ import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CorbanService } from '../../services/corban.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-client',
@@ -23,7 +24,7 @@ import { CorbanService } from '../../services/corban.service';
 export class LoginClientComponent {
 
 
-constructor(private _corbanService:CorbanService){}
+constructor(private _corbanService:CorbanService, private _router: Router){}
 
   usuarioNome = new FormControl();
   usuarioSenha = new FormControl();
@@ -32,15 +33,16 @@ constructor(private _corbanService:CorbanService){}
     console.log(this.usuarioNome.value)
     console.log(this.usuarioSenha.value)
 
-    if(this.usuarioNome.value == 'daniel-silvasales@hotmail.com' && this.usuarioSenha.value == 'DanielTesteCorban360'){
-      //console.log('Pegando Token')
-      
+    if(this.usuarioNome.value == 'daniel-silvasales@hotmail.com' && this.usuarioSenha.value == 'DanielTesteCorban360'){      
       this._corbanService.getToken().subscribe(
         result => {
           if(result){
-            localStorage.setItem('token', result.token);
             //console.log(`Token: ${localStorage.getItem('token')}`)
+            localStorage.setItem('token', result.token);
             console.log('Token Pego')
+            this._router.navigate(['/listaClientes'])
+          }else{
+            console.log('Não foi possivel Conectar.')
           }
 
         }

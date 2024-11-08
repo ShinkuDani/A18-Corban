@@ -128,30 +128,20 @@ export class ListClientsComponent {
   }]
 
   searchInput = new FormControl();
-
-
   displayedColumns: string[] = ['Servico','Codigo', 'Nome', 'Associação','Cadastro' ];
-  
-  
-    dataSource = this.customers;
-    dataSource2 = this.searchCustomers;
+  dataSource = this.customers;
+  dataSource2 = this.searchCustomers;
 
   getClients(){
-    if(localStorage.getItem('token') != ''){
-      this._corbanService.getToken().subscribe(result => {
-        if (result)
-          localStorage.setItem('token', result.token);
-      })
-    }
-      this._corbanService.getCustomers().subscribe(
-        data => {
-          if (data) {
-            this.customers = data.items as clienteLiteInterface[];
-            console.log(this.customers);
-            this.dataSource = data.items
-          }
+    this._corbanService.getCustomers().subscribe(
+      data => {
+        if (data) {
+          this.customers = data.items as clienteLiteInterface[];
+          console.log(this.customers);
+          this.dataSource = data.items
         }
-      )
+      }
+    )
         
     }
 
