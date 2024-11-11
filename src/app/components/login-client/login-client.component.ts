@@ -29,37 +29,16 @@ constructor(private _corbanService:CorbanService, private _router: Router){}
   usuarioNome = new FormControl();
   usuarioSenha = new FormControl();
 
-  printandoUser(){
-    console.log(this.usuarioNome.value)
-    console.log(this.usuarioSenha.value)
-
-    if(this.usuarioNome.value == 'daniel-silvasales@hotmail.com' && this.usuarioSenha.value == 'DanielTesteCorban360'){      
-      this._corbanService.getToken().subscribe(
-        result => {
-          if(result){
-            //console.log(`Token: ${localStorage.getItem('token')}`)
-            localStorage.setItem('token', result.token);
-            console.log('Token Pego')
-            this._router.navigate(['/listaClientes'])
-          }else{
-            console.log('Não foi possivel Conectar.')
-          }
-
-        }
-      )
-      
-      
-    }
-  }
-
   gettingToken(){
-    let usuarioNomeT:string = this.usuarioNome.value.toString().trim()
-    let usuarioSenhaT:string = this.usuarioSenha.value.toString().trim()
-
-    this._corbanService.getToken2(usuarioNomeT, usuarioSenhaT).subscribe(
+    this._corbanService.getToken2(this.usuarioNome.value, this.usuarioSenha.value).subscribe(
       data => {
         if(data){
           localStorage.setItem('token', data.token);
+          console.log('Login Realizado com Sucesso');
+          this._router.navigate(['/listaClientes']);
+        }else{
+          console.log('Não foi possivel fazer o Login')
+          this.usuarioSenha.reset()
         }
       }
     )

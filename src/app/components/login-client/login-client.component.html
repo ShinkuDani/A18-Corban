@@ -6,17 +6,17 @@
                 <li>
                     <mat-form-field>
                         <mat-label>Usuário</mat-label>
-                        <input type="text" matInput placeholder="Nome Usuário" [formControl]='usuarioNome'>
+                        <input type="text" matInput [formControl]='usuarioNome'>
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field>
                         <mat-label>Senha</mat-label>
-                        <input type="password" matInput placeholder="Senha Usuário" [formControl]="usuarioSenha">
+                        <input type="password" matInput [formControl]="usuarioSenha">
                     </mat-form-field>
                 </li>
                 <li>
-                    <button mat-raised-button (click)="printandoUser()"> Login </button>
+                    <button mat-raised-button (click)="gettingToken()"> Login </button>
                 </li>
             </ul>                               
         </form>

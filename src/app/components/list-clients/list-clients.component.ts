@@ -169,6 +169,8 @@ export class ListClientsComponent {
 
   clearFilter(){
     this.searchCustomers = []
+    this.searchInput.reset();
+
   }
 
   postCustomer(customer:clienteLiteInterface){

@@ -38,6 +38,7 @@
 }
 
 .toolbar-container{
+    
     height: 10vh;
 
 }
@@ -51,12 +52,13 @@
     margin-left: 2vw ;
 }
 
-.tollbar-pesquisa{
+.toolbar-container .tollbar-pesquisa{
+    padding: 1.5vw 0vw 0px 65vw;
+}
+
+.tollbar-pesquisa-list{
+    list-style: none;
     display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    margin-left: 50vw;
 }
 
 .input-container button{
