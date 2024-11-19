@@ -5,12 +5,14 @@ import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CorbanService } from '../../services/corban.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-login-client',
   standalone: true,
   imports: [
+    MatToolbarModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -37,6 +39,8 @@ constructor(private _corbanService:CorbanService, private _router: Router){}
           console.log('Login Realizado com Sucesso');
           this._router.navigate(['/listaClientes']);
         }else{
+          window.alert('Não foi possivel Fazer Login')
+          alert('Não foi possivel Fazer Login')
           console.log('Não foi possivel fazer o Login')
           this.usuarioSenha.reset()
         }

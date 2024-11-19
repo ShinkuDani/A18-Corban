@@ -92,4 +92,22 @@
 
 }
 
+.initial-toolbar mat-toolbar{
+    padding-bottom: 15px;
+    border-bottom: 0.1px solid gray;
+}
+
+.initial-toolbar{
+    padding: 0px 0px 0px 0px;
+}
+
+.toolbar-icons{
+    margin-left: 80vw;
+
+}
+
+.toolbar-icons ul{
+    list-style: none;
+    display: flex;
+}
 

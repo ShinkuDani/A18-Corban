@@ -1,9 +1,27 @@
 <div class="container">
+  <div class="initial-toolbar">
+    <mat-toolbar>
+      <h2> Corban 360 </h2>
+      <div class="toolbar-icons">
+        <ul>
+          <li>
+            <button mat-icon-button [routerLink]="['listaClientes']" aria-label="Example icon button with a vertical three dot icon">
+              <mat-icon>home</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-icon-button [routerLink]="['']" aria-label="Example icon button with a vertical three dot icon">
+              <mat-icon>person</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar> 
+  </div>
+
   <mat-drawer-container autosize>
     <mat-drawer #drawer mode="side">
       <div class="drawer-top">
-        <!--
-        -->
         <button mat-raised-button color="accent" [routerLink]="['/criar']"> Cliente Novo </button>
         <button mat-raised-button (click)="openCreateClientDialog()">Dialog de Cliente Novo</button>
       </div>

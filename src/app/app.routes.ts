@@ -18,11 +18,11 @@ export const routes: Routes = [
         component: CreateClientsComponent
     },
     {
-        path:'edit/:id',
+        path:'listaClientes/edit/:id',
         component: CreateClientsComponent
     },
     {
-        path:'detail/:id',
+        path:'listaClientes/detail/:id',
         component: DetailedClientComponent
     },
     
