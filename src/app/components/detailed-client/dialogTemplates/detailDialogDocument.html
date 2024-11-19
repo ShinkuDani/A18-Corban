@@ -1,34 +1,34 @@
-<h2 mat-dialog-title>Hi{{data.name}}</h2>
+<h2 mat-dialog-title>Olá {{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's your Document Information<p>
+  <p>Quais são as informações dos seus Documentos ?<p>
   <div class="pocketFilds">
     <mat-form-field>
-    <mat-label>Type</mat-label>
+    <mat-label>Codigo do Tipo de Documento</mat-label>
     <input matInput [(ngModel)]="data.document.typeCode">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Category</mat-label>
+    <mat-label>Categoria do Documento</mat-label>
     <input matInput [(ngModel)]="data.document.category">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Number</mat-label>
+    <mat-label> Numero do Documento </mat-label>
     <input matInput [(ngModel)]="data.document.number">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Issuing Date</mat-label>
+    <mat-label> Data de Expedição </mat-label>
     <input matInput [(ngModel)]="data.document.issuingDate">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Issuing Entinty </mat-label>
+    <mat-label> Entidade Emissora </mat-label>
     <input matInput [(ngModel)]="data.document.issuingEntity">
   </mat-form-field>
   <mat-form-field>
-    <mat-label> Issuing State </mat-label>
+    <mat-label> Estado Emissor </mat-label>
     <input matInput [(ngModel)]="data.document.issuingState">
   </mat-form-field>
 </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Não Obrigado</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

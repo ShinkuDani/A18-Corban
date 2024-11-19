@@ -1,26 +1,26 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
+<h2 mat-dialog-title>Olá {{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's your BankAccount </p>
+  <p> Quais são as informações do seu Banco ? </p>
   <div class="pocketFilds">
   <mat-form-field>
-    <mat-label>Type Code</mat-label>
+    <mat-label>Código de Tipo de Banco</mat-label>
     <input matInput [(ngModel)]="data.bankAccount.typeCode">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Bank's Name</mat-label>
+    <mat-label>Nome do Banco</mat-label>
     <input matInput [(ngModel)]="data.bankAccount.bankName">
   </mat-form-field>
   <mat-form-field>
-  <mat-label> Bank Code </mat-label>
+  <mat-label> Código do Banco </mat-label>
     <input matInput [(ngModel)]="data.bankAccount.bankCode">
   </mat-form-field>
   <mat-form-field>
-    <mat-label> Account Number </mat-label>
+    <mat-label> Numero da Conta </mat-label>
       <input matInput [(ngModel)]="data.bankAccount.accountNumber">
   </mat-form-field>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Não Obrigado</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

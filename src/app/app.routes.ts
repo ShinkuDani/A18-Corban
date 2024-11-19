@@ -14,15 +14,15 @@ export const routes: Routes = [
         component: ListClientsComponent
     },
     {
-        path:'create',
+        path:'criar',
         component: CreateClientsComponent
     },
     {
-        path:'listaClientes/edit/:id',
+        path:'listaClientes/editar/:id',
         component: CreateClientsComponent
     },
     {
-        path:'listaClientes/detail/:id',
+        path:'listaClientes/detalhes/:id',
         component: DetailedClientComponent
     },
     

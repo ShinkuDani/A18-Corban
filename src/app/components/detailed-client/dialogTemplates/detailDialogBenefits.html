@@ -1,34 +1,34 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
+<h2 mat-dialog-title>Olá {{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's your Benefits Informations </p>
+  <p> Quais são as informações dos seus Beneficios ? </p>
   <div class="pocketFilds">
   <mat-form-field>
-    <mat-label>Type Code</mat-label>
+    <mat-label>Código de Tipo de Beneficio </mat-label>
     <input matInput [(ngModel)]="data.benefit.typeCode">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Benefit Number</mat-label>
+    <mat-label>Numero do Beneficio</mat-label>
     <input matInput [(ngModel)]="data.benefit.number">
   </mat-form-field>
   <mat-form-field>
-  <mat-label> Benefit Codigo </mat-label>
+  <mat-label> Codigo do Beneficio </mat-label>
     <input matInput [(ngModel)]="data.benefit.code">
   </mat-form-field>
   <mat-form-field>
-    <mat-label> Value </mat-label>
+    <mat-label> Valor do Beneficio </mat-label>
       <input matInput [(ngModel)]="data.benefit.value">
   </mat-form-field>
   <mat-form-field>
-    <mat-label> Value Net </mat-label>
+    <mat-label> Valor Bruto do Beneficio </mat-label>
       <input matInput [(ngModel)]="data.benefit.netValue">
   </mat-form-field>
   <mat-form-field>
-    <mat-label> Issuing Date </mat-label>
+    <mat-label> Data de Expedição </mat-label>
       <input matInput [(ngModel)]="data.benefit.issuingDate">
   </mat-form-field>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Não Obrigado</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

@@ -1,35 +1,35 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
+<h2 mat-dialog-title>Olá {{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's your Address Informations </p>
+  <p> Quais são as informações do seu endereço ? </p>
   <div class="pocketFilds">
     <mat-form-field>
-      <mat-label> Street </mat-label>
+      <mat-label> Rua </mat-label>
       <input matInput [(ngModel)]="data.address.street">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Number</mat-label>
+      <mat-label>Numero</mat-label>
       <input matInput [(ngModel)]="data.address.number">
     </mat-form-field>
     <mat-form-field>
-    <mat-label> District </mat-label>
+    <mat-label> Bairro </mat-label>
       <input matInput [(ngModel)]="data.address.district">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> City </mat-label>
+      <mat-label> Cidade </mat-label>
         <input matInput [(ngModel)]="data.address.city">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> State </mat-label>
+      <mat-label> Estado </mat-label>
         <input matInput [(ngModel)]="data.address.state">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> ZipCode/CEP </mat-label>
+      <mat-label> CEP </mat-label>
         <input matInput [(ngModel)]="data.address.zipCode">
     </mat-form-field>
   </div>
   </mat-dialog-content>
   <mat-dialog-actions>
 
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Não Obrigado</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

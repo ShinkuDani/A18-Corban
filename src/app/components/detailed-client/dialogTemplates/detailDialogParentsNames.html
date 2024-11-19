@@ -1,22 +1,22 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
+<h2 mat-dialog-title>Olá {{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's you name</p>
+  <p>Qual é o seu Nome</p>
   <mat-form-field>
-    <mat-label>Your Name</mat-label>
+    <mat-label> Seu Nome </mat-label>
     <input matInput [(ngModel)]="data.name">
   </mat-form-field>
-  <p>What's your Parents Names ?</p>
+  <p>Qual é o nome dos Seus Pais ?</p>
   
   <mat-form-field class="littleSpace">
-    <mat-label>Mother Name</mat-label>
+    <mat-label>Nome da sua Mãe</mat-label>
     <input matInput [(ngModel)]="data.motherName">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Father Name</mat-label>
+    <mat-label>Nome do seu Pai</mat-label>
     <input matInput [(ngModel)]="data.fatherName">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Não Obrigado</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

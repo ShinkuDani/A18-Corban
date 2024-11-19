@@ -1,16 +1,16 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
+<h2 mat-dialog-title>Olá {{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's your Phone Number</p>
+  <p>Qual o seu Numero ? </p>
   <mat-form-field class="littleSpace">
     <mat-label>DDD</mat-label>
     <input matInput [(ngModel)]="data.phone.ddd">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Number</mat-label>
+    <mat-label>Numero</mat-label>
     <input matInput [(ngModel)]="data.phone.number">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Não Obrigado</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>
