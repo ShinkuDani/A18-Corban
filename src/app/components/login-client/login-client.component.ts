@@ -28,11 +28,11 @@ export class LoginClientComponent {
 
 constructor(private _corbanService:CorbanService, private _router: Router){}
 
-  usuarioNome = new FormControl();
-  usuarioSenha = new FormControl();
+  usuarioNome = new FormControl('daniel-silvasales@hotmail.com');
+  usuarioSenha = new FormControl('DanielTesteCorban360');
 
   gettingToken(){
-    this._corbanService.getToken2(this.usuarioNome.value, this.usuarioSenha.value).subscribe(
+    this._corbanService.getToken2(this.usuarioNome.value ?? '', this.usuarioSenha.value ?? '').subscribe(
       data => {
         if(data){
           localStorage.setItem('token', data.token);

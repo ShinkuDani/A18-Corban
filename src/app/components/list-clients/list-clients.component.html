@@ -1,28 +1,5 @@
 <div class="container">
-  <div class="initial-toolbar">
-    <mat-toolbar>
-      <h2> Corban 360 </h2>
-      <div class="toolbar-icons">
-        <ul>
-          <li>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
-              <mat-icon>person</mat-icon>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item [routerLink]="['listaClientes']" >
-                  <mat-icon>home</mat-icon>
-                  <span>Home</span>
-                </button>
-                <button mat-menu-item [routerLink]="['']" >
-                  <mat-icon>logout</mat-icon>
-                  <span>Sair</span>
-                </button>
-              </mat-menu>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </mat-toolbar> 
-  </div>
+  
 
   <mat-drawer-container autosize>
     <mat-drawer #drawer mode="side">
