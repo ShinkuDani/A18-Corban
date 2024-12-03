@@ -1,18 +1,74 @@
+// Login Css
+
+#Tela_Login{
+    height: 98vh;
+    width: 98vw;
+}
+
+.login-Form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 30px 5px 0px;
+    margin: 15vh 0vw 0vh 26vw;
+    width: 680px;
+    height: 450px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
+
+.login-fields h1 {
+    font-family: Lucida Handwriting;
+    font-size: 40px;
+    border: white 5px solid;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+ul{
+    border-radius: 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li mat-form-field { 
+    width: 30vw;
+    text-align: center;
+}
+
+li{
+    padding: 5px;
+}
+
+// Toolbar
+
 .initial-toolbar mat-toolbar{
     padding-bottom: 15px;
     border-bottom: 0.1px solid gray;
 }
 
 .initial-toolbar{
-    padding: 0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
 }
 
 .toolbar-icons{
-    margin-left: 80vw;
-
+    margin-left: 68%;
 }
 
 .toolbar-icons ul{
     list-style: none;
     display: flex;
 }
+
+.tituloToolbar{
+    font-size: 50px;
+    font-family: 'Lucida Handwriting';
+}
+

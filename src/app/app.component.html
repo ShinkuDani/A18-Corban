@@ -1,51 +1,61 @@
-<!--
-<div class="initial-toolbar">
-  <mat-toolbar>
-    <h2> Corban 360 </h2>
-    <div class="toolbar-icons">
-      <ul>
-        <li>
-          <button mat-icon-button [routerLink]="['listaClientes']" aria-label="Example icon button with a vertical three dot icon">
-            <mat-icon>home</mat-icon>
-          </button>
-        </li>
-        <li>
-          <button mat-icon-button [routerLink]="['']" aria-label="Example icon button with a vertical three dot icon">
-            <mat-icon>person</mat-icon>
-          </button>
-        </li>
-      </ul>
-    </div>
-      
-  </mat-toolbar> 
+<div class="tela_Login">
 
-  <router-outlet></router-outlet>
-</div>
--->
-<div>
-<div class="initial-toolbar">
-  <mat-toolbar>
-    <h2> Corban 360 </h2>
-    <div class="toolbar-icons">
-      <ul>
-        <li>
-          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
-            <mat-icon>person</mat-icon>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item [routerLink]="['listaClientes']">
-                <mat-icon>home</mat-icon>
-                <span>Home</span>
+  @if(continuar == false){
+    <div class="login-container">
+      <div class="login-fields">
+          <form class="login-Form">
+              <h1>Tela de Login</h1>
+              <ul>
+                  <li>
+                      <mat-form-field>
+                          <mat-label>Usuário</mat-label>
+                          <input type="text" matInput [formControl]='usuarioNome'>
+                      </mat-form-field>
+                  </li>
+                  <li>
+                      <mat-form-field>
+                          <mat-label>Senha</mat-label>
+                          <input type="password" matInput [formControl]="usuarioSenha">
+                      </mat-form-field>
+                  </li>
+                  <li>
+                      <button mat-raised-button (click)="gettingToken()"> Login </button>
+                  </li>
+              </ul>                               
+          </form>
+      </div>
+  </div>
+  } @else {
+    <div class="initial-toolbar">
+      <mat-toolbar>
+        <h2 class="tituloToolbar"> CORBAN 360 </h2>
+        <div class="toolbar-icons">
+          <ul>
+            <li>
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
+                <mat-icon>person</mat-icon>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item [routerLink]="['listaClientes']">
+                    <mat-icon>home</mat-icon>
+                    <span>Lista Clientes</span>
+                  </button>
+                  <button mat-menu-item (click)="logOff()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Sair</span>
+                  </button>
+                </mat-menu>
               </button>
-              <button mat-menu-item [routerLink]="['']">
-                <mat-icon>logout</mat-icon>
-                <span>Sair</span>
-              </button>
-            </mat-menu>
-          </button>
-        </li>
-      </ul>
+            </li>
+          </ul>
+        </div>
+      </mat-toolbar> 
     </div>
-  </mat-toolbar> 
-</div>
-<router-outlet> </router-outlet>
+    <router-outlet></router-outlet>
+  }
+  
+
+
+  <!--
+
+  -->
 </div>
