@@ -1,19 +1,27 @@
-// Login Css
 
-#Tela_Login{
-    height: 98vh;
-    width: 98vw;
+#tela_Login{
+    height: 98.5vh;
+    width: 98.5vw;
 }
 
+
+// Login Css
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
 .login-Form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5px 30px 5px 0px;
-    margin: 15vh 0vw 0vh 26vw;
-    width: 680px;
-    height: 450px;
+    //padding: 5px 30px 5px 0px;
+    //margin: 15vh 0vw 0vh 35vw;
+    width: 390px;
+    height: 650px;
     border: 1px solid transparent;
     border-radius: 20px;
     background-color: black;
@@ -30,7 +38,6 @@
 }
 
 ul{
-    border-radius: 20px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -38,14 +45,16 @@ ul{
     justify-content: center;
 }
 
+li{
+    padding: 5px 30px 5px 0px;
+}
+
 li mat-form-field { 
-    width: 30vw;
+    width: 20vw;
     text-align: center;
 }
 
-li{
-    padding: 5px;
-}
+
 
 // Toolbar
 
@@ -72,3 +81,6 @@ li{
     font-family: 'Lucida Handwriting';
 }
 
+.userIcon{
+    scale: (1.5);
+}

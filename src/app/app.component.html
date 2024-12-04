@@ -1,4 +1,4 @@
-<div class="tela_Login">
+<div id="tela_Login">
 
   @if(continuar == false){
     <div class="login-container">
@@ -32,7 +32,7 @@
         <div class="toolbar-icons">
           <ul>
             <li>
-              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
+              <button mat-icon-button class="userIcon" [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
                 <mat-icon>person</mat-icon>
                 <mat-menu #menu="matMenu">
                   <button mat-menu-item [routerLink]="['listaClientes']">

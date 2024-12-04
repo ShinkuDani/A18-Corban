@@ -60,14 +60,18 @@
     
 }
 
-.bloco-branco{
+.bloco-branco {
     background-color: whitesmoke;
     border: 1px solid gray;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin: 20px;
     padding: 10px;
-   
+    overflow-y: scroll; 
+}
+
+.bloco-branco button{
+    margin: 10px;
 }
 
 .alterarFields{
