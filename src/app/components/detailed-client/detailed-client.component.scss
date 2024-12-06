@@ -65,7 +65,7 @@
     border: 1px solid gray;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
     overflow-y: scroll; 
 }
@@ -78,6 +78,7 @@
     display: flex;
     align-content: center;
     justify-content: center;
+    padding: 10px;
 }
 
 .alterarFields ul{
@@ -86,12 +87,20 @@
     margin: 10px;
     border-bottom: 3px solid black;
     border-radius: 10px;
+    max-width: 580px;
+    width: fit-content;
+    //width: 580px;
 
 }
 
 .alterarFields li{
     margin: 10px 0px 0px 0px;
     width: 220px;
+
+}
+
+.alterarFields li span{
+    font-weight: bold;
 
 }
 
