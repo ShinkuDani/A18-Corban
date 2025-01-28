@@ -1,6 +1,6 @@
 
 .container{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: whitesmoke;
 
@@ -40,12 +40,11 @@
 .toolbar-container{
     
     height: 10vh;
-
 }
 
 .toolbar-container mat-toolbar{
     background-color: whitesmoke;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid ;
 }
 
 .toolbar-container .FixedButton {
@@ -53,7 +52,7 @@
 }
 
 .toolbar-container .tollbar-pesquisa{
-    padding: 1.5vw 0vw 0px 65vw;
+    padding: 3vh 0vw 0px 65vw;
 }
 
 .tollbar-pesquisa-list{
