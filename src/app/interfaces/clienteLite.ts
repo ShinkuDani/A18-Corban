@@ -15,7 +15,8 @@ export interface clienteLiteInterface {
   'phones': phone[]
   'documents': document[]
   'bankAccounts': bankAccounts[]
-  'benefits': benefits[]
+  'benefits': benefits[],
+  'checked': boolean
   }
 
 export interface phone {

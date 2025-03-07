@@ -13,6 +13,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { clienteLiteInterface } from '../../interfaces/clienteLite';
 import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { clienteInterface } from '../../interfaces/cliente';
 
 @Component({
   selector: 'dialog-overview-example-dialog',
@@ -59,13 +61,16 @@ export class CreateClientDialog {
     MatTableModule,
     MatInputModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCheckboxModule
   ],
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.scss'
 })
 
 export class ListClientsComponent {
+
+  checkboxCounter = 0;
 
   showFiller = true;
 
@@ -103,7 +108,8 @@ export class ListClientsComponent {
     phones: [],
     documents: [],
     bankAccounts: [],
-    benefits: []
+    benefits: [], 
+    checked: false
   }]
 
   searchCustomers: clienteLiteInterface[] = [{
@@ -123,15 +129,57 @@ export class ListClientsComponent {
     phones: [],
     documents: [],
     bankAccounts: [],
-    benefits: []
+    benefits: [],
+    checked: false
   }]
 
   searchInput = new FormControl();
-  displayedColumns: string[] = ['Servico','Codigo', 'Nome', 'Associação','Cadastro' ];
+  displayedColumns: string[] = ['CheckBox','Servico','Codigo', 'Nome', 'Associação','Cadastro' ];
   dataSource = this.customers;
   dataSource2 = this.searchCustomers;
 
 
+
+
+
+
+  //CheckBox Functions
+  allComplete: boolean = false;
+
+  updateAllComplete() {
+    debugger
+    this.allComplete = this.customers != null && this.customers.every(t => t.checked);
+
+  }
+
+  someComplete(): boolean {
+    if (this.customers == null) {
+      return false;
+    }
+    return this.customers.filter(t => t.checked).length > 0 && !this.allComplete;
+  }
+
+  setAll() {
+    
+    if (this.customers == null) {
+      return;
+    }
+     if(this.checkboxCounter ==  0){
+      debugger
+      this.allComplete = true;
+      this.customers.forEach(t => (t.checked = true));
+      this.checkboxCounter =+1
+    }else if(this.checkboxCounter == 1){
+      debugger
+    this.allComplete = false;
+    this.customers.forEach(t => (t.checked = false));
+    this.checkboxCounter =-1
+
+    }
+  }
+
+
+  //Crud Functions
   getClients(){
     this._corbanService.getCustomers().subscribe(
       data => {
@@ -145,32 +193,12 @@ export class ListClientsComponent {
         
     }
 
-
   deleteClient(id:any){
     this._corbanService.deleteCustomer(id).subscribe(
       data => {
         this.getClients()
       }
     )
-  }
-
-  searchFilter(){
-    //debugger
-    for( let c = 0; c < this.customers.length; c++){
-        if(this.customers[c].nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()) || this.customers[c].name?.toLowerCase().includes(this.searchInput.value.toLowerCase()))
-        this.searchCustomers = this.customers.filter(customer => 
-          customer.nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()) 
-          || customer.name?.toLowerCase().includes(this.searchInput.value.toLowerCase()) 
-        )
-        this.dataSource2 = this.searchCustomers;
-      }
-      console.log(this.searchCustomers)
-  }
-
-  clearFilter(){
-    this.searchCustomers = []
-    this.searchInput.reset();
-
   }
 
   postCustomer(customer:clienteLiteInterface){
@@ -183,6 +211,7 @@ export class ListClientsComponent {
       )
     }
 
+  //Dialog Funcion
   openCreateClientDialog(){
     let newCustomer: clienteLiteInterface = {
       accountCode: '',
@@ -277,8 +306,9 @@ export class ListClientsComponent {
           paymentMethodCode: 0,
           paymentMethodName: '',
           note: ''
-        }
-      ]
+        },
+      ],
+      checked: false,
     };
     const dialogRef = this.dialog.open(CreateClientDialog, {
       data: {
@@ -299,6 +329,26 @@ export class ListClientsComponent {
       }
 
     });
+  }
+
+  //Filter Functions
+  searchFilter(){
+    //debugger
+    for( let c = 0; c < this.customers.length; c++){
+        if(this.customers[c].nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()) || this.customers[c].name?.toLowerCase().includes(this.searchInput.value.toLowerCase()))
+        this.searchCustomers = this.customers.filter(customer => 
+          customer.nickname?.toLowerCase().includes(this.searchInput.value.toLowerCase()) 
+          || customer.name?.toLowerCase().includes(this.searchInput.value.toLowerCase()) 
+        )
+        this.dataSource2 = this.searchCustomers;
+      }
+      console.log(this.searchCustomers)
+  }
+
+  clearFilter(){
+    this.searchCustomers = []
+    this.searchInput.reset();
+
   }
 
 }

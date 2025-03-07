@@ -377,7 +377,8 @@ export class DetailedClientComponent {
     phones: [],
     documents: [],
     bankAccounts: [],
-    benefits: []
+    benefits: [],
+    checked: false
   }
 menu: any;
 
