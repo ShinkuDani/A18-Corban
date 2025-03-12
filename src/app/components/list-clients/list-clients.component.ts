@@ -147,7 +147,6 @@ export class ListClientsComponent {
   allComplete: boolean = false;
 
   updateAllComplete() {
-    debugger
     this.allComplete = this.customers != null && this.customers.every(t => t.checked);
 
   }
@@ -160,7 +159,6 @@ export class ListClientsComponent {
   }
 
   setAll() {
-    
     if (this.customers == null) {
       return;
     }
@@ -174,9 +172,9 @@ export class ListClientsComponent {
     this.allComplete = false;
     this.customers.forEach(t => (t.checked = false));
     this.checkboxCounter =-1
-
     }
   }
+
 
 
   //Crud Functions
