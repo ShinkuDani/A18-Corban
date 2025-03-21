@@ -50,6 +50,12 @@ export class CorbanService {
     return this.http.delete(`${this.URL}/customers/${id}`)
   }
 
+  deleteCustomers(){
+  
+    return this.http.delete(`${this.URL}/customers/`)
+  }
+
+
   
 
   

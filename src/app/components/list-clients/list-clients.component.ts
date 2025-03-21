@@ -139,10 +139,6 @@ export class ListClientsComponent {
   dataSource2 = this.searchCustomers;
 
 
-
-
-
-
   //CheckBox Functions
   allComplete: boolean = false;
 
@@ -193,6 +189,14 @@ export class ListClientsComponent {
 
   deleteClient(id:any){
     this._corbanService.deleteCustomer(id).subscribe(
+      data => {
+        this.getClients()
+      }
+    )
+  }
+
+deleteClients(){
+    this._corbanService.deleteCustomers().subscribe(
       data => {
         this.getClients()
       }

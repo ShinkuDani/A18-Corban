@@ -55,18 +55,18 @@ li mat-form-field {
 
 
 // Toolbar
-
 .initial-toolbar mat-toolbar{
     padding-bottom: 10px;
-    border-bottom: 0.1px solid lightgray;
+    border-bottom: 0.1px solid transparent;
 }
 
 .initial-toolbar{
     padding: 10px 0px 0px 0px;
+    outline: none;
 }
 
 .toolbar-icons{
-    margin-left: 68%;
+    margin-left: 70%;
 }
 
 .toolbar-icons ul{
