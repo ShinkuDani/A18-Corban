@@ -7,9 +7,9 @@
               <h1>Tela de Login</h1>
               <ul>
                   <li>
-                      <mat-form-field>
+                      <mat-form-field  onsubmit="gettingToken()">
                           <mat-label>Usuário</mat-label>
-                          <input type="text" matInput [formControl]='usuarioNome'>
+                          <input type="text" matInput [formControl]='usuarioNome' >
                       </mat-form-field>
                   </li>
                   <li>
@@ -28,25 +28,23 @@
   } @else {
     <div class="initial-toolbar">
       <mat-toolbar>
-        <h2 class="tituloToolbar"> CORBAN 360 </h2>
         <div class="toolbar-icons">
-          <ul>
-            <li>
-              <button mat-icon-button class="userIcon" [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
-                <mat-icon>person</mat-icon>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item [routerLink]="['listaClientes']">
-                    <mat-icon>home</mat-icon>
-                    <span>Lista Clientes</span>
-                  </button>
-                  <button mat-menu-item (click)="logOff()">
-                    <mat-icon>logout</mat-icon>
-                    <span>Sair</span>
-                  </button>
-                </mat-menu>
+          <h2 class="tituloToolbar"> CORBAN 360 </h2>
+        </div>
+        <div class="toolbar-icons">
+          <button mat-icon-button class="userIcon" [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>person</mat-icon>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="['listaClientes']">
+                <mat-icon>home</mat-icon>
+                <span>Lista Clientes</span>
               </button>
-            </li>
-          </ul>
+              <button mat-menu-item (click)="logOff()">
+                <mat-icon>logout</mat-icon>
+                <span>Sair</span>
+              </button>
+            </mat-menu>
+          </button>
         </div>
       </mat-toolbar> 
     </div>

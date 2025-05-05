@@ -37,13 +37,10 @@
     margin: 1px 0px;
 }
 
-.toolbar-container{
-    height: 10vh;
-}
 
 .toolbar-container mat-toolbar{
     background-color: white;
-    border-bottom: 0.3px solid transparent;
+    border-bottom: 0.3px solid black;
 }
 
 .toolbar-container .FixedButton {

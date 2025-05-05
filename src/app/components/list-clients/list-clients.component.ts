@@ -70,7 +70,6 @@ export class CreateClientDialog {
 
 export class ListClientsComponent {
 
-  checkboxCounter = 0;
 
   showFiller = true;
 
@@ -78,7 +77,8 @@ export class ListClientsComponent {
     this.getClients()
   }
 
-  
+
+  //Modelos dos usuário.
   customers: clienteLiteInterface[] = [{
     accountCode: '',
     customerId: '',
@@ -133,13 +133,18 @@ export class ListClientsComponent {
     checked: false
   }]
 
+
+  //Conteudo de Pesquisa
   searchInput = new FormControl();
+
+  //Conteudo da Tabela
   displayedColumns: string[] = ['CheckBox','Servico','Codigo', 'Nome', 'Associação','Cadastro' ];
   dataSource = this.customers;
   dataSource2 = this.searchCustomers;
 
 
   //CheckBox Functions
+  checkboxCounter = 0;
   allComplete: boolean = false;
 
   updateAllComplete() {
@@ -187,22 +192,38 @@ export class ListClientsComponent {
         
     }
 
+  //Deletando um unico usuário
   deleteClient(id:any){
     this._corbanService.deleteCustomer(id).subscribe(
       data => {
         this.getClients()
       }
     )
-  }
+    }
 
-deleteClients(){
+  //Deletar varios Usuário
+  deleteClients(){
+      this.customers.forEach( usuario => {
+      if(usuario.checked == true){
+        this._corbanService.deleteCustomer(usuario.customerId).subscribe()
+          console.log(`Usuario: ${usuario.name}, DELETADO.`)
+      }else if(usuario.checked == undefined || usuario.checked == null){
+        
+      }
+      })
+    }
+
+  //Deletando Todos Usuário
+  deleteAllClients(){
     this._corbanService.deleteCustomers().subscribe(
       data => {
         this.getClients()
       }
     )
-  }
+    console.log("TODOS USUÁRIO DELETADOS.")
+    }
 
+  //Criando usuário
   postCustomer(customer:clienteLiteInterface){
       this._corbanService.postCustomer(customer).subscribe(
         data => {
@@ -331,7 +352,7 @@ deleteClients(){
       }
 
     });
-  }
+    }
 
   //Filter Functions
   searchFilter(){
@@ -345,12 +366,24 @@ deleteClients(){
         this.dataSource2 = this.searchCustomers;
       }
       console.log(this.searchCustomers)
-  }
+      this.searchInput.reset()
+    }
 
+  //Limpando Filtro
   clearFilter(){
     this.searchCustomers = []
     this.searchInput.reset();
+    }
 
+  //Testes
+  checarCheck(){
+    this.customers.forEach( usuario => {
+      if(usuario.checked == true){
+        console.log(`Usuário ${usuario.name}; Checado: ${usuario.checked}`)
+      }else if(usuario.checked == undefined || usuario.checked == false){
+        
+      }
+    })
   }
 
 }

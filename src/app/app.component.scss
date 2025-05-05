@@ -1,9 +1,8 @@
 
 #tela_Login{
-    height: 98.5vh;
-    width: 98.5vw;
+    height: 100vh;
+    width: 100vw;
 }
-
 
 // Login Css
 .login-container{
@@ -55,6 +54,17 @@ li mat-form-field {
 
 
 // Toolbar
+
+mat-toolbar{
+    justify-content: space-between;
+    padding: 0;
+    
+}
+
+.toolbar-container{
+    height: auto;
+}
+
 .initial-toolbar mat-toolbar{
     padding-bottom: 10px;
     border-bottom: 0.1px solid transparent;
@@ -63,10 +73,7 @@ li mat-form-field {
 .initial-toolbar{
     padding: 10px 0px 0px 0px;
     outline: none;
-}
-
-.toolbar-icons{
-    margin-left: 70%;
+    border-bottom: 2px solid black;
 }
 
 .toolbar-icons ul{

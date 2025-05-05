@@ -52,13 +52,13 @@
             <mat-icon aria-hidden="false" aria-label="Clientes" fontIcon="sort"></mat-icon>
          </button>
           <h2> Clientes </h2>
-          
+          <form>
             <div class="tollbar-pesquisa">
               <ul class="tollbar-pesquisa-list">
                 <li>
-                  <mat-form-field appearance="outline">
+                  <mat-form-field appearance="outline" onsubmit="searchFilter()">
                     <input matInput placeholder="Nome do Cliente" id="searchInput" type="text" [formControl]='searchInput'>
-                  <button mat-icon-button matSuffix (click)="searchFilter()"> <mat-icon>search</mat-icon></button>
+                  <button mat-icon-button matSuffix (click)="searchFilter()" > <mat-icon>search</mat-icon></button>
                   </mat-form-field>
                 </li>
                 <li>
@@ -66,7 +66,7 @@
                 </li>
               </ul>              
             </div>
-
+          </form>
         </mat-toolbar> 
       </div>
 
@@ -98,9 +98,13 @@
                     <mat-icon>done_all</mat-icon>
                     <span>Selecionar Todos</span>
                   </button>
-                  <button mat-menu-item (click)="deleteClients()" >
+                  <button mat-menu-item>
                     <mat-icon>delete</mat-icon>
                     <span>Deletar Todos</span>
+                  </button>
+                  <button mat-menu-item (click)="checarCheck()" >
+                    <mat-icon>done_all</mat-icon>
+                    <span>Checar Checados</span>
                   </button>
                 </mat-menu>
               </th>
@@ -195,9 +199,13 @@
                       <mat-icon>done_all</mat-icon>
                       <span>Selecionar Todos</span>
                     </button>
-                    <button mat-menu-item (click)="deleteClients()" >
+                    <button mat-menu-item>
                       <mat-icon>delete</mat-icon>
                       <span>Deletar Todos</span>
+                    </button>
+                    <button mat-menu-item (click)="checarCheck()" >
+                      <mat-icon>verified</mat-icon>
+                      <span>Checar Checados</span>
                     </button>
                   </mat-menu>
                 </th>
@@ -220,7 +228,6 @@
                       <span>Deletar</span>
                     </button>
                   </mat-menu>
-    
                 </td>
               </ng-container>
     

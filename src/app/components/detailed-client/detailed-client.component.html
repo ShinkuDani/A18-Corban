@@ -3,7 +3,7 @@
         <mat-toolbar>
             <span>Detalhes do Cliente</span>
          <div class="toolbar-botoes">
-            <button mat-raised-button type="button" color="warn" [routerLink]="['/listaClientes']" routerLinkActive="yes"> Votlar </button>
+            <button mat-raised-button type="button" color="warn" [routerLink]="['/listaClientes']" routerLinkActive="yes"> VOLTAR </button>
          </div>
          
         </mat-toolbar> 
@@ -11,7 +11,7 @@
     
     <div class="detailedCliente-main">
         <div class="detailedClient-personalInfo">
-            <h2>Cliente Id: <span>{{clienteDetailed.customerId}}</span></h2>
+            <h2>ID Cliente: <span>{{clienteDetailed.customerId}}</span></h2>
             <h2>Nome: {{clienteDetailed.name}}</h2>
             <p>Aniversário: {{clienteDetailed.birthDate}}</p>
             <p>Mãe: {{clienteDetailed.motherName}}</p>
