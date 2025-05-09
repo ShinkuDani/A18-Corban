@@ -207,10 +207,11 @@ export class ListClientsComponent {
       if(usuario.checked == true){
         this._corbanService.deleteCustomer(usuario.customerId).subscribe()
           console.log(`Usuario: ${usuario.name}, DELETADO.`)
-      }else if(usuario.checked == undefined || usuario.checked == null){
+      }else{
         
       }
       })
+      this.getClients();
     }
 
   //Deletando Todos Usuário
